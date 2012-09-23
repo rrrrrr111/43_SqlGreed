@@ -2,80 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/appengine-api-1.0-sdk-1.7.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/appengine-api-labs-1.7.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/appengine-jsr107cache-1.7.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/apps-marketplace.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/datanucleus-appengine-1.0.10.final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/datanucleus-core-1.1.5.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/datanucleus-jpa-1.1.5.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/geronimo-jpa_3.0_spec-1.1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/geronimo-jta_1.1_spec-1.1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/gwt-servlet.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/jdo2-api-2.3-eb.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/jsr107cache-1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-io-2.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-lang3-3.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-logging-1.1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derbyclient.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/jxl.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/log4j-1.2.17.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-beans-3.2.0.M1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-context-3.2.0.M1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-core-3.2.0.M1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-jdbc-3.2.0.M1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-orm-3.2.0.M1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-tx-3.2.0.M1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/sql-greed-gui.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/keystore/greetKey" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.classpath" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.idea/ant.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.idea/findbugs-idea.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.idea/libraries/commons_logging_1_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.idea/libraries/log4j_1_2_17.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.idea/libraries/spring_context_support_3_2_0_M1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.project" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.settings/com.google.appengine.eclipse.core.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.settings/com.google.gdt.eclipse.core.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.settings/com.google.gwt.eclipse.core.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.settings/org.eclipse.jdt.core.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/.settings/org.eclipse.wst.common.project.facet.core.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/build.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/greet-web.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/META-INF/jdoconfig.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/log4j.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/greet/Greet_web.gwt.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/greet/client/Greet_web.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/greet/client/GreetingService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/greet/client/GreetingServiceAsync.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/greet/server/GreetingServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/greet/shared/FieldVerifier.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/upload.cmd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/Greet_web.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/Greet_web.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/appengine-web.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/application-manifest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/listing-manifest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/logging.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/web.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ru/roman/greed/service/sql/ConnAnalyzerService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ru/roman/greed/service/sql/StatementExecutionService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ru/roman/greed/service/sql/dto/ExecuteQueryRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ru/roman/greed/service/sql/dto/ExecuteQueryResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sql-greed-gui.iws" />
@@ -836,7 +762,11 @@
       <created>1348374581234</created>
       <updated>1348374581234</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="web start">
+      <created>1348375043339</created>
+      <updated>1348375043339</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
