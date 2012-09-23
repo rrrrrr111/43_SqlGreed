@@ -17,14 +17,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-// SAX classes.
-//JAXP 1.1
-// DOM package
 
 public class ConfigManager {
 
-    public static final String CONN_CONFIG_FILENAME = "config.conn";
-    public static final String COMMANDS_CONFIG_FILENAME = "commands.xml";
+    private static final String CONN_CONFIG_FILENAME = "config.conn";
+    private static final String COMMANDS_CONFIG_FILENAME = "commands.xml";
     private static final XmlWriter<ConnConfigModel> CONN_WRITER = new ConnectionConfigWriter();
     private static final XmlReader<ConnConfigModel> CONN_READER = new ConnectionConfigReader();
     private static final XmlWriter<CommandsModel> COMMANDS_WRITER = new CommandsWriter();
@@ -51,7 +48,7 @@ public class ConfigManager {
 
 
     public void loadConnections() {
-        if (!new File(CONN_CONFIG_FILENAME).exists()) {
+        if (!new File(getConnConfigFilename()).exists()) {
             final List<ReconnectionInfo> configs = getDefaultConnConfig();
             ConnConfigModel model = new ConnConfigModel(configs, configs.get(0));
             configService.saveEncryptedConfig(model, CONN_CONFIG_FILENAME, CONN_WRITER);
@@ -61,7 +58,7 @@ public class ConfigManager {
 
 
     public void loadCommands() {
-        if (!new File(COMMANDS_CONFIG_FILENAME).exists()) {
+        if (!new File(getCommandsConfigFilename()).exists()) {
             CommandsModel model = new CommandsModel();
             model.setCommandsCount("50");
             model.setCommandList(Collections.EMPTY_LIST);
@@ -96,4 +93,13 @@ public class ConfigManager {
     public ReconnectionInfo getDefaultConnection() {
         return connectionsModel.getDefaultConnection();
     }
+
+    public String getConnConfigFilename() {
+        return configService.prepareConfig(CONN_CONFIG_FILENAME);
+    }
+
+    public String getCommandsConfigFilename() {
+        return configService.prepareConfig(COMMANDS_CONFIG_FILENAME);
+    }
+
 }

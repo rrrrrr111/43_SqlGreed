@@ -71,7 +71,7 @@ public class ConfigService {
             throw new RuntimeException(e);
         } finally {
             IOUtils.closeQuietly(is);
-            IOUtils.closeQuietly(fis);
+            //IOUtils.closeQuietly(fis);
         }
     }
 
@@ -104,7 +104,7 @@ public class ConfigService {
             throw new RuntimeException(e);
         } finally {
             IOUtils.closeQuietly(os);
-            IOUtils.closeQuietly(fos);
+            //IOUtils.closeQuietly(fos);
         }
     }
 
@@ -121,12 +121,10 @@ public class ConfigService {
             handler.endDocument();
         } catch (Exception e) {
             throw new RuntimeException(e);
-        } finally {
-            IOUtils.closeQuietly(os);
         }
     }
 
-    private String prepareConfig(String fileName) {
+    public String prepareConfig(String fileName) {
         File appDataDir = FileUtils.getFile(FileUtils.getUserDirectoryPath() + APP_CONFIG_DIR_NAME);
         try {
             if (!appDataDir.exists()) {
@@ -162,8 +160,6 @@ public class ConfigService {
             return doc;
         } catch (Exception e) {
             throw new RuntimeException(e);
-        } finally {
-            IOUtils.closeQuietly(is);
         }
     }
 

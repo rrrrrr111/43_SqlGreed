@@ -86,7 +86,7 @@ public class ConfigView extends JFrame {
         jButton6 = new JButton();
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle(ConfigManager.CONN_CONFIG_FILENAME);
+        setTitle(configManager.getConnConfigFilename());
         setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         setLocationByPlatform(true);
         getContentPane().setLayout(new GridBagLayout());

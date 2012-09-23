@@ -4,15 +4,15 @@
  */
 
 /*
- * PaineDbStructure.java
+ * StructureView.java
  *
  * Created on 18.10.2009, 0:54:42
  */
 package ru.roman.greet.old;
 
+import ru.roman.greet.gui.common.DataTreeNode;
 import ru.roman.greet.gui.pane.conf.ConfigManager;
-import ru.roman.greet.old.spec.DynamicTree;
-import ru.roman.greet.old.spec.SpecialTableNode;
+import ru.roman.greet.old.spec.StructureTree;
 import ru.roman.greet.service.ServiceHolder;
 import ru.roman.greet.service.sql.StatementExecutionService;
 
@@ -21,27 +21,27 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
-import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Roman
  */
-public class PaineDbStructure extends javax.swing.JFrame {
+public class StructureView extends javax.swing.JFrame {
 
     private ConfigManager configManager = ConfigManager.getInstance();
-    private ArrayList<String[]> mainList = new ArrayList<String[]>();
-
-
     private StatementExecutionService stmExecService = ServiceHolder.getStmExecService();
 
-    public PaineDbStructure() {
+    private List<String[]> mainList = new ArrayList<String[]>();
+
+
+    public StructureView() {
         initComponents();
-        MyTree = new DynamicTree();
-        jPanel1.add(MyTree);
-        MainRigthGreed = new RightGreed();
-        jTabbedPane1.addTab("MainRigthGreed", MainRigthGreed);
+        tree = new StructureTree();
+        jPanel1.add(tree);
+        mainRightGreed = new RightGreed();
+        jTabbedPane1.addTab("mainRightGreed", mainRightGreed);
 
         mainList.add(new String[]{"RootMenu"});
         mainList.add(new String[]{"Shemas"});
@@ -49,27 +49,27 @@ public class PaineDbStructure extends javax.swing.JFrame {
         mainList.add(new String[]{"Catalogs"});
         mainList.add(new String[]{"TypeInfo"});
         mainList.add(new String[]{"ClientInfoProperties"});
-        MyTree.populateTreeByListS(null, mainList);
+        tree.populateTreeByList(null, mainList);
         mainList.clear();
         addListeners();
     }
 
     public void addListeners() {
-        MyTree.tree.addTreeSelectionListener(new TreeSelectionListener() {
+        tree.getTree().addTreeSelectionListener(new TreeSelectionListener() {
 
             public void valueChanged(TreeSelectionEvent e) {
-                SpecialTableNode ActiveNoad = (SpecialTableNode) e.getPath().getLastPathComponent();
-                if (ActiveNoad.isLeaf()) {
-                    populateMyTreeNode(ActiveNoad);
-                    }
-                MainRigthGreed.setData(ActiveNoad.getData());
+                DataTreeNode activeNoad = (DataTreeNode) e.getPath().getLastPathComponent();
+                if (activeNoad.isLeaf()) {
+                    populateMyTreeNode(activeNoad);
+                }
+                mainRightGreed.setData((List<String[]>) activeNoad.getData());
             }
         });
     }
 
-    private void populateMyTreeNode(SpecialTableNode node) {
+    private void populateMyTreeNode(DataTreeNode node) {
         for (; !node.isLeaf();) {
-            ((SpecialTableNode) node.getFirstChild()).removeFromParent();
+            ((DataTreeNode) node.getFirstChild()).removeFromParent();
         }
         try {
             if (node.getLevel() == 1) {
@@ -88,7 +88,7 @@ public class PaineDbStructure extends javax.swing.JFrame {
                 if (node.toString().equals("ClientInfoProperties")) {
                     mainList = stmExecService.getClientInfoProperties();
                 }
-                MyTree.populateTreeByListS(node, mainList);
+                tree.populateTreeByList(node, mainList);
             }
             if (node.getLevel() == 2) {
                 if (node.getParent().toString().equals("Shemas")) {
@@ -102,7 +102,7 @@ public class PaineDbStructure extends javax.swing.JFrame {
                     mainList.add(new String[]{"TablePrivileges"});
                     mainList.add(new String[]{"Attributes"});
                     mainList.add(new String[]{"Tables rows counts"});
-                    MyTree.populateTreeByListS(node, mainList);
+                    tree.populateTreeByList(node, mainList);
                 }
             }
             if (node.getLevel() == 3) {
@@ -133,7 +133,7 @@ public class PaineDbStructure extends javax.swing.JFrame {
                 if (node.toString().equals("Tables rows counts")) {
                     mainList = stmExecService.getTablesRowCounts(node.getParent().toString());
                 }
-                MyTree.populateTreeByListS(node, mainList);
+                tree.populateTreeByList(node, mainList);
             }
             if (node.getLevel() == 4) {
                 if (node.getParent().toString().equals("Tables")) {
@@ -147,67 +147,51 @@ public class PaineDbStructure extends javax.swing.JFrame {
                     mainList.add(new String[]{"PrimaryKeys"});
                     mainList.add(new String[]{"Indexes"});
 
-                    MyTree.populateTreeByListS(node, mainList);
+                    tree.populateTreeByList(node, mainList);
                 }
 
             }
             if (node.getLevel() == 5) {
                 if (node.toString().equals("VersionColumns")) {
                     mainList = stmExecService.getVersionColumns(node.getParent().toString());
-                    MyTree.populateTreeByListS(node, mainList);
+                    tree.populateTreeByList(node, mainList);
                     }
                 if (node.toString().equals("Columns")) {
                     mainList = stmExecService.getColumns(node.getParent().toString());
-                    MyTree.populateTreeByListS(node, mainList);
+                    tree.populateTreeByList(node, mainList);
                     }
                 if (node.toString().equals("ColumnPrivileges")) {
                     mainList = stmExecService.getColumnPrivileges(node.getParent().toString());
-                    MyTree.populateTreeByListS(node, mainList);
+                    tree.populateTreeByList(node, mainList);
                     }
                 /*if (node.toString().equals("CrossReferences")) {
                 mainList = stmExecService.getCrossReference(node.getParent().toString());
-                MyTree.populateTreeByListS(node, mainList);
+                tree.populateTreeByList(node, mainList);
                 }*/
                 if (node.toString().equals("ExportedKeys")) {
                     mainList = stmExecService.getExportedKeys(node.getParent().toString());
-                    MyTree.populateTreeByListS(node, mainList);
+                    tree.populateTreeByList(node, mainList);
                     }
                 if (node.toString().equals("ImportedKeys")) {
                     mainList = stmExecService.getImportedKeys(node.getParent().toString());
-                    MyTree.populateTreeByListS(node, mainList);
+                    tree.populateTreeByList(node, mainList);
                     }
                 if (node.toString().equals("PrimaryKeys")) {
                     mainList = stmExecService.getPrimaryKeys(node.getParent().toString());
-                    MyTree.populateTreeByListS(node, mainList);
+                    tree.populateTreeByList(node, mainList);
                     }
                 if (node.toString().equals("Indexes")) {
                     mainList = stmExecService.getIndexInfo(node.getParent().toString());
-                    MyTree.populateTreeByListS(node, mainList);
+                    tree.populateTreeByList(node, mainList);
                     }
             }
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             mainList.add(new String[]{"ERROR"});
             mainList.add(new String[]{e.toString()});
-            MyTree.populateTreeByListS(node, mainList);
-        } catch (IllegalAccessException e) {
-            mainList.add(new String[]{"ERROR"});
-            mainList.add(new String[]{e.toString()});
-            MyTree.populateTreeByListS(node, mainList);
-        } catch (ClassNotFoundException e) {
-            mainList.add(new String[]{"ERROR"});
-            mainList.add(new String[]{e.toString()});
-            MyTree.populateTreeByListS(node, mainList);
-        } catch (InstantiationException e) {
-            mainList.add(new String[]{"ERROR"});
-            mainList.add(new String[]{e.toString()});
-            MyTree.populateTreeByListS(node, mainList);
-        } catch (UnsupportedOperationException e) {
-            mainList.add(new String[]{"ERROR"});
-            mainList.add(new String[]{e.toString()});
-            MyTree.populateTreeByListS(node, mainList);
+            tree.populateTreeByList(node, mainList);
         } finally {
-            MyTree.treeModel.reload(node);
+            tree.getTreeModel().reload(node);
             mainList.clear();
         }
     }
@@ -216,7 +200,7 @@ public class PaineDbStructure extends javax.swing.JFrame {
 
         private JTable table;
         private OwnTableModel tableModel;
-        private ArrayList<String[]> data = new ArrayList<String[]>();
+        private List<String[]> data = new ArrayList<String[]>();
 
         RightGreed() {
             super();
@@ -234,7 +218,7 @@ public class PaineDbStructure extends javax.swing.JFrame {
             //table.setCellEditor(new DefaultCellEditor(new JTextField()));
         }
 
-        void setData(ArrayList<String[]> dt) {
+        void setData(List<String[]> dt) {
             this.data = dt;
             tableModel.fireTableStructureChanged();
         }
@@ -293,8 +277,8 @@ public class PaineDbStructure extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JPanel jPanel1;
     private JSplitPane jSplitPane1;
-    public JTabbedPane jTabbedPane1;
+    private JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
-    public DynamicTree MyTree;
-    public RightGreed MainRigthGreed;
+    private StructureTree tree;
+    private RightGreed mainRightGreed;
 }

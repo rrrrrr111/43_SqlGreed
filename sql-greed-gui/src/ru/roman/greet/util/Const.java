@@ -9,7 +9,7 @@ public interface Const {
 
     /** max rows in table */
     int MAX_TABLE_ROW_COUNT = 10000;
-    String VERSION = "v5.0";
+    String VERSION = "v5.1";
 
     public static final String APP_NAME = "grEEt";
     public static final String APP_DATA_DIR_NAME = "/." + APP_NAME;

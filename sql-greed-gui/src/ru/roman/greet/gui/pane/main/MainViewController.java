@@ -5,7 +5,7 @@ import ru.roman.greet.gui.pane.PaineHolder;
 import ru.roman.greet.gui.pane.conf.ConfigManager;
 import ru.roman.greet.gui.pane.conf.ConfigView;
 import ru.roman.greet.gui.pane.queryinfo.QueryInfoView;
-import ru.roman.greet.old.PaineDbStructure;
+import ru.roman.greet.old.StructureView;
 import ru.roman.greet.service.ServiceHolder;
 import ru.roman.greet.service.config.dto.CommandsModel;
 import ru.roman.greet.service.datasource.dto.ReconnectionInfo;
@@ -135,7 +135,7 @@ public class MainViewController {
     }
 
     public void onShowDbStructure() {
-        new PaineDbStructure().setVisible(true);
+        new StructureView().setVisible(true);
     }
 
     public void onCancelSql() {

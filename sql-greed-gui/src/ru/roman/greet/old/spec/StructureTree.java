@@ -1,5 +1,6 @@
 package ru.roman.greet.old.spec;
 
+import ru.roman.greet.gui.common.DataTreeNode;
 import ru.roman.greet.gui.pane.structure.StructureTreeModelListener;
 
 import javax.swing.*;
@@ -9,19 +10,19 @@ import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 import java.awt.*;
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 
-public class DynamicTree extends JPanel {
+public class StructureTree extends JPanel {
 
-    public DefaultTreeModel treeModel;
-    public JTree tree;
-    protected DefaultMutableTreeNode rootNode;
+    private DefaultTreeModel treeModel;
+    private JTree tree;
+    protected DataTreeNode rootNode;
 
-    public DynamicTree() {
+    public StructureTree() {
         super(new GridLayout(1, 0));
 
-        rootNodeS = new SpecialTableNode("SpecNode");
-        treeModel = new DefaultTreeModel(rootNodeS);
+        rootNode = new DataTreeNode("root");
+        treeModel = new DefaultTreeModel(rootNode);
         treeModel.addTreeModelListener(new StructureTreeModelListener());
         tree = new JTree(treeModel);
         tree.setEditable(true);
@@ -56,12 +57,12 @@ public class DynamicTree extends JPanel {
         return childNode;
     }
 
-    protected SpecialTableNode rootNodeS;
 
 
-    public void populateTreeByListS(SpecialTableNode node, ArrayList<String[]> vec) {
+
+    public void populateTreeByList(DataTreeNode node, List<String[]> vec) {
         if (node == null) {
-            node = rootNodeS;
+            node = rootNode;
         }
         if (vec.size() > 1) {
 
@@ -99,20 +100,26 @@ public class DynamicTree extends JPanel {
         }
     }
 
-    public SpecialTableNode addObject(SpecialTableNode parent, String child, ArrayList<String[]> vec) {
+    public DataTreeNode addObject(DataTreeNode parent, String child, List<String[]> vec) {
         return addObject(parent, child, true, vec);
     }
 
-    public SpecialTableNode addObject(SpecialTableNode parent, Serializable child,
-                                      boolean shouldBeVisible, ArrayList<String[]> vec) {
-        SpecialTableNode childNode = new SpecialTableNode(child);
+    public DataTreeNode addObject(DataTreeNode parent, Serializable child,
+                                      boolean shouldBeVisible, List<String[]> vec) {
+        DataTreeNode childNode = new DataTreeNode(child);
         treeModel.insertNodeInto(childNode, parent, parent.getChildCount());
-        parent.setData(vec.clone());
+        parent.setData(vec);
         if (shouldBeVisible) {
             tree.scrollPathToVisible(new TreePath(childNode.getPath()));
         }
         return childNode;
     }
 
+    public DefaultTreeModel getTreeModel() {
+        return treeModel;
+    }
 
+    public JTree getTree() {
+        return tree;
+    }
 }
