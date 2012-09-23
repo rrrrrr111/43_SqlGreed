@@ -1,10 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/keystore/grEEtKeys.keystore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
+    <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="web start bugfix">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_cs.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_de_DE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_es.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_fr.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_hu.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_it.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_ja_JP.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_ko_KR.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_pl.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_pt_BR.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_ru.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_zh_CN.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_zh_TW.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyclient.jar" />
+      <change type="DELETED" beforePath="C:\1_work\43_SqlGreed\greet-web\greet-web\war\applet\lib\derbyclient.jar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-io-2.4.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-io-2.4.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-lang3-3.1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-lang3-3.1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-logging-1.1.1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-logging-1.1.1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/jxl.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/jxl.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/log4j-1.2.17.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/log4j-1.2.17.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-beans-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-beans-3.2.0.M1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-context-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-context-3.2.0.M1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-core-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-core-3.2.0.M1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-jdbc-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-jdbc-3.2.0.M1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-orm-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-orm-3.2.0.M1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-tx-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-tx-3.2.0.M1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/start.jnlp" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/start.jnlp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/index.jsp" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/sql_greed_gui_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/sql_greed_gui_jar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/derbyclient.xml" afterPath="$PROJECT_DIR$/.idea/libraries/derbyclient.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/keystore/build.xml" afterPath="$PROJECT_DIR$/keystore/build.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
     </list>
     <list id="71cfb641-5bee-4208-8ab0-751480a58831" name="builded" comment="builded">
       <change type="DELETED" beforePath="C:\1_work\43_SqlGreed\sql-greed-gui\out\production\sql-greed-gui\commons-logging.properties" afterPath="" />
@@ -177,24 +207,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ConfigService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/service/config/ConfigService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="62" selection-start="5125" selection-end="5125" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainViewController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/gui/pane/main/MainViewController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="5" selection-start="6080" selection-end="6080" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="commons-logging.properties" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/commons-logging.properties">
           <provider selected="true" editor-type-id="text-editor">
@@ -216,7 +228,7 @@
       <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/keystore/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="0" selection-start="970" selection-end="970" vertical-scroll-proportion="0.0">
+            <state line="49" column="39" selection-start="2391" selection-end="2391" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -225,7 +237,25 @@
       <file leaf-file-name="start.jnlp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/applet/start.jnlp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="47" selection-start="1005" selection-end="1005" vertical-scroll-proportion="1.7409638">
+            <state line="42" column="57" selection-start="1863" selection-end="1863" vertical-scroll-proportion="2.9236112">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartApp.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/StartApp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="13" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartApplet.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/StartApplet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="22" selection-start="108" selection-end="122" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -234,7 +264,7 @@
       <file leaf-file-name="index.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="24" selection-start="1026" selection-end="1026" vertical-scroll-proportion="0.0">
+            <state line="45" column="0" selection-start="573" selection-end="1636" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -311,8 +341,8 @@
         <option value="$PROJECT_DIR$/src/ru/roman/greed/gui/pane/main/MainViewController.java" />
         <option value="$PROJECT_DIR$/src/ru/roman/greet/gui/pane/main/MainViewController.java" />
         <option value="$PROJECT_DIR$/keystore/build.xml" />
-        <option value="$PROJECT_DIR$/../greet-web/greet-web/war/applet/start.jnlp" />
         <option value="$PROJECT_DIR$/../greet-web/greet-web/war/index.jsp" />
+        <option value="$PROJECT_DIR$/../greet-web/greet-web/war/applet/start.jnlp" />
       </list>
     </option>
   </component>
@@ -1085,7 +1115,11 @@
       <created>1348411799039</created>
       <updated>1348411799039</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="web start bugfix">
+      <created>1348411948311</created>
+      <updated>1348411948311</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -1271,11 +1305,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/StartApplet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="17" selection-start="630" selection-end="630" vertical-scroll-proportion="0.5410385" />
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../../45_JavaLib/commons-io-2.4/commons-io-2.4-sources.jar!/org/apache/commons/io/FileUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2365" column="23" selection-start="96605" selection-end="96605" vertical-scroll-proportion="0.3321918" />
@@ -1284,11 +1313,6 @@
     <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/util/AppGreedException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="19" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/StartApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="43" selection-start="790" selection-end="804" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/service/config/ConfigService.java">
@@ -1332,21 +1356,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/keystore/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="970" selection-end="970" vertical-scroll-proportion="0.0">
+        <state line="49" column="39" selection-start="2391" selection-end="2391" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="24" selection-start="1026" selection-end="1026" vertical-scroll-proportion="0.0">
+        <state line="45" column="0" selection-start="573" selection-end="1636" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/StartApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="13" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/StartApplet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="22" selection-start="108" selection-end="122" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/applet/start.jnlp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="47" selection-start="1005" selection-end="1005" vertical-scroll-proportion="1.7409638">
+        <state line="42" column="57" selection-start="1863" selection-end="1863" vertical-scroll-proportion="2.9236112">
           <folding />
         </state>
       </provider>
@@ -1358,8 +1396,8 @@
         <settings>
           <artifact-editor>
             <show-content>
-              <type id="artifact" />
               <type id="library" />
+              <type id="artifact" />
             </show-content>
           </artifact-editor>
           <last-edited>sql-greed-gui:jar</last-edited>
@@ -1367,7 +1405,6 @@
             <option name="proportions">
               <list>
                 <option value="0.13286713" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1446,7 +1483,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>commons-logging-1.1.1</last-edited>
+          <last-edited>derbyclient</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

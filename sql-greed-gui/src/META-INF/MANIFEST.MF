@@ -1,7 +1,11 @@
 Manifest-Version: 1.0
-Class-Path: commons-logging-1.1.1.jar jxl.jar commons-io-2.4.jar derby
- client.jar spring-context-3.2.0.M1.jar spring-core-3.2.0.M1.jar sprin
- g-beans-3.2.0.M1.jar spring-jdbc-3.2.0.M1.jar spring-orm-3.2.0.M1.jar
-  spring-tx-3.2.0.M1.jar log4j-1.2.17.jar commons-lang3-3.1.jar
+Class-Path: log4j-1.2.17.jar commons-logging-1.1.1.jar commons-io-2.4.
+ jar commons-lang3-3.1.jar spring-context-3.2.0.M1.jar spring-core-3.2
+ .0.M1.jar spring-beans-3.2.0.M1.jar spring-jdbc-3.2.0.M1.jar spring-o
+ rm-3.2.0.M1.jar spring-tx-3.2.0.M1.jar jxl.jar derbyclient.jar derbyL
+ ocale_cs.jar derbyLocale_de_DE.jar derbyLocale_es.jar derbyLocale_fr.
+ jar derbyLocale_hu.jar derbyLocale_it.jar derbyLocale_ja_JP.jar derby
+ Locale_ko_KR.jar derbyLocale_pl.jar derbyLocale_pt_BR.jar derbyLocale
+ _ru.jar derbyLocale_zh_CN.jar derbyLocale_zh_TW.jar
 Main-Class: ru.roman.greet.StartApp
 

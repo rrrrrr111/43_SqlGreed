@@ -23,18 +23,31 @@
 
     <target name="sign_jar">
         <sign_jar_macro jar="sql-greed-gui.jar"/>
+        <sign_jar_macro jar="lib/log4j-1.2.17.jar"/>
         <sign_jar_macro jar="lib/commons-logging-1.1.1.jar"/>
-        <sign_jar_macro jar="lib/jxl.jar"/>
+        <sign_jar_macro jar="lib/commons-lang3-3.1.jar"/>
         <sign_jar_macro jar="lib/commons-io-2.4.jar"/>
-        <sign_jar_macro jar="lib/derbyclient.jar"/>
         <sign_jar_macro jar="lib/spring-context-3.2.0.M1.jar"/>
         <sign_jar_macro jar="lib/spring-core-3.2.0.M1.jar"/>
         <sign_jar_macro jar="lib/spring-beans-3.2.0.M1.jar"/>
         <sign_jar_macro jar="lib/spring-jdbc-3.2.0.M1.jar"/>
         <sign_jar_macro jar="lib/spring-orm-3.2.0.M1.jar"/>
         <sign_jar_macro jar="lib/spring-tx-3.2.0.M1.jar"/>
-        <sign_jar_macro jar="lib/log4j-1.2.17.jar"/>
-        <sign_jar_macro jar="lib/commons-lang3-3.1.jar"/>
+        <sign_jar_macro jar="lib/jxl.jar"/>
+        <sign_jar_macro jar="lib/derby/derbyclient.jar"/>
+        <sign_jar_macro jar="lib/derby/derbyLocale_cs.jar"/>
+        <sign_jar_macro jar="lib/derby/derbyLocale_de_DE.jar"/>
+        <sign_jar_macro jar="lib/derby/derbyLocale_es.jar"/>
+        <sign_jar_macro jar="lib/derby/derbyLocale_fr.jar"/>
+        <sign_jar_macro jar="lib/derby/derbyLocale_hu.jar"/>
+        <sign_jar_macro jar="lib/derby/derbyLocale_it.jar"/>
+        <sign_jar_macro jar="lib/derby/derbyLocale_ja_JP.jar"/>
+        <sign_jar_macro jar="lib/derby/derbyLocale_ko_KR.jar"/>
+        <sign_jar_macro jar="lib/derby/derbyLocale_pl.jar"/>
+        <sign_jar_macro jar="lib/derby/derbyLocale_pt_BR.jar"/>
+        <sign_jar_macro jar="lib/derby/derbyLocale_ru.jar"/>
+        <sign_jar_macro jar="lib/derby/derbyLocale_zh_CN.jar"/>
+        <sign_jar_macro jar="lib/derby/derbyLocale_zh_TW.jar"/>
     </target>
 
     <macrodef name="sign_jar_macro">

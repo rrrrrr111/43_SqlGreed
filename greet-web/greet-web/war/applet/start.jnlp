@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <jnlp spec="1.0+"
-        codebase="http://churganovroman.appspot.com/applet" href="start.jnlp">
+        codebase="http://churganovroman.appspot.com/applet/" href="start.jnlp">
     <information>
         <title>grEEt</title>
         <vendor>Roman</vendor>
-        <homepage href="http://churganovroman.appspot.com/help.html"/>
+        <homepage href="http://churganovroman.appspot.com/index.jsp"/>
         <description>Simple JDBS client</description>
         <offline-allowed/>
     </information>
@@ -13,7 +13,32 @@
     </security>
     <resources>
         <j2se version="1.6+"/>
-        <jar href="/applet/sql-greed-gui.jar,/applet/lib/commons-logging-1.1.1.jar,/applet/lib/jxl.jar,/applet/lib/commons-io-2.4.jar,/applet/lib/derbyclient.jar,/applet/lib/spring-context-3.2.0.M1.jar,/applet/lib/spring-core-3.2.0.M1.jar,/applet/lib/spring-beans-3.2.0.M1.jar,/applet/lib/spring-jdbc-3.2.0.M1.jar,/applet/lib/spring-orm-3.2.0.M1.jar,/applet/lib/spring-tx-3.2.0.M1.jar,/applet/lib/log4j-1.2.17.jar,/applet/lib/commons-lang3-3.1.jar"/>
+        <jar href="sql-greed-gui.jar"/>
+        <jar href="lib/log4j-1.2.17.jar"/>
+        <jar href="lib/commons-logging-1.1.1.jar"/>
+        <jar href="lib/commons-lang3-3.1.jar"/>
+        <jar href="lib/commons-io-2.4.jar"/>
+        <jar href="lib/spring-context-3.2.0.M1.jar"/>
+        <jar href="lib/spring-core-3.2.0.M1.jar"/>
+        <jar href="lib/spring-beans-3.2.0.M1.jar"/>
+        <jar href="lib/spring-jdbc-3.2.0.M1.jar"/>
+        <jar href="lib/spring-orm-3.2.0.M1.jar"/>
+        <jar href="lib/spring-tx-3.2.0.M1.jar"/>
+        <jar href="lib/jxl.jar"/>
+        <jar href="lib/derby/derbyclient.jar"/>
+        <jar href="lib/derby/derbyLocale_cs.jar"/>
+        <jar href="lib/derby/derbyLocale_de_DE.jar"/>
+        <jar href="lib/derby/derbyLocale_es.jar"/>
+        <jar href="lib/derby/derbyLocale_fr.jar"/>
+        <jar href="lib/derby/derbyLocale_hu.jar"/>
+        <jar href="lib/derby/derbyLocale_it.jar"/>
+        <jar href="lib/derby/derbyLocale_ja_JP.jar"/>
+        <jar href="lib/derby/derbyLocale_ko_KR.jar"/>
+        <jar href="lib/derby/derbyLocale_pl.jar"/>
+        <jar href="lib/derby/derbyLocale_pt_BR.jar"/>
+        <jar href="lib/derby/derbyLocale_ru.jar"/>
+        <jar href="lib/derby/derbyLocale_zh_CN.jar"/>
+        <jar href="lib/derby/derbyLocale_zh_TW.jar"/>
     </resources>
-    <application-desc main-class="ru.roman.greet.StartApplet"/>
+    <application-desc main-class="ru.roman.greet.StartApp"/>
 </jnlp>
