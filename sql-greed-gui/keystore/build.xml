@@ -6,25 +6,53 @@
         <exec  executable="${env.JAVA_HOME}/bin/keytool">
             <arg value="-v" />
             <arg value="-genkey"/>
-            <arg value="-alias greet" />
-            <arg value='-dname "CN=grEEt, OU=Roman, O=Roman Securities, L=Moscow, ST=MO, C=RU"  ' />
-            <arg value="-keypass 123"/>
-            <arg value="-keystore grEEtKeys.keystore"/>
-            <arg value="-storepass 123"/>
+            <arg value="-alias" />
+            <arg value="grEEt_0" />
+            <arg value='-dname' />
+            <arg value="CN=grEEt_0, OU=Roman, O=Roman Securities, L=Moscow, ST=MO, C=RU" />
+            <arg value="-keypass"/>
+            <arg value="dfgGth56hjTjkuil5902_fg"/>
+            <arg value="-keystore"/>
+            <arg value="grEEtKeys.keystore"/>
+            <arg value="-storepass"/>
+            <arg value="6hu767hxm#dfghyueFvaSgh"/>
+            <arg value="-validity"/>
+            <arg value="1000"/>
         </exec>
     </target>
 
     <target name="sign_jar">
-        <echo message="${env.JAVA_HOME}/bin/jarsigner"/>
-        <exec  executable="${env.JAVA_HOME}/bin/jarsigner">
-            <arg value="-keystore"/>
-            <arg value="greetKey" />
-            <arg value="-storepass"/>
-            <arg value="tratra11"/>
-            <arg value="../../greet-web/greet-web/war/applet/sql-greed-gui.jar" />
-            <arg value="greet" />
-            <arg value="-keypass"/>
-            <arg value="rjXb34a8"/>
-        </exec>
+        <sign_jar_macro jar="sql-greed-gui.jar"/>
+        <sign_jar_macro jar="lib/commons-logging-1.1.1.jar"/>
+        <sign_jar_macro jar="lib/jxl.jar"/>
+        <sign_jar_macro jar="lib/commons-io-2.4.jar"/>
+        <sign_jar_macro jar="lib/derbyclient.jar"/>
+        <sign_jar_macro jar="lib/spring-context-3.2.0.M1.jar"/>
+        <sign_jar_macro jar="lib/spring-core-3.2.0.M1.jar"/>
+        <sign_jar_macro jar="lib/spring-beans-3.2.0.M1.jar"/>
+        <sign_jar_macro jar="lib/spring-jdbc-3.2.0.M1.jar"/>
+        <sign_jar_macro jar="lib/spring-orm-3.2.0.M1.jar"/>
+        <sign_jar_macro jar="lib/spring-tx-3.2.0.M1.jar"/>
+        <sign_jar_macro jar="lib/log4j-1.2.17.jar"/>
+        <sign_jar_macro jar="lib/commons-lang3-3.1.jar"/>
     </target>
+
+    <macrodef name="sign_jar_macro">
+        <attribute name="jarPath" default="../../greet-web/greet-web/war/applet/"/>
+        <attribute name="jar"/>
+        <sequential>
+            <echo message="call ${env.JAVA_HOME}/bin/jarsigner jar @{jarPath}@{jar}"/>
+            <exec  executable="${env.JAVA_HOME}/bin/jarsigner">
+                <arg value="-keystore"/>
+                <arg value="grEEtKeys.keystore" />
+                <arg value="-storepass"/>
+                <arg value="6hu767hxm#dfghyueFvaSgh"/>
+                <arg value="@{jarPath}@{jar}" />
+                <arg value="grEEt_0" />
+                <arg value="-keypass"/>
+                <arg value="dfgGth56hjTjkuil5902_fg"/>
+            </exec>
+        </sequential>
+    </macrodef>
+
 </project>

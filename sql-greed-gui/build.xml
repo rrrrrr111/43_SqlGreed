@@ -248,7 +248,7 @@
   </target>
   
   
-  <!-- Module sql-greed-gui -->
+  <!-- Module sql-greet-gui -->
   
   <dirname property="module.sql-greed-gui.basedir" file="${ant.file}"/>
   
