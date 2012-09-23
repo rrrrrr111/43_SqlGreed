@@ -17,4 +17,7 @@ Desktop.ini
 *.class
 bin
 build
+out
+distr
+classes
 
