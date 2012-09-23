@@ -54,7 +54,7 @@ public class ConfigView extends JFrame {
         }
     }
 
-    void renewCurrentConnectionLabel() {
+    private void renewCurrentConnectionLabel() {
         final ReconnectionInfo defaultConnection = getDefaultConnection();
         if (defaultConnection == null) {
             jLabel2.setText("Current selection : undefined");
@@ -102,7 +102,7 @@ public class ConfigView extends JFrame {
         jScrollPane1.setPreferredSize(new Dimension(780, 200));
 
         jTable1.setModel(configTableModel);
-        jTable1.setSelectionBackground(new Color(255, 153, 51));
+        jTable1.setSelectionBackground(new Color(123, 243, 255));
         jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jTable1);
 

@@ -100,9 +100,8 @@ public class ReconnectionInfo implements Serializable, Cloneable {
         if (driverClazz != null ? !driverClazz.equals(that.driverClazz) : that.driverClazz != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (url != null ? !url.equals(that.url) : that.url != null) return false;
-        if (username != null ? !username.equals(that.username) : that.username != null) return false;
+        return !(username != null ? !username.equals(that.username) : that.username != null);
 
-        return true;
     }
 
     @Override

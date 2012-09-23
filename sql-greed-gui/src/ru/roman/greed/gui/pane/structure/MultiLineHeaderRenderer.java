@@ -20,8 +20,6 @@ public class MultiLineHeaderRenderer extends JPanel implements TableCellRenderer
     // of the table header
     private Color foreground;
     private Color background;
-    // These attributes have fixed defaults
-    private Border headerBorder = UIManager.getBorder("TableHeader.cellBorder");
     private Font font = UIManager.getFont("TableHeader.font");
 
 
@@ -46,6 +44,7 @@ public class MultiLineHeaderRenderer extends JPanel implements TableCellRenderer
                 throw new IllegalArgumentException(
                         "Illegal horizontal alignment value");
         }
+        Border headerBorder = UIManager.getBorder("TableHeader.cellBorder");
         setBorder(headerBorder);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setOpaque(true);

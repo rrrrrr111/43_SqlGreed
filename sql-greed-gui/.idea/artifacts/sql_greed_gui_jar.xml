@@ -1,0 +1,28 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="sql-greed-gui:jar">
+    <output-path>$PROJECT_DIR$/../greet-web/greet-web/war/applet</output-path>
+    <properties id="ant-postprocessing">
+      <options enabled="true">
+        <file>file://$PROJECT_DIR$/keystore/build.xml</file>
+        <target>sign_jar</target>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="sql-greed-gui.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="sql-greed-gui" />
+      </element>
+      <element id="directory" name="lib">
+        <element id="library" level="application" name="commons-lang3-3.1" />
+        <element id="library" level="project" name="derbyclient" />
+        <element id="library" level="application" name="commons-io-2.4" />
+        <element id="library" level="project" name="commons-logging-1.1.1" />
+        <element id="library" level="project" name="spring-context-3.2.0.M1" />
+        <element id="library" level="application" name="jxl" />
+        <element id="library" level="project" name="log4j-1.2.17" />
+      </element>
+    </root>
+  </artifact>
+</component>

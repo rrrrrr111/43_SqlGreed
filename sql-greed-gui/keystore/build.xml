@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="sign-jar" default="sign_jar">
+
+    <property environment="env"/>
+    <target name="gen_cert">
+        <exec  executable="${env.JAVA_HOME}/bin/keytool">
+            <arg value="-v" />
+            <arg value="-genkey"/>
+            <arg value="-alias greet" />
+            <arg value='-dname "CN=grEEt, OU=Roman, O=Roman Securities, L=Moscow, ST=MO, C=RU"  ' />
+            <arg value="-keypass 123"/>
+            <arg value="-keystore grEEtKeys.keystore"/>
+            <arg value="-storepass 123"/>
+        </exec>
+    </target>
+
+    <target name="sign_jar">
+        <echo message="${env.JAVA_HOME}/bin/jarsigner"/>
+        <exec  executable="${env.JAVA_HOME}/bin/jarsigner">
+            <arg value="-keystore"/>
+            <arg value="greetKey" />
+            <arg value="-storepass"/>
+            <arg value="tratra11"/>
+            <arg value="../../greet-web/greet-web/war/applet/sql-greed-gui.jar" />
+            <arg value="greet" />
+            <arg value="-keypass"/>
+            <arg value="rjXb34a8"/>
+        </exec>
+    </target>
+</project>
