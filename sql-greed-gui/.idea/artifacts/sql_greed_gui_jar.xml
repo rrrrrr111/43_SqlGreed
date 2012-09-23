@@ -2,10 +2,7 @@
   <artifact build-on-make="true" name="sql-greed-gui:jar">
     <output-path>$PROJECT_DIR$/../greet-web/greet-web/war/applet</output-path>
     <properties id="ant-postprocessing">
-      <options enabled="true">
-        <file>file://$PROJECT_DIR$/keystore/build.xml</file>
-        <target>sign_jar</target>
-      </options>
+      <options enabled="true" />
     </properties>
     <root id="root">
       <element id="archive" name="sql-greed-gui.jar">
