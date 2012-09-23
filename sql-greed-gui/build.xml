@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="sql-greed-gui" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="128m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/*.lib/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/*.rbc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.zip"/>
+    <include name="*.apk"/>
+    <include name="*.war"/>
+    <include name="*.egg"/>
+    <include name="*.ear"/>
+    <include name="*.ane"/>
+    <include name="*.swc"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <include name="**/?*.properties"/>
+    <include name="**/?*.xml"/>
+    <include name="**/?*.gif"/>
+    <include name="**/?*.png"/>
+    <include name="**/?*.jpeg"/>
+    <include name="**/?*.jpg"/>
+    <include name="**/?*.html"/>
+    <include name="**/?*.dtd"/>
+    <include name="**/?*.tld"/>
+    <include name="**/?*.ftl"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.6_(64)" value="${jdk.home.1.6_(64)}/bin"/>
+  <path id="jdk.classpath.1.6_(64)">
+    <fileset dir="${jdk.home.1.6_(64)}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.6_(64)}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.6_(64)}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.6_(64)"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.commons-logging-1.1.1.classpath">
+    <pathelement location="${basedir}/../../45_JavaLib/commons-logging-1.1.1/commons-logging-1.1.1.jar"/>
+  </path>
+  
+  <path id="library.derbyclient.classpath">
+    <pathelement location="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyclient.jar"/>
+  </path>
+  
+  <path id="library.log4j-1.2.17.classpath">
+    <pathelement location="${basedir}/../../45_JavaLib/apache-log4j-1.2.17/log4j-1.2.17.jar"/>
+  </path>
+  
+  <path id="library.spring-context-3.2.0.m1.classpath">
+    <pathelement location="${basedir}/../../45_JavaLib/spring-3.2.0.M1/libs/spring-beans-3.2.0.M1.jar"/>
+    <pathelement location="${basedir}/../../45_JavaLib/spring-3.2.0.M1/libs/spring-context-3.2.0.M1.jar"/>
+    <pathelement location="${basedir}/../../45_JavaLib/spring-3.2.0.M1/libs/spring-core-3.2.0.M1.jar"/>
+    <pathelement location="${basedir}/../../45_JavaLib/spring-3.2.0.M1/libs/spring-jdbc-3.2.0.M1.jar"/>
+    <pathelement location="${basedir}/../../45_JavaLib/spring-3.2.0.M1/libs/spring-orm-3.2.0.M1.jar"/>
+    <pathelement location="${basedir}/../../45_JavaLib/spring-3.2.0.M1/libs/spring-tx-3.2.0.M1.jar"/>
+  </path>
+  
+  
+  <!-- Global Libraries -->
+  
+  <path id="library.appengine-java-sdk-1.7.2.classpath">
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/shared/appengine-local-runtime-shared.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/shared/el-api.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/shared/jsp-api.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/shared/jsp/repackaged-appengine-ant-1.7.1.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/shared/jsp/repackaged-appengine-ant-launcher-1.7.1.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/shared/jsp/repackaged-appengine-jasper-6.0.29.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/shared/jsp/repackaged-appengine-jasper-el-6.0.29.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/shared/jsp/repackaged-appengine-tomcat-juli-6.0.29.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/shared/servlet-api.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/user/appengine-api-1.0-sdk-1.7.2.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/user/appengine-api-labs-1.7.2.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/user/appengine-jsr107cache-1.7.2.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/user/jsr107cache-1.1.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/user/orm/datanucleus-appengine-1.0.10.final.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/user/orm/datanucleus-core-1.1.5.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/user/orm/datanucleus-jpa-1.1.5.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/user/orm/geronimo-jpa_3.0_spec-1.1.1.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/user/orm/geronimo-jta_1.1_spec-1.1.1.jar"/>
+    <pathelement location="C:/1_work/45_JavaLib/appengine-java-sdk-1.7.2/lib/user/orm/jdo2-api-2.3-eb.jar"/>
+  </path>
+  
+  <path id="library.commons-io-2.4.classpath">
+    <pathelement location="C:/1_work/45_JavaLib/commons-io-2.4/commons-io-2.4.jar"/>
+  </path>
+  
+  <path id="library.commons-lang3-3.1.classpath">
+    <pathelement location="C:/1_work/45_JavaLib/commons-lang3-3.1/commons-lang3-3.1.jar"/>
+  </path>
+  
+  <path id="library.gwt-2.4.0.classpath">
+    <pathelement location="C:/1_work/40_STS/03_gwt/gwt-2.4.0/gwt-servlet-deps.jar"/>
+    <pathelement location="C:/1_work/40_STS/03_gwt/gwt-2.4.0/gwt-servlet.jar"/>
+    <pathelement location="C:/1_work/40_STS/03_gwt/gwt-2.4.0/gwt-user.jar"/>
+  </path>
+  
+  <path id="library.jxl.classpath">
+    <pathelement location="C:/1_work/45_JavaLib/jxl/jexcelapi/jxl.jar"/>
+  </path>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module greet-web -->
+  
+  <dirname property="module.greet-web.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.greet-web" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.greet-web" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.greet-web" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.greet-web" value="${compiler.args}"/>
+  
+  <property name="greet-web.output.dir" value="${module.greet-web.basedir}/../greet-web/greet-web/war/WEB-INF/classes"/>
+  <property name="greet-web.testoutput.dir" value="${module.greet-web.basedir}/../greet-web/greet-web/war/WEB-INF/classes"/>
+  
+  <path id="greet-web.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="greet-web.module.production.classpath">
+    <path refid="${module.jdk.classpath.greet-web}"/>
+    <pathelement location="${basedir}/../greet-web/greet-web/war/WEB-INF/lib/apps-marketplace.jar"/>
+    <path refid="library.appengine-java-sdk-1.7.2.classpath"/>
+    <path refid="library.gwt-2.4.0.classpath"/>
+  </path>
+  
+  <path id="greet-web.runtime.production.module.classpath">
+    <pathelement location="${greet-web.output.dir}"/>
+    <pathelement location="${basedir}/../greet-web/greet-web/war/WEB-INF/lib/apps-marketplace.jar"/>
+    <path refid="library.appengine-java-sdk-1.7.2.classpath"/>
+    <path refid="library.gwt-2.4.0.classpath"/>
+  </path>
+  
+  <path id="greet-web.module.classpath">
+    <pathelement location="${greet-web.output.dir}"/>
+    <path refid="${module.jdk.classpath.greet-web}"/>
+    <pathelement location="${basedir}/../greet-web/greet-web/war/WEB-INF/lib/apps-marketplace.jar"/>
+    <path refid="library.appengine-java-sdk-1.7.2.classpath"/>
+    <path refid="library.gwt-2.4.0.classpath"/>
+  </path>
+  
+  <path id="greet-web.runtime.module.classpath">
+    <pathelement location="${greet-web.output.dir}"/>
+    <pathelement location="${basedir}/../greet-web/greet-web/war/WEB-INF/lib/apps-marketplace.jar"/>
+    <path refid="library.appengine-java-sdk-1.7.2.classpath"/>
+    <path refid="library.gwt-2.4.0.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.greet-web">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.greet-web">
+    <patternset refid="excluded.from.module.greet-web"/>
+  </patternset>
+  
+  <path id="greet-web.module.sourcepath">
+    <dirset dir="${module.greet-web.basedir}/../greet-web/greet-web">
+      <include name="src"/>
+      <include name="test"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.greet-web" depends="compile.module.greet-web.production,compile.module.greet-web.tests" description="Compile module greet-web"/>
+  
+  <target name="compile.module.greet-web.production" description="Compile module greet-web; production classes">
+    <mkdir dir="${greet-web.output.dir}"/>
+    <javac destdir="${greet-web.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.greet-web}/javac">
+      <compilerarg line="${compiler.args.greet-web}"/>
+      <bootclasspath refid="greet-web.module.bootclasspath"/>
+      <classpath refid="greet-web.module.production.classpath"/>
+      <src refid="greet-web.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.greet-web"/>
+    </javac>
+    
+    <copy todir="${greet-web.output.dir}">
+      <fileset dir="${module.greet-web.basedir}/../greet-web/greet-web/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.greet-web.basedir}/../greet-web/greet-web/test">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.greet-web.tests" depends="compile.module.greet-web.production" description="compile module greet-web; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.greet-web" description="cleanup module">
+    <delete dir="${greet-web.output.dir}"/>
+    <delete dir="${greet-web.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module sql-greed-gui -->
+  
+  <dirname property="module.sql-greed-gui.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.sql-greed-gui" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.sql-greed-gui" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.sql-greed-gui" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.sql-greed-gui" value="${compiler.args}"/>
+  
+  <property name="sql-greed-gui.output.dir" value="${module.sql-greed-gui.basedir}/out/production/sql-greed-gui"/>
+  <property name="sql-greed-gui.testoutput.dir" value="${module.sql-greed-gui.basedir}/out/test/sql-greed-gui"/>
+  
+  <path id="sql-greed-gui.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="sql-greed-gui.module.production.classpath">
+    <path refid="${module.jdk.classpath.sql-greed-gui}"/>
+    <path refid="library.jxl.classpath"/>
+    <path refid="library.commons-lang3-3.1.classpath"/>
+    <path refid="library.derbyclient.classpath"/>
+    <pathelement location="${idea.home}/lib/junit-4.10.jar"/>
+    <path refid="library.spring-context-3.2.0.m1.classpath"/>
+    <path refid="library.commons-logging-1.1.1.classpath"/>
+    <path refid="library.log4j-1.2.17.classpath"/>
+    <path refid="library.commons-io-2.4.classpath"/>
+  </path>
+  
+  <path id="sql-greed-gui.runtime.production.module.classpath">
+    <pathelement location="${sql-greed-gui.output.dir}"/>
+    <path refid="library.jxl.classpath"/>
+    <path refid="library.commons-lang3-3.1.classpath"/>
+    <path refid="library.derbyclient.classpath"/>
+    <pathelement location="${idea.home}/lib/junit-4.10.jar"/>
+    <path refid="library.spring-context-3.2.0.m1.classpath"/>
+    <path refid="library.commons-logging-1.1.1.classpath"/>
+    <path refid="library.log4j-1.2.17.classpath"/>
+    <path refid="library.commons-io-2.4.classpath"/>
+  </path>
+  
+  <path id="sql-greed-gui.module.classpath">
+    <path refid="${module.jdk.classpath.sql-greed-gui}"/>
+    <pathelement location="${sql-greed-gui.output.dir}"/>
+    <path refid="library.jxl.classpath"/>
+    <path refid="library.commons-lang3-3.1.classpath"/>
+    <path refid="library.derbyclient.classpath"/>
+    <pathelement location="${idea.home}/lib/junit-4.10.jar"/>
+    <path refid="library.spring-context-3.2.0.m1.classpath"/>
+    <path refid="library.commons-logging-1.1.1.classpath"/>
+    <path refid="library.log4j-1.2.17.classpath"/>
+    <path refid="library.commons-io-2.4.classpath"/>
+  </path>
+  
+  <path id="sql-greed-gui.runtime.module.classpath">
+    <pathelement location="${sql-greed-gui.testoutput.dir}"/>
+    <pathelement location="${sql-greed-gui.output.dir}"/>
+    <path refid="library.jxl.classpath"/>
+    <path refid="library.commons-lang3-3.1.classpath"/>
+    <path refid="library.derbyclient.classpath"/>
+    <pathelement location="${idea.home}/lib/junit-4.10.jar"/>
+    <path refid="library.spring-context-3.2.0.m1.classpath"/>
+    <path refid="library.commons-logging-1.1.1.classpath"/>
+    <path refid="library.log4j-1.2.17.classpath"/>
+    <path refid="library.commons-io-2.4.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.sql-greed-gui">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.sql-greed-gui">
+    <patternset refid="excluded.from.module.sql-greed-gui"/>
+  </patternset>
+  
+  <path id="sql-greed-gui.module.sourcepath">
+    <dirset dir="${module.sql-greed-gui.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  <path id="sql-greed-gui.module.test.sourcepath">
+    <dirset dir="${module.sql-greed-gui.basedir}">
+      <include name="test"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.sql-greed-gui" depends="compile.module.sql-greed-gui.production,compile.module.sql-greed-gui.tests" description="Compile module sql-greed-gui"/>
+  
+  <target name="compile.module.sql-greed-gui.production" description="Compile module sql-greed-gui; production classes">
+    <mkdir dir="${sql-greed-gui.output.dir}"/>
+    <javac destdir="${sql-greed-gui.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.sql-greed-gui}/javac">
+      <compilerarg line="${compiler.args.sql-greed-gui}"/>
+      <bootclasspath refid="sql-greed-gui.module.bootclasspath"/>
+      <classpath refid="sql-greed-gui.module.production.classpath"/>
+      <src refid="sql-greed-gui.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.sql-greed-gui"/>
+    </javac>
+    
+    <copy todir="${sql-greed-gui.output.dir}">
+      <fileset dir="${module.sql-greed-gui.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.sql-greed-gui.tests" depends="compile.module.sql-greed-gui.production" description="compile module sql-greed-gui; test classes" unless="skip.tests">
+    <mkdir dir="${sql-greed-gui.testoutput.dir}"/>
+    <javac destdir="${sql-greed-gui.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.sql-greed-gui}/javac">
+      <compilerarg line="${compiler.args.sql-greed-gui}"/>
+      <bootclasspath refid="sql-greed-gui.module.bootclasspath"/>
+      <classpath refid="sql-greed-gui.module.classpath"/>
+      <src refid="sql-greed-gui.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.sql-greed-gui"/>
+    </javac>
+    
+    <copy todir="${sql-greed-gui.testoutput.dir}">
+      <fileset dir="${module.sql-greed-gui.basedir}/test">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.sql-greed-gui" description="cleanup module">
+    <delete dir="${sql-greed-gui.output.dir}"/>
+    <delete dir="${sql-greed-gui.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.greet-web, clean.module.sql-greed-gui" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.greet-web, compile.module.sql-greed-gui" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+
+
+    <target name="jar" >
+        <jar destfile="../greet-web/greet-web/war/applet/sql-greed-gui.jar"
+             basedir="${sql-greed-gui.output.dir}"
+             manifest="${module.sql-greed-gui.basedir}/src/META-INF/MANIFEST.MF">
+        </jar>
+    </target>
+
+</project>
