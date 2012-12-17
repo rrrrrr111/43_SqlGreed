@@ -1,47 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ru/roman/greet/gui/common/DataTreeNode.java" />
-      <change type="DELETED" beforePath="C:\1_work\43_SqlGreed\sql-greed-gui\src\ru\roman\greet\old\spec\SpecialTableNode.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\1_work\43_SqlGreed\sql-greed-gui\src\ru\roman\greet\old\PaineDbStructure.form" afterPath="$PROJECT_DIR$/src/ru/roman/greet/old/StructureView.form" />
-      <change type="MOVED" beforePath="C:\1_work\43_SqlGreed\sql-greed-gui\src\ru\roman\greet\old\PaineDbStructure.java" afterPath="$PROJECT_DIR$/src/ru/roman/greet/old/StructureView.java" />
-      <change type="MOVED" beforePath="C:\1_work\43_SqlGreed\sql-greed-gui\src\ru\roman\greet\old\spec\DynamicTree.java" afterPath="$PROJECT_DIR$/src/ru/roman/greet/old/spec/StructureTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-io-2.4.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-io-2.4.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-lang3-3.1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-lang3-3.1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-logging-1.1.1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-logging-1.1.1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_cs.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_cs.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_de_DE.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_de_DE.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_es.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_es.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_fr.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_fr.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_hu.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_hu.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_it.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_it.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_ja_JP.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_ja_JP.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_ko_KR.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_ko_KR.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_pl.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_pl.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_pt_BR.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_pt_BR.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_ru.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_ru.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_zh_CN.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_zh_CN.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_zh_TW.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_zh_TW.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyclient.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyclient.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/jxl.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/jxl.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/log4j-1.2.17.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/log4j-1.2.17.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-beans-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-beans-3.2.0.M1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-context-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-context-3.2.0.M1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-core-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-core-3.2.0.M1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-jdbc-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-jdbc-3.2.0.M1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-orm-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-orm-3.2.0.M1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-tx-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-tx-3.2.0.M1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/sql-greed-gui.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/sql-greed-gui.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/application.log" afterPath="$PROJECT_DIR$/logs/application.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/roman/greet/gui/pane/conf/ConfigManager.java" afterPath="$PROJECT_DIR$/src/ru/roman/greet/gui/pane/conf/ConfigManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/roman/greet/gui/pane/conf/ConfigView.java" afterPath="$PROJECT_DIR$/src/ru/roman/greet/gui/pane/conf/ConfigView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/roman/greet/gui/pane/main/MainViewController.java" afterPath="$PROJECT_DIR$/src/ru/roman/greet/gui/pane/main/MainViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/roman/greet/service/config/ConfigService.java" afterPath="$PROJECT_DIR$/src/ru/roman/greet/service/config/ConfigService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/roman/greet/util/Const.java" afterPath="$PROJECT_DIR$/src/ru/roman/greet/util/Const.java" />
-    </list>
-    <list id="71cfb641-5bee-4208-8ab0-751480a58831" name="builded" comment="builded">
+    <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="Bim application first commit">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/doc/design.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/doc/study_program_bt.txt" />
       <change type="DELETED" beforePath="C:\1_work\43_SqlGreed\sql-greed-gui\out\production\sql-greed-gui\commons-logging.properties" afterPath="" />
       <change type="DELETED" beforePath="C:\1_work\43_SqlGreed\sql-greed-gui\out\production\sql-greed-gui\log4j.properties" afterPath="" />
       <change type="DELETED" beforePath="C:\1_work\43_SqlGreed\sql-greed-gui\out\production\sql-greed-gui\resources\TABLE16.png" afterPath="" />
@@ -132,7 +95,37 @@
       <change type="DELETED" beforePath="C:\1_work\43_SqlGreed\sql-greed-gui\out\test\sql-greed-gui\ru\roman\greed\gui\pane\chooser\FileChooserTest.class" afterPath="" />
       <change type="DELETED" beforePath="C:\1_work\43_SqlGreed\sql-greed-gui\out\test\sql-greed-gui\ru\roman\greed\gui\pane\structure\ColumnFilterTest$1.class" afterPath="" />
       <change type="DELETED" beforePath="C:\1_work\43_SqlGreed\sql-greed-gui\out\test\sql-greed-gui\ru\roman\greed\gui\pane\structure\ColumnFilterTest.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-io-2.4.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-io-2.4.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-lang3-3.1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-lang3-3.1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-logging-1.1.1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/commons-logging-1.1.1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_cs.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_cs.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_de_DE.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_de_DE.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_es.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_es.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_fr.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_fr.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_hu.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_hu.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_it.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_it.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_ja_JP.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_ja_JP.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_ko_KR.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_ko_KR.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_pl.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_pl.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_pt_BR.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_pt_BR.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_ru.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_ru.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_zh_CN.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_zh_CN.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_zh_TW.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyLocale_zh_TW.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyclient.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/derby/derbyclient.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/jxl.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/jxl.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/log4j-1.2.17.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/log4j-1.2.17.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-beans-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-beans-3.2.0.M1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-context-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-context-3.2.0.M1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-core-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-core-3.2.0.M1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-jdbc-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-jdbc-3.2.0.M1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-orm-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-orm-3.2.0.M1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-tx-3.2.0.M1.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/lib/spring-tx-3.2.0.M1.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/sql-greed-gui.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/sql-greed-gui.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/upload.cmd" afterPath="$PROJECT_DIR$/../greet-web/greet-web/upload.cmd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
+    <list id="71cfb641-5bee-4208-8ab0-751480a58831" name="builded" comment="builded" />
     <ignored path="sql-greed-gui.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -201,8 +194,8 @@
       <property name="field_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByClasses" value="true" />
       <property name="exception_breakpoints_viewId" value="TABLE" />
-      <property name="exception_breakpoints_groupByClasses" value="true" />
       <property name="field_breakpoints_viewId" value="TABLE" />
+      <property name="exception_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByMethods" value="false" />
     </ui_properties>
   </component>
@@ -211,10 +204,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="StructureTree.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/old/spec/StructureTree.java">
+      <file leaf-file-name="StartBim.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/StartBim.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="71" selection-start="2012" selection-end="2012" vertical-scroll-proportion="0.0">
+            <state line="16" column="19" selection-start="311" selection-end="311" vertical-scroll-proportion="0.26086956">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#472#934#0" expanded="true" />
+                <element signature="e#923#924#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GuiUtils.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/util/GuiUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="13" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReflectionUtils.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/util/ReflectionUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="13" selection-start="521" selection-end="521" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartApp.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/StartApp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="13" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -222,63 +246,57 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StructureView.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/old/StructureView.java">
+      <file leaf-file-name="StartApplet.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/StartApplet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="35" selection-start="952" selection-end="960" vertical-scroll-proportion="-1.413913">
+            <state line="16" column="13" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileChooserTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/ru/roman/greet/gui/pane/chooser/FileChooserTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="13" selection-start="129" selection-end="129" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ColumnFilterTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/ru/roman/greet/gui/pane/structure/ColumnFilterTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="13" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="63" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1704#2104#0" expanded="true" />
-                <element signature="e#2093#2094#0" expanded="true" />
-                <element signature="e#8768#8778#0" expanded="true" />
-                <element signature="e#10032#10062#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConfigView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/gui/pane/conf/ConfigView.java">
+      <file leaf-file-name="log4j.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../bim-gui/src/log4j.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="54" selection-start="2940" selection-end="2940" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#2266#2296#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ColumnFilter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/gui/pane/structure/ColumnFilter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="13" selection-start="432" selection-end="432" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MultiLineHeaderRenderer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/gui/pane/structure/MultiLineHeaderRenderer.java">
+      <file leaf-file-name="commons-logging.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../bim-gui/src/commons-logging.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="13" selection-start="267" selection-end="267" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StructureTreeModelListener.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/gui/pane/structure/StructureTreeModelListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="13" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataTreeNode.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/gui/common/DataTreeNode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="35" selection-start="522" selection-end="535" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -314,22 +332,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/ru/roman/greed/gui/pane/main/MainViewController.java" />
-        <option value="$PROJECT_DIR$/src/ru/roman/greet/gui/pane/main/MainViewController.java" />
-        <option value="$PROJECT_DIR$/keystore/build.xml" />
-        <option value="$PROJECT_DIR$/../greet-web/greet-web/war/index.jsp" />
-        <option value="$PROJECT_DIR$/../greet-web/greet-web/war/applet/start.jnlp" />
-        <option value="$PROJECT_DIR$/src/ru/roman/greet/old/spec/SpecialTableNode.java" />
-        <option value="$PROJECT_DIR$/src/ru/roman/greet/old/spec/DataTreeNode.java" />
-        <option value="$PROJECT_DIR$/src/ru/roman/greet/gui/common/DataTreeNode.java" />
-        <option value="$PROJECT_DIR$/src/ru/roman/greet/old/spec/DynamicTree.java" />
-        <option value="$PROJECT_DIR$/src/ru/roman/greet/service/config/ConfigService.java" />
-        <option value="$PROJECT_DIR$/src/ru/roman/greet/gui/pane/conf/ConfigView.java" />
-        <option value="$PROJECT_DIR$/src/ru/roman/greet/gui/pane/conf/ConfigManager.java" />
-        <option value="$PROJECT_DIR$/src/ru/roman/greet/util/Const.java" />
         <option value="$PROJECT_DIR$/src/ru/roman/greet/old/PaineDbStructure.java" />
         <option value="$PROJECT_DIR$/src/ru/roman/greet/old/spec/StructureTree.java" />
         <option value="$PROJECT_DIR$/src/ru/roman/greet/old/StructureView.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/demo/TranslucencyDemo.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/demo/test1.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/demo/test.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/demo/gui/pane/PaineHolder.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/pane/PaineHolder.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/ExceptionHandler.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/GuiUtils.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainView.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/BimException.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/PaineHolder.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/StartBim.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/META-INF/MANIFEST.MF" />
       </list>
     </option>
   </component>
@@ -501,6 +519,17 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Changed Files" />
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -516,6 +545,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -579,19 +622,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="greet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
+              <option name="myItemId" value="bim-gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -601,23 +632,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemId" value="bim-gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="greet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -627,7 +646,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemId" value="bim-gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -635,11 +654,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="greet" />
+              <option name="myItemId" value="bim" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="old" />
+              <option name="myItemId" value="StartBim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ClassTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bim-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -649,7 +690,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemId" value="bim-gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -657,37 +698,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="greet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="old" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="greet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
+              <option name="myItemId" value="bim" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -701,7 +712,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemId" value="bim-gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -709,11 +720,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="greet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
+              <option name="myItemId" value="bim" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -721,7 +728,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="structure" />
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -731,7 +738,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemId" value="bim-gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -739,85 +746,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="greet" />
+              <option name="myItemId" value="bim" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="keystore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="greet-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="greet-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="war" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="greet-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="war" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="applet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="greet-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="demo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -833,33 +766,22 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Changed Files" />
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="153" />
-    <property name="OverrideImplement.combined" value="true" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="153" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="recentsLimit" value="5" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="154" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="154" />
@@ -875,21 +797,22 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/test/ru/roman/greed/gui/pane" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/test/ru/roman/greed/gui/pane" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="preferences.keymap" />
-    <property name="DefaultHtmlFileTemplate" value="Html" />
-    <property name="project.structure.side.proportion" value="0.13286713" />
+    <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
+    <property name="options.lastSelected" value="project.propVCSSupport.VCSs.Git" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="project.structure.side.proportion" value="0.13286713" />
+    <property name="DefaultHtmlFileTemplate" value="Html" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
     <property name="GenerateAntBuildDialog.backupFiles" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -898,7 +821,13 @@
       <recent name="ru.roman.greed.gui.pane.structure" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.roman.bim.util" />
+      <recent name="ru.roman.bim.demo.gui.pane" />
       <recent name="ru.roman.greed.gui.common" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\1_work\43_SqlGreed\bim-gui\src" />
+      <recent name="C:\1_work\43_SqlGreed\bim-gui\src\META-INF" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="ru.roman.greed.util.GuiUtils" />
@@ -909,81 +838,21 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ru.roman.greed.service.excel.dto" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ru.roman.bim.gui" />
+      <recent name="ru.roman.bim" />
+      <recent name="ru.roman.greet.gui.common" />
+      <recent name="ru.roman.greed" />
+      <recent name="ru.roman.greed.gui.pane.conf" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\1_work\43_SqlGreed\sql-greed-gui\keystore" />
       <recent name="C:\1_work\43_SqlGreed\sql-greed-gui\src\ru\roman\greed\gui\pane\conf" />
       <recent name="C:\1_work\43_SqlGreed\sql-greed-gui\src\ru\roman\greed\gui\pane\queryinfo" />
       <recent name="C:\1_work\43_SqlGreed\sql-greed-gui\src\ru\roman\greed\gui\pane\sysinfo" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="ru.roman.greet.gui.common" />
-      <recent name="ru.roman.greed" />
-      <recent name="ru.roman.greed.gui.pane.conf" />
-      <recent name="ru.roman.greed.gui.pane.main" />
-      <recent name="ru.roman.greed.service.sql" />
-    </key>
   </component>
-  <component name="RunManager" selected="Application.StartApp">
-    <configuration default="false" name="StartApp" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="ru.roman.greet.StartApp" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="sql-greed-gui" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="FileChooser" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="ru.roman.greet.gui.pane.chooser.FileChooser" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="sql-greed-gui" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="FileChooserTest" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="ru.roman.greet.gui.pane.chooser.FileChooserTest" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="sql-greed-gui" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Application.StartBim">
     <configuration default="false" name="ExceptionHandler" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="ru.roman.greet.util.ExceptionHandler" />
       <option name="VM_PARAMETERS" />
@@ -1021,6 +890,54 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
+    <configuration default="false" name="TranslucencyDemo" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="ru.roman.bim.demo.TranslucencyDemo" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="bim-gui" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="ru.roman.bim.demo.test" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="bim-gui" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="StartBim" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="ru.roman.bim.StartBim" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="bim-gui" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
@@ -1041,24 +958,6 @@
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
@@ -1087,6 +986,24 @@
       <envs />
       <properties />
       <listeners />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -1139,11 +1056,11 @@
       </method>
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.StartApp" />
-      <item index="1" class="java.lang.String" itemvalue="Application.FileChooser" />
-      <item index="2" class="java.lang.String" itemvalue="Application.FileChooserTest" />
-      <item index="3" class="java.lang.String" itemvalue="Application.ExceptionHandler" />
-      <item index="4" class="java.lang.String" itemvalue="Applet.StartApplet" />
+      <item index="0" class="java.lang.String" itemvalue="Application.ExceptionHandler" />
+      <item index="1" class="java.lang.String" itemvalue="Applet.StartApplet" />
+      <item index="2" class="java.lang.String" itemvalue="Application.TranslucencyDemo" />
+      <item index="3" class="java.lang.String" itemvalue="Application.test" />
+      <item index="4" class="java.lang.String" itemvalue="Application.StartBim" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -1210,7 +1127,15 @@
       <created>1348416565723</created>
       <updated>1348416565723</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="grEEt bugfix">
+      <created>1348432376314</created>
+      <updated>1348432376314</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Bim application first commit">
+      <created>1355775715166</created>
+      <updated>1355775715166</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -1235,7 +1160,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.599359" sideWeight="0.4939302" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.67147434" order="2" side_tool="false" content_ui="tabs" />
@@ -1252,8 +1177,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.21794872" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.67147434" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39984825" sideWeight="0.67147434" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31866464" sideWeight="0.40064102" order="2" side_tool="true" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.61858976" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31638846" sideWeight="0.40064102" order="2" side_tool="true" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47596154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1182" height="584" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.43589744" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.8766026" order="4" side_tool="false" content_ui="combo" />
@@ -1301,7 +1226,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="web start bugfix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bim application first commit" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1317,6 +1242,8 @@
     <MESSAGE value="web start" />
     <MESSAGE value="web start one more commit , project out path changed" />
     <MESSAGE value="web start bugfix" />
+    <MESSAGE value="grEEt bugfix" />
+    <MESSAGE value="Bim application first commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1386,122 +1313,124 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/log4j.properties">
+    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/gui/pane/PaineHolder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="56" selection-start="434" selection-end="434" vertical-scroll-proportion="0.3252174">
+        <state line="18" column="0" selection-start="447" selection-end="635" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/PaineHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="22" selection-end="22" vertical-scroll-proportion="0.029565217">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="24" selection-start="609" selection-end="609" vertical-scroll-proportion="0.3252174">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/commons-logging.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/commons-logging.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/util/GuiUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="13" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/util/ReflectionUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="13" selection-start="521" selection-end="521" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/StartApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="37" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_01/src.zip!/javax/swing/tree/DefaultTreeModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="12" selection-start="2328" selection-end="2328" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/gui/common/DataTreeNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="35" selection-start="522" selection-end="535" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_01/src.zip!/javax/swing/tree/DefaultMutableTreeNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1237" column="18" selection-start="41365" selection-end="41365" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/gui/pane/structure/ColumnFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="13" selection-start="432" selection-end="432" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/gui/pane/structure/MultiLineHeaderRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="267" selection-end="267" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/gui/pane/structure/StructureTreeModelListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/service/config/ConfigService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="10" selection-start="4748" selection-end="4748" vertical-scroll-proportion="0.33274022">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/util/Const.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="26" selection-start="202" selection-end="202" vertical-scroll-proportion="0.3252174">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/gui/pane/conf/ConfigManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="60" selection-start="3762" selection-end="3762" vertical-scroll-proportion="1.9661921">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/gui/pane/conf/ConfigView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="54" selection-start="2940" selection-end="2940" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#2266#2296#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/old/spec/StructureTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="71" selection-start="2012" selection-end="2012" vertical-scroll-proportion="0.0">
+        <state line="15" column="13" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/gui/common/ListTableModel.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/StartApplet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="34" selection-start="197" selection-end="197" vertical-scroll-proportion="0.20695652">
+        <state line="16" column="13" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/roman/greet/old/StructureView.java">
+    <entry file="file://$PROJECT_DIR$/test/ru/roman/greet/gui/pane/chooser/FileChooserTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="35" selection-start="952" selection-end="960" vertical-scroll-proportion="-1.413913">
+        <state line="8" column="13" selection-start="129" selection-end="129" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ru/roman/greet/gui/pane/structure/ColumnFilterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="13" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="63" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1704#2104#0" expanded="true" />
-            <element signature="e#2093#2094#0" expanded="true" />
-            <element signature="e#8768#8778#0" expanded="true" />
-            <element signature="e#10032#10062#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/StartBim.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="19" selection-start="311" selection-end="311" vertical-scroll-proportion="0.26086956">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#472#934#0" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1522,6 +1451,7 @@
             <option name="proportions">
               <list>
                 <option value="0.13286713" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1564,7 +1494,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.7 (x86)</last-edited>
+          <last-edited>1.7 (64)</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1576,12 +1506,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>sql-greed-gui</last-edited>
+          <last-edited>bim-gui</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.13286713" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1600,7 +1529,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>derbyclient</last-edited>
+          <last-edited>commons-logging-1.1.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
