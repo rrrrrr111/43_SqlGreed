@@ -4,6 +4,10 @@ import ru.roman.bim.gui.pane.PaineHolder;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.util.LinkedList;
+import java.util.List;
 
 /** @author Roman 18.12.12 0:02 */
 public class MainView extends JFrame {
@@ -21,6 +25,7 @@ public class MainView extends JFrame {
     private final JCheckBox checkBox3 = new JCheckBox();
     private final JCheckBox checkBox4 = new JCheckBox();
     private final JCheckBox checkBox5 = new JCheckBox();
+    private final List<JCheckBox> checkBoxList = new LinkedList<JCheckBox>();
 
     private final JLabel typeLabel = new JLabel();
 
@@ -99,11 +104,41 @@ public class MainView extends JFrame {
         gbc7.gridy = 2;
         panel.add(checkPanel, gbc7);
 
+        checkPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         checkPanel.add(checkBox1);
         checkPanel.add(checkBox2);
         checkPanel.add(checkBox3);
         checkPanel.add(checkBox4);
         checkPanel.add(checkBox5);
+        checkBoxList.add(checkBox1);
+        checkBoxList.add(checkBox2);
+        checkBoxList.add(checkBox3);
+        checkBoxList.add(checkBox4);
+        checkBoxList.add(checkBox5);
+
+        final ItemListener cl = new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    int idx = checkBoxList.indexOf(e.getSource());
+                    upTo(idx);
+                } else if (e.getStateChange() == ItemEvent.DESELECTED) {
+                    int idx = checkBoxList.indexOf(e.getSource());
+                    if (idx + 1 == checkBoxList.size()) {
+                        checkBoxList.get(checkBoxList.size() - 1).setSelected(false);
+                    } else if (checkBoxList.get(idx + 1).isSelected()) {
+                        upTo(idx);
+                    } else {
+                        checkBoxList.get(idx).setSelected(false);
+                    }
+                }
+            }
+
+        };
+
+        for (JCheckBox cb : checkBoxList) {
+            cb.addItemListener(cl);
+        }
 
         final GridBagConstraints gbc8 = new GridBagConstraints();
         gbc8.fill = GridBagConstraints.HORIZONTAL;
@@ -117,14 +152,36 @@ public class MainView extends JFrame {
 
     }
 
+    private void upTo(int idx) {
+        for (int i = 0; i < checkBoxList.size(); i++) {
+            if (i <= idx) {
+                checkBoxList.get(i).setSelected(true);
+            } else {
+                checkBoxList.get(i).setSelected(false);
+            }
+        }
+    }
+
+    public void setRating(int rating) {
+        upTo(rating - 1);
+    }
+
+    public int getRating() {
+        for (int i = 0; i < checkBoxList.size(); i++) {
+            if (!checkBoxList.get(i).isSelected()) {
+                return i;
+            }
+        }
+        return 5;
+    }
+
     private void initState() {
 
-        textLabel.setText(String.format("<html><body><center><font size='250px'>%s" +
-                "</font></center></body></html>", "hello"));
+        textLabel.setText(String.format("<html><body><p style='color:red;'>%s" +
+                "</p></body></html>", "hello"));
 
         typeLabel.setText("type...");
     }
-
 
 
 }
