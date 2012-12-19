@@ -1,5 +1,7 @@
 package ru.roman.bim.gui.pane.main;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.pane.PaineHolder;
 
 import javax.swing.*;
@@ -11,6 +13,7 @@ import java.util.List;
 
 /** @author Roman 18.12.12 0:02 */
 public class MainView extends JFrame {
+    private static final Log log = LogFactory.getLog(MainView.class);
 
     private final JLabel textLabel = new JLabel();
 
@@ -104,7 +107,7 @@ public class MainView extends JFrame {
         gbc7.gridy = 2;
         panel.add(checkPanel, gbc7);
 
-        checkPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        //checkPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         checkPanel.add(checkBox1);
         checkPanel.add(checkBox2);
         checkPanel.add(checkBox3);
@@ -119,11 +122,12 @@ public class MainView extends JFrame {
         final ItemListener cl = new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
+
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    int idx = checkBoxList.indexOf(e.getSource());
+                    final int idx = checkBoxList.indexOf(e.getSource());
                     upTo(idx);
                 } else if (e.getStateChange() == ItemEvent.DESELECTED) {
-                    int idx = checkBoxList.indexOf(e.getSource());
+                    final int idx = checkBoxList.indexOf(e.getSource());
                     if (idx + 1 == checkBoxList.size()) {
                         checkBoxList.get(checkBoxList.size() - 1).setSelected(false);
                     } else if (checkBoxList.get(idx + 1).isSelected()) {
@@ -133,12 +137,9 @@ public class MainView extends JFrame {
                     }
                 }
             }
-
         };
+        activateListener(cl);
 
-        for (JCheckBox cb : checkBoxList) {
-            cb.addItemListener(cl);
-        }
 
         final GridBagConstraints gbc8 = new GridBagConstraints();
         gbc8.fill = GridBagConstraints.HORIZONTAL;
@@ -150,6 +151,17 @@ public class MainView extends JFrame {
         pack();
         setVisible(true);
 
+    }
+
+    private void activateListener(ItemListener l) {
+        for (JCheckBox cb : checkBoxList) {
+            cb.addItemListener(l);
+            cb.setEnabled(true);
+        }
+    }
+
+    private void onRatingChange(int rating) {
+        log.info("rating changed to " + rating);
     }
 
     private void upTo(int idx) {
