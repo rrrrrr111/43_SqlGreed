@@ -2,6 +2,8 @@ package ru.roman.bim.gui.pane.main;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import ru.roman.bim.gui.common.View;
+import ru.roman.bim.gui.custom.widget.SilentJCheckBox;
 import ru.roman.bim.gui.pane.PaineHolder;
 
 import javax.swing.*;
@@ -12,8 +14,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 /** @author Roman 18.12.12 0:02 */
-public class MainView extends JFrame {
+public class MainView extends JFrame implements View {
     private static final Log log = LogFactory.getLog(MainView.class);
+
+    private final MainViewController controller = new MainViewController(this);
 
     private final JLabel textLabel = new JLabel();
 
@@ -23,12 +27,12 @@ public class MainView extends JFrame {
     private final JButton editButton = new JButton("edit");
     private final JButton settingsButton = new JButton("sett");
 
-    private final JCheckBox checkBox1 = new JCheckBox();
-    private final JCheckBox checkBox2 = new JCheckBox();
-    private final JCheckBox checkBox3 = new JCheckBox();
-    private final JCheckBox checkBox4 = new JCheckBox();
-    private final JCheckBox checkBox5 = new JCheckBox();
-    private final List<JCheckBox> checkBoxList = new LinkedList<JCheckBox>();
+    private final SilentJCheckBox checkBox1 = new SilentJCheckBox();
+    private final SilentJCheckBox checkBox2 = new SilentJCheckBox();
+    private final SilentJCheckBox checkBox3 = new SilentJCheckBox();
+    private final SilentJCheckBox checkBox4 = new SilentJCheckBox();
+    private final SilentJCheckBox checkBox5 = new SilentJCheckBox();
+    private final List<SilentJCheckBox> checkBoxList = new LinkedList<SilentJCheckBox>();
 
     private final JLabel typeLabel = new JLabel();
 
@@ -123,23 +127,29 @@ public class MainView extends JFrame {
             @Override
             public void itemStateChanged(ItemEvent e) {
 
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    final int idx = checkBoxList.indexOf(e.getSource());
-                    upTo(idx);
-                } else if (e.getStateChange() == ItemEvent.DESELECTED) {
-                    final int idx = checkBoxList.indexOf(e.getSource());
-                    if (idx + 1 == checkBoxList.size()) {
-                        checkBoxList.get(checkBoxList.size() - 1).setSelected(false);
-                    } else if (checkBoxList.get(idx + 1).isSelected()) {
-                        upTo(idx);
-                    } else {
-                        checkBoxList.get(idx).setSelected(false);
-                    }
+                switch (e.getStateChange()) {
+                    case ItemEvent.SELECTED :
+                    case ItemEvent.DESELECTED :
+
+                        final int idx = checkBoxList.indexOf(e.getSource());
+                        if (e.getStateChange() == ItemEvent.SELECTED) {
+                            upTo(idx);
+                        } else if (e.getStateChange() == ItemEvent.DESELECTED) {
+                            if (idx + 1 == checkBoxList.size()) {
+                                checkBoxList.get(checkBoxList.size() - 1).setSelectedSilent(false);
+                            } else if (checkBoxList.get(idx + 1).isSelected()) {
+                                upTo(idx);
+                            } else {
+                                checkBoxList.get(idx).setSelectedSilent(false);
+                            }
+                        }
+                        //log.info("rating changed to " + rating);
+                        controller.onRatingChange(getRating());
+
                 }
             }
         };
         activateListener(cl);
-
 
         final GridBagConstraints gbc8 = new GridBagConstraints();
         gbc8.fill = GridBagConstraints.HORIZONTAL;
@@ -156,20 +166,15 @@ public class MainView extends JFrame {
     private void activateListener(ItemListener l) {
         for (JCheckBox cb : checkBoxList) {
             cb.addItemListener(l);
-            cb.setEnabled(true);
         }
-    }
-
-    private void onRatingChange(int rating) {
-        log.info("rating changed to " + rating);
     }
 
     private void upTo(int idx) {
         for (int i = 0; i < checkBoxList.size(); i++) {
             if (i <= idx) {
-                checkBoxList.get(i).setSelected(true);
+                checkBoxList.get(i).setSelectedSilent(true);
             } else {
-                checkBoxList.get(i).setSelected(false);
+                checkBoxList.get(i).setSelectedSilent(false);
             }
         }
     }
@@ -195,5 +200,8 @@ public class MainView extends JFrame {
         typeLabel.setText("type...");
     }
 
-
+    @Override
+    public MainViewController getController() {
+        return controller;
+    }
 }
