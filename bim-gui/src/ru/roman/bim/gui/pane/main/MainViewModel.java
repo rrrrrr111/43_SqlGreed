@@ -1,9 +1,9 @@
 package ru.roman.bim.gui.pane.main;
 
-import java.io.Serializable;
+import ru.roman.bim.gui.common.Model;
 
 /** @author Roman 19.12.12 23:36 */
-public class MainViewModel implements Serializable {
+public class MainViewModel implements Model {
 
 
     public MainViewModel() {}

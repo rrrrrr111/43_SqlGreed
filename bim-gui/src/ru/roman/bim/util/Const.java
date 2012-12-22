@@ -7,11 +7,14 @@ package ru.roman.bim.util;
  */
 public interface Const {
 
-    String VERSION = "v1.0";
+
+
+    String VERSION = "1.0";
 
     String APP_NAME = "Bim";
     String APP_DATA_DIR_NAME = "/." + APP_NAME;
 
+    boolean SHOW_TRAY_NOTIFICATIONS = false;
 
 }
 
