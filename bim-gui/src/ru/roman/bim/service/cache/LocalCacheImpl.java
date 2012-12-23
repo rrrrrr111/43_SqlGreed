@@ -102,13 +102,14 @@ public class LocalCacheImpl implements LocalCache {
                 offset = currentOffset + Const.CACHE_MAX_SIZE;
             }
 
-            final GaeGetListRequest req = new GaeGetListRequest();
-            req.setCount(Const.CACHE_MAX_SIZE);
-            req.setOffset(offset);
-            req.setSorting(Const.DEFAULT_SORTING);
-
-            req.setLangId(Const.DEFAULT_LANG_ID);
-            req.setTypes(Const.DEFAULT_TYPES);
+            final GaeGetListRequest req = new GaeGetListRequest(
+                    offset,
+                    Const.CACHE_MAX_SIZE,
+                    Const.DEFAULT_SORTING_FIELD,
+                    Const.DEFAULT_SORTING_DIRECTION,
+                    Const.DEFAULT_TYPES,
+                    Const.DEFAULT_LANG_ID
+            );
             GaeGetListResponse resp = gaeConnector.getList(req);
 
             cache.clear();
@@ -147,7 +148,9 @@ public class LocalCacheImpl implements LocalCache {
     @Override
     public synchronized void renewModel(MainViewModel model) {
         int idx = cache.indexOf(model);
-        cache.remove(idx);
-        cache.add(idx, model);
+        if (idx >=0 ) {
+            cache.remove(idx);
+            cache.add(idx, model);
+        }
     }
 }

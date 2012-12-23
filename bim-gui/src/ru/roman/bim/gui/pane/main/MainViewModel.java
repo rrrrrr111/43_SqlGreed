@@ -17,12 +17,13 @@ public class MainViewModel implements Model {
     private TypeModel type;
 
     private Integer modelNum;
+    private Integer owner;
 
     public MainViewModel() {}
 
     public MainViewModel(Long id, String textFaced, String textShadowed,
                          Integer facedLangId, Integer shadowedLangId, Integer rating,
-                         TypeModel type, Integer modelNum) {
+                         TypeModel type, Integer modelNum, Integer owner) {
         this.id = id;
         this.textFaced = textFaced;
         this.textShadowed = textShadowed;
@@ -31,6 +32,7 @@ public class MainViewModel implements Model {
         this.rating = rating;
         this.type = type;
         this.modelNum = modelNum;
+        this.owner = owner;
     }
 
     public String getTextFaced() {
@@ -96,6 +98,14 @@ public class MainViewModel implements Model {
 
     public void setModelNum(Integer modelNum) {
         this.modelNum = modelNum;
+    }
+
+    public Integer getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Integer owner) {
+        this.owner = owner;
     }
 
     @Override

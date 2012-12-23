@@ -17,20 +17,21 @@ public class GaeConnectorStub implements GaeConnector {
 
     static Set<MainViewModel> store = new HashSet<MainViewModel>();
     static long counter;
+    public static final int SERVICE_TIMEOUT = 2000;
 
     static {
-        store.add(new MainViewModel(counter++, "word1","transl1",1,1,1, TypeModel.EXPRESSION, null));
-        store.add(new MainViewModel(counter++, "word2","transl2",1,1,1, TypeModel.EXPRESSION, null));
-        store.add(new MainViewModel(counter++, "word3","transl3",1,1,4, TypeModel.EXPRESSION, null));
-        store.add(new MainViewModel(counter++, "word4","transl4",1,1,3, TypeModel.WORD, null));
-        store.add(new MainViewModel(counter++, "word5","transl5",1,1,4, TypeModel.WORD, null));
-        store.add(new MainViewModel(counter++, "word6","transl6",1,1,2, TypeModel.WORD, null));
-        store.add(new MainViewModel(counter++, "word7","transl7",1,1,5, TypeModel.WORD, null));
+        store.add(new MainViewModel(counter++, "word1","transl1",1,1,1, TypeModel.EXPRESSION, null, 1));
+        store.add(new MainViewModel(counter++, "word2","transl2",1,1,1, TypeModel.EXPRESSION, null, 1));
+        store.add(new MainViewModel(counter++, "word3","transl3",1,1,4, TypeModel.EXPRESSION, null, 1));
+        store.add(new MainViewModel(counter++, "word4","transl4",1,1,3, TypeModel.WORD, null, 1));
+        store.add(new MainViewModel(counter++, "word5","transl5",1,1,4, TypeModel.WORD, null, 1));
+        store.add(new MainViewModel(counter++, "word6","transl6",1,1,2, TypeModel.WORD, null, 1));
+        store.add(new MainViewModel(counter++, "word7","transl7",1,1,5, TypeModel.WORD, null, 1));
     }
 
 
     @Override
-    public void save(MainViewModel model) {
+    public Long save(MainViewModel model) {
         if (model.getId() == null) {
             model.setId(++counter);
         }
@@ -39,6 +40,9 @@ public class GaeConnectorStub implements GaeConnector {
         }
         store.add(model);
         log.info("Stub save");
+        sleep();
+        return model.getId();
+
     }
 
     @Override
@@ -47,6 +51,7 @@ public class GaeConnectorStub implements GaeConnector {
         resp.setList(store);
         resp.setRecordsCount(store.size());
         log.info("Stub getList");
+        sleep();
         return resp;
     }
 
@@ -58,5 +63,16 @@ public class GaeConnectorStub implements GaeConnector {
             }
         }
         log.info("Stub renewRating");
+        sleep();
+    }
+
+
+
+    private void sleep() {
+        try {
+            Thread.sleep(SERVICE_TIMEOUT);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

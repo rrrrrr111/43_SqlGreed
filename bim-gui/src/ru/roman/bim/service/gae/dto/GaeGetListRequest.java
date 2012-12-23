@@ -8,11 +8,21 @@ public class GaeGetListRequest implements Serializable {
 
     private Integer offset;
     private Integer count;
-    private String sorting;
+    private String sortingField;
+    private String sortingDirection;
 
     private List<TypeModel> types;
     private Integer langId;
 
+    public GaeGetListRequest(Integer offset, Integer count, String sortingField,
+                             String sortingDirection, List<TypeModel> types, Integer langId) {
+        this.offset = offset;
+        this.count = count;
+        this.sortingField = sortingField;
+        this.sortingDirection = sortingDirection;
+        this.types = types;
+        this.langId = langId;
+    }
 
     public List<TypeModel> getTypes() {
         return types;
@@ -46,11 +56,11 @@ public class GaeGetListRequest implements Serializable {
         this.count = count;
     }
 
-    public String getSorting() {
-        return sorting;
+    public String getSortingField() {
+        return sortingField;
     }
 
-    public void setSorting(String sorting) {
-        this.sorting = sorting;
+    public void setSortingField(String sortingField) {
+        this.sortingField = sortingField;
     }
 }

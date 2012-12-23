@@ -34,16 +34,16 @@ public class TrayUtils {
 
         trayIcon = new TrayIcon(createImage("/resources/trayIc.gif", "tray icon"));
 
-
         // Create a pop-up menu components
         final PopupMenu popUp = new PopupMenu();
         final MenuItem aboutItem = new MenuItem("About");
         final MenuItem clearCacheItem = new MenuItem("Clear cache");
+        final MenuItem infoItem = new MenuItem();
+        infoItem.setEnabled(false);
         final CheckboxMenuItem cbDisabled = new CheckboxMenuItem("Disabled");
         final Menu displayMenu = new Menu("Display");
         final MenuItem errorItem = new MenuItem("Error");
         final MenuItem warningItem = new MenuItem("Warning");
-        final MenuItem infoItem = new MenuItem("Info");
         final MenuItem noneItem = new MenuItem("None");
         final MenuItem exitItem = new MenuItem("Exit");
 
@@ -63,6 +63,24 @@ public class TrayUtils {
         trayIcon.setPopupMenu(popUp);
         trayIcon.setToolTip(Const.APP_NAME + " " + Const.VERSION);
         trayIcon.setImageAutoSize(true);
+
+//        popUp.seaddActionListener(new PopupMenuListener(){
+//
+//            @Override
+//            public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
+//                PaineFactory.getMainViewController().getLocalCache().getCurrent();
+//            }
+//
+//            @Override
+//            public void popupMenuWillBecomeInvisible(PopupMenuEvent e) {
+//                throw new RuntimeException("not implemented");
+//            }
+//
+//            @Override
+//            public void popupMenuCanceled(PopupMenuEvent e) {
+//                throw new RuntimeException("not implemented");
+//            }
+//        });
 
         trayIcon.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -123,7 +141,6 @@ public class TrayUtils {
 
         errorItem.addActionListener(listener);
         warningItem.addActionListener(listener);
-        infoItem.addActionListener(listener);
         noneItem.addActionListener(listener);
 
         final SystemTray tray = SystemTray.getSystemTray();

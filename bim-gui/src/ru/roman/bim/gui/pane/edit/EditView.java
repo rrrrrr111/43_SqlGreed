@@ -25,6 +25,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
     private final JButton prevButton = new JButton("prev");
     private final JButton nextButton = new JButton("next");
     private final JButton saveButton = new JButton("save");
+    private final JButton newButton = new JButton("new");
     private final JButton closeButton = new JButton("close");
 
     private CheckBoxPanel checkPanel;
@@ -109,19 +110,19 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         gbc3.weighty = 0.0;
         panel.add(nextButton, gbc3);
 
+        JPanel buttPanel = new JPanel();
+        buttPanel.add(saveButton);
+        buttPanel.add(newButton);
+        buttPanel.add(closeButton);
+
         final GridBagConstraints gbc5 = new GridBagConstraints();
         gbc5.fill = GridBagConstraints.HORIZONTAL;
         gbc5.gridx = 3;
         gbc5.gridy = 3;
+        gbc5.gridwidth = 3;
         gbc5.weighty = 0.0;
-        panel.add(saveButton, gbc5);
+        panel.add(buttPanel, gbc5);
 
-        final GridBagConstraints gbc6 = new GridBagConstraints();
-        gbc6.fill = GridBagConstraints.HORIZONTAL;
-        gbc6.gridx = 4;
-        gbc6.gridy = 3;
-        gbc6.weighty = 0.0;
-        panel.add(closeButton, gbc6);
 
         prevButton.addActionListener(new ActionListener() {
             @Override
@@ -139,6 +140,12 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.onSave();
+            }
+        });
+        newButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.onNew();
             }
         });
         closeButton.addActionListener(new ActionListener() {

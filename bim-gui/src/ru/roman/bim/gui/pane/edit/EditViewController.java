@@ -38,9 +38,20 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
         view.setValues(currModel);
     }
 
+    public synchronized void onNew() {
+        EditViewModel old = currModel;
+        currModel = new EditViewModel();
+        currModel.setFacedLangId(old.getFacedLangId());
+        currModel.setShadowedLangId(old.getShadowedLangId());
+        currModel.setRating(3);
+        currModel.setType(old.getType());
+        view.setValues(currModel);
+    }
+
     protected synchronized void onSave() {
         view.fillModel(currModel);
-        gaeConnector.save(currModel);
+        Long id = gaeConnector.save(currModel);
+        currModel.setId(id);
         localCache.renewModel(currModel);
     }
 
@@ -58,4 +69,6 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
     public Collection<TypeModel> getTypes() {
         return Arrays.asList(TypeModel.values());
     }
+
+
 }

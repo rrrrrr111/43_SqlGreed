@@ -25,8 +25,11 @@ public interface Const {
     /*
     сортировка по БД
      */
-    String DEFAULT_SORTING = "";
+    String DEFAULT_SORTING_FIELD = "editDate";
+    String DEFAULT_SORTING_DIRECTION = "desc";
+
     Integer DEFAULT_LANG_ID = 1;
     List<TypeModel> DEFAULT_TYPES = Arrays.asList(TypeModel.values());
+    Integer DEFAULT_OWNER_ID = 1;
 }
 

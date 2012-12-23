@@ -10,18 +10,19 @@ import ru.roman.bim.service.gae.dto.GaeGetListResponse;
 public class GaeConnectorImpl implements GaeConnector {
     private static final Log log = LogFactory.getLog(GaeConnectorImpl.class);
 
+
     @Override
-    public void save(MainViewModel model) {
-        //To change body of implemented methods use File | Settings | File Templates.
+    public Long save(MainViewModel model) {
+        throw new RuntimeException("not implemented");
     }
 
     @Override
     public GaeGetListResponse getList(GaeGetListRequest request) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        throw new RuntimeException("not implemented");
     }
 
     @Override
     public void renewRating(Long id, Integer rating) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        throw new RuntimeException("not implemented");
     }
 }

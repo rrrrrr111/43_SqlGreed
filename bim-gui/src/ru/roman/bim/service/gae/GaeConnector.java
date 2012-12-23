@@ -8,7 +8,7 @@ import ru.roman.bim.service.gae.dto.GaeGetListResponse;
 public interface GaeConnector {
 
 
-    void save(MainViewModel model);
+    Long save(MainViewModel model);
     /*
    предполагаем что сервис не будет возвращать пустой список, всегда хотябы одно значение
     */
