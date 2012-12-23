@@ -3,12 +3,35 @@ package ru.roman.bim.util;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import javax.swing.*;
 import java.awt.*;
 import java.lang.reflect.Method;
 
 /** @author Roman 18.12.12 0:10 */
 public class GuiUtils {
     private static final Log log = LogFactory.getLog(GuiUtils.class);
+
+    public static void startSwingApp(final Starter starter) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+
+            public void run() {
+                try {
+                    ExceptionHandler.registerUncatchExceptionHandler();
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+
+                    starter.onStart();
+
+                } catch (Throwable e) {
+                    ExceptionHandler.showMessage(e);
+                }
+            }
+        });
+    }
+
+    public interface Starter {
+        void onStart();
+    }
+
 
     // taken from: http://java.sun.com/developer/technicalArticles/GUI/translucent_shaped_windows/
     public static void setTranslucency(Window window){

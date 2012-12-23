@@ -6,9 +6,8 @@ import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.pane.PaineFactory;
 import ru.roman.bim.gui.pane.tray.TrayUtils;
 import ru.roman.bim.util.Const;
-import ru.roman.bim.util.ExceptionHandler;
+import ru.roman.bim.util.GuiUtils;
 
-import javax.swing.*;
 import java.awt.*;
 
 
@@ -17,21 +16,13 @@ public class StartBim {
     private static final Log log = LogFactory.getLog(StartBim.class);
 
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        GuiUtils.startSwingApp(new GuiUtils.Starter() {
+            @Override
+            public void onStart() {
+                PaineFactory.createMainView();
 
-            public void run() {
-                try {
-                    ExceptionHandler.registerUncatchExceptionHandler();
-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-
-                    PaineFactory.createMainView();
-
-                    TrayUtils.showTrayNotification("Bim started", TrayIcon.MessageType.INFO);
-                    log.info(Const.APP_NAME + " started");
-
-                } catch (Throwable e) {
-                    ExceptionHandler.showMessage(e);
-                }
+                TrayUtils.showTrayNotification("Bim started", TrayIcon.MessageType.INFO);
+                log.info(Const.APP_NAME + " started");
             }
         });
     }

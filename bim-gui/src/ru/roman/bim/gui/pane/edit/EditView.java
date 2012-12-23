@@ -1,35 +1,37 @@
-package ru.roman.bim.gui.pane.main;
+package ru.roman.bim.gui.pane.edit;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.View;
 import ru.roman.bim.gui.custom.widget.CheckBoxPanel;
-import ru.roman.bim.util.GuiUtils;
+import ru.roman.bim.service.gae.dto.TypeModel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collection;
+import java.util.Vector;
 
 /** @author Roman 18.12.12 0:02 */
-public class MainView extends JFrame implements View<MainViewModel, MainView, MainViewController> {
-    private static final Log log = LogFactory.getLog(MainView.class);
+public class EditView extends JFrame implements View<EditViewModel, EditView, EditViewController> {
+    private static final Log log = LogFactory.getLog(EditView.class);
 
-    private final MainViewController controller = new MainViewController(this);
+    private final EditViewController controller = new EditViewController(this);
 
-    private final JLabel textLabel = new JLabel();
+    private final JTextArea facedArea = new JTextArea();
+    private final JTextArea translationArea = new JTextArea();
 
-    private final JButton prevButton = new JButton("pr");
-    private final JButton nextButton = new JButton("nx");
-    private final JButton translateButton = new JButton("translate");
-    private final JButton editButton = new JButton("edit");
-    private final JButton settingsButton = new JButton("sett");
+    private final JButton prevButton = new JButton("prev");
+    private final JButton nextButton = new JButton("next");
+    private final JButton saveButton = new JButton("save");
+    private final JButton closeButton = new JButton("close");
 
     private CheckBoxPanel checkPanel;
 
-    private final JLabel typeLabel = new JLabel();
+    private JComboBox<TypeModel> typeComboBox;
 
-    public MainView() {
+    public EditView() {
 
         createView();
         controller.onInit();
@@ -40,16 +42,28 @@ public class MainView extends JFrame implements View<MainViewModel, MainView, Ma
     private void createView() {
 
         final JPanel panel = new JPanel(new GridBagLayout());
-        //panel.setPreferredSize(new Dimension(300, 200));
-        setUndecorated(true);
-        //setTranslucency(f);
-        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         setLocationRelativeTo(null);
-        setBackground(new Color(0.5294118f, 0f, 1.0f, 0.0f));
         add(panel);
-        setPreferredSize(new Dimension(270, 140));
-        //setOpacity(Float.valueOf(0.75f));
-        setResizable(false);
+        setPreferredSize(new Dimension(470, 340));
+        setResizable(true);
+        //get
+
+        Font font = new Font(Font.SANS_SERIF, Font.PLAIN, 14);
+        facedArea.setEditable(true);
+        facedArea.setLineWrap(true);
+        facedArea.setWrapStyleWord(true);
+        facedArea.setFont(font);
+        JScrollPane facedAreaScrollPane = new JScrollPane(facedArea);
+
+        translationArea.setEditable(true);
+        translationArea.setLineWrap(true);
+        translationArea.setWrapStyleWord(true);
+        translationArea.setFont(font);
+        JScrollPane translationAreaScrollPane = new JScrollPane(translationArea);
+
+        Collection <TypeModel> types = controller.getTypes();
+        typeComboBox = new JComboBox<TypeModel>(new Vector<TypeModel>(types));
 
         // текст
 //        final JPanel textPanel = new JPanel(new CardLayout());
@@ -68,43 +82,46 @@ public class MainView extends JFrame implements View<MainViewModel, MainView, Ma
         gbc1.gridy = 0;
         //gbc1.ipady = 140;                          // ограничение минимального размера
         //gbc1.ipadx = 270;                          // ограничение минимального размера
-        panel.add(textLabel, gbc1);
+        panel.add(facedAreaScrollPane, gbc1);
+
+        final GridBagConstraints gbc1$1 = new GridBagConstraints();
+        gbc1$1.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+        //gbc1$1.anchor = GridBagConstraints.PAGE_START;  // привязка к краю контейнера
+        gbc1$1.gridwidth = 5;                         // кол-во ячеек заполняемых по ширине
+        gbc1$1.weighty = 1.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+        gbc1$1.weightx = 1.0;
+        gbc1$1.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+        gbc1$1.gridy = 1;
+        panel.add(translationAreaScrollPane, gbc1$1);
 
         // кнопки
         final GridBagConstraints gbc2 = new GridBagConstraints();
         gbc2.fill = GridBagConstraints.HORIZONTAL;
         gbc2.gridx = 0;
-        gbc2.gridy = 1;
+        gbc2.gridy = 3;
         gbc2.weighty = 0.0;
         panel.add(prevButton, gbc2);
 
         final GridBagConstraints gbc3 = new GridBagConstraints();
         gbc3.fill = GridBagConstraints.HORIZONTAL;
         gbc3.gridx = 1;
-        gbc3.gridy = 1;
+        gbc3.gridy = 3;
         gbc3.weighty = 0.0;
         panel.add(nextButton, gbc3);
-
-        final GridBagConstraints gbc4 = new GridBagConstraints();
-        gbc4.fill = GridBagConstraints.HORIZONTAL;
-        gbc4.gridx = 2;
-        gbc4.gridy = 1;
-        gbc4.weighty = 0.0;
-        panel.add(translateButton, gbc4);
 
         final GridBagConstraints gbc5 = new GridBagConstraints();
         gbc5.fill = GridBagConstraints.HORIZONTAL;
         gbc5.gridx = 3;
-        gbc5.gridy = 1;
+        gbc5.gridy = 3;
         gbc5.weighty = 0.0;
-        panel.add(editButton, gbc5);
+        panel.add(saveButton, gbc5);
 
         final GridBagConstraints gbc6 = new GridBagConstraints();
         gbc6.fill = GridBagConstraints.HORIZONTAL;
         gbc6.gridx = 4;
-        gbc6.gridy = 1;
+        gbc6.gridy = 3;
         gbc6.weighty = 0.0;
-        panel.add(settingsButton, gbc6);
+        panel.add(closeButton, gbc6);
 
         prevButton.addActionListener(new ActionListener() {
             @Override
@@ -118,33 +135,22 @@ public class MainView extends JFrame implements View<MainViewModel, MainView, Ma
                 controller.onNext();
             }
         });
-        translateButton.addActionListener(new ActionListener() {
+        saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.onTranslate();
+                controller.onSave();
             }
         });
-        editButton.addActionListener(new ActionListener() {
+        closeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.onEdit();
-            }
-        });
-        settingsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.onSettings();
+                controller.onClose();
             }
         });
 
 
         // чекбоксы
-        checkPanel = new CheckBoxPanel(new CheckBoxPanel.OnChangeCallBack() {
-            @Override
-            public void OnChange(int rating) {
-                controller.onRatingChange(rating);
-            }
-        });
+        checkPanel = new CheckBoxPanel();
         final GridBagConstraints gbc7 = new GridBagConstraints();
         gbc7.fill = GridBagConstraints.NONE;
         gbc7.anchor = GridBagConstraints.LAST_LINE_START;
@@ -156,7 +162,6 @@ public class MainView extends JFrame implements View<MainViewModel, MainView, Ma
         gbc7.weighty = 0.0;
         panel.add(checkPanel, gbc7);
 
-
         final GridBagConstraints gbc8 = new GridBagConstraints();
         gbc8.fill = GridBagConstraints.HORIZONTAL;
         gbc8.gridwidth = 2;
@@ -164,47 +169,40 @@ public class MainView extends JFrame implements View<MainViewModel, MainView, Ma
         gbc8.gridy = 2;
         gbc8.weighty = 0.0;
         gbc8.weightx = 1.0;
-        panel.add(typeLabel, gbc8);
+        panel.add(typeComboBox, gbc8);
 
         pack();
-        Point pos = GuiUtils.getRightCornerPosition(getSize(), 3);
-        setLocation(pos);
-    }
-
-    public void setRating(Integer rating) {
-        checkPanel.setRating(rating);
-    }
-
-    public Integer getRating() {
-        return checkPanel.getRating();
     }
 
     @Override
-    public void setValues(MainViewModel model) {
-        setText(model.getTextFaced());
-        typeLabel.setText(model.getType().getName());
-        setRating(model.getRating());
-    }
-
-    private void setText(String str) {
-        textLabel.setText(String.format("<html><body><p align='center' width='100%%'" +
-                "style='color:blue;font:10px;'>%s</p></body></html>", str));
-    }
-
-    private boolean translatedState;
-
-    public void translate() {
-        if (translatedState) {
-            setText(controller.getModel().getTextFaced());
-        } else {
-            setText(controller.getModel().getTextShadowed());
-        }
-        translatedState = !translatedState;
+    public void setValues(EditViewModel model) {
+        facedArea.setText(model.getTextFaced());
+        translationArea.setText(model.getTextShadowed());
+        typeComboBox.getModel().setSelectedItem(model.getType());
+        checkPanel.setRating(model.getRating());
     }
 
     @Override
-    public MainViewController getController() {
+    public EditViewController getController() {
         return controller;
     }
 
+    private boolean reverseState;
+
+    public void fillModel(EditViewModel currModel) {
+
+        //currModel.setId();
+        currModel.setRating(checkPanel.getRating());
+        if (reverseState) {
+            currModel.setTextFaced(translationArea.getText());
+            currModel.setTextShadowed(facedArea.getText());
+        } else {
+            currModel.setTextFaced(facedArea.getText());
+            currModel.setTextShadowed(translationArea.getText());
+        }
+        //currModel.setFacedLangId();
+        //currModel.setShadowedLangId();
+
+        currModel.setType(typeComboBox.getItemAt(typeComboBox.getSelectedIndex()));
+    }
 }

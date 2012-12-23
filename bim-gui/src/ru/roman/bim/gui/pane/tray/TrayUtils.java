@@ -38,6 +38,7 @@ public class TrayUtils {
         // Create a pop-up menu components
         final PopupMenu popUp = new PopupMenu();
         final MenuItem aboutItem = new MenuItem("About");
+        final MenuItem clearCacheItem = new MenuItem("Clear cache");
         final CheckboxMenuItem cbDisabled = new CheckboxMenuItem("Disabled");
         final Menu displayMenu = new Menu("Display");
         final MenuItem errorItem = new MenuItem("Error");
@@ -48,6 +49,7 @@ public class TrayUtils {
 
         //Add components to pop-up menu
         popUp.add(aboutItem);
+        popUp.add(clearCacheItem);
         popUp.addSeparator();
         popUp.add(cbDisabled);
         popUp.addSeparator();
@@ -71,6 +73,12 @@ public class TrayUtils {
         aboutItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null, "This is Bim");
+            }
+        });
+
+        clearCacheItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                PaineFactory.getMainViewController().getLocalCache().clearCache();
             }
         });
 

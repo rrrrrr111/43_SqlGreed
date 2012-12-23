@@ -1,5 +1,7 @@
 package ru.roman.bim.gui.pane;
 
+import ru.roman.bim.gui.pane.edit.EditView;
+import ru.roman.bim.gui.pane.edit.EditViewController;
 import ru.roman.bim.gui.pane.main.MainView;
 import ru.roman.bim.gui.pane.main.MainViewController;
 
@@ -11,6 +13,7 @@ import ru.roman.bim.gui.pane.main.MainViewController;
 public class PaineFactory {
 
     private static MainView mainView;
+    private static EditView editView;
 
     public static MainView createMainView() {
         if (mainView == null) {
@@ -21,5 +24,16 @@ public class PaineFactory {
 
     public static MainViewController getMainViewController() {
         return createMainView().getController();
+    }
+
+    public static EditView createEditView() {
+        if (editView == null) {
+            PaineFactory.editView = new EditView();
+        }
+        return editView;
+    }
+
+    public static EditViewController getEditViewController() {
+        return createEditView().getController();
     }
 }

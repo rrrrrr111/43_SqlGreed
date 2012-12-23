@@ -4,4 +4,6 @@ package ru.roman.bim.gui.common;
 public interface View<M extends Model, V extends View, C extends Controller<V, M>> {
 
     C getController();
+
+    void setValues(M model);
 }
