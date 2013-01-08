@@ -1,6 +1,6 @@
 package ru.roman.bim.util;
 
-import ru.roman.bim.service.gae.dto.TypeModel;
+import ru.roman.bim.service.gae.wsclient.BimItemType;
 
 import java.util.Arrays;
 import java.util.List;
@@ -29,7 +29,7 @@ public interface Const {
     String DEFAULT_SORTING_DIRECTION = "desc";
 
     Integer DEFAULT_LANG_ID = 1;
-    List<TypeModel> DEFAULT_TYPES = Arrays.asList(TypeModel.values());
+    List<BimItemType> DEFAULT_TYPES = Arrays.asList(BimItemType.values());
     Integer DEFAULT_OWNER_ID = 1;
 }
 

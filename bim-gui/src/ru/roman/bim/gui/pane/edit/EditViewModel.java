@@ -10,18 +10,7 @@ public class EditViewModel extends MainViewModel {
     }
 
     public EditViewModel(MainViewModel model) {
-        super(
-                model.getId(),
-                model.getTextFaced(),
-                model.getTextShadowed(),
-                model.getFacedLangId(),
-                model.getShadowedLangId() ,
-                model.getRating(),
-                model.getType(),
-                model.getModelNum(),
-                model.getOwner()
-        );
-
+        super(model);
     }
 
 

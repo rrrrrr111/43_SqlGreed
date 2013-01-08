@@ -5,19 +5,21 @@ import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.pane.main.MainViewModel;
 import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.gae.GaeConnector;
-import ru.roman.bim.service.gae.dto.GaeGetListRequest;
-import ru.roman.bim.service.gae.dto.GaeGetListResponse;
+import ru.roman.bim.service.gae.wsclient.BimItemModel;
+import ru.roman.bim.service.gae.wsclient.GaeGetListRequest;
+import ru.roman.bim.service.gae.wsclient.GaeGetListResponse;
 import ru.roman.bim.util.BimException;
 import ru.roman.bim.util.Const;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /** @author Roman 22.12.12 16:44 */
 public class LocalCacheImpl implements LocalCache {
     private static final Log log = LogFactory.getLog(LocalCacheImpl.class);
 
-    private final GaeConnector gaeConnector = ServiceFactory.getGaeConnector();
+    GaeConnector gaeConnector = ServiceFactory.getGaeConnector();
     /*
    кэш
     */
@@ -79,7 +81,7 @@ public class LocalCacheImpl implements LocalCache {
         num = num - currentOffset;
         if (num < cache.size()) {
             final MainViewModel model = cache.get(num);
-            model.setModelNum(currentNum);
+            model.setModelNum(currentNum.longValue());
             return model;
         }
         throw new BimException(String.format("Illegal cache state, value %s too big", num));
@@ -102,21 +104,28 @@ public class LocalCacheImpl implements LocalCache {
                 offset = currentOffset + Const.CACHE_MAX_SIZE;
             }
 
-            final GaeGetListRequest req = new GaeGetListRequest(
-                    offset,
-                    Const.CACHE_MAX_SIZE,
-                    Const.DEFAULT_SORTING_FIELD,
-                    Const.DEFAULT_SORTING_DIRECTION,
-                    Const.DEFAULT_TYPES,
-                    Const.DEFAULT_LANG_ID
-            );
+            final GaeGetListRequest req = new GaeGetListRequest();
+            req.setOffset(offset);
+            req.setCount(Const.CACHE_MAX_SIZE);
+            req.setSortingField(Const.DEFAULT_SORTING_FIELD);
+            req.getTypes().addAll(Const.DEFAULT_TYPES);
+            req.setLangId(Const.DEFAULT_LANG_ID);
+
             GaeGetListResponse resp = gaeConnector.getList(req);
 
             cache.clear();
-            cache.addAll(resp.getList());
+            cache.addAll(toModels(resp.getList()));
             recordsCount = resp.getRecordsCount() - 1;  // отнимаем еденицу т к у нас все счетчики относительно индексов списка
             currentOffset = offset;
         }
+    }
+
+    private Collection<MainViewModel> toModels(List<BimItemModel> list) {
+        Collection<MainViewModel> res = new ArrayList<MainViewModel>();
+        for (BimItemModel model : list) {
+            res.add(new MainViewModel(model));
+        }
+        return res;
     }
 
     @Override

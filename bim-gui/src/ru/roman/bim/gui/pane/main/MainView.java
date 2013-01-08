@@ -182,8 +182,8 @@ public class MainView extends JFrame implements View<MainViewModel, MainView, Ma
     @Override
     public void setValues(MainViewModel model) {
         setText(model.getTextFaced());
-        typeLabel.setText(model.getType().getName());
-        setRating(model.getRating());
+        typeLabel.setText(model.getType().toString());
+        setRating(model.getRating().intValue());
     }
 
     private void setText(String str) {

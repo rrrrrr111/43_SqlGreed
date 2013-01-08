@@ -1,7 +1,7 @@
 package ru.roman.bim.service;
 
-import ru.roman.bim.dev.stub.GaeConnectorStub;
 import ru.roman.bim.service.gae.GaeConnector;
+import ru.roman.bim.service.gae.GaeConnectorImpl;
 
 /** @author Roman 22.12.12 15:37 */
 public class ServiceFactory {
@@ -9,7 +9,7 @@ public class ServiceFactory {
 
     public static synchronized GaeConnector getGaeConnector() {
         if (gaeConnector == null) {
-            gaeConnector = new GaeConnectorStub();
+            gaeConnector = new GaeConnectorImpl();
         }
         return gaeConnector;
     }

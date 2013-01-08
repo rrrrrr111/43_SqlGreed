@@ -1,23 +1,23 @@
-package ru.roman.bim.service.gae.dto;
-
-import ru.roman.bim.gui.pane.main.MainViewModel;
+package ru.roman.bim.server.service.data.dto;
 
 import java.io.Serializable;
 import java.util.Collection;
 
 /** @author Roman 22.12.12 15:58 */
-public class GaeGetListResponse implements Serializable{
+public class GaeGetListResponse implements Serializable {
 
     private Integer recordsCount;
-    private Collection<MainViewModel> list;
+    private Collection<BimItemModel> list;
 
 
+    public GaeGetListResponse() {
+    }
 
-    public Collection<MainViewModel> getList() {
+    public Collection<BimItemModel> getList() {
         return list;
     }
 
-    public void setList(Collection<MainViewModel> list) {
+    public void setList(Collection<BimItemModel> list) {
         this.list = list;
     }
 

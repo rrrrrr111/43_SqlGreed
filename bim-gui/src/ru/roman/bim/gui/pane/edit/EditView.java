@@ -4,7 +4,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.View;
 import ru.roman.bim.gui.custom.widget.CheckBoxPanel;
-import ru.roman.bim.service.gae.dto.TypeModel;
+import ru.roman.bim.service.gae.wsclient.BimItemType;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,7 +30,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
 
     private CheckBoxPanel checkPanel;
 
-    private JComboBox<TypeModel> typeComboBox;
+    private JComboBox<BimItemType> typeComboBox;
 
     public EditView() {
 
@@ -63,8 +63,8 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         translationArea.setFont(font);
         JScrollPane translationAreaScrollPane = new JScrollPane(translationArea);
 
-        Collection <TypeModel> types = controller.getTypes();
-        typeComboBox = new JComboBox<TypeModel>(new Vector<TypeModel>(types));
+        Collection <BimItemType> types = controller.getTypes();
+        typeComboBox = new JComboBox<BimItemType>(new Vector<BimItemType>(types));
 
         // текст
 //        final JPanel textPanel = new JPanel(new CardLayout());
@@ -186,7 +186,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         facedArea.setText(model.getTextFaced());
         translationArea.setText(model.getTextShadowed());
         typeComboBox.getModel().setSelectedItem(model.getType());
-        checkPanel.setRating(model.getRating());
+        checkPanel.setRating(model.getRating().intValue());
     }
 
     @Override
@@ -199,7 +199,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
     public void fillModel(EditViewModel currModel) {
 
         //currModel.setId();
-        currModel.setRating(checkPanel.getRating());
+        currModel.setRating(Long.valueOf(checkPanel.getRating()));
         if (reverseState) {
             currModel.setTextFaced(translationArea.getText());
             currModel.setTextShadowed(facedArea.getText());

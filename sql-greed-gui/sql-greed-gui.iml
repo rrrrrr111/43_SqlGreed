@@ -12,19 +12,11 @@
     <orderEntry type="library" name="jxl" level="application" />
     <orderEntry type="library" name="commons-lang3-3.1" level="application" />
     <orderEntry type="library" name="derbyclient" level="project" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$APPLICATION_HOME_DIR$/lib/junit-4.10.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
     <orderEntry type="library" name="spring-context-3.2.0.M1" level="project" />
     <orderEntry type="library" name="commons-logging-1.1.1" level="project" />
     <orderEntry type="library" name="log4j-1.2.17" level="project" />
     <orderEntry type="library" name="commons-io-2.4" level="application" />
+    <orderEntry type="library" scope="TEST" name="junit-4.10" level="application" />
   </component>
   <component name="org.twodividedbyzero.idea.findbugs">
     <option name="_basePreferences">

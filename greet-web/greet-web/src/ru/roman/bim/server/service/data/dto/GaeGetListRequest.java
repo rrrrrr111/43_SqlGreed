@@ -1,4 +1,4 @@
-package ru.roman.bim.service.gae.dto;
+package ru.roman.bim.server.service.data.dto;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,11 +11,14 @@ public class GaeGetListRequest implements Serializable {
     private String sortingField;
     private String sortingDirection;
 
-    private List<TypeModel> types;
+    private List<BimItemType> types;
     private Integer langId;
 
+    public GaeGetListRequest() {
+    }
+
     public GaeGetListRequest(Integer offset, Integer count, String sortingField,
-                             String sortingDirection, List<TypeModel> types, Integer langId) {
+                             String sortingDirection, List<BimItemType> types, Integer langId) {
         this.offset = offset;
         this.count = count;
         this.sortingField = sortingField;
@@ -24,11 +27,11 @@ public class GaeGetListRequest implements Serializable {
         this.langId = langId;
     }
 
-    public List<TypeModel> getTypes() {
+    public List<BimItemType> getTypes() {
         return types;
     }
 
-    public void setTypes(List<TypeModel> types) {
+    public void setTypes(List<BimItemType> types) {
         this.types = types;
     }
 

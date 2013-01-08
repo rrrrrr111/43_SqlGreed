@@ -44,6 +44,15 @@
     <dev_appserver war="war" />
   </target>
 
+    <target name="stopserver" description="Kill Java process">
+        <exec executable="cmd">
+            <arg value="/c"/>
+            <arg value="c:/1_work/35_tools/pskill.exe"/>
+            <arg value="-t"/>
+            <arg value="java.exe"/>
+        </exec>
+    </target>
+
   <target name="update" depends="compile"
       description="Uploads the application to App Engine.">
     <appcfg action="update" war="war" />

@@ -7,7 +7,7 @@ import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.cache.LocalCache;
 import ru.roman.bim.service.cache.LocalCacheFactory;
 import ru.roman.bim.service.gae.GaeConnector;
-import ru.roman.bim.service.gae.dto.TypeModel;
+import ru.roman.bim.service.gae.wsclient.BimItemType;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -43,7 +43,7 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
         currModel = new EditViewModel();
         currModel.setFacedLangId(old.getFacedLangId());
         currModel.setShadowedLangId(old.getShadowedLangId());
-        currModel.setRating(3);
+        currModel.setRating(3L);
         currModel.setType(old.getType());
         view.setValues(currModel);
     }
@@ -66,8 +66,8 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
         view.setVisible(true);
     }
 
-    public Collection<TypeModel> getTypes() {
-        return Arrays.asList(TypeModel.values());
+    public Collection<BimItemType> getTypes() {
+        return Arrays.asList(BimItemType.values());
     }
 
 

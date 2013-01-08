@@ -41,7 +41,7 @@ public class MainViewController extends Controller<MainView, MainViewModel> {
 
     protected void onRatingChange(Integer rating) {
         //log.info("rating changed to " + rating);
-        currModel.setRating(rating);
+        currModel.setRating(rating.longValue());
         gaeConnector.renewRating(currModel.getId(), rating);
     }
 
