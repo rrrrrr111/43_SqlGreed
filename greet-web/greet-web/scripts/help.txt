@@ -1,0 +1,35 @@
+
+Usage: WSGEN [options] <SEI>
+
+where [options] include:
+  -classpath <path>          specify where to find input class files
+  -cp <path>                 same as -classpath <path>
+  -d <directory>             specify where to place generated output files
+  -extension                 allow vendor extensions - functionality not specified
+                             by the specification.  Use of extensions may
+                             result in applications that are not portable or
+                             may not interoperate with other implementations
+  -help                      display help
+  -keep                      keep generated files
+  -r <directory>             resource destination directory, specify where to
+                             place resouce files such as WSDLs
+  -s <directory>             specify where to place generated source files
+  -verbose                   output messages about what the compiler is doing
+  -version                   print version information
+  -wsdl[:protocol]           generate a WSDL file. The protocol is optional.
+                             Valid protocols are [soap1.1, Xsoap1.2],
+                             the default is soap1.1.
+                             The non stanadard protocols [Xsoap1.2]
+                             can only be used in conjunction with the
+                             -extension option.
+  -inlineSchemas             inline schemas in the generated wsdl. Must be
+                             used in conjunction with the -wsdl option.
+  -servicename <name>        specify the Service name to use in the generated WSDL
+                             Used in conjunction with the -wsdl option.
+  -portname <name>           specify the Port name to use in the generated WSDL
+                             Used in conjunction with the -wsdl option.
+
+Examples:
+  wsgen -cp . example.Stock
+  wsgen -cp . example.Stock -wsdl -servicename {http://mynamespace}MyService
+

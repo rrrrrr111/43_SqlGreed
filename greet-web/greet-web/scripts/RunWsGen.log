@@ -1,0 +1,30 @@
+JAX-WS RI 2.2.4-b01
+[ProcessedMethods Class: ru.roman.bim.server.service.data.DataProvider]
+[should process method: save hasWebMethods: true ]
+[endpointReferencesInterface: false]
+[declaring class has WebSevice: true]
+[returning: true]
+[WrapperGen - method: save(ru.roman.bim.server.service.data.dto.BimItemModel)]
+[method.getDeclaringType(): ru.roman.bim.server.service.data.DataProvider]
+[requestWrapper: ru.roman.bim.server.service.data.jaxws.Save]
+[should process method: getList hasWebMethods: true ]
+[endpointReferencesInterface: false]
+[declaring class has WebSevice: true]
+[returning: true]
+[WrapperGen - method: getList(ru.roman.bim.server.service.data.dto.GaeGetListRequest)]
+[method.getDeclaringType(): ru.roman.bim.server.service.data.DataProvider]
+[requestWrapper: ru.roman.bim.server.service.data.jaxws.GetList]
+[should process method: renewRating hasWebMethods: true ]
+[endpointReferencesInterface: false]
+[declaring class has WebSevice: true]
+[returning: true]
+[WrapperGen - method: renewRating(java.lang.Long,java.lang.Integer)]
+[method.getDeclaringType(): ru.roman.bim.server.service.data.DataProvider]
+[requestWrapper: ru.roman.bim.server.service.data.jaxws.RenewRating]
+[ProcessedMethods Class: java.lang.Object]
+ru\roman\bim\server\service\data\jaxws\GetList.java
+ru\roman\bim\server\service\data\jaxws\GetListResponse.java
+ru\roman\bim\server\service\data\jaxws\RenewRating.java
+ru\roman\bim\server\service\data\jaxws\RenewRatingResponse.java
+ru\roman\bim\server\service\data\jaxws\Save.java
+ru\roman\bim\server\service\data\jaxws\SaveResponse.java
