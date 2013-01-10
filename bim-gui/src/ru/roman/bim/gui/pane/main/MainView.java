@@ -10,6 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /** @author Roman 18.12.12 0:02 */
 public class MainView extends JFrame implements View<MainViewModel, MainView, MainViewController> {
@@ -50,6 +52,17 @@ public class MainView extends JFrame implements View<MainViewModel, MainView, Ma
         setPreferredSize(new Dimension(270, 140));
         //setOpacity(Float.valueOf(0.75f));
         setResizable(false);
+        setAlwaysOnTop(true);
+        panel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                controller.getGhostService().stop();
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                controller.getGhostService().startFromOpened();
+            }
+        });
 
         // текст
 //        final JPanel textPanel = new JPanel(new CardLayout());

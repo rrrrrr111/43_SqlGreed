@@ -5,12 +5,21 @@ import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.pane.main.MainViewModel;
 import ru.roman.bim.service.gae.wsclient.*;
 import ru.roman.bim.util.Const;
+import ru.roman.bim.util.ExceptionHandler;
 
 /** @author Roman 22.12.12 15:36 */
 public class GaeConnectorImpl implements GaeConnector {
 
     private static final Log log = LogFactory.getLog(GaeConnectorImpl.class);
-    private static DataProvider provider = new DataProvider_Service().getDataProviderPort();
+    private static DataProvider provider;
+
+    public GaeConnectorImpl() {
+        try {
+            provider = new DataProvider_Service().getDataProviderPort();
+        } catch (Exception e) {
+            ExceptionHandler.showErrorMessageAndExit(e);
+        }
+    }
 
     @Override
     public Long save(MainViewModel model) {

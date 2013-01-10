@@ -64,4 +64,9 @@ public class OpacityTimer extends Timer {
         step = FINAL_OPACITY;
         checkAndStart();
     }
+
+    public void hideQuickly() {
+        step = -FINAL_OPACITY;
+        checkAndStart();
+    }
 }

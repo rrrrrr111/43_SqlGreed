@@ -104,9 +104,9 @@ public class TrayUtils {
             public void itemStateChanged(ItemEvent e) {
                 int cb1Id = e.getStateChange();
                 if (cb1Id == ItemEvent.SELECTED){
-                    PaineFactory.getMainViewController().setState(State.DISABLED);
+                    PaineFactory.getMainViewController().changeState(State.DISABLED);
                 } else {
-                    PaineFactory.getMainViewController().setState(State.SCHEDULED);
+                    PaineFactory.getMainViewController().changeState(State.SCHEDULED);
                 }
             }
         });
@@ -151,7 +151,7 @@ public class TrayUtils {
                 } catch (Exception ex){
                     log.info("Error while closing", ex);
                 } finally {
-                    StartBim.stop();
+                    StartBim.stop(0);
                 }
             }
         });

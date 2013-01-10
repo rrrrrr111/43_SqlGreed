@@ -27,13 +27,13 @@ public class StartBim {
         });
     }
 
-    public static void stop() {
+    public static void stop(int exitCode) {
         try {
             log.info(Const.APP_NAME + " closed");
         } catch (Exception ex){
             log.info("Error while closing", ex);
         } finally {
-            System.exit(0);
+            System.exit(exitCode);
         }
     }
 }
