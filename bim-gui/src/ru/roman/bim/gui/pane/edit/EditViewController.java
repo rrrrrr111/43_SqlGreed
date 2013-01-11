@@ -1,5 +1,6 @@
 package ru.roman.bim.gui.pane.edit;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.Controller;
@@ -8,6 +9,7 @@ import ru.roman.bim.service.cache.LocalCache;
 import ru.roman.bim.service.cache.LocalCacheFactory;
 import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.gae.wsclient.BimItemType;
+import ru.roman.bim.util.GuiUtils;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -50,9 +52,14 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
 
     protected synchronized void onSave() {
         view.fillModel(currModel);
-        Long id = gaeConnector.save(currModel);
-        currModel.setId(id);
-        localCache.renewModel(currModel);
+        if (StringUtils.isBlank(currModel.getTextFaced()) ||
+                StringUtils.isBlank(currModel.getTextShadowed())) {
+            GuiUtils.showInfoMessage("Cue word and the translation can not be empty");
+        } else {
+            Long id = gaeConnector.save(currModel);
+            currModel.setId(id);
+            localCache.renewModel(currModel);
+        }
     }
 
     protected void onClose() {

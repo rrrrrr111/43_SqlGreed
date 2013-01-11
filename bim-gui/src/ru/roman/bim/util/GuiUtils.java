@@ -72,4 +72,9 @@ public class GuiUtils {
             throw new RuntimeException("Exception while screen resolution detection", e);
         }
     }
+
+    public static void showInfoMessage(String mess) {
+        JOptionPane.showMessageDialog(null, mess);
+    }
+
 }

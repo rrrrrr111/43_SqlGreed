@@ -22,6 +22,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="count" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="langId" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="offset" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="ratingsList" type="{http://www.w3.org/2001/XMLSchema}int" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="sortingDirection" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="sortingField" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="types" type="{http://data.service.server.bim.roman.ru/}bimItemType" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
@@ -37,6 +39,8 @@ import javax.xml.bind.annotation.XmlType;
     "count",
     "langId",
     "offset",
+    "ratingsList",
+    "sortingDirection",
     "sortingField",
     "types"
 })
@@ -45,6 +49,9 @@ public class GaeGetListRequest {
     protected Integer count;
     protected Integer langId;
     protected Integer offset;
+    @XmlElement(nillable = true)
+    protected List<Integer> ratingsList;
+    protected String sortingDirection;
     protected String sortingField;
     @XmlElement(nillable = true)
     protected List<BimItemType> types;
@@ -119,6 +126,59 @@ public class GaeGetListRequest {
      */
     public void setOffset(Integer value) {
         this.offset = value;
+    }
+
+    /**
+     * Gets the value of the ratingsList property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the ratingsList property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getRatingsList().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Integer }
+     * 
+     * 
+     */
+    public List<Integer> getRatingsList() {
+        if (ratingsList == null) {
+            ratingsList = new ArrayList<Integer>();
+        }
+        return this.ratingsList;
+    }
+
+    /**
+     * Gets the value of the sortingDirection property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getSortingDirection() {
+        return sortingDirection;
+    }
+
+    /**
+     * Sets the value of the sortingDirection property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setSortingDirection(String value) {
+        this.sortingDirection = value;
     }
 
     /**

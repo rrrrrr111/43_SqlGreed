@@ -10,9 +10,10 @@
 </head>
 <body>
 
-   <a href="/jsp/sqlgreet.jsp">grEEt page</a>
-   <br/><br/>
-   <a href="/jsp/bim.jsp">Bim page</a>
+   <a href="/bimapplet/start.jnlp">Use Java web start</a>
+      <br/><br/>
+
+
 
 </body>
 </html>

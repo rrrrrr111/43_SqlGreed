@@ -63,8 +63,8 @@ public class DataProviderServlet extends HttpServlet {
         this.doPost(req, resp);
     }
 
-    @SuppressWarnings("rawtypes")
-    static MimeHeaders getHeaders(HttpServletRequest req) {
+
+    private static MimeHeaders getHeaders(HttpServletRequest req) {
         Enumeration headerNames = req.getHeaderNames();
         MimeHeaders headers = new MimeHeaders();
         while (headerNames.hasMoreElements()) {

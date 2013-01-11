@@ -34,7 +34,7 @@
   </binding>
   <service name="DataProvider">
     <port name="DataProviderPort" binding="tns:DataProviderPortBinding">
-      <soap:address location="http://localhost:8080/DataProvider"/>
+      <soap:address location="http://churganovroman.appspot.com/DataProvider"/>
     </port>
   </service>
 </definitions>

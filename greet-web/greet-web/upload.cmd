@@ -15,6 +15,7 @@ set ANT_HOME=C:\1_work\45_JavaLib\apache-ant-1.8.4
 	:: выполняем подписание jar
 
 call %ANT_HOME%\bin\ant -file ..\..\sql-greed-gui\keystore\build.xml sign_jar
+call %ANT_HOME%\bin\ant -file ..\..\sql-greed-gui\keystore\build.xml sign_bim_jar
 ::pause
 ::exit
 

@@ -66,5 +66,7 @@ public class GhostServiceImpl implements GhostService {
 
     public void stop() {
         mainTicker.stop();
+        hideTicker.stop();
+        unfreezeTicker.stop();
     }
 }

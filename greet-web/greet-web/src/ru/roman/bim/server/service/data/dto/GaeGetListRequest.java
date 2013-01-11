@@ -1,6 +1,7 @@
 package ru.roman.bim.server.service.data.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /** @author Roman 22.12.12 15:58 */
@@ -13,6 +14,7 @@ public class GaeGetListRequest implements Serializable {
 
     private List<BimItemType> types;
     private Integer langId;
+    private List<Integer> ratingsList;
 
     public GaeGetListRequest() {
     }
@@ -65,5 +67,24 @@ public class GaeGetListRequest implements Serializable {
 
     public void setSortingField(String sortingField) {
         this.sortingField = sortingField;
+    }
+
+    public String getSortingDirection() {
+        return sortingDirection;
+    }
+
+    public void setSortingDirection(String sortingDirection) {
+        this.sortingDirection = sortingDirection;
+    }
+
+    public List<Integer> getRatingsList() {
+        if (ratingsList == null) {
+            ratingsList = new ArrayList<Integer>();
+        }
+        return ratingsList;
+    }
+
+    public void setRatingsList(List<Integer> ratingsList) {
+        this.ratingsList = ratingsList;
     }
 }

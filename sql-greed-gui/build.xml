@@ -60,9 +60,9 @@
   
   <!-- JDK definitions -->
   
-  <property name="jdk.bin.1.6_(64)" value="${jdk.home.1.6_(64)}/bin"/>
-  <path id="jdk.classpath.1.6_(64)">
-    <fileset dir="${jdk.home.1.6_(64)}">
+  <property name="jdk.bin.1.7_(64)" value="${jdk.home.1.7_(64)}/bin"/>
+  <path id="jdk.classpath.1.7_(64)">
+    <fileset dir="${jdk.home.1.7_(64)}">
       <include name="jre/lib/charsets.jar"/>
       <include name="jre/lib/deploy.jar"/>
       <include name="jre/lib/javaws.jar"/>
@@ -74,13 +74,16 @@
       <include name="jre/lib/rt.jar"/>
       <include name="jre/lib/ext/dnsns.jar"/>
       <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
       <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
     </fileset>
   </path>
   
-  <property name="project.jdk.home" value="${jdk.home.1.6_(64)}"/>
-  <property name="project.jdk.bin" value="${jdk.bin.1.6_(64)}"/>
-  <property name="project.jdk.classpath" value="jdk.classpath.1.6_(64)"/>
+  <property name="project.jdk.home" value="${jdk.home.1.7_(64)}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.7_(64)}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.7_(64)"/>
   
   
   <!-- Project Libraries -->
@@ -90,6 +93,19 @@
   </path>
   
   <path id="library.derbyclient.classpath">
+    <pathelement location="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_cs.jar"/>
+    <pathelement location="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_de_DE.jar"/>
+    <pathelement location="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_es.jar"/>
+    <pathelement location="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_fr.jar"/>
+    <pathelement location="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_hu.jar"/>
+    <pathelement location="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_it.jar"/>
+    <pathelement location="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_ja_JP.jar"/>
+    <pathelement location="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_ko_KR.jar"/>
+    <pathelement location="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_pl.jar"/>
+    <pathelement location="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_pt_BR.jar"/>
+    <pathelement location="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_ru.jar"/>
+    <pathelement location="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_zh_CN.jar"/>
+    <pathelement location="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_zh_TW.jar"/>
     <pathelement location="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyclient.jar"/>
   </path>
   
@@ -145,11 +161,135 @@
     <pathelement location="C:/1_work/40_STS/03_gwt/gwt-2.4.0/gwt-user.jar"/>
   </path>
   
+  <path id="library.junit-4.10.classpath">
+    <pathelement location="C:/1_work/43_SqlGreed/greet-web/greet-web/lib/junit-4.10.jar"/>
+  </path>
+  
   <path id="library.jxl.classpath">
     <pathelement location="C:/1_work/45_JavaLib/jxl/jexcelapi/jxl.jar"/>
   </path>
   
   <!-- Modules -->
+  
+  
+  <!-- Module bim-gui -->
+  
+  <dirname property="module.bim-gui.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.bim-gui" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.bim-gui" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.bim-gui" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.bim-gui" value="${compiler.args}"/>
+  
+  <property name="bim-gui.output.dir" value="${module.bim-gui.basedir}/../greet-web/greet-web/out/production/bim-gui"/>
+  <property name="bim-gui.testoutput.dir" value="${module.bim-gui.basedir}/../greet-web/greet-web/out/test/bim-gui"/>
+  
+  <path id="bim-gui.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="bim-gui.module.production.classpath">
+    <path refid="${module.jdk.classpath.bim-gui}"/>
+    <path refid="library.commons-lang3-3.1.classpath"/>
+    <path refid="library.commons-logging-1.1.1.classpath"/>
+    <path refid="library.commons-io-2.4.classpath"/>
+    <path refid="library.log4j-1.2.17.classpath"/>
+  </path>
+  
+  <path id="bim-gui.runtime.production.module.classpath">
+    <pathelement location="${bim-gui.output.dir}"/>
+    <path refid="library.commons-lang3-3.1.classpath"/>
+    <path refid="library.commons-logging-1.1.1.classpath"/>
+    <path refid="library.commons-io-2.4.classpath"/>
+    <path refid="library.log4j-1.2.17.classpath"/>
+  </path>
+  
+  <path id="bim-gui.module.classpath">
+    <pathelement location="${bim-gui.output.dir}"/>
+    <path refid="${module.jdk.classpath.bim-gui}"/>
+    <path refid="library.commons-lang3-3.1.classpath"/>
+    <path refid="library.commons-logging-1.1.1.classpath"/>
+    <path refid="library.commons-io-2.4.classpath"/>
+    <path refid="library.log4j-1.2.17.classpath"/>
+    <path refid="library.junit-4.10.classpath"/>
+  </path>
+  
+  <path id="bim-gui.runtime.module.classpath">
+    <pathelement location="${bim-gui.testoutput.dir}"/>
+    <pathelement location="${bim-gui.output.dir}"/>
+    <path refid="library.commons-lang3-3.1.classpath"/>
+    <path refid="library.commons-logging-1.1.1.classpath"/>
+    <path refid="library.commons-io-2.4.classpath"/>
+    <path refid="library.log4j-1.2.17.classpath"/>
+    <path refid="library.junit-4.10.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.bim-gui">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.bim-gui">
+    <patternset refid="excluded.from.module.bim-gui"/>
+  </patternset>
+  
+  <path id="bim-gui.module.sourcepath">
+    <dirset dir="${module.bim-gui.basedir}/../bim-gui">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  <path id="bim-gui.module.test.sourcepath">
+    <dirset dir="${module.bim-gui.basedir}/../bim-gui">
+      <include name="test"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.bim-gui" depends="compile.module.bim-gui.production,compile.module.bim-gui.tests" description="Compile module bim-gui"/>
+  
+  <target name="compile.module.bim-gui.production" description="Compile module bim-gui; production classes">
+    <mkdir dir="${bim-gui.output.dir}"/>
+    <javac destdir="${bim-gui.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.bim-gui}/javac">
+      <compilerarg line="${compiler.args.bim-gui}"/>
+      <bootclasspath refid="bim-gui.module.bootclasspath"/>
+      <classpath refid="bim-gui.module.production.classpath"/>
+      <src refid="bim-gui.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.bim-gui"/>
+    </javac>
+    
+    <copy todir="${bim-gui.output.dir}">
+      <fileset dir="${module.bim-gui.basedir}/../bim-gui/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.bim-gui.tests" depends="compile.module.bim-gui.production" description="compile module bim-gui; test classes" unless="skip.tests">
+    <mkdir dir="${bim-gui.testoutput.dir}"/>
+    <javac destdir="${bim-gui.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.bim-gui}/javac">
+      <compilerarg line="${compiler.args.bim-gui}"/>
+      <bootclasspath refid="bim-gui.module.bootclasspath"/>
+      <classpath refid="bim-gui.module.classpath"/>
+      <src refid="bim-gui.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.bim-gui"/>
+    </javac>
+    
+    <copy todir="${bim-gui.testoutput.dir}">
+      <fileset dir="${module.bim-gui.basedir}/../bim-gui/test">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.bim-gui" description="cleanup module">
+    <delete dir="${bim-gui.output.dir}"/>
+    <delete dir="${bim-gui.testoutput.dir}"/>
+  </target>
   
   
   <!-- Module greet-web -->
@@ -190,6 +330,7 @@
     <pathelement location="${basedir}/../greet-web/greet-web/war/WEB-INF/lib/apps-marketplace.jar"/>
     <path refid="library.appengine-java-sdk-1.7.2.classpath"/>
     <path refid="library.gwt-2.4.0.classpath"/>
+    <path refid="library.junit-4.10.classpath"/>
   </path>
   
   <path id="greet-web.runtime.module.classpath">
@@ -197,6 +338,7 @@
     <pathelement location="${basedir}/../greet-web/greet-web/war/WEB-INF/lib/apps-marketplace.jar"/>
     <path refid="library.appengine-java-sdk-1.7.2.classpath"/>
     <path refid="library.gwt-2.4.0.classpath"/>
+    <path refid="library.junit-4.10.classpath"/>
   </path>
   
   
@@ -211,6 +353,11 @@
   <path id="greet-web.module.sourcepath">
     <dirset dir="${module.greet-web.basedir}/../greet-web/greet-web">
       <include name="src"/>
+    </dirset>
+  </path>
+  
+  <path id="greet-web.module.test.sourcepath">
+    <dirset dir="${module.greet-web.basedir}/../greet-web/greet-web">
       <include name="test"/>
     </dirset>
   </path>
@@ -233,6 +380,20 @@
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.greet-web.tests" depends="compile.module.greet-web.production" description="compile module greet-web; test classes" unless="skip.tests">
+    <mkdir dir="${greet-web.testoutput.dir}"/>
+    <javac destdir="${greet-web.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.greet-web}/javac">
+      <compilerarg line="${compiler.args.greet-web}"/>
+      <bootclasspath refid="greet-web.module.bootclasspath"/>
+      <classpath refid="greet-web.module.classpath"/>
+      <src refid="greet-web.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.greet-web"/>
+    </javac>
+    
+    <copy todir="${greet-web.testoutput.dir}">
       <fileset dir="${module.greet-web.basedir}/../greet-web/greet-web/test">
         <patternset refid="compiler.resources"/>
         <type type="file"/>
@@ -240,15 +401,13 @@
     </copy>
   </target>
   
-  <target name="compile.module.greet-web.tests" depends="compile.module.greet-web.production" description="compile module greet-web; test classes" unless="skip.tests"/>
-  
   <target name="clean.module.greet-web" description="cleanup module">
     <delete dir="${greet-web.output.dir}"/>
     <delete dir="${greet-web.testoutput.dir}"/>
   </target>
   
   
-  <!-- Module sql-greet-gui -->
+  <!-- Module sql-greed-gui -->
   
   <dirname property="module.sql-greed-gui.basedir" file="${ant.file}"/>
   
@@ -259,8 +418,8 @@
   
   <property name="compiler.args.sql-greed-gui" value="${compiler.args}"/>
   
-  <property name="sql-greed-gui.output.dir" value="${module.sql-greed-gui.basedir}/out/production/sql-greed-gui"/>
-  <property name="sql-greed-gui.testoutput.dir" value="${module.sql-greed-gui.basedir}/out/test/sql-greed-gui"/>
+  <property name="sql-greed-gui.output.dir" value="${module.sql-greed-gui.basedir}/../greet-web/greet-web/out/production/sql-greed-gui"/>
+  <property name="sql-greed-gui.testoutput.dir" value="${module.sql-greed-gui.basedir}/../greet-web/greet-web/out/test/sql-greed-gui"/>
   
   <path id="sql-greed-gui.module.bootclasspath">
     <!-- Paths to be included in compilation bootclasspath -->
@@ -271,7 +430,6 @@
     <path refid="library.jxl.classpath"/>
     <path refid="library.commons-lang3-3.1.classpath"/>
     <path refid="library.derbyclient.classpath"/>
-    <pathelement location="${idea.home}/lib/junit-4.10.jar"/>
     <path refid="library.spring-context-3.2.0.m1.classpath"/>
     <path refid="library.commons-logging-1.1.1.classpath"/>
     <path refid="library.log4j-1.2.17.classpath"/>
@@ -283,7 +441,6 @@
     <path refid="library.jxl.classpath"/>
     <path refid="library.commons-lang3-3.1.classpath"/>
     <path refid="library.derbyclient.classpath"/>
-    <pathelement location="${idea.home}/lib/junit-4.10.jar"/>
     <path refid="library.spring-context-3.2.0.m1.classpath"/>
     <path refid="library.commons-logging-1.1.1.classpath"/>
     <path refid="library.log4j-1.2.17.classpath"/>
@@ -296,11 +453,11 @@
     <path refid="library.jxl.classpath"/>
     <path refid="library.commons-lang3-3.1.classpath"/>
     <path refid="library.derbyclient.classpath"/>
-    <pathelement location="${idea.home}/lib/junit-4.10.jar"/>
     <path refid="library.spring-context-3.2.0.m1.classpath"/>
     <path refid="library.commons-logging-1.1.1.classpath"/>
     <path refid="library.log4j-1.2.17.classpath"/>
     <path refid="library.commons-io-2.4.classpath"/>
+    <path refid="library.junit-4.10.classpath"/>
   </path>
   
   <path id="sql-greed-gui.runtime.module.classpath">
@@ -309,11 +466,11 @@
     <path refid="library.jxl.classpath"/>
     <path refid="library.commons-lang3-3.1.classpath"/>
     <path refid="library.derbyclient.classpath"/>
-    <pathelement location="${idea.home}/lib/junit-4.10.jar"/>
     <path refid="library.spring-context-3.2.0.m1.classpath"/>
     <path refid="library.commons-logging-1.1.1.classpath"/>
     <path refid="library.log4j-1.2.17.classpath"/>
     <path refid="library.commons-io-2.4.classpath"/>
+    <path refid="library.junit-4.10.classpath"/>
   </path>
   
   
@@ -385,18 +542,65 @@
     <!-- Perform any build initialization in this target -->
   </target>
   
-  <target name="clean" depends="clean.module.greet-web, clean.module.sql-greed-gui" description="cleanup all"/>
+  <target name="clean" depends="clean.module.bim-gui, clean.module.greet-web, clean.module.sql-greed-gui, clean.artifact.sql-greed-gui:jar" description="cleanup all"/>
   
-  <target name="build.modules" depends="init, clean, compile.module.greet-web, compile.module.sql-greed-gui" description="build all modules"/>
+  <target name="build.modules" depends="init, clean, compile.module.bim-gui, compile.module.greet-web, compile.module.sql-greed-gui" description="build all modules"/>
   
-  <target name="all" depends="build.modules" description="build all"/>
-
-
-    <target name="jar" >
-        <jar destfile="../greet-web/greet-web/war/applet/sql-greed-gui.jar"
-             basedir="${sql-greed-gui.output.dir}"
-             manifest="${module.sql-greed-gui.basedir}/src/META-INF/MANIFEST.MF">
-        </jar>
-    </target>
-
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.sql-greed-gui:jar" value="${basedir}/../greet-web/greet-web/war/applet"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.sql-greed-gui.jar" value="${artifacts.temp.dir}/sql-greed-gui.jar"/>
+  </target>
+  
+  <target name="clean.artifact.sql-greed-gui:jar" description="clean sql-greed-gui:jar artifact output">
+    <delete dir="${artifact.output.sql-greed-gui:jar}"/>
+  </target>
+  
+  <target name="artifact.sql-greed-gui:jar" depends="init.artifacts, compile.module.sql-greed-gui" description="Build &#39;sql-greed-gui:jar&#39; artifact">
+    <mkdir dir="${artifact.output.sql-greed-gui:jar}"/>
+    <jar destfile="${temp.jar.path.sql-greed-gui.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset file="${basedir}/src/META-INF/MANIFEST.MF" prefix="META-INF"/>
+      <zipfileset dir="${sql-greed-gui.output.dir}"/>
+    </jar>
+    <copy file="${temp.jar.path.sql-greed-gui.jar}" tofile="${artifact.output.sql-greed-gui:jar}/sql-greed-gui.jar"/>
+    <mkdir dir="${artifact.output.sql-greed-gui:jar}/lib"/>
+    <copy file="${basedir}/../../45_JavaLib/commons-lang3-3.1/commons-lang3-3.1.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/commons-lang3-3.1.jar"/>
+    <copy file="${basedir}/../../45_JavaLib/commons-io-2.4/commons-io-2.4.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/commons-io-2.4.jar"/>
+    <copy file="${basedir}/../../45_JavaLib/commons-logging-1.1.1/commons-logging-1.1.1.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/commons-logging-1.1.1.jar"/>
+    <copy file="${basedir}/../../45_JavaLib/spring-3.2.0.M1/libs/spring-context-3.2.0.M1.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/spring-context-3.2.0.M1.jar"/>
+    <copy file="${basedir}/../../45_JavaLib/spring-3.2.0.M1/libs/spring-core-3.2.0.M1.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/spring-core-3.2.0.M1.jar"/>
+    <copy file="${basedir}/../../45_JavaLib/spring-3.2.0.M1/libs/spring-beans-3.2.0.M1.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/spring-beans-3.2.0.M1.jar"/>
+    <copy file="${basedir}/../../45_JavaLib/spring-3.2.0.M1/libs/spring-jdbc-3.2.0.M1.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/spring-jdbc-3.2.0.M1.jar"/>
+    <copy file="${basedir}/../../45_JavaLib/spring-3.2.0.M1/libs/spring-orm-3.2.0.M1.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/spring-orm-3.2.0.M1.jar"/>
+    <copy file="${basedir}/../../45_JavaLib/spring-3.2.0.M1/libs/spring-tx-3.2.0.M1.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/spring-tx-3.2.0.M1.jar"/>
+    <copy file="${basedir}/../../45_JavaLib/jxl/jexcelapi/jxl.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/jxl.jar"/>
+    <copy file="${basedir}/../../45_JavaLib/apache-log4j-1.2.17/log4j-1.2.17.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/log4j-1.2.17.jar"/>
+    <mkdir dir="${artifact.output.sql-greed-gui:jar}/lib/derby"/>
+    <copy file="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyclient.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/derby/derbyclient.jar"/>
+    <copy file="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_it.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/derby/derbyLocale_it.jar"/>
+    <copy file="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_ja_JP.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/derby/derbyLocale_ja_JP.jar"/>
+    <copy file="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_ru.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/derby/derbyLocale_ru.jar"/>
+    <copy file="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_cs.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/derby/derbyLocale_cs.jar"/>
+    <copy file="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_zh_CN.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/derby/derbyLocale_zh_CN.jar"/>
+    <copy file="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_zh_TW.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/derby/derbyLocale_zh_TW.jar"/>
+    <copy file="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_fr.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/derby/derbyLocale_fr.jar"/>
+    <copy file="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_pt_BR.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/derby/derbyLocale_pt_BR.jar"/>
+    <copy file="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_es.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/derby/derbyLocale_es.jar"/>
+    <copy file="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_hu.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/derby/derbyLocale_hu.jar"/>
+    <copy file="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_ko_KR.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/derby/derbyLocale_ko_KR.jar"/>
+    <copy file="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_de_DE.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/derby/derbyLocale_de_DE.jar"/>
+    <copy file="${basedir}/../../46_DerbyDb/db-derby-10.9.1.0-bin/lib/derbyLocale_pl.jar" tofile="${artifact.output.sql-greed-gui:jar}/lib/derby/derbyLocale_pl.jar"/>
+    <ant antfile="" target="null" dir="">
+      <property name="artifact.output.path" value="${artifact.output.sql-greed-gui:jar}"/>
+    </ant>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.sql-greed-gui:jar" description="Build all artifacts">
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
 </project>

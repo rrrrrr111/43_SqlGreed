@@ -23,13 +23,27 @@ import static com.google.appengine.api.datastore.FetchOptions.Builder.withLimit;
 public class WordDao {
     private static final Logger log = Logger.getLogger(WordDao.class.getName());
     public static final String ENT_NAME = "Word";
+    /* поля*/
+    public static final String TEXT_FACED = "textFaced";
+    public static final String TEXT_SHADOWED = "textShadowed";
+    public static final String TYPE = "type";
+    public static final String FACED_LANG_ID = "facedLangId";
+    public static final String SHADOWED_LANG_ID = "shadowedLangId";
+    public static final String OWNER = "owner";
+    public static final String RATING = "rating";
+    public static final String EDIT_DATE = "editDate";
 
     public static Long createOrUpdate(BimItemModel model) {
 
-        final Entity word;
+        Entity word = null;
         if(model.getId() == null){
-            //final Key key = createKey(model.getId());
-            word = new Entity(ENT_NAME);
+            word = EntityUtil.findFirstEntity(ENT_NAME, TEXT_FACED, model.getTextFaced());
+            if (word != null) {
+                model.setTextShadowed(
+                     model.getTextShadowed() + ", " + word.getProperty(TEXT_SHADOWED));
+            } else {
+                word = new Entity(ENT_NAME);
+            }
         } else {
             word = getWord(model.getId());
         }
@@ -37,14 +51,14 @@ public class WordDao {
             throw new RuntimeException("Word doesn't determined");
         }
 
-        word.setProperty("textFaced", model.getTextFaced());   // Entity ID for unique search
-        word.setProperty("textShadowed", model.getTextShadowed());
-        word.setProperty("type", model.getType().ordinal());
-        word.setProperty("facedLangId", model.getFacedLangId());
-        word.setProperty("shadowedLangId", model.getShadowedLangId());
-        word.setProperty("owner", model.getOwner());
-        word.setProperty("rating", model.getRating());
-        word.setProperty("editDate", new Date());
+        word.setProperty(TEXT_FACED, model.getTextFaced());   // Entity ID for unique search
+        word.setProperty(TEXT_SHADOWED, model.getTextShadowed());
+        word.setProperty(TYPE, model.getType().ordinal());
+        word.setProperty(FACED_LANG_ID, model.getFacedLangId());
+        word.setProperty(SHADOWED_LANG_ID, model.getShadowedLangId());
+        word.setProperty(OWNER, model.getOwner());
+        word.setProperty(RATING, model.getRating());
+        word.setProperty(EDIT_DATE, new Date());
 
         EntityUtil.persistEntity(word);
         return word.getKey().getId();
@@ -54,9 +68,10 @@ public class WordDao {
     public static GaeGetListResponse getWords(GaeGetListRequest req) {
 
         Query q = new Query(ENT_NAME);
-        q.addFilter("facedLangId", Query.FilterOperator.EQUAL, req.getLangId());
-        q.addFilter("type", Query.FilterOperator.IN, BimItemType.getOrdinals(req.getTypes()));
-        q.addSort(req.getSortingField());
+        q.addFilter(FACED_LANG_ID, Query.FilterOperator.EQUAL, req.getLangId());
+        q.addFilter(TYPE, Query.FilterOperator.IN, BimItemType.getOrdinals(req.getTypes()));
+        q.addFilter(RATING, Query.FilterOperator.IN, req.getRatingsList());
+        q.addSort(req.getSortingField(), Query.SortDirection.valueOf(req.getSortingDirection()));
         PreparedQuery pq = EntityUtil.getDataStore().prepare(q);
 
         List<Entity> res = pq.asList(withLimit(req.getCount()).offset(req.getOffset()));
@@ -64,14 +79,14 @@ public class WordDao {
         for (Entity ent : res) {
             BimItemModel model = new BimItemModel();
             model.setId(ent.getKey().getId());
-            model.setTextFaced((String)ent.getProperty("textFaced"));
-            model.setTextShadowed((String)ent.getProperty("textShadowed"));
-            model.setShadowedLangId((Long)ent.getProperty("shadowedLangId"));
-            model.setFacedLangId((Long)ent.getProperty("facedLangId"));
-            model.setOwner((Long) ent.getProperty("owner"));
-            model.setType(BimItemType.byOrdinal(((Long) ent.getProperty("type")).intValue()));
-            model.setRating((Long)ent.getProperty("rating"));
-            model.setEditDate((Date) ent.getProperty("editDate"));
+            model.setTextFaced((String) ent.getProperty(TEXT_FACED));
+            model.setTextShadowed((String) ent.getProperty(TEXT_SHADOWED));
+            model.setShadowedLangId((Long)ent.getProperty(SHADOWED_LANG_ID));
+            model.setFacedLangId((Long)ent.getProperty(FACED_LANG_ID));
+            model.setOwner((Long) ent.getProperty(OWNER));
+            model.setType(BimItemType.byOrdinal(((Long) ent.getProperty(TYPE)).intValue()));
+            model.setRating((Long)ent.getProperty(RATING));
+            model.setEditDate((Date) ent.getProperty(EDIT_DATE));
             list.add(model);
         }
 
@@ -87,22 +102,8 @@ public class WordDao {
         if(word == null) {
             throw new RuntimeException(String.format("%s with id=%s not found", new Object[]{ENT_NAME, key}));
         }
-        word.setProperty("rating", rating);
+        word.setProperty(RATING, rating);
         EntityUtil.persistEntity(word);
-    }
-
-    /**
-     * Get all the items for a product
-     *
-     * @param kind
-     *          : item kind
-     * @param productName
-     *          : product name
-     * @return: all items of type product
-     */
-    public static Iterable<Entity> getWordForProduct(String kind, String productName) {
-        Key ancestorKey = KeyFactory.createKey("Product", productName);
-        return EntityUtil.listChildren(ENT_NAME, ancestorKey);
     }
 
     public static Entity getWord(Long key) {

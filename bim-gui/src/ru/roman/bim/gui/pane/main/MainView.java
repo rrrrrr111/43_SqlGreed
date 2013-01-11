@@ -53,16 +53,25 @@ public class MainView extends JFrame implements View<MainViewModel, MainView, Ma
         //setOpacity(Float.valueOf(0.75f));
         setResizable(false);
         setAlwaysOnTop(true);
-        panel.addMouseListener(new MouseAdapter() {
+
+        final MouseAdapter mouseListener = new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 controller.getGhostService().stop();
+                controller.showQuickly();
             }
+
             @Override
             public void mouseExited(MouseEvent e) {
                 controller.getGhostService().startFromOpened();
             }
-        });
+        };
+        panel.addMouseListener(mouseListener);
+        prevButton.addMouseListener(mouseListener);
+        nextButton.addMouseListener(mouseListener);
+        translateButton.addMouseListener(mouseListener);
+        editButton.addMouseListener(mouseListener);
+        settingsButton.addMouseListener(mouseListener);
 
         // текст
 //        final JPanel textPanel = new JPanel(new CardLayout());

@@ -7,6 +7,7 @@ import ru.roman.bim.gui.pane.PaineFactory;
 import ru.roman.bim.gui.pane.main.State;
 import ru.roman.bim.util.BimException;
 import ru.roman.bim.util.Const;
+import ru.roman.bim.util.GuiUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -90,7 +91,7 @@ public class TrayUtils {
 
         aboutItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "This is Bim");
+                GuiUtils.showInfoMessage("This is Bim  v." + Const.VERSION);
             }
         });
 
@@ -114,25 +115,19 @@ public class TrayUtils {
         ActionListener listener = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 MenuItem item = (MenuItem)e.getSource();
-                //TrayIcon.MessageType type = null;
                 System.out.println(item.getLabel());
                 if ("Error".equals(item.getLabel())) {
-                    //type = TrayIcon.MessageType.ERROR;
                     trayIcon.displayMessage("Sun TrayIcon Demo",
                             "This is an error message", TrayIcon.MessageType.ERROR);
-
                 } else if ("Warning".equals(item.getLabel())) {
-                    //type = TrayIcon.MessageType.WARNING;
                     trayIcon.displayMessage("Sun TrayIcon Demo",
                             "This is a warning message", TrayIcon.MessageType.WARNING);
 
                 } else if ("Info".equals(item.getLabel())) {
-                    //type = TrayIcon.MessageType.INFO;
                     trayIcon.displayMessage("Sun TrayIcon Demo",
                             "This is an info message", TrayIcon.MessageType.INFO);
 
                 } else if ("None".equals(item.getLabel())) {
-                    //type = TrayIcon.MessageType.NONE;
                     trayIcon.displayMessage("Sun TrayIcon Demo",
                             "This is an ordinary message", TrayIcon.MessageType.NONE);
                 }

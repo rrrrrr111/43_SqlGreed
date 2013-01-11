@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="bim-gui:jar">
+    <output-path>$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet</output-path>
+    <root id="archive" name="bim-gui.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../bim-gui/src/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="bim-gui" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/apache-log4j-1.2.17/log4j-1.2.17.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/commons-lang3-3.1/commons-lang3-3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/commons-logging-1.1.1/commons-logging-1.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/commons-io-2.4/commons-io-2.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

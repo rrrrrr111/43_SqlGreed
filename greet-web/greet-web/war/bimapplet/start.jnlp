@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+"
+        codebase="http://churganovroman.appspot.com/bimapplet/" href="start.jnlp">
+    <information>
+        <title>Bim</title>
+        <vendor>Roman</vendor>
+        <homepage href="http://churganovroman.appspot.com/index.jsp"/>
+        <description>Be in mind</description>
+        <offline-allowed/>
+    </information>
+    <security>
+        <all-permissions/>
+    </security>
+    <resources>
+        <j2se version="1.6+"/>
+        <jar href="bim-gui.jar"/>
+    </resources>
+    <application-desc main-class="ru.roman.bim.StartBim"/>
+</jnlp>

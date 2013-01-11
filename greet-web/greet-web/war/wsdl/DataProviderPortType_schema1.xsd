@@ -62,6 +62,8 @@
       <xs:element name="count" type="xs:int" minOccurs="0"/>
       <xs:element name="langId" type="xs:int" minOccurs="0"/>
       <xs:element name="offset" type="xs:int" minOccurs="0"/>
+      <xs:element name="ratingsList" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="sortingDirection" type="xs:string" minOccurs="0"/>
       <xs:element name="sortingField" type="xs:string" minOccurs="0"/>
       <xs:element name="types" type="tns:bimItemType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>

@@ -14,7 +14,8 @@ cd %SCRIPTS_HOME%
 
 set CPATH="../war/WEB-INF/classes/"
 set SRC="../src/"
-set WSDLDIR="http://localhost:8080/wsdl/"
+set WSDLDIR="http://churganovroman.appspot.com/wsdl/"
+::set WSDLDIR="http://localhost:8080/wsdl/"
 set CLASS="ru.roman.bim.server.service.data.DataProvider"
 set SRV="{http://data.service.server.bim.roman.ru}DataProvider"
 set PKG="ru.roman.bim.service.gae.wsclient"

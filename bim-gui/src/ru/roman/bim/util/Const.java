@@ -3,6 +3,7 @@ package ru.roman.bim.util;
 import ru.roman.bim.service.gae.wsclient.BimItemType;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -26,10 +27,12 @@ public interface Const {
     сортировка по БД
      */
     String DEFAULT_SORTING_FIELD = "editDate";
-    String DEFAULT_SORTING_DIRECTION = "desc";
+    String DEFAULT_SORTING_DIRECTION = "DESCENDING";  // ASCENDING, DESCENDING
 
     Integer DEFAULT_LANG_ID = 1;
     List<BimItemType> DEFAULT_TYPES = Arrays.asList(BimItemType.values());
     Integer DEFAULT_OWNER_ID = 1;
+    Integer DEFAULT_MINIMAL_RATING = 1;
+    Collection<? extends Integer> DEFAULT_RATINGS = Arrays.asList(1, 2, 3, 4, 5);
 }
 

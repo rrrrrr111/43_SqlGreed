@@ -108,6 +108,8 @@ public class LocalCacheImpl implements LocalCache {
             req.setOffset(offset);
             req.setCount(Const.CACHE_MAX_SIZE);
             req.setSortingField(Const.DEFAULT_SORTING_FIELD);
+            req.setSortingDirection(Const.DEFAULT_SORTING_DIRECTION);
+            req.getRatingsList().addAll(Const.DEFAULT_RATINGS);
             req.getTypes().addAll(Const.DEFAULT_TYPES);
             req.setLangId(Const.DEFAULT_LANG_ID);
 

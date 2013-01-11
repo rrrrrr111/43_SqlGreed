@@ -7,8 +7,8 @@
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/out" />
     </content>
-    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="jdk" jdkName="1.6 (64)" jdkType="JavaSDK" />
     <orderEntry type="library" name="jxl" level="application" />
     <orderEntry type="library" name="commons-lang3-3.1" level="application" />
     <orderEntry type="library" name="derbyclient" level="project" />

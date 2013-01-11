@@ -32,8 +32,8 @@ public class OpacityTimer extends Timer {
                     if (opacity > FINAL_OPACITY || opacity < START_OPACITY) {
                         stop();
                     }
-                    opacity = opacity > 1 ? 1 : opacity;
-                    opacity = opacity < 0 ? 0 : opacity;
+                    opacity = opacity > FINAL_OPACITY ? FINAL_OPACITY : opacity;
+                    opacity = opacity < START_OPACITY ? START_OPACITY : opacity;
                     jframe.setOpacity(opacity);
                 } else {
                     jframe.setOpacity(opacity);
@@ -45,9 +45,10 @@ public class OpacityTimer extends Timer {
     }
 
     private void checkAndStart() {
-        if (!isRunning()) {
+        restart();
+        /*if (!isRunning()) {
             start();
-        }
+        }*/
     }
 
     public void showSlowly() {
