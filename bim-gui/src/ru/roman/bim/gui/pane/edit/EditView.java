@@ -30,7 +30,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
 
     private CheckBoxPanel checkPanel;
 
-    private JComboBox<BimItemType> typeComboBox;
+    private JComboBox typeComboBox;
 
     public EditView() {
 
@@ -64,7 +64,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         JScrollPane translationAreaScrollPane = new JScrollPane(translationArea);
 
         Collection <BimItemType> types = controller.getTypes();
-        typeComboBox = new JComboBox<BimItemType>(new Vector<BimItemType>(types));
+        typeComboBox = new JComboBox(new Vector<BimItemType>(types));
 
         // текст
 //        final JPanel textPanel = new JPanel(new CardLayout());
@@ -210,6 +210,6 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         //currModel.setFacedLangId();
         //currModel.setShadowedLangId();
 
-        currModel.setType(typeComboBox.getItemAt(typeComboBox.getSelectedIndex()));
+        currModel.setType((BimItemType) typeComboBox.getItemAt(typeComboBox.getSelectedIndex()));
     }
 }

@@ -14,7 +14,7 @@ import java.util.List;
 public interface Const {
 
 
-    String VERSION = "1.0";
+    String VERSION = "1.1";
     String APP_NAME = "Bim";
     String APP_DATA_DIR_NAME = "/." + APP_NAME;
 
@@ -31,8 +31,9 @@ public interface Const {
 
     Integer DEFAULT_LANG_ID = 1;
     List<BimItemType> DEFAULT_TYPES = Arrays.asList(BimItemType.values());
-    Integer DEFAULT_OWNER_ID = 1;
+    Long DEFAULT_OWNER_ID = 1L;
     Integer DEFAULT_MINIMAL_RATING = 1;
     Collection<? extends Integer> DEFAULT_RATINGS = Arrays.asList(1, 2, 3, 4, 5);
+    Long DEFAULT_RATING = 3l;
 }
 

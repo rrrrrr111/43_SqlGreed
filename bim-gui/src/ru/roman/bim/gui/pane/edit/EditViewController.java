@@ -9,6 +9,7 @@ import ru.roman.bim.service.cache.LocalCache;
 import ru.roman.bim.service.cache.LocalCacheFactory;
 import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.gae.wsclient.BimItemType;
+import ru.roman.bim.util.Const;
 import ru.roman.bim.util.GuiUtils;
 
 import java.util.Arrays;
@@ -45,8 +46,9 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
         currModel = new EditViewModel();
         currModel.setFacedLangId(old.getFacedLangId());
         currModel.setShadowedLangId(old.getShadowedLangId());
-        currModel.setRating(3L);
+        currModel.setRating(Const.DEFAULT_RATING);
         currModel.setType(old.getType());
+        currModel.setOwner(Const.DEFAULT_OWNER_ID);
         view.setValues(currModel);
     }
 

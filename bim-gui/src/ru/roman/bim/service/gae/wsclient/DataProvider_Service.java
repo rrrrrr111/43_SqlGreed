@@ -38,24 +38,13 @@ public class DataProvider_Service
         super(__getWsdlLocation(), DATAPROVIDER_QNAME);
     }
 
-    public DataProvider_Service(WebServiceFeature... features) {
-        super(__getWsdlLocation(), DATAPROVIDER_QNAME, features);
-    }
 
     public DataProvider_Service(URL wsdlLocation) {
         super(wsdlLocation, DATAPROVIDER_QNAME);
     }
 
-    public DataProvider_Service(URL wsdlLocation, WebServiceFeature... features) {
-        super(wsdlLocation, DATAPROVIDER_QNAME, features);
-    }
-
     public DataProvider_Service(URL wsdlLocation, QName serviceName) {
         super(wsdlLocation, serviceName);
-    }
-
-    public DataProvider_Service(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
-        super(wsdlLocation, serviceName, features);
     }
 
     /**

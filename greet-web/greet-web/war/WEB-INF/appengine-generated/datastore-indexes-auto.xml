@@ -1,13 +1,4 @@
-<!-- Indices written at Fri, 11 Jan 2013 21:06:29 UTC -->
+<!-- Indices written at Fri, 11 Jan 2013 23:49:57 UTC -->
 
-<datastore-indexes>
+<datastore-indexes/>
 
-    <!-- Used 10 times in query history -->
-    <datastore-index kind="Word" ancestor="false" source="auto">
-        <property name="facedLangId" direction="asc"/>
-        <property name="rating" direction="asc"/>
-        <property name="type" direction="asc"/>
-        <property name="editDate" direction="desc"/>
-    </datastore-index>
-
-</datastore-indexes>

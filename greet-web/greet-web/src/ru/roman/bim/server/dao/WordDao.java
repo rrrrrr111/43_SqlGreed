@@ -75,6 +75,11 @@ public class WordDao {
         PreparedQuery pq = EntityUtil.getDataStore().prepare(q);
 
         List<Entity> res = pq.asList(withLimit(req.getCount()).offset(req.getOffset()));
+        if (res.size() == 0) {
+            prepareStore();
+            return getWords(req);
+        }
+
         List<BimItemModel> list = new ArrayList<BimItemModel>();
         for (Entity ent : res) {
             BimItemModel model = new BimItemModel();
@@ -96,6 +101,8 @@ public class WordDao {
         resp.setRecordsCount(size);
         return resp;
     }
+
+
 
     public static void renewRating(Long key, Integer rating) {
         Entity word = getWord(key);
@@ -124,5 +131,41 @@ public class WordDao {
         return KeyFactory.createKey(ENT_NAME, id);
     }
 
+    private static void prepareStore() {
+        final Date currDate = new Date();
 
+        Entity word = new Entity(ENT_NAME);
+        word.setProperty(TEXT_FACED, "привет");
+        word.setProperty(TEXT_SHADOWED, "hello");
+        word.setProperty(TYPE, 0);
+        word.setProperty(FACED_LANG_ID, 1);
+        word.setProperty(SHADOWED_LANG_ID, 2);
+        word.setProperty(OWNER, 1);
+        word.setProperty(RATING, 3);
+        word.setProperty(EDIT_DATE, currDate);
+        EntityUtil.persistEntity(word);
+
+        word = new Entity(ENT_NAME);
+        word.setProperty(TEXT_FACED, "пока");
+        word.setProperty(TEXT_SHADOWED, "bye bye");
+        word.setProperty(TYPE, 0);
+        word.setProperty(FACED_LANG_ID, 1);
+        word.setProperty(SHADOWED_LANG_ID, 2);
+        word.setProperty(OWNER, 1);
+        word.setProperty(RATING, 3);
+        word.setProperty(EDIT_DATE, currDate);
+        EntityUtil.persistEntity(word);
+
+        word = new Entity(ENT_NAME);
+        word.setProperty(TEXT_FACED, "спасибо");
+        word.setProperty(TEXT_SHADOWED, "thanks");
+        word.setProperty(TYPE, 0);
+        word.setProperty(FACED_LANG_ID, 1);
+        word.setProperty(SHADOWED_LANG_ID, 2);
+        word.setProperty(OWNER, 1);
+        word.setProperty(RATING, 3);
+        word.setProperty(EDIT_DATE, currDate);
+        EntityUtil.persistEntity(word);
+
+    }
 }

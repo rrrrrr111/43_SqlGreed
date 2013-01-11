@@ -34,14 +34,14 @@ public class GuiUtils {
 
 
     // taken from: http://java.sun.com/developer/technicalArticles/GUI/translucent_shaped_windows/
-    public static void setTranslucency(Window window){
+    public static void setTranslucency(Window window, float opacity){
         try {
             Class<?> awtUtilitiesClass = Class.forName("com.sun.awt.AWTUtilities");
             Method mSetWindowOpacity = awtUtilitiesClass.getMethod("setWindowOpacity", Window.class, float.class);
 
-            mSetWindowOpacity.invoke(null, window, 0.75f);
+            mSetWindowOpacity.invoke(null, window, opacity);
         } catch (Exception ex) {
-            ex.printStackTrace();
+            throw new RuntimeException(ex);
         }
     }
 
