@@ -1,6 +1,7 @@
 package ru.roman.bim.server.dao;
 
 import com.google.appengine.api.datastore.*;
+import org.apache.commons.lang.StringUtils;
 import ru.roman.bim.server.service.data.dto.BimItemModel;
 import ru.roman.bim.server.service.data.dto.BimItemType;
 import ru.roman.bim.server.service.data.dto.GaeGetListRequest;
@@ -35,23 +36,34 @@ public class WordDao {
 
     public static Long createOrUpdate(BimItemModel model) {
 
-        Entity word = null;
+        // логика исключения дублирования
+        Entity word = EntityUtil.findFirstEntity(ENT_NAME, TEXT_FACED, model.getTextFaced());
+        if (word != null) {
+            final String oldTransl = (String)word.getProperty(TEXT_SHADOWED);
+            final String newTransl = model.getTextShadowed();
+            if (newTransl != null && oldTransl != null && !StringUtils.equals(oldTransl, newTransl)) {
+                model.setTextShadowed(newTransl + ", " + oldTransl);
+            }
+        }
         if(model.getId() == null){
-            word = EntityUtil.findFirstEntity(ENT_NAME, TEXT_FACED, model.getTextFaced());
-            if (word != null) {
-                model.setTextShadowed(
-                     model.getTextShadowed() + ", " + word.getProperty(TEXT_SHADOWED));
-            } else {
+            if (word == null) {
                 word = new Entity(ENT_NAME);
             }
         } else {
-            word = getWord(model.getId());
+            if (word != null) {
+                if (word.getKey().getId() != model.getId()) {
+                     deleteWord(model.getId());
+                }
+            } else {
+                word = getWord(model.getId());
+            }
         }
         if (word == null) {
             throw new RuntimeException("Word doesn't determined");
         }
 
-        word.setProperty(TEXT_FACED, model.getTextFaced());   // Entity ID for unique search
+        // сохраняем сущность
+        word.setProperty(TEXT_FACED, model.getTextFaced());
         word.setProperty(TEXT_SHADOWED, model.getTextShadowed());
         word.setProperty(TYPE, model.getType().ordinal());
         word.setProperty(FACED_LANG_ID, model.getFacedLangId());
