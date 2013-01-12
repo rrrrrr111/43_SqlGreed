@@ -33,6 +33,7 @@ public class TrayUtils {
             throw new BimException("SystemTray is not supported by platform");
         }
 
+        removeTrayIcon();
         trayIcon = new TrayIcon(createImage("/resources/trayIc.gif", "tray icon"));
 
         // Create a pop-up menu components
@@ -141,13 +142,7 @@ public class TrayUtils {
         final SystemTray tray = SystemTray.getSystemTray();
         exitItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                try {
-                    tray.remove(trayIcon);
-                } catch (Exception ex){
-                    log.info("Error while closing", ex);
-                } finally {
-                    StartBim.stop(0);
-                }
+                StartBim.stop(0);
             }
         });
 
@@ -158,6 +153,13 @@ public class TrayUtils {
         }
 
 
+    }
+
+    public static void removeTrayIcon() {
+        if (trayIcon != null) {
+            final SystemTray tray = SystemTray.getSystemTray();
+            tray.remove(trayIcon);
+        }
     }
 
     public static void showTrayNotification(String str, TrayIcon.MessageType type) {

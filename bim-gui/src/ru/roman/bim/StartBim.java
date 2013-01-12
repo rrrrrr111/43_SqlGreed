@@ -29,6 +29,7 @@ public class StartBim {
 
     public static void stop(int exitCode) {
         try {
+            TrayUtils.removeTrayIcon();
             log.info(Const.APP_NAME + " closed");
         } catch (Exception ex){
             log.info("Error while closing", ex);

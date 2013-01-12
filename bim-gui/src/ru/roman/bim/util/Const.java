@@ -14,11 +14,11 @@ import java.util.List;
 public interface Const {
 
 
-    String VERSION = "1.2";
+    String VERSION = "1.3";
     String APP_NAME = "Bim";
     String APP_DATA_DIR_NAME = "/." + APP_NAME;
 
-    boolean SHOW_TRAY_NOTIFICATIONS = false;
+    boolean SHOW_TRAY_NOTIFICATIONS = true;
     /*
     размер кеша
      */

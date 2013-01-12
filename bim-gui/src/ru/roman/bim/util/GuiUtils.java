@@ -22,7 +22,7 @@ public class GuiUtils {
                     starter.onStart();
 
                 } catch (Throwable e) {
-                    ExceptionHandler.showMessage(e);
+                    ExceptionHandler.showErrorMessageAndExit(e);
                 }
             }
         });
