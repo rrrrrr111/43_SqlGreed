@@ -1,0 +1,68 @@
+package ru.roman.bim.service.translate.dto;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import ru.roman.bim.util.GsonUtil;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/** @author Roman 13.01.13 17:58 */
+public class YandexWordTranslation {
+    private static final Map<String,GsonUtil.Writer> WRITERS = new HashMap<String, GsonUtil.Writer>();
+    static {
+        WRITERS.put(GsonUtil.DEFAULT_WRITER_KEY, GsonUtil.SIMPLE_WRITER);
+        WRITERS.put("tr", new GsonUtil.DefaultWriter() {
+            int counter = 0;
+            @Override
+            public String write(String parentKey, String key, String value, int level, GsonUtil.GsonType type) {
+                if (level == 4) {
+                    return "\n" + ++counter + ". " + GsonUtil.simpleWrite(value, true);
+                }
+                return GsonUtil.simpleWrite(value);
+            }
+        });
+        WRITERS.put("pos", GsonUtil.STUB_WRITER);
+        WRITERS.put("syn", GsonUtil.createSimpleWrapper("Syn"));
+        WRITERS.put("mean", GsonUtil.createSimpleWrapper("Transl"));
+        WRITERS.put("ex", GsonUtil.createSimpleWrapper("Examp"));
+
+        WRITERS.put("text", new GsonUtil.Writer() {
+            @Override
+            public String write(String parentKey, String key, String str, int level, GsonUtil.GsonType type) {
+                if ("ex".equals(parentKey) && type == GsonUtil.GsonType.KEYED && level == 6) {
+                    return str + " - ";
+                } else if (level == 2) {
+                    return "";
+                }
+                return GsonUtil.simpleWrite(str);
+            }
+        });
+    }
+
+
+    private Object head;
+    private Object def;
+    private Object link;
+
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
+    }
+
+    public String toUserString() {
+        return GsonUtil.processGson(def, WRITERS);
+    }
+
+    public Object getHead() {
+        return head;
+    }
+
+    public Object getDef() {
+        return def;
+    }
+
+    public Object getLink() {
+        return link;
+    }
+}

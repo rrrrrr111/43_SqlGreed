@@ -13,5 +13,8 @@ public class EditViewModel extends MainViewModel {
         super(model);
     }
 
-
+    @Override
+    protected EditViewModel clone(){
+        return new EditViewModel(this);
+    }
 }

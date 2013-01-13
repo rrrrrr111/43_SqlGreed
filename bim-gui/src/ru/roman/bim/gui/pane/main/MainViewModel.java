@@ -50,9 +50,7 @@ public class MainViewModel extends BimItemModel implements Model {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof MainViewModel)) return false;
-
         MainViewModel that = (MainViewModel) o;
-
         if (id != null) {
             return id.equals(that.id);
         }
@@ -63,4 +61,6 @@ public class MainViewModel extends BimItemModel implements Model {
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
     }
+
+
 }

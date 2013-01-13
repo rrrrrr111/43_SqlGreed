@@ -1,5 +1,6 @@
 package ru.roman.bim.gui.pane.edit;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.View;
@@ -181,12 +182,23 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         pack();
     }
 
+    private static final int TITLE_MAX_LENGTH = 35;
+
     @Override
     public void setValues(EditViewModel model) {
         facedArea.setText(model.getTextFaced());
         translationArea.setText(model.getTextShadowed());
         typeComboBox.getModel().setSelectedItem(model.getType());
         checkPanel.setRating(model.getRating().intValue());
+        setTitle(model);
+    }
+
+    public void setTitle(EditViewModel model) {
+        if (model.getId() != null) {
+            setTitle("Edit: " + StringUtils.abbreviate(model.getTextFaced(), TITLE_MAX_LENGTH));
+        } else {
+            setTitle("Create new");
+        }
     }
 
     @Override
@@ -198,14 +210,22 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
 
     public void fillModel(EditViewModel currModel) {
 
-        //currModel.setId();
         currModel.setRating(Long.valueOf(checkPanel.getRating()));
+
+        String textA = translationArea.getText();
+        textA = StringUtils.normalizeSpace(textA);
+        textA = StringUtils.strip(textA, ".,");
+
+        String textB = facedArea.getText();
+        textB = StringUtils.normalizeSpace(textB);
+        textB = StringUtils.strip(textB, ".,");
+
         if (reverseState) {
-            currModel.setTextFaced(translationArea.getText());
-            currModel.setTextShadowed(facedArea.getText());
+            currModel.setTextFaced(textA);
+            currModel.setTextShadowed(textB);
         } else {
-            currModel.setTextFaced(facedArea.getText());
-            currModel.setTextShadowed(translationArea.getText());
+            currModel.setTextFaced(textB);
+            currModel.setTextShadowed(textA);
         }
         //currModel.setFacedLangId();
         //currModel.setShadowedLangId();

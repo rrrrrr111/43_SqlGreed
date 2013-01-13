@@ -14,7 +14,7 @@ import java.util.List;
 public interface Const {
 
 
-    String VERSION = "1.3";
+    String VERSION = "1.4";
     String APP_NAME = "Bim";
     String APP_DATA_DIR_NAME = "/." + APP_NAME;
 

@@ -12,6 +12,7 @@ import ru.roman.bim.service.gae.wsclient.BimItemType;
 import ru.roman.bim.util.Const;
 import ru.roman.bim.util.GuiUtils;
 
+import javax.swing.*;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -53,14 +54,39 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
     }
 
     protected synchronized void onSave() {
+        EditViewModel old = currModel.clone();
+
         view.fillModel(currModel);
         if (StringUtils.isBlank(currModel.getTextFaced()) ||
                 StringUtils.isBlank(currModel.getTextShadowed())) {
             GuiUtils.showInfoMessage("Cue word and the translation can not be empty");
         } else {
+            if (currModel.getId() != null &&
+                    !currModel.getTextFaced().equals(old.getTextFaced()) &&
+                    !currModel.getTextShadowed().equals(old.getTextShadowed())) {
+                //Custom button text
+                Object[] options = {"Yes, override", "No, create new", "Cancel"};
+                int n = JOptionPane.showOptionDialog(view,
+                        "Would you like to override old value \"" + old.getTextFaced() + "\"?",
+                        "Sorry, one question",
+                        JOptionPane.YES_NO_CANCEL_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        options,
+                        options[2]);
+
+                switch (n) {
+                    case 1:
+                        currModel.setId(null);
+                        break;
+                    case 2:
+                        return;
+                }
+            }
             Long id = gaeConnector.save(currModel);
             currModel.setId(id);
             localCache.renewModel(currModel);
+            view.setValues(currModel);
         }
     }
 
