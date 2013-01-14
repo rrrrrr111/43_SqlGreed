@@ -1,19 +1,29 @@
 package ru.roman.bim.service.ghost;
 
+import ru.roman.bim.util.Const;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /** @author Roman 10.01.13 23:38 */
 public class GhostServiceImpl implements GhostService {
-    public static final int MAIN_INTERVAL = 5 * 60 * 1000;
-    public static final int THIRST_DELAY = MAIN_INTERVAL;
-    public static final int SHOW_INTERVAL = 30 * 1000;
+    public static final int MAIN_INTERVAL;
+    public static final int THIRST_DELAY;
+    public static final int SHOW_INTERVAL;
 
 
-    //public static final int MAIN_INTERVAL = 15 * 1000;
-    //public static final int THIRST_DELAY = 5 * 1000;
-    //public static final int SHOW_INTERVAL = 3 * 1000;
+    static {
+        if (Const.DEV_MODE) {
+            MAIN_INTERVAL = 15 * 1000;
+            THIRST_DELAY = 5 * 1000;
+            SHOW_INTERVAL = 3 * 1000;
+        } else {
+            MAIN_INTERVAL = 5 * 60 * 1000;
+            THIRST_DELAY = MAIN_INTERVAL;
+            SHOW_INTERVAL = 30 * 1000;
+        }
+    }
 
     private GhostController controller;
 

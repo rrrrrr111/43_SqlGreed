@@ -23,13 +23,13 @@ public class GaeConnectorStub implements GaeConnector {
 
     static {
         Date currDate = new Date();
-        store.add(new MainViewModel(counter++, "word1","transl1",1l,1l,1l, BimItemType.EXPRESSION, null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
-        store.add(new MainViewModel(counter++, "word2","transl2",1l,1l,1l, BimItemType.EXPRESSION, null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
-        store.add(new MainViewModel(counter++, "word3","transl3",1l,1l,4l, BimItemType.EXPRESSION, null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
-        store.add(new MainViewModel(counter++, "word4","transl4",1l,1l,3l, BimItemType.WORD, null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
-        store.add(new MainViewModel(counter++, "word5","transl5",1l,1l,4l, BimItemType.WORD, null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
-        store.add(new MainViewModel(counter++, "word6","transl6",1l,1l,2l, BimItemType.WORD, null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
-        store.add(new MainViewModel(counter++, "word7","transl7",1l,1l,5l, BimItemType.WORD, null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
+        store.add(new MainViewModel(counter++, "word1","transl1",1l,2l,1l, BimItemType.EXPRESSION, null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
+        store.add(new MainViewModel(counter++, "word2","transl2",1l,2l,1l, BimItemType.EXPRESSION, null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
+        store.add(new MainViewModel(counter++, "word3","transl3",1l,2l,4l, BimItemType.EXPRESSION, null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
+        store.add(new MainViewModel(counter++, "word4","transl4",1l,2l,3l, BimItemType.WORD, null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
+        store.add(new MainViewModel(counter++, "word5","transl5",1l,2l,4l, BimItemType.WORD, null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
+        store.add(new MainViewModel(counter++, "word6","transl6",1l,2l,2l, BimItemType.WORD, null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
+        store.add(new MainViewModel(counter++, "word7","transl7",1l,2l,5l, BimItemType.WORD, null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
     }
 
 

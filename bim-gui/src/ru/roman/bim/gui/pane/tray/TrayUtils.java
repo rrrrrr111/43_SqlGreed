@@ -43,10 +43,8 @@ public class TrayUtils {
         final MenuItem infoItem = new MenuItem();
         infoItem.setEnabled(false);
         final CheckboxMenuItem cbDisabled = new CheckboxMenuItem("Disabled");
-        final Menu displayMenu = new Menu("Display");
-        final MenuItem errorItem = new MenuItem("Error");
-        final MenuItem warningItem = new MenuItem("Warning");
-        final MenuItem noneItem = new MenuItem("None");
+        final MenuItem editMenu = new MenuItem("Edit");
+        final MenuItem settingsMenu = new MenuItem("Settings");
         final MenuItem exitItem = new MenuItem("Exit");
 
         //Add components to pop-up menu
@@ -55,11 +53,8 @@ public class TrayUtils {
         popUp.addSeparator();
         popUp.add(cbDisabled);
         popUp.addSeparator();
-        popUp.add(displayMenu);
-        displayMenu.add(errorItem);
-        displayMenu.add(warningItem);
-        displayMenu.add(infoItem);
-        displayMenu.add(noneItem);
+        popUp.add(editMenu);
+        popUp.add(settingsMenu);
         popUp.add(exitItem);
 
         trayIcon.setPopupMenu(popUp);
@@ -113,31 +108,18 @@ public class TrayUtils {
             }
         });
 
-        ActionListener listener = new ActionListener() {
+        editMenu.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                MenuItem item = (MenuItem)e.getSource();
-                System.out.println(item.getLabel());
-                if ("Error".equals(item.getLabel())) {
-                    trayIcon.displayMessage("Sun TrayIcon Demo",
-                            "This is an error message", TrayIcon.MessageType.ERROR);
-                } else if ("Warning".equals(item.getLabel())) {
-                    trayIcon.displayMessage("Sun TrayIcon Demo",
-                            "This is a warning message", TrayIcon.MessageType.WARNING);
-
-                } else if ("Info".equals(item.getLabel())) {
-                    trayIcon.displayMessage("Sun TrayIcon Demo",
-                            "This is an info message", TrayIcon.MessageType.INFO);
-
-                } else if ("None".equals(item.getLabel())) {
-                    trayIcon.displayMessage("Sun TrayIcon Demo",
-                            "This is an ordinary message", TrayIcon.MessageType.NONE);
-                }
+                PaineFactory.getMainViewController().onEdit();
             }
-        };
+        });
 
-        errorItem.addActionListener(listener);
-        warningItem.addActionListener(listener);
-        noneItem.addActionListener(listener);
+        settingsMenu.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                throw new RuntimeException("Sorry, not implemented yet");
+            }
+        });
+
 
         final SystemTray tray = SystemTray.getSystemTray();
         exitItem.addActionListener(new ActionListener() {

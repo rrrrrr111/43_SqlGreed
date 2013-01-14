@@ -1,6 +1,7 @@
 package ru.roman.bim.service.translate;
 
 import com.google.gson.Gson;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.model.Lang;
@@ -24,23 +25,22 @@ public class YandexService implements TranslationService{
     private Gson gson = new Gson();
 
 
-    @Override
-    public String translateWord(String word, Long wordLandId, Long targetLandId) {
-        //http://translate.yandex.net/dicservice.json/lookup?lang=ru-en&text=привет
-
-        final Map<String, String> params = new HashMap<String, String>();
-        params.put("lang", createLangParamValue(wordLandId, targetLandId));
-        params.put("text", word);
-
-        final String gsonRes = httpClient.executeGet(TRANSLATE_YANDEX_NET, TRANSLATE_YANDEX_NET_PATH, params);
-        YandexWordTranslation res = fromGson(gsonRes);
-
-        log.info(String.format("res >>> %s", res));
-        return gsonRes;
-    }
-
     public YandexWordTranslation fromGson(String gsonRes) {
         return gson.fromJson(gsonRes, YandexWordTranslation.class);
+    }
+
+    @Override
+    public String translate(String word, Long wordLandId, Long targetLandId) {
+        if (StringUtils.isBlank(word)) {
+            return "";
+        }
+        word = StringUtils.strip(word, " ,.");
+        boolean expr = StringUtils.contains(word, " ");
+        if (expr) {
+            return translateExpression(word, wordLandId, targetLandId);
+        } else {
+            return translateWord(word, wordLandId, targetLandId);
+        }
     }
 
 
@@ -53,11 +53,24 @@ public class YandexService implements TranslationService{
         params.put("lang", createLangParamValue(wordLandId, targetLandId));
         params.put("text", word);
 
-        return httpClient.executeGet(TRANSLATE_YANDEX_RU, TRANSLATE_YANDEX_RU_PATH, params);
+        final String result = httpClient.executeGet(TRANSLATE_YANDEX_RU, TRANSLATE_YANDEX_RU_PATH, params);
+        return StringUtils.strip(result, "\"");
     }
 
+    @Override
+    public String translateWord(String word, Long wordLandId, Long targetLandId) {
+        //http://translate.yandex.net/dicservice.json/lookup?lang=ru-en&text=привет
+
+        final Map<String, String> params = new HashMap<String, String>();
+        params.put("lang", createLangParamValue(wordLandId, targetLandId));
+        params.put("text", word);
+
+        final String gsonRes = httpClient.executeGet(TRANSLATE_YANDEX_NET, TRANSLATE_YANDEX_NET_PATH, params);
+        YandexWordTranslation res = fromGson(gsonRes);
+        return res.toUserString();
+    }
 
     private String createLangParamValue(Long wordLandId, Long targetLandId) {
-        return Lang.valueOf(wordLandId).getReduction() + "-" + Lang.valueOf(targetLandId).getReduction();
+        return Lang.valueOf(wordLandId).getReductionLower() + "-" + Lang.valueOf(targetLandId).getReductionLower();
     }
 }

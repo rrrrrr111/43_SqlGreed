@@ -4,6 +4,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.View;
 import ru.roman.bim.gui.custom.widget.CheckBoxPanel;
+import ru.roman.bim.gui.pane.tray.TrayUtils;
 import ru.roman.bim.util.GuiUtils;
 
 import javax.swing.*;
@@ -14,7 +15,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /** @author Roman 18.12.12 0:02 */
-public class MainView extends JFrame implements View<MainViewModel, MainView, MainViewController> {
+public class MainView extends JWindow implements View<MainViewModel, MainView, MainViewController> {
     private static final Log log = LogFactory.getLog(MainView.class);
 
     private final MainViewController controller = new MainViewController(this);
@@ -25,7 +26,7 @@ public class MainView extends JFrame implements View<MainViewModel, MainView, Ma
     private final JButton nextButton = new JButton("nx");
     private final JButton translateButton = new JButton("translate");
     private final JButton editButton = new JButton("edit");
-    private final JButton settingsButton = new JButton("sett");
+    private final JButton hideButton = new JButton("hide");
 
     private CheckBoxPanel checkPanel;
 
@@ -43,15 +44,15 @@ public class MainView extends JFrame implements View<MainViewModel, MainView, Ma
 
         final JPanel panel = new JPanel(new GridBagLayout());
         //panel.setPreferredSize(new Dimension(300, 200));
-        setUndecorated(true);
+        //setUndecorated(true);
         //setTranslucency(f);
-        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        //setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
         setBackground(new Color(0.5294118f, 0f, 1.0f, 0.0f));
         add(panel);
         setPreferredSize(new Dimension(270, 140));
         //setOpacity(Float.valueOf(0.75f));
-        setResizable(false);
+        //setResizable(false);
         setAlwaysOnTop(true);
 
         final MouseAdapter mouseListener = new MouseAdapter() {
@@ -71,7 +72,7 @@ public class MainView extends JFrame implements View<MainViewModel, MainView, Ma
         nextButton.addMouseListener(mouseListener);
         translateButton.addMouseListener(mouseListener);
         editButton.addMouseListener(mouseListener);
-        settingsButton.addMouseListener(mouseListener);
+        hideButton.addMouseListener(mouseListener);
 
         // текст
 //        final JPanel textPanel = new JPanel(new CardLayout());
@@ -126,7 +127,7 @@ public class MainView extends JFrame implements View<MainViewModel, MainView, Ma
         gbc6.gridx = 4;
         gbc6.gridy = 1;
         gbc6.weighty = 0.0;
-        panel.add(settingsButton, gbc6);
+        panel.add(hideButton, gbc6);
 
         prevButton.addActionListener(new ActionListener() {
             @Override
@@ -152,10 +153,10 @@ public class MainView extends JFrame implements View<MainViewModel, MainView, Ma
                 controller.onEdit();
             }
         });
-        settingsButton.addActionListener(new ActionListener() {
+        hideButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.onSettings();
+                controller.hideQuickly();
             }
         });
 
@@ -189,7 +190,7 @@ public class MainView extends JFrame implements View<MainViewModel, MainView, Ma
         panel.add(typeLabel, gbc8);
 
         pack();
-        Point pos = GuiUtils.getRightCornerPosition(getSize(), 3);
+        Point pos = GuiUtils.getRightCornerPosition(getSize(), 3, 40);
         setLocation(pos);
     }
 
@@ -229,4 +230,10 @@ public class MainView extends JFrame implements View<MainViewModel, MainView, Ma
         return controller;
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        TrayUtils.removeTrayIcon();
+        log.warn("Bim crash");
+    }
 }

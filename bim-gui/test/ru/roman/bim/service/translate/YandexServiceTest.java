@@ -22,7 +22,7 @@ public class YandexServiceTest {
 
     @Test
     public void testTranslateExpression() throws Exception {
-        String translation = service.translateExpression("привет", 1L, 2L);
+        String translation = service.translateExpression("привет утро", 1L, 2L);
         log.info(String.format("translation >>> %s", translation));
 
     }

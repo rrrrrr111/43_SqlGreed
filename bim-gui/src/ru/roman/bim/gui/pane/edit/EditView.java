@@ -5,6 +5,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.View;
 import ru.roman.bim.gui.custom.widget.CheckBoxPanel;
+import ru.roman.bim.model.Lang;
 import ru.roman.bim.service.gae.wsclient.BimItemType;
 
 import javax.swing.*;
@@ -17,6 +18,7 @@ import java.util.Vector;
 /** @author Roman 18.12.12 0:02 */
 public class EditView extends JFrame implements View<EditViewModel, EditView, EditViewController> {
     private static final Log log = LogFactory.getLog(EditView.class);
+    public static final String HTTP_TRANSLATE_YANDEX_RU = "http://translate.yandex.ru/";
 
     private final EditViewController controller = new EditViewController(this);
 
@@ -30,8 +32,12 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
     private final JButton closeButton = new JButton("close");
 
     private CheckBoxPanel checkPanel;
-
     private JComboBox typeComboBox;
+
+    private final JLabel facedLangReduction = new JLabel("XX");
+    private final JLabel translationLangReduction = new JLabel("YY");
+    private final JButton translateFacedButton = new JButton("ya");
+    private final JButton translateTranslationButton = new JButton("ya");
 
     public EditView() {
 
@@ -78,6 +84,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         gbc1.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
         gbc1.anchor = GridBagConstraints.PAGE_START;  // привязка к краю контейнера
         gbc1.gridwidth = 5;                         // кол-во ячеек заполняемых по ширине
+        gbc1.gridheight = 1;                         // кол-во ячеек заполняемых по высоте
         gbc1.weighty = 1.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
         gbc1.weightx = 1.0;
         gbc1.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
@@ -155,7 +162,18 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
                 controller.onClose();
             }
         });
-
+        translateFacedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.onTranslateFacedYandex();
+            }
+        });
+        translateTranslationButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.onTranslateTranslationYandex();
+            }
+        });
 
         // чекбоксы
         checkPanel = new CheckBoxPanel();
@@ -179,6 +197,47 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         gbc8.weightx = 1.0;
         panel.add(typeComboBox, gbc8);
 
+
+        JPanel facedAreaButtonsPanel = new JPanel();
+        facedAreaButtonsPanel.setLayout(new BoxLayout(facedAreaButtonsPanel, BoxLayout.Y_AXIS));
+        facedAreaButtonsPanel.add(facedLangReduction);
+        facedAreaButtonsPanel.add(translateFacedButton);
+
+        facedLangReduction.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+        translateFacedButton.setToolTipText(HTTP_TRANSLATE_YANDEX_RU);
+
+        final GridBagConstraints gbc9 = new GridBagConstraints();
+        gbc9.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+        //gbc9.anchor = GridBagConstraints.PAGE_START;  // привязка к краю контейнера
+        gbc9.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+        gbc9.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+        gbc9.weightx = 0.0;
+        gbc9.gridx = 5;                             // gridx и  gridy координаты куда кладется компонент
+        gbc9.gridy = 0;
+        //gbc9.ipady = 140;                          // ограничение минимального размера
+        //gbc9.ipadx = 270;                          // ограничение минимального размера
+        panel.add(facedAreaButtonsPanel, gbc9);
+
+        JPanel translationAreaButtonsPanel = new JPanel();
+        translationAreaButtonsPanel.setLayout(new BoxLayout(translationAreaButtonsPanel, BoxLayout.Y_AXIS));
+        translationAreaButtonsPanel.add(translationLangReduction);
+        translationAreaButtonsPanel.add(translateTranslationButton);
+
+        translationLangReduction.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+        translateTranslationButton.setToolTipText(HTTP_TRANSLATE_YANDEX_RU);
+
+        final GridBagConstraints gbc11 = new GridBagConstraints();
+        gbc11.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+        //gbc9.anchor = GridBagConstraints.PAGE_START;  // привязка к краю контейнера
+        gbc11.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+        gbc11.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+        gbc11.weightx = 0.0;
+        gbc11.gridx = 5;                             // gridx и  gridy координаты куда кладется компонент
+        gbc11.gridy = 1;
+        //gbc11.ipady = 140;                          // ограничение минимального размера
+        //gbc11.ipadx = 270;                          // ограничение минимального размера
+        panel.add(translationAreaButtonsPanel, gbc11);
+
         pack();
     }
 
@@ -186,11 +245,18 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
 
     @Override
     public void setValues(EditViewModel model) {
-        facedArea.setText(model.getTextFaced());
-        translationArea.setText(model.getTextShadowed());
+        setTexts(model);
         typeComboBox.getModel().setSelectedItem(model.getType());
         checkPanel.setRating(model.getRating().intValue());
         setTitle(model);
+
+        facedLangReduction.setText(Lang.valueOf(model.getFacedLangId()).getReductionUpper());
+        translationLangReduction.setText(Lang.valueOf(model.getShadowedLangId()).getReductionUpper());
+    }
+
+    protected void setTexts(EditViewModel model) {
+        facedArea.setText(model.getTextFaced());
+        translationArea.setText(model.getTextShadowed());
     }
 
     public void setTitle(EditViewModel model) {
@@ -206,30 +272,22 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         return controller;
     }
 
-    private boolean reverseState;
-
     public void fillModel(EditViewModel currModel) {
-
         currModel.setRating(Long.valueOf(checkPanel.getRating()));
+        fillTexts(currModel);
+        currModel.setType((BimItemType) typeComboBox.getItemAt(typeComboBox.getSelectedIndex()));
+    }
+
+    protected void fillTexts(EditViewModel currModel) {
+        String textB = facedArea.getText();
+        textB = StringUtils.normalizeSpace(textB);
+        textB = StringUtils.strip(textB, ".,");
 
         String textA = translationArea.getText();
         textA = StringUtils.normalizeSpace(textA);
         textA = StringUtils.strip(textA, ".,");
 
-        String textB = facedArea.getText();
-        textB = StringUtils.normalizeSpace(textB);
-        textB = StringUtils.strip(textB, ".,");
-
-        if (reverseState) {
-            currModel.setTextFaced(textA);
-            currModel.setTextShadowed(textB);
-        } else {
-            currModel.setTextFaced(textB);
-            currModel.setTextShadowed(textA);
-        }
-        //currModel.setFacedLangId();
-        //currModel.setShadowedLangId();
-
-        currModel.setType((BimItemType) typeComboBox.getItemAt(typeComboBox.getSelectedIndex()));
+        currModel.setTextFaced(textB);
+        currModel.setTextShadowed(textA);
     }
 }

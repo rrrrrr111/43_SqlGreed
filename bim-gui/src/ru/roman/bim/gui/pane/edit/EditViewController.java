@@ -9,6 +9,7 @@ import ru.roman.bim.service.cache.LocalCache;
 import ru.roman.bim.service.cache.LocalCacheFactory;
 import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.gae.wsclient.BimItemType;
+import ru.roman.bim.service.translate.TranslationService;
 import ru.roman.bim.util.Const;
 import ru.roman.bim.util.GuiUtils;
 
@@ -21,8 +22,9 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
     private static final Log log = LogFactory.getLog(EditViewController.class);
 
     private final GaeConnector gaeConnector = ServiceFactory.getGaeConnector();
+    private final TranslationService yaTranslator = ServiceFactory.getYandexService();
     private LocalCache localCache;
-
+    private EditViewModel originalModel;
 
     public EditViewController(EditView view) {
         super(view);
@@ -34,11 +36,13 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
 
     protected synchronized void onPrev() {
         currModel = new EditViewModel(localCache.getPrev());
+        originalModel = currModel.clone();
         view.setValues(currModel);
     }
 
     protected synchronized void onNext() {
         currModel = new EditViewModel(localCache.getNext());
+        originalModel = currModel.clone();
         view.setValues(currModel);
     }
 
@@ -54,7 +58,6 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
     }
 
     protected synchronized void onSave() {
-        EditViewModel old = currModel.clone();
 
         view.fillModel(currModel);
         if (StringUtils.isBlank(currModel.getTextFaced()) ||
@@ -62,12 +65,12 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
             GuiUtils.showInfoMessage("Cue word and the translation can not be empty");
         } else {
             if (currModel.getId() != null &&
-                    !currModel.getTextFaced().equals(old.getTextFaced()) &&
-                    !currModel.getTextShadowed().equals(old.getTextShadowed())) {
+                    !currModel.getTextFaced().equals(originalModel.getTextFaced()) &&
+                    !currModel.getTextShadowed().equals(originalModel.getTextShadowed())) {
                 //Custom button text
                 Object[] options = {"Yes, override", "No, create new", "Cancel"};
                 int n = JOptionPane.showOptionDialog(view,
-                        "Would you like to override old value \"" + old.getTextFaced() + "\"?",
+                        "Would you like to override old value \"" + originalModel.getTextFaced() + "\"?",
                         "Sorry, one question",
                         JOptionPane.YES_NO_CANCEL_OPTION,
                         JOptionPane.QUESTION_MESSAGE,
@@ -97,6 +100,7 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
     public synchronized void show(LocalCache cache) {
         this.localCache = LocalCacheFactory.createLocalCacheInstance(cache);
         currModel = new EditViewModel(localCache.getCurrent());
+        originalModel = currModel.clone();
         view.setValues(currModel);
         view.setVisible(true);
     }
@@ -106,4 +110,19 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
     }
 
 
+    public void onTranslateFacedYandex() {
+        view.fillTexts(currModel);
+        String tr = yaTranslator.translate(currModel.getTextFaced(),
+                currModel.getFacedLangId(), currModel.getShadowedLangId());
+        currModel.setTextShadowed(tr);
+        view.setTexts(currModel);
+    }
+
+    public void onTranslateTranslationYandex() {
+        view.fillTexts(currModel);
+        String tr = yaTranslator.translate(currModel.getTextShadowed(),
+                currModel.getShadowedLangId(), currModel.getFacedLangId());
+        currModel.setTextFaced(tr);
+        view.setTexts(currModel);
+    }
 }

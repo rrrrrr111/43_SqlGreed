@@ -50,7 +50,7 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
         gaeConnector.renewRating(currModel.getId(), rating);
     }
 
-    protected void onEdit() {
+    public void onEdit() {
         PaineFactory.getEditViewController().show(localCache);
     }
 
@@ -68,10 +68,6 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
         view.translate();
     }
 
-    protected void onSettings() {
-
-    }
-
     public void showSlowly() {
         onNext();
         opacityTimer.showSlowly();
@@ -79,6 +75,10 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
 
     public void hideSlowly() {
         opacityTimer.hideSlowly();
+    }
+
+    public void hideQuickly() {
+        opacityTimer.hideQuickly();
     }
 
     public void showQuickly() {

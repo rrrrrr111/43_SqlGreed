@@ -4,6 +4,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,27 +18,27 @@ public class OpacityTimer extends Timer {
 
     private float opacity;
     private float step;
-    private final JFrame jframe;
+    private final Window pane;
 
 
-    public OpacityTimer(final JFrame frame) {
+    public OpacityTimer(final Window frame) {
         super(100, null);
-        this.jframe = frame;
+        this.pane = frame;
         setRepeats(true);
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (jframe.isVisible()) {
+                if (pane.isVisible()) {
                     opacity = opacity + step;
                     if (opacity > FINAL_OPACITY || opacity < START_OPACITY) {
                         stop();
                     }
                     opacity = opacity > FINAL_OPACITY ? FINAL_OPACITY : opacity;
                     opacity = opacity < START_OPACITY ? START_OPACITY : opacity;
-                    jframe.setOpacity(opacity);
+                    pane.setOpacity(opacity);
                 } else {
-                    jframe.setOpacity(opacity);
-                    jframe.setVisible(true);
+                    pane.setOpacity(opacity);
+                    pane.setVisible(true);
                 }
                 //log.info("OpacityTimer opacity : " + opacity);
             }

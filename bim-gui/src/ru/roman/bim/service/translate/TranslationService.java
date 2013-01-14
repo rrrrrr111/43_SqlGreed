@@ -13,4 +13,6 @@ public interface TranslationService {
     String translateExpression(String word, Long wordLandId, Long targetLandId);
 
     YandexWordTranslation fromGson(String gsonRes);
+
+    String translate(String word, Long wordLandId, Long targetLandId);
 }

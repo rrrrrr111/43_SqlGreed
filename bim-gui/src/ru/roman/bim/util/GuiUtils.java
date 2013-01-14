@@ -46,7 +46,7 @@ public class GuiUtils {
     }
 
 
-    public static Point getRightCornerPosition(Dimension size, int padding) {
+    public static Point getRightCornerPosition(Dimension size, int padding, int taskBarHeight) {
         try {
             Integer width = null;
             Integer height = null;
@@ -64,7 +64,7 @@ public class GuiUtils {
                 }
             }
             final Point position = new Point(width - (int)size.getWidth() - padding,
-                    height - (int)size.getHeight() - padding);
+                    height - (int)size.getHeight() - padding - taskBarHeight);
 //            log.info(String.format("Display size: width=%1$s, height=%2$s, position=%3$s",
 //                    new Object[]{width, height, position}));
             return position;

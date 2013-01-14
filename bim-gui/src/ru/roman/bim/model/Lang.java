@@ -3,16 +3,18 @@ package ru.roman.bim.model;
 /** @author Roman 13.01.13 14:37 */
 public enum Lang {
 
-    DEUTSCH("de"),
-    RUSSIAN("ru"),
-    ENGLISH("en"),
+    DEUTSCH("de", "DE"),
+    RUSSIAN("ru", "RU"),
+    ENGLISH("en", "EN"),
 
     ;
 
-    private final String reduction;
+    private final String reductionLower;
+    private final String reductionUpper;
 
-    private Lang(String reduction) {
-        this.reduction = reduction;
+    private Lang(String reduction, String reductionUpper) {
+        this.reductionLower = reduction;
+        this.reductionUpper = reductionUpper;
     }
 
 
@@ -25,7 +27,11 @@ public enum Lang {
         throw new IllegalArgumentException(String.format("Unknown ordinal %s", wordLandId));
     }
 
-    public String getReduction() {
-        return reduction;
+    public String getReductionLower() {
+        return reductionLower;
+    }
+
+    public String getReductionUpper() {
+        return reductionUpper;
     }
 }

@@ -15,7 +15,7 @@ public class EditViewTest {
         GuiUtils.startSwingApp(new GuiUtils.Starter() {
             @Override
             public void onStart() {
-            PaineFactory.getEditViewController().show(
+                PaineFactory.getEditViewController().show(
                     LocalCacheFactory.createLocalCacheInstance(0, 0));
             }
         });
