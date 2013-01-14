@@ -15,7 +15,7 @@ public interface Const {
 
     boolean DEV_MODE = false;
 
-    String VERSION = "1.5";
+    String VERSION = "1.6";
     String APP_NAME = "Bim";
     String APP_DATA_DIR_NAME = "/." + APP_NAME;
 
