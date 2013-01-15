@@ -1,5 +1,7 @@
 package ru.roman.bim.service.ghost;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.util.Const;
 
 import javax.swing.*;
@@ -8,6 +10,8 @@ import java.awt.event.ActionListener;
 
 /** @author Roman 10.01.13 23:38 */
 public class GhostServiceImpl implements GhostService {
+    private static final Log log = LogFactory.getLog(GhostServiceImpl.class);
+
     public static final int MAIN_INTERVAL;
     public static final int THIRST_DELAY;
     public static final int SHOW_INTERVAL;

@@ -5,10 +5,12 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.pane.PaineFactory;
 import ru.roman.bim.gui.pane.tray.TrayUtils;
+import ru.roman.bim.service.lock.LockerUtils;
 import ru.roman.bim.util.Const;
 import ru.roman.bim.util.GuiUtils;
 
 import java.awt.*;
+import java.io.File;
 
 
 /** @author Roman 17.12.12 23:44 */
@@ -19,10 +21,11 @@ public class StartBim {
         GuiUtils.startSwingApp(new GuiUtils.Starter() {
             @Override
             public void onStart() {
+                prepareEnvironment();
                 PaineFactory.createMainView();
+                LockerUtils.tryLockApplication();
 
-                TrayUtils.showTrayNotification("Bim started", TrayIcon.MessageType.INFO);
-                log.info(Const.APP_NAME + " started");
+
             }
         });
     }
@@ -37,4 +40,13 @@ public class StartBim {
             System.exit(exitCode);
         }
     }
+
+    private static void prepareEnvironment() {
+        File configDir = new File(Const.APP_CONFIG_PATH);
+        if (!configDir.exists()) {
+             configDir.mkdirs();
+        }
+
+    }
+
 }

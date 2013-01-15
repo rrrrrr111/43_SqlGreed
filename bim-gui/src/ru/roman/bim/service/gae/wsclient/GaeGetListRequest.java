@@ -1,12 +1,12 @@
 
 package ru.roman.bim.service.gae.wsclient;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="ratingsList" type="{http://www.w3.org/2001/XMLSchema}int" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="sortingDirection" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="sortingField" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="types" type="{http://data.service.server.bim.roman.ru/}bimItemType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="types" type="{http://www.w3.org/2001/XMLSchema}int" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -54,7 +54,7 @@ public class GaeGetListRequest {
     protected String sortingDirection;
     protected String sortingField;
     @XmlElement(nillable = true)
-    protected List<BimItemType> types;
+    protected List<Integer> types;
 
     /**
      * Gets the value of the count property.
@@ -223,13 +223,13 @@ public class GaeGetListRequest {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link BimItemType }
+     * {@link Integer }
      * 
      * 
      */
-    public List<BimItemType> getTypes() {
+    public List<Integer> getTypes() {
         if (types == null) {
-            types = new ArrayList<BimItemType>();
+            types = new ArrayList<Integer>();
         }
         return this.types;
     }

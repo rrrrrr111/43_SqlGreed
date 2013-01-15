@@ -1,6 +1,8 @@
 package ru.roman.bim.service.http;
 
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -15,6 +17,7 @@ import java.util.Map;
 
 /** @author Roman 13.01.13 14:42 */
 public class HttpClientServiceImpl implements HttpClientService {
+    private static final Log log = LogFactory.getLog(HttpClientServiceImpl.class);
 
     private final HttpClient httpClient = new DefaultHttpClient();
 

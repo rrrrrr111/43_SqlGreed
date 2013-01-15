@@ -30,7 +30,7 @@
       <xs:element name="shadowedLangId" type="xs:long" minOccurs="0"/>
       <xs:element name="textFaced" type="xs:string" minOccurs="0"/>
       <xs:element name="textShadowed" type="xs:string" minOccurs="0"/>
-      <xs:element name="type" type="tns:bimItemType" minOccurs="0"/>
+      <xs:element name="type" type="xs:long" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -65,7 +65,7 @@
       <xs:element name="ratingsList" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="sortingDirection" type="xs:string" minOccurs="0"/>
       <xs:element name="sortingField" type="xs:string" minOccurs="0"/>
-      <xs:element name="types" type="tns:bimItemType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="types" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -81,12 +81,5 @@
       <xs:element name="recordsCount" type="xs:int" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-
-  <xs:simpleType name="bimItemType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="WORD"/>
-      <xs:enumeration value="EXPRESSION"/>
-    </xs:restriction>
-  </xs:simpleType>
 </xs:schema>
 

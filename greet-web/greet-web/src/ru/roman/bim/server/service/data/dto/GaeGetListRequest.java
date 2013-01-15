@@ -12,7 +12,7 @@ public class GaeGetListRequest implements Serializable {
     private String sortingField;
     private String sortingDirection;
 
-    private List<BimItemType> types;
+    private List<Integer> types;
     private Integer langId;
     private List<Integer> ratingsList;
 
@@ -20,7 +20,7 @@ public class GaeGetListRequest implements Serializable {
     }
 
     public GaeGetListRequest(Integer offset, Integer count, String sortingField,
-                             String sortingDirection, List<BimItemType> types, Integer langId) {
+                             String sortingDirection, List<Integer> types, Integer langId) {
         this.offset = offset;
         this.count = count;
         this.sortingField = sortingField;
@@ -29,11 +29,11 @@ public class GaeGetListRequest implements Serializable {
         this.langId = langId;
     }
 
-    public List<BimItemType> getTypes() {
+    public List<Integer> getTypes() {
         return types;
     }
 
-    public void setTypes(List<BimItemType> types) {
+    public void setTypes(List<Integer> types) {
         this.types = types;
     }
 

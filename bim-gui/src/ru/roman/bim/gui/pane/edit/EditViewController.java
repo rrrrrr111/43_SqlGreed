@@ -4,11 +4,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.Controller;
+import ru.roman.bim.model.WordType;
 import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.cache.LocalCache;
 import ru.roman.bim.service.cache.LocalCacheFactory;
 import ru.roman.bim.service.gae.GaeConnector;
-import ru.roman.bim.service.gae.wsclient.BimItemType;
 import ru.roman.bim.service.translate.TranslationService;
 import ru.roman.bim.util.Const;
 import ru.roman.bim.util.GuiUtils;
@@ -36,14 +36,14 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
 
     protected synchronized void onPrev() {
         currModel = new EditViewModel(localCache.getPrev());
-        originalModel = currModel.clone();
         view.setValues(currModel);
+        originalModel = currModel.clone();
     }
 
     protected synchronized void onNext() {
         currModel = new EditViewModel(localCache.getNext());
-        originalModel = currModel.clone();
         view.setValues(currModel);
+        originalModel = currModel.clone();
     }
 
     public synchronized void onNew() {
@@ -90,6 +90,7 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
             currModel.setId(id);
             localCache.renewModel(currModel);
             view.setValues(currModel);
+            originalModel = currModel.clone();
         }
     }
 
@@ -100,13 +101,13 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
     public synchronized void show(LocalCache cache) {
         this.localCache = LocalCacheFactory.createLocalCacheInstance(cache);
         currModel = new EditViewModel(localCache.getCurrent());
-        originalModel = currModel.clone();
         view.setValues(currModel);
+        originalModel = currModel.clone();
         view.setVisible(true);
     }
 
-    public Collection<BimItemType> getTypes() {
-        return Arrays.asList(BimItemType.values());
+    public Collection<WordType> getTypes() {
+        return Arrays.asList(WordType.values());
     }
 
 

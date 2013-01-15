@@ -1,10 +1,14 @@
 
 package ru.roman.bim.service.gae.wsclient;
 
-import javax.xml.namespace.QName;
-import javax.xml.ws.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
+import javax.xml.ws.WebEndpoint;
+import javax.xml.ws.WebServiceClient;
+import javax.xml.ws.WebServiceException;
+import javax.xml.ws.WebServiceFeature;
 
 
 /**
@@ -38,13 +42,24 @@ public class DataProvider_Service
         super(__getWsdlLocation(), DATAPROVIDER_QNAME);
     }
 
+    public DataProvider_Service(WebServiceFeature... features) {
+        super(__getWsdlLocation(), DATAPROVIDER_QNAME, features);
+    }
 
     public DataProvider_Service(URL wsdlLocation) {
         super(wsdlLocation, DATAPROVIDER_QNAME);
     }
 
+    public DataProvider_Service(URL wsdlLocation, WebServiceFeature... features) {
+        super(wsdlLocation, DATAPROVIDER_QNAME, features);
+    }
+
     public DataProvider_Service(URL wsdlLocation, QName serviceName) {
         super(wsdlLocation, serviceName);
+    }
+
+    public DataProvider_Service(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
+        super(wsdlLocation, serviceName, features);
     }
 
     /**

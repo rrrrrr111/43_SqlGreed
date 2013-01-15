@@ -27,7 +27,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="shadowedLangId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="textFaced" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="textShadowed" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="type" type="{http://data.service.server.bim.roman.ru/}bimItemType" minOccurs="0"/>
+ *         &lt;element name="type" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -61,7 +61,7 @@ public class BimItemModel {
     protected Long shadowedLangId;
     protected String textFaced;
     protected String textShadowed;
-    protected BimItemType type;
+    protected Long type;
 
     /**
      * Gets the value of the editDate property.
@@ -284,10 +284,10 @@ public class BimItemModel {
      * 
      * @return
      *     possible object is
-     *     {@link BimItemType }
+     *     {@link Long }
      *     
      */
-    public BimItemType getType() {
+    public Long getType() {
         return type;
     }
 
@@ -296,10 +296,10 @@ public class BimItemModel {
      * 
      * @param value
      *     allowed object is
-     *     {@link BimItemType }
+     *     {@link Long }
      *     
      */
-    public void setType(BimItemType value) {
+    public void setType(Long value) {
         this.type = value;
     }
 

@@ -11,8 +11,8 @@ import ru.roman.bim.util.ExceptionHandler;
 
 /** @author Roman 22.12.12 15:36 */
 public class GaeConnectorImpl implements GaeConnector {
-
     private static final Log log = LogFactory.getLog(GaeConnectorImpl.class);
+
     private static DataProvider provider;
 
     public GaeConnectorImpl() {

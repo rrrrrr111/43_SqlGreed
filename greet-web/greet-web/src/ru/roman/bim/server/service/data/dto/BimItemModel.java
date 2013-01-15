@@ -14,7 +14,7 @@ public class BimItemModel implements Serializable {
     private Long shadowedLangId;
 
     private Long rating;
-    private BimItemType type;
+    private Long type;
 
     private Long modelNum;
     private Long owner;
@@ -25,7 +25,7 @@ public class BimItemModel implements Serializable {
 
     public BimItemModel(Long id, String textFaced, String textShadowed,
                         Long facedLangId, Long shadowedLangId, Long rating,
-                        BimItemType type, Long modelNum, Long owner) {
+                        Long type, Long modelNum, Long owner) {
         this.id = id;
         this.textFaced = textFaced;
         this.textShadowed = textShadowed;
@@ -53,11 +53,11 @@ public class BimItemModel implements Serializable {
         this.textShadowed = textShadowed;
     }
 
-    public BimItemType getType() {
+    public Long getType() {
         return type;
     }
 
-    public void setType(BimItemType type) {
+    public void setType(Long type) {
         this.type = type;
     }
 

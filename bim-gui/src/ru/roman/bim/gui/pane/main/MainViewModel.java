@@ -2,7 +2,6 @@ package ru.roman.bim.gui.pane.main;
 
 import ru.roman.bim.gui.common.Model;
 import ru.roman.bim.service.gae.wsclient.BimItemModel;
-import ru.roman.bim.service.gae.wsclient.BimItemType;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
@@ -17,7 +16,7 @@ public class MainViewModel extends BimItemModel implements Model {
 
     public MainViewModel(Long id, String textFaced, String textShadowed,
                          Long facedLangId, Long shadowedLangId, Long rating,
-                         BimItemType type, Long modelNum, Long owner, XMLGregorianCalendar editDate) {
+                         Long type, Long modelNum, Long owner, XMLGregorianCalendar editDate) {
         this.id = id;
         this.textFaced = textFaced;
         this.textShadowed = textShadowed;

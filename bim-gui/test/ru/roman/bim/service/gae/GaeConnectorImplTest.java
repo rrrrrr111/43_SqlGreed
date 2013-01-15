@@ -3,7 +3,6 @@ package ru.roman.bim.service.gae;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.service.gae.wsclient.BimItemModel;
-import ru.roman.bim.service.gae.wsclient.BimItemType;
 import ru.roman.bim.service.gae.wsclient.DataProvider;
 import ru.roman.bim.service.gae.wsclient.DataProvider_Service;
 import ru.roman.bim.util.Const;
@@ -24,7 +23,7 @@ public class GaeConnectorImplTest {
         arg0.setTextShadowed("тест1");
         arg0.setOwner(1L);
         arg0.setRating(1L);
-        arg0.setType(BimItemType.WORD);
+        arg0.setType(1L);
 
         Long r = provider.save(arg0);
         log.info("saved id : " + r);
@@ -35,7 +34,7 @@ public class GaeConnectorImplTest {
         req.setLangId(1);
         req.setOffset(0);
         req.setSortingField(Const.DEFAULT_SORTING_FIELD);
-        req.getTypes().add(BimItemType.WORD);
+        req.getTypes().add(1);
         ru.roman.bim.service.gae.wsclient.GaeGetListResponse res = provider.getList(req);
 
         log.info("items count : " + res.getList().size() + " all : " + res.getRecordsCount());

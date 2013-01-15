@@ -3,7 +3,6 @@ package ru.roman.bim.server.dao;
 import com.google.appengine.api.datastore.*;
 import org.apache.commons.lang.StringUtils;
 import ru.roman.bim.server.service.data.dto.BimItemModel;
-import ru.roman.bim.server.service.data.dto.BimItemType;
 import ru.roman.bim.server.service.data.dto.GaeGetListRequest;
 import ru.roman.bim.server.service.data.dto.GaeGetListResponse;
 import ru.roman.bim.server.util.EntityUtil;
@@ -65,7 +64,7 @@ public class WordDao {
         // сохраняем сущность
         word.setProperty(TEXT_FACED, model.getTextFaced());
         word.setProperty(TEXT_SHADOWED, model.getTextShadowed());
-        word.setProperty(TYPE, model.getType().ordinal());
+        word.setProperty(TYPE, model.getType());
         word.setProperty(FACED_LANG_ID, model.getFacedLangId());
         word.setProperty(SHADOWED_LANG_ID, model.getShadowedLangId());
         word.setProperty(OWNER, model.getOwner());
@@ -81,7 +80,7 @@ public class WordDao {
 
         Query q = new Query(ENT_NAME);
         q.addFilter(FACED_LANG_ID, Query.FilterOperator.EQUAL, req.getLangId());
-        q.addFilter(TYPE, Query.FilterOperator.IN, BimItemType.getOrdinals(req.getTypes()));
+        q.addFilter(TYPE, Query.FilterOperator.IN, req.getTypes());
         q.addFilter(RATING, Query.FilterOperator.IN, req.getRatingsList());
         q.addSort(req.getSortingField(), Query.SortDirection.valueOf(req.getSortingDirection()));
         PreparedQuery pq = EntityUtil.getDataStore().prepare(q);
@@ -101,7 +100,7 @@ public class WordDao {
             model.setShadowedLangId((Long)ent.getProperty(SHADOWED_LANG_ID));
             model.setFacedLangId((Long)ent.getProperty(FACED_LANG_ID));
             model.setOwner((Long) ent.getProperty(OWNER));
-            model.setType(BimItemType.byOrdinal(((Long) ent.getProperty(TYPE)).intValue()));
+            model.setType((Long) ent.getProperty(TYPE));
             model.setRating((Long)ent.getProperty(RATING));
             model.setEditDate((Date) ent.getProperty(EDIT_DATE));
             list.add(model);

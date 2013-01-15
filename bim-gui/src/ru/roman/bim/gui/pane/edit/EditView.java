@@ -6,7 +6,7 @@ import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.View;
 import ru.roman.bim.gui.custom.widget.CheckBoxPanel;
 import ru.roman.bim.model.Lang;
-import ru.roman.bim.service.gae.wsclient.BimItemType;
+import ru.roman.bim.model.WordType;
 
 import javax.swing.*;
 import java.awt.*;
@@ -70,8 +70,8 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         translationArea.setFont(font);
         JScrollPane translationAreaScrollPane = new JScrollPane(translationArea);
 
-        Collection <BimItemType> types = controller.getTypes();
-        typeComboBox = new JComboBox(new Vector<BimItemType>(types));
+        Collection <WordType> types = controller.getTypes();
+        typeComboBox = new JComboBox(new Vector<WordType>(types));
 
         // текст
 //        final JPanel textPanel = new JPanel(new CardLayout());
@@ -165,15 +165,25 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         translateFacedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.onTranslateFacedYandex();
+                controller.onTranslateTranslationYandex();
             }
         });
         translateTranslationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.onTranslateTranslationYandex();
+                controller.onTranslateFacedYandex();
+
             }
         });
+
+
+        prevButton.setToolTipText("previous word");
+        nextButton.setToolTipText("next word");
+        saveButton.setToolTipText("save word");
+        newButton.setToolTipText("create new word");
+        closeButton.setToolTipText("close window");
+        translateFacedButton.setToolTipText("translate by " + HTTP_TRANSLATE_YANDEX_RU);
+        translateTranslationButton.setToolTipText("translate by " + HTTP_TRANSLATE_YANDEX_RU);
 
         // чекбоксы
         checkPanel = new CheckBoxPanel();
@@ -204,7 +214,6 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         facedAreaButtonsPanel.add(translateFacedButton);
 
         facedLangReduction.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
-        translateFacedButton.setToolTipText(HTTP_TRANSLATE_YANDEX_RU);
 
         final GridBagConstraints gbc9 = new GridBagConstraints();
         gbc9.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
@@ -224,7 +233,6 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         translationAreaButtonsPanel.add(translateTranslationButton);
 
         translationLangReduction.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
-        translateTranslationButton.setToolTipText(HTTP_TRANSLATE_YANDEX_RU);
 
         final GridBagConstraints gbc11 = new GridBagConstraints();
         gbc11.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
@@ -275,7 +283,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
     public void fillModel(EditViewModel currModel) {
         currModel.setRating(Long.valueOf(checkPanel.getRating()));
         fillTexts(currModel);
-        currModel.setType((BimItemType) typeComboBox.getItemAt(typeComboBox.getSelectedIndex()));
+        currModel.setType(((WordType) typeComboBox.getItemAt(typeComboBox.getSelectedIndex())).getId());
     }
 
     protected void fillTexts(EditViewModel currModel) {
