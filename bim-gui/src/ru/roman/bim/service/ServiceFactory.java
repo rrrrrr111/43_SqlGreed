@@ -14,7 +14,6 @@ public class ServiceFactory {
     private static volatile GaeConnector gaeConnector;
     private static volatile HttpClientService httpClientInstance;
     private static volatile TranslationService yandexService;
-    private static volatile TranslationService yaTranslationService;
 
     public static synchronized GaeConnector getGaeConnector() {
         if (gaeConnector == null) {

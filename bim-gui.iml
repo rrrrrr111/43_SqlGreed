@@ -17,6 +17,7 @@
     <orderEntry type="library" name="httpclient-4.2.2" level="application" />
     <orderEntry type="library" name="gson-2.2.2" level="application" />
     <orderEntry type="library" scope="TEST" name="junit-4.10" level="application" />
+    <orderEntry type="library" name="poi-3.9-20121203" level="application" />
   </component>
   <component name="org.twodividedbyzero.idea.findbugs">
     <option name="_basePreferences">

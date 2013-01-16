@@ -17,6 +17,7 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/httpclient/httpcomponents-client-4.2.2/lib/httpcore-4.2.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/httpclient/httpcomponents-client-4.2.2/lib/httpmime-4.2.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/google-gson/google-gson-2.2.2/gson-2.2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/apache-poi/poi-3.9/poi-3.9-20121203.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

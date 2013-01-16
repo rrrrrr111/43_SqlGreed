@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface Const {
 
-    boolean DEV_MODE = true;
+    boolean DEV_MODE = false;
 
     String VERSION = "1.10";
     String APP_NAME = "Bim";
