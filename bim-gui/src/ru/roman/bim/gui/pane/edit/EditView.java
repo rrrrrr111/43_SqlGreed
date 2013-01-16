@@ -254,7 +254,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
     @Override
     public void setValues(EditViewModel model) {
         setTexts(model);
-        typeComboBox.getModel().setSelectedItem(model.getType());
+        typeComboBox.getModel().setSelectedItem(WordType.valueOf(model.getType()));
         checkPanel.setRating(model.getRating().intValue());
         setTitle(model);
 
@@ -289,11 +289,11 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
     protected void fillTexts(EditViewModel currModel) {
         String textB = facedArea.getText();
         textB = StringUtils.normalizeSpace(textB);
-        textB = StringUtils.strip(textB, ".,");
+        textB = StringUtils.strip(textB, " .,");
 
         String textA = translationArea.getText();
         textA = StringUtils.normalizeSpace(textA);
-        textA = StringUtils.strip(textA, ".,");
+        textA = StringUtils.strip(textA, " .,");
 
         currModel.setTextFaced(textB);
         currModel.setTextShadowed(textA);

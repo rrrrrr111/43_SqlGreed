@@ -36,6 +36,15 @@ public enum WordType {
         throw new IllegalArgumentException(String.format("Unknown ordinal %s", ord));
     }
 
+    public static WordType valueOf(Long id) {
+        for (WordType i : values()) {
+            if (i.getId() == id) {
+                return i;
+            }
+        }
+        throw new IllegalArgumentException(String.format("Unknown ordinal %s", id));
+    }
+
     public static List<Long> getIds(List<WordType> list) {
         List<Long> ordinals = new ArrayList<Long>();
         for(WordType t : list) {
@@ -51,4 +60,6 @@ public enum WordType {
         }
         return ordinals;
     }
+
+
 }

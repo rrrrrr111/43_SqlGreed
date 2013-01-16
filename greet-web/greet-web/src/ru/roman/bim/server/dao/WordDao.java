@@ -41,7 +41,7 @@ public class WordDao {
             final String oldTransl = (String)word.getProperty(TEXT_SHADOWED);
             final String newTransl = model.getTextShadowed();
             if (newTransl != null && oldTransl != null && !StringUtils.equals(oldTransl, newTransl)) {
-                model.setTextShadowed(newTransl + ", " + oldTransl);
+                model.setTextShadowed(newTransl + " | " + oldTransl);
             }
         }
         if(model.getId() == null){

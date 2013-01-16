@@ -47,7 +47,16 @@ public class HttpClientServiceImpl implements HttpClientService {
                 throw new BimException(String.format("Entity is null"));
             }
         } catch (Exception e) {
+            closeConnections();
             throw new RuntimeException("Exception in HTTP-Client service", e);
+        }
+    }
+
+    private void closeConnections() {
+        try {
+            httpClient.getConnectionManager().shutdown();
+        } catch (Exception e) {
+            log.error("Error while connection closing", e);
         }
     }
 

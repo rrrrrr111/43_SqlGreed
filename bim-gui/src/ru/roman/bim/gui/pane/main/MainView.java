@@ -5,6 +5,7 @@ import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.View;
 import ru.roman.bim.gui.custom.widget.CheckBoxPanel;
 import ru.roman.bim.gui.pane.tray.TrayUtils;
+import ru.roman.bim.model.WordType;
 import ru.roman.bim.util.GuiUtils;
 
 import javax.swing.*;
@@ -75,15 +76,22 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
         hideButton.addMouseListener(mouseListener);
 
         // текст
-//        final JPanel textPanel = new JPanel(new CardLayout());
-//        textPanel.add(textLabel);
-//        textPanel.setMinimumSize(new Dimension(269, 130));
-//        textPanel.setMaximumSize(new Dimension(269, 130));
-//        textPanel.setSize(new Dimension(269, 130));
+        //final JPanel textPanel = new JPanel();
+        //textLabel.setHorizontalTextPosition(JLabel.CENTER);
+        //textLabel.setVerticalTextPosition(JLabel.CENTER);
+        //Border border = LineBorder.createGrayLineBorder();
+        //Border border = BorderFactory.createTitledBorder("Mixed Colors");
+        //textLabel.setBorder(border);
+        //final LayoutManager textPanelLayout = new BoxLayout(textPanel, BoxLayout.X_AXIS);
+        //textPanel.setLayout(textPanelLayout);
+        //textPanel.add(Box.createHorizontalGlue());
+        //textPanel.add(textLabel);
+        //textPanel.add(Box.createHorizontalGlue());
+
 
         final GridBagConstraints gbc1 = new GridBagConstraints();
         gbc1.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-        gbc1.anchor = GridBagConstraints.PAGE_START;  // привязка к краю контейнера
+        //gbc1.anchor = GridBagConstraints.PAGE_START;  // привязка к краю контейнера
         gbc1.gridwidth = 5;                         // кол-во ячеек заполняемых по ширине
         gbc1.weighty = 1.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
         gbc1.weightx = 1.0;
@@ -205,13 +213,18 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
     @Override
     public void setValues(MainViewModel model) {
         setText(model.getTextFaced());
-        typeLabel.setText(model.getType().toString());
+        typeLabel.setText(WordType.valueOf(model.getType()).toString());
         setRating(model.getRating().intValue());
     }
 
     private void setText(String str) {
-        textLabel.setText(String.format("<html><body><p align='center' width='100%%'" +
-                "style='color:blue;font:10px;'>%s</p></body></html>", str));
+        // border: 4px double black;
+        //
+
+        textLabel.setText(String.format("<html>" +
+                "<div width='206px' align='center' style='color:blue;font:10px;'>%s</div>" +
+                "</html>", str));
+        //textLabel.setText(String.format("%s", str));
     }
 
     private boolean translatedState;

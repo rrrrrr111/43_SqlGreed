@@ -20,7 +20,7 @@ public class GhostServiceImpl implements GhostService {
     static {
         if (Const.DEV_MODE) {
             MAIN_INTERVAL = 15 * 1000;
-            THIRST_DELAY = 5 * 1000;
+            THIRST_DELAY = 1 * 1000;
             SHOW_INTERVAL = 3 * 1000;
         } else {
             MAIN_INTERVAL = 5 * 60 * 1000;

@@ -24,7 +24,9 @@ public class GaeConnectorStub implements GaeConnector {
     static {
         Date currDate = new Date();
         store.add(new MainViewModel(counter++, "word1","transl1",1l,2l,1l, WordType.EXPRESSION.getId(), null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
-        store.add(new MainViewModel(counter++, "word2","transl2",1l,2l,1l, WordType.EXPRESSION.getId(), null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
+        store.add(new MainViewModel(counter++, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                1l,2l,1l, WordType.EXPRESSION.getId(), null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
         store.add(new MainViewModel(counter++, "word3","transl3",1l,2l,4l, WordType.EXPRESSION.getId(), null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
         store.add(new MainViewModel(counter++, "word4","transl4",1l,2l,3l, WordType.WORD.getId(), null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
         store.add(new MainViewModel(counter++, "word5","transl5",1l,2l,4l, WordType.IDIOM.getId(), null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
