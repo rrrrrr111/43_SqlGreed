@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsViewController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsViewModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/poi/ExcelService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/poi/ExcelServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui.iml" afterPath="$PROJECT_DIR$/../bim-gui.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ServiceFactory.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ServiceFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/bim_gui_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/bim_gui_jar.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
-    <list id="71cfb641-5bee-4208-8ab0-751480a58831" name="builded" comment="builded" />
+    <list id="71cfb641-5bee-4208-8ab0-751480a58831" name="builded" comment="builded">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" />
+    </list>
     <ignored path="sql-greed-gui.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -1660,7 +1652,11 @@
       <created>1358364427732</created>
       <updated>1358364427732</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Bim application version 1.10 final">
+      <created>1358368581570</created>
+      <updated>1358368581570</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1685,7 +1681,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.599359" sideWeight="0.4939302" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.67147434" order="3" side_tool="false" content_ui="tabs" />
@@ -1751,7 +1747,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bim application version 1.10 bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bim application version 1.10 final" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1788,6 +1784,7 @@
     <MESSAGE value="Bim application version 1.6 yandex integration bug fix" />
     <MESSAGE value="Bim application version 1.7 remove BimItemType thirst commit" />
     <MESSAGE value="Bim application version 1.10 bug fixes" />
+    <MESSAGE value="Bim application version 1.10 final" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
