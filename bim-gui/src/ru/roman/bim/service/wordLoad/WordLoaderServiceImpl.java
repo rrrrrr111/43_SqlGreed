@@ -46,6 +46,8 @@ public class WordLoaderServiceImpl implements WordLoaderService {
         List<MainViewModel> sheetData = parseExcel(fileFroLoading);
         for (MainViewModel model : sheetData) {
             WordUtils.checkIdiom(model);
+            WordUtils.fillTexts(model, model.getTextFaced(), model.getTextShadowed());
+
             Long id = gaeConnector.save(model);
             model.setId(id);
         }

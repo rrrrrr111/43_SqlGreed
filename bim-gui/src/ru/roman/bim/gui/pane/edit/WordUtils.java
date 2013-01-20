@@ -16,4 +16,15 @@ public abstract class WordUtils {
             model.setType(WordType.IDIOM.getOrdinal());
         }
     }
+
+    public static void fillTexts(BimItemModel currModel, String faced, String shadowed) {
+        faced = StringUtils.normalizeSpace(faced);
+        faced = StringUtils.strip(faced, " .,");
+
+        shadowed = StringUtils.normalizeSpace(shadowed);
+        shadowed = StringUtils.strip(shadowed, " .,");
+
+        currModel.setTextFaced(faced);
+        currModel.setTextShadowed(shadowed);
+    }
 }

@@ -6,6 +6,7 @@ import ru.roman.bim.gui.common.Controller;
 import ru.roman.bim.gui.pane.PaineFactory;
 import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.wordLoad.WordLoaderService;
+import ru.roman.bim.util.GuiUtils;
 
 import java.io.File;
 
@@ -30,6 +31,7 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
         if (fileFroLoading != null) {
             log.info("Selected file for loading : " + fileFroLoading);
             wordLoaderService.loadFile(fileFroLoading);
+            GuiUtils.showInfoMessage("Loading complete");
         }
     }
 }

@@ -292,15 +292,10 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
     }
 
     protected void fillTexts(EditViewModel currModel) {
-        String textB = facedArea.getText();
-        textB = StringUtils.normalizeSpace(textB);
-        textB = StringUtils.strip(textB, " .,");
-
-        String textA = translationArea.getText();
-        textA = StringUtils.normalizeSpace(textA);
-        textA = StringUtils.strip(textA, " .,");
-
-        currModel.setTextFaced(textB);
-        currModel.setTextShadowed(textA);
+        String faced = facedArea.getText();
+        String shadowed = translationArea.getText();
+        WordUtils.fillTexts(currModel, faced, shadowed);
     }
+
+
 }
