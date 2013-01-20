@@ -1,45 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="Bim application version 1.10 bug fixes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/custom/widget/TiedCheckBoxPanel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/choose/FileChooser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/edit/WordUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/model/WordCategory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/wordLoad/WordLoaderService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/wordLoad/WordLoaderServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Res.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/gui/pane/settings/SettingsViewTest.java" />
-      <change type="DELETED" beforePath="C:\1_work\43_SqlGreed\bim-gui\src\ru\roman\bim\service\gae\wsclient\BimItemModel.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\1_work\43_SqlGreed\bim-gui\src\ru\roman\bim\gui\custom\widget\CheckBoxPanel.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/custom/widget/SimpleCheckBoxPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/sql-greed-gui.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/sql-greed-gui.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/log4j.properties" afterPath="$PROJECT_DIR$/../bim-gui/src/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/dev/dummy/TestHelper.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/dev/dummy/TestHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/dev/stub/GaeConnectorStub.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/dev/stub/GaeConnectorStub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/PaineFactory.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/PaineFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/edit/EditView.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/edit/EditView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/edit/EditViewController.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/edit/EditViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/edit/EditViewModel.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/edit/EditViewModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainView.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainViewModel.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainViewModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsView.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsViewController.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayUtils.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/model/Lang.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/model/Lang.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/model/WordType.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/model/WordType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ServiceFactory.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ServiceFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/GaeGetListRequest.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/GaeGetListRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/BimException.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/BimException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/GuiUtils.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/GuiUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/WsUtil.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/WsUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dao/WordDao.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dao/WordDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/data/dto/BimItemModel.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/data/dto/BimItemModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/datastore-indexes.xml" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/datastore-indexes.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProviderPortType_schema1.xsd" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProviderPortType_schema1.xsd" />
+    <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="Bim application version 1.13 butch loading functionality">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="71cfb641-5bee-4208-8ab0-751480a58831" name="builded" comment="builded">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/sql-greed-gui.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/sql-greed-gui.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/application.log" afterPath="$PROJECT_DIR$/logs/application.log" />
     </list>
@@ -160,24 +126,6 @@
                 <element signature="e#3993#4164#0" expanded="true" />
                 <element signature="e#4153#4154#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataProvider.wsdl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProvider.wsdl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataProvider.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/DataProvider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="17" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -855,36 +803,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gae" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bim-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gae" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wsclient" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1654,7 +1572,11 @@
       <created>1358364427732</created>
       <updated>1358364427732</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Bim application version 1.13 butch loading functionality">
+      <created>1358712752977</created>
+      <updated>1358712752977</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1679,7 +1601,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.599359" sideWeight="0.4939302" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.67147434" order="3" side_tool="false" content_ui="tabs" />
@@ -1695,7 +1617,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.724359" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.67147434" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39984825" sideWeight="0.67147434" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23065251" sideWeight="0.6073718" order="2" side_tool="true" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23065251" sideWeight="0.40064102" order="2" side_tool="true" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3926282" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="92" y="92" width="1182" height="584" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.43589744" order="1" side_tool="false" content_ui="tabs" />
@@ -1745,7 +1667,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bim application version 1.10 bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bim application version 1.13 butch loading functionality" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1782,6 +1704,7 @@
     <MESSAGE value="Bim application version 1.6 yandex integration bug fix" />
     <MESSAGE value="Bim application version 1.7 remove BimItemType thirst commit" />
     <MESSAGE value="Bim application version 1.10 bug fixes" />
+    <MESSAGE value="Bim application version 1.13 butch loading functionality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1869,20 +1792,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProvider.wsdl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/DataProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="17" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/DataProvider_Service.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="143" selection-start="725" selection-end="725" vertical-scroll-proportion="0.0">
@@ -1894,16 +1803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="64" column="0" selection-start="1283" selection-end="1283" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="67" selection-start="4140" selection-end="4140" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#3993#4164#0" expanded="true" />
-            <element signature="e#4153#4154#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1921,30 +1820,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="26" selection-start="320" selection-end="320" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/edit/EditViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="18" selection-start="2053" selection-end="2053" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/WsUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="55" selection-start="1419" selection-end="1435" vertical-scroll-proportion="0.59130436">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/edit/EditView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="290" column="53" selection-start="12219" selection-end="12235" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1966,6 +1844,51 @@
             <element signature="e#2142#2157#0" expanded="true" />
             <element signature="e#2264#2272#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="26" selection-start="320" selection-end="320" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProvider.wsdl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/DataProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="17" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0053380784">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="67" selection-start="4140" selection-end="4140" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#3993#4164#0" expanded="true" />
+            <element signature="e#4153#4154#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/edit/EditView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="290" column="53" selection-start="12219" selection-end="12235" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/edit/EditViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="18" selection-start="2053" selection-end="2053" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>

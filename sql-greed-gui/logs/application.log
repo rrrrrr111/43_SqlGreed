@@ -1705,3 +1705,5 @@ java.util.UnknownFormatConversionException: Conversion = '''
 2013.01.16 23:15:28.624 O LockerUtils          Bim started
 2013.01.16 23:18:10.133 O GaeConnectorStub     Stub getList
 2013.01.16 23:18:12.261 O LockerUtils          Bim started
+2013.01.17 00:11:58.138 O GaeConnectorStub     Stub getList
+2013.01.17 00:12:00.256 O LockerUtils          Bim started
