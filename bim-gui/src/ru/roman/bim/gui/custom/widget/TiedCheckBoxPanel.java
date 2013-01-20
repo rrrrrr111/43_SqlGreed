@@ -10,8 +10,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /** @author Roman 22.12.12 12:58 */
-public class CheckBoxPanel extends JPanel {
-    private static final Log log = LogFactory.getLog(CheckBoxPanel.class);
+public class TiedCheckBoxPanel extends JPanel {
+    private static final Log log = LogFactory.getLog(TiedCheckBoxPanel.class);
 
     private final SilentJCheckBox checkBox1 = new SilentJCheckBox();
     private final SilentJCheckBox checkBox2 = new SilentJCheckBox();
@@ -22,12 +22,12 @@ public class CheckBoxPanel extends JPanel {
 
     private OnChangeCallBack callBack;
 
-    public CheckBoxPanel(OnChangeCallBack callBack) {
+    public TiedCheckBoxPanel(OnChangeCallBack callBack) {
         this.callBack = callBack;
         createView();
     }
 
-    public CheckBoxPanel() {
+    public TiedCheckBoxPanel() {
         this(null);
     }
 

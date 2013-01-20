@@ -65,12 +65,7 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
             GuiUtils.showInfoMessage("Cue word and the translation can not be empty");
         } else {
 
-            if (StringUtils.containsIgnoreCase(currModel.getTextFaced(), "(идиома)")) {
-                String facedText = StringUtils.removeEndIgnoreCase(currModel.getTextFaced(), "(идиома)");
-                facedText = StringUtils.strip(facedText, " .,");
-                currModel.setTextFaced(facedText);
-                currModel.setType(WordType.IDIOM.getId());
-            }
+            WordUtils.checkIdiom(currModel);
 
             if (currModel.getId() != null &&
                     !currModel.getTextFaced().equals(originalModel.getTextFaced()) &&

@@ -13,6 +13,10 @@ public class BimException extends RuntimeException {
         super(message);
     }
 
+    public BimException(String message, Object... par) {
+        super(String.format(message, par));
+    }
+
     public BimException(String message, Throwable cause) {
         super(message, cause);
     }

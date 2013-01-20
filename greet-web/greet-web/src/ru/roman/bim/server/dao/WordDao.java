@@ -1,7 +1,6 @@
 package ru.roman.bim.server.dao;
 
 import com.google.appengine.api.datastore.*;
-import org.apache.commons.lang.StringUtils;
 import ru.roman.bim.server.service.data.dto.BimItemModel;
 import ru.roman.bim.server.service.data.dto.GaeGetListRequest;
 import ru.roman.bim.server.service.data.dto.GaeGetListResponse;
@@ -27,6 +26,7 @@ public class WordDao {
     public static final String TEXT_FACED = "textFaced";
     public static final String TEXT_SHADOWED = "textShadowed";
     public static final String TYPE = "type";
+    public static final String CATEGORY = "category";
     public static final String FACED_LANG_ID = "facedLangId";
     public static final String SHADOWED_LANG_ID = "shadowedLangId";
     public static final String OWNER = "owner";
@@ -37,21 +37,18 @@ public class WordDao {
 
         // логика исключения дублирования
         Entity word = EntityUtil.findFirstEntity(ENT_NAME, TEXT_FACED, model.getTextFaced());
-        if (word != null) {
-            final String oldTransl = (String)word.getProperty(TEXT_SHADOWED);
-            final String newTransl = model.getTextShadowed();
-            if (newTransl != null && oldTransl != null && !StringUtils.equals(oldTransl, newTransl)) {
-                model.setTextShadowed(newTransl + " | " + oldTransl);
-            }
-        }
+        String oldTransl = null;
         if(model.getId() == null){
             if (word == null) {
                 word = new Entity(ENT_NAME);
+            } else {         // для новых слов, если в БД уже есть такое, дописываем перевод
+                oldTransl = (String)word.getProperty(TEXT_SHADOWED);
             }
-        } else {
+        } else {               // при редактировании, удаляем если уже есть такое слово и дописываем перевод
             if (word != null) {
                 if (word.getKey().getId() != model.getId()) {
-                     deleteWord(model.getId());
+                    oldTransl = (String)word.getProperty(TEXT_SHADOWED);
+                    deleteWord(model.getId());
                 }
             } else {
                 word = getWord(model.getId());
@@ -60,16 +57,28 @@ public class WordDao {
         if (word == null) {
             throw new RuntimeException("Word doesn't determined");
         }
+        final String newTransl = model.getTextShadowed();
+        if (oldTransl != null && newTransl != null) {
+            if (oldTransl.contains(newTransl)) {
+                model.setTextShadowed(oldTransl);
+            } else if (!newTransl.contains(oldTransl)) {
+                model.setTextShadowed(newTransl + " | " + oldTransl);
+            }
+        }
+        if(model.getEditDate() == null) {
+            model.setEditDate(new Date());
+        }
 
         // сохраняем сущность
         word.setProperty(TEXT_FACED, model.getTextFaced());
         word.setProperty(TEXT_SHADOWED, model.getTextShadowed());
         word.setProperty(TYPE, model.getType());
+        word.setProperty(CATEGORY, model.getCategory());
         word.setProperty(FACED_LANG_ID, model.getFacedLangId());
         word.setProperty(SHADOWED_LANG_ID, model.getShadowedLangId());
         word.setProperty(OWNER, model.getOwner());
         word.setProperty(RATING, model.getRating());
-        word.setProperty(EDIT_DATE, new Date());
+        word.setProperty(EDIT_DATE, model.getEditDate());
 
         EntityUtil.persistEntity(word);
         return word.getKey().getId();
@@ -101,6 +110,7 @@ public class WordDao {
             model.setFacedLangId((Long)ent.getProperty(FACED_LANG_ID));
             model.setOwner((Long) ent.getProperty(OWNER));
             model.setType((Long) ent.getProperty(TYPE));
+            model.setCategory((Long) ent.getProperty(CATEGORY));
             model.setRating((Long)ent.getProperty(RATING));
             model.setEditDate((Date) ent.getProperty(EDIT_DATE));
             list.add(model);
@@ -149,6 +159,7 @@ public class WordDao {
         word.setProperty(TEXT_FACED, "привет");
         word.setProperty(TEXT_SHADOWED, "hello");
         word.setProperty(TYPE, 0);
+        word.setProperty(CATEGORY, 0);
         word.setProperty(FACED_LANG_ID, 1);
         word.setProperty(SHADOWED_LANG_ID, 2);
         word.setProperty(OWNER, 1);
@@ -160,6 +171,7 @@ public class WordDao {
         word.setProperty(TEXT_FACED, "пока");
         word.setProperty(TEXT_SHADOWED, "bye bye");
         word.setProperty(TYPE, 0);
+        word.setProperty(CATEGORY, 0);
         word.setProperty(FACED_LANG_ID, 1);
         word.setProperty(SHADOWED_LANG_ID, 2);
         word.setProperty(OWNER, 1);
@@ -171,6 +183,7 @@ public class WordDao {
         word.setProperty(TEXT_FACED, "спасибо");
         word.setProperty(TEXT_SHADOWED, "thanks");
         word.setProperty(TYPE, 0);
+        word.setProperty(CATEGORY, 0);
         word.setProperty(FACED_LANG_ID, 1);
         word.setProperty(SHADOWED_LANG_ID, 2);
         word.setProperty(OWNER, 1);

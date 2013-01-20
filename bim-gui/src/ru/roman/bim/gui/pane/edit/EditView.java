@@ -4,9 +4,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.View;
-import ru.roman.bim.gui.custom.widget.CheckBoxPanel;
+import ru.roman.bim.gui.custom.widget.TiedCheckBoxPanel;
 import ru.roman.bim.model.Lang;
 import ru.roman.bim.model.WordType;
+import ru.roman.bim.util.GuiUtils;
+import ru.roman.bim.util.WsUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,7 +33,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
     private final JButton newButton = new JButton("new");
     private final JButton closeButton = new JButton("close");
 
-    private CheckBoxPanel checkPanel;
+    private TiedCheckBoxPanel checkPanel;
     private JComboBox typeComboBox;
 
     private final JLabel facedLangReduction = new JLabel("XX");
@@ -53,9 +55,11 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         setLocationRelativeTo(null);
         add(panel);
-        setPreferredSize(new Dimension(470, 340));
+        final Dimension preferredSize = new Dimension(470, 340);
+        setPreferredSize(preferredSize);
         setResizable(true);
-        //get
+        setIconImage(GuiUtils.createMainImage());
+        setLocation(GuiUtils.getCenterPosition(preferredSize));
 
         Font font = new Font(Font.SANS_SERIF, Font.PLAIN, 14);
         facedArea.setEditable(true);
@@ -186,7 +190,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         translateTranslationButton.setToolTipText("translate by " + HTTP_TRANSLATE_YANDEX_RU);
 
         // чекбоксы
-        checkPanel = new CheckBoxPanel();
+        checkPanel = new TiedCheckBoxPanel();
         final GridBagConstraints gbc7 = new GridBagConstraints();
         gbc7.fill = GridBagConstraints.NONE;
         gbc7.anchor = GridBagConstraints.LAST_LINE_START;
@@ -283,7 +287,8 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
     public void fillModel(EditViewModel currModel) {
         currModel.setRating(Long.valueOf(checkPanel.getRating()));
         fillTexts(currModel);
-        currModel.setType(((WordType) typeComboBox.getItemAt(typeComboBox.getSelectedIndex())).getId());
+        currModel.setType(((WordType) typeComboBox.getItemAt(typeComboBox.getSelectedIndex())).getOrdinal());
+        currModel.setEditDate(WsUtil.getCurrGregorian());
     }
 
     protected void fillTexts(EditViewModel currModel) {

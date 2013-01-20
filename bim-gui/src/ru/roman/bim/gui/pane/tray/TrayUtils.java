@@ -9,13 +9,11 @@ import ru.roman.bim.util.BimException;
 import ru.roman.bim.util.Const;
 import ru.roman.bim.util.GuiUtils;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.net.URL;
 
 /** @author Roman 22.12.12 3:14 */
 public class TrayUtils {
@@ -34,7 +32,7 @@ public class TrayUtils {
         }
 
         removeTrayIcon();
-        trayIcon = new TrayIcon(createImage("/resources/trayIc.gif", "tray icon"));
+        trayIcon = new TrayIcon(GuiUtils.createMainImage());
 
         // Create a pop-up menu components
         final PopupMenu popUp = new PopupMenu();
@@ -116,7 +114,7 @@ public class TrayUtils {
 
         settingsMenu.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                throw new RuntimeException("Sorry, not implemented yet");
+                PaineFactory.createSettingsView().setVisible(true);
             }
         });
 
@@ -150,16 +148,7 @@ public class TrayUtils {
         }
     }
 
-    //Obtain the image URL
-    public static Image createImage(String path, String description) {
-        URL imageURL = TrayUtils.class.getResource(path);
 
-        if (imageURL == null) {
-            log.info("Resource not found: " + path);
-            return null;
-        } else {
-            return (new ImageIcon(imageURL, description)).getImage();
-        }
-    }
+
 
 }

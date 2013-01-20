@@ -21,6 +21,7 @@
 
   <xs:complexType name="bimItemModel">
     <xs:sequence>
+      <xs:element name="category" type="xs:long" minOccurs="0"/>
       <xs:element name="editDate" type="xs:dateTime" minOccurs="0"/>
       <xs:element name="facedLangId" type="xs:long" minOccurs="0"/>
       <xs:element name="id" type="xs:long" minOccurs="0"/>

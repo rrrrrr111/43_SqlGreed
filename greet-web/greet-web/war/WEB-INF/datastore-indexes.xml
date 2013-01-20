@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <datastore-indexes autoGenerate="true">
 
+    <!-- indexes generates automatically for every single property and also for every query -->
+
     <datastore-index kind="Word" ancestor="false">
         <property name="facedLangId" direction="asc"/>
         <property name="type" direction="asc"/>

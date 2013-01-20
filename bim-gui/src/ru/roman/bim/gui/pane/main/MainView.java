@@ -3,12 +3,14 @@ package ru.roman.bim.gui.pane.main;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.View;
-import ru.roman.bim.gui.custom.widget.CheckBoxPanel;
+import ru.roman.bim.gui.custom.widget.TiedCheckBoxPanel;
 import ru.roman.bim.gui.pane.tray.TrayUtils;
+import ru.roman.bim.model.Lang;
 import ru.roman.bim.model.WordType;
 import ru.roman.bim.util.GuiUtils;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,6 +23,7 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
 
     private final MainViewController controller = new MainViewController(this);
 
+    private TitledBorder titledEmptyBorder;
     private final JLabel textLabel = new JLabel();
 
     private final JButton prevButton = new JButton("pr");
@@ -29,7 +32,7 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
     private final JButton editButton = new JButton("edit");
     private final JButton hideButton = new JButton("hide");
 
-    private CheckBoxPanel checkPanel;
+    private TiedCheckBoxPanel checkPanel;
 
     private final JLabel typeLabel = new JLabel();
 
@@ -87,7 +90,10 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
         //textPanel.add(Box.createHorizontalGlue());
         //textPanel.add(textLabel);
         //textPanel.add(Box.createHorizontalGlue());
-
+        titledEmptyBorder = BorderFactory.createTitledBorder(
+                BorderFactory.createEmptyBorder(), "XX-XX",
+                TitledBorder.RIGHT, TitledBorder.DEFAULT_POSITION);
+        textLabel.setBorder(titledEmptyBorder);
 
         final GridBagConstraints gbc1 = new GridBagConstraints();
         gbc1.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
@@ -170,7 +176,7 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
 
 
         // чекбоксы
-        checkPanel = new CheckBoxPanel(new CheckBoxPanel.OnChangeCallBack() {
+        checkPanel = new TiedCheckBoxPanel(new TiedCheckBoxPanel.OnChangeCallBack() {
             @Override
             public void OnChange(int rating) {
                 controller.onRatingChange(rating);
@@ -198,7 +204,7 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
         panel.add(typeLabel, gbc8);
 
         pack();
-        Point pos = GuiUtils.getRightCornerPosition(getSize(), 3, 40);
+        Point pos = GuiUtils.getRightCornerPosition(getSize(), 3);
         setLocation(pos);
     }
 
@@ -215,6 +221,9 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
         setText(model.getTextFaced());
         typeLabel.setText(WordType.valueOf(model.getType()).toString());
         setRating(model.getRating().intValue());
+
+        titledEmptyBorder.setTitle(String.format("%s-%s", Lang.valueOf(model.getFacedLangId()).getReductionLower(),
+                        Lang.valueOf(model.getShadowedLangId()).getReductionLower()));
     }
 
     private void setText(String str) {

@@ -18,6 +18,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="category" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="editDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *         &lt;element name="facedLangId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
@@ -38,6 +39,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "bimItemModel", propOrder = {
+    "category",
     "editDate",
     "facedLangId",
     "id",
@@ -51,6 +53,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 })
 public class BimItemModel {
 
+    protected Long category;
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar editDate;
     protected Long facedLangId;
@@ -62,6 +65,30 @@ public class BimItemModel {
     protected String textFaced;
     protected String textShadowed;
     protected Long type;
+
+    /**
+     * Gets the value of the category property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
+     */
+    public Long getCategory() {
+        return category;
+    }
+
+    /**
+     * Sets the value of the category property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
+     */
+    public void setCategory(Long value) {
+        this.category = value;
+    }
 
     /**
      * Gets the value of the editDate property.

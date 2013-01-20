@@ -3,10 +3,11 @@ package ru.roman.bim.util;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 /** @author Roman 08.01.13 17:30 */
-public class WsUtil {
+public abstract class WsUtil {
 
     /**
      * Needed to create XMLGregorianCalendar instances
@@ -37,6 +38,10 @@ public class WsUtil {
             gc.setTimeInMillis(date.getTime());
             return df.newXMLGregorianCalendar(gc);
         }
+    }
+
+    public static XMLGregorianCalendar getCurrGregorian() {
+        return asXMLGregorianCalendar(new Date());
     }
 
     /**

@@ -27,11 +27,24 @@ public enum Lang {
         throw new IllegalArgumentException(String.format("Unknown ordinal %s", wordLandId));
     }
 
+    public static Lang valueOfReduction(String red) {
+        for (Lang lang : values()) {
+            if (lang.getReductionLower().equalsIgnoreCase(red)) {
+                return lang;
+            }
+        }
+        throw new IllegalArgumentException(String.format("Unknown reduction %s", red));
+    }
+
     public String getReductionLower() {
         return reductionLower;
     }
 
     public String getReductionUpper() {
         return reductionUpper;
+    }
+
+    public Long getOrdinal() {
+        return (long)ordinal();
     }
 }

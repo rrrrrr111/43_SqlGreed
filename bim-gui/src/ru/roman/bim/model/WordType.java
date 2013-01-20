@@ -23,7 +23,7 @@ public enum WordType {
         return name;
     }
 
-    public Long getId() {
+    public Long getOrdinal() {
         return id;
     }
 
@@ -38,7 +38,7 @@ public enum WordType {
 
     public static WordType valueOf(Long id) {
         for (WordType i : values()) {
-            if (i.getId() == id) {
+            if (i.getOrdinal() == id) {
                 return i;
             }
         }
@@ -48,7 +48,7 @@ public enum WordType {
     public static List<Long> getIds(List<WordType> list) {
         List<Long> ordinals = new ArrayList<Long>();
         for(WordType t : list) {
-            ordinals.add(t.getId());
+            ordinals.add(t.getOrdinal());
         }
         return ordinals;
     }

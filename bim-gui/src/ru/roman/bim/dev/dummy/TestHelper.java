@@ -13,7 +13,7 @@ public class TestHelper {
         model.setRating(1L);
         model.setTextFaced("hello it's a question... sd fs sdfasdfas sd fsdfssd safsdf sdfds s fasd sd f sdfsdf sdfsdf sfsfsdf sf sf  sdfsd sdf sdf s dfsf");
         model.setTextShadowed("         Это типа перевод...");
-        model.setType(WordType.WORD.getId());
+        model.setType(WordType.WORD.getOrdinal());
         return model;
     }
 }
