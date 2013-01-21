@@ -21,6 +21,12 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
     private JPanel prevSettTab;
     private JPanel loadTab;
 
+    private JTextField loginText;
+    private JPasswordField passwordText;
+
+    private SimpleCheckBoxPanel ratingsPanel;
+    private JTextField portionText;
+
     public SettingsView() {
 
         createView();
@@ -57,6 +63,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
 
         final int leftAndRightMargin = 60;
         final int behindLabelAndWidgetMargin = 10;
+        final int upAndUnderMargin = 20;
 
         ///////////////////////////////////////////////////////////////////////////////
         ///////////////////////////// Authorization ///////////////////////////////////
@@ -76,10 +83,10 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
         gbc.gridy = 0;
         //gbc.ipady = 140;                          // ограничение минимального размера
         //gbc.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, 0, 30, 0);
+        gbc.insets = new Insets(0, 0, 0, 0);
         genericTab.add(authPanel, gbc);
 
-        final JTextField loginText = new JTextField();
+        loginText = new JTextField();
         loginText.setPreferredSize(new Dimension(160, 0));
         gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
@@ -91,7 +98,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
         gbc.gridy = 0;
         //gbc.ipady = 140;                          // ограничение минимального размера
         //gbc.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, 0, 0, leftAndRightMargin);
+        gbc.insets = new Insets(upAndUnderMargin, 0, 0, leftAndRightMargin);
         authPanel.add(loginText, gbc);
 
         JLabel loginLabel = new JLabel("login");
@@ -107,10 +114,10 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
         gbc.gridy = 0;
         //gbc11.ipady = 140;                          // ограничение минимального размера
         //gbc11.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, leftAndRightMargin, 0, behindLabelAndWidgetMargin);
+        gbc.insets = new Insets(upAndUnderMargin, leftAndRightMargin, 0, behindLabelAndWidgetMargin);
         authPanel.add(loginLabel, gbc);
 
-        final JPasswordField passwordText = new JPasswordField();
+        passwordText = new JPasswordField();
         //passwordText.setPreferredSize(new Dimension(160, 0));
         gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
@@ -122,7 +129,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
         gbc.gridy = 1;
         //gbc2.ipady = 140;                          // ограничение минимального размера
         //gbc2.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, 0, 0, leftAndRightMargin);
+        gbc.insets = new Insets(0, 0, upAndUnderMargin, leftAndRightMargin);
         authPanel.add(passwordText, gbc);
 
         JLabel passwordLabel = new JLabel("password");
@@ -138,7 +145,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
         gbc.gridy = 1;
         //gbc21.ipady = 140;                          // ограничение минимального размера
         //gbc21.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, leftAndRightMargin, 0, behindLabelAndWidgetMargin);
+        gbc.insets = new Insets(0, leftAndRightMargin, upAndUnderMargin, behindLabelAndWidgetMargin);
         authPanel.add(passwordLabel, gbc);
 
 
@@ -163,7 +170,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
         gbc.insets = new Insets(0, 0, 0, 0);
         genericTab.add(genSettPanel, gbc);
 
-        final SimpleCheckBoxPanel ratingsPanel = new SimpleCheckBoxPanel();
+        ratingsPanel = new SimpleCheckBoxPanel();
         gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
         gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
@@ -174,7 +181,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
         gbc.gridy = 0;
         //gbc.ipady = 140;                          // ограничение минимального размера
         //gbc.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, 0, 0, leftAndRightMargin);
+        gbc.insets = new Insets(upAndUnderMargin, 0, 0, leftAndRightMargin);
         genSettPanel.add(ratingsPanel, gbc);
 
         JLabel ratingsLabel = new JLabel("displayed ratings");
@@ -190,11 +197,10 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
         gbc.gridy = 0;
         //gbc.ipady = 140;                          // ограничение минимального размера
         //gbc.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, leftAndRightMargin, 0, behindLabelAndWidgetMargin);
+        gbc.insets = new Insets(upAndUnderMargin, leftAndRightMargin, 0, behindLabelAndWidgetMargin);
         genSettPanel.add(ratingsLabel, gbc);
 
-
-        final JTextField portionText = new JTextField();
+        portionText = new JTextField();
         portionText.setPreferredSize(new Dimension(10, 0));
         gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
@@ -206,7 +212,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
         gbc.gridy = 1;
         //gbc.ipady = 140;                          // ограничение минимального размера
         //gbc.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, 0, 0, leftAndRightMargin);
+        gbc.insets = new Insets(0, 0, upAndUnderMargin, leftAndRightMargin);
         genSettPanel.add(portionText, gbc);
 
         JLabel portionLabel = new JLabel("portion");
@@ -222,7 +228,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
         gbc.gridy = 1;
         //gbc.ipady = 140;                          // ограничение минимального размера
         //gbc.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, leftAndRightMargin, 0, behindLabelAndWidgetMargin);
+        gbc.insets = new Insets(0, leftAndRightMargin, upAndUnderMargin, behindLabelAndWidgetMargin);
         genSettPanel.add(portionLabel, gbc);
 
 
@@ -259,7 +265,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
         gbc.gridy = 0;
         //gbc11.ipady = 140;                          // ограничение минимального размера
         //gbc11.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, leftAndRightMargin, 0, behindLabelAndWidgetMargin);
+        gbc.insets = new Insets(upAndUnderMargin, leftAndRightMargin, upAndUnderMargin, behindLabelAndWidgetMargin);
         loadWordListPanel.add(broseWordListLabel, gbc);
 
         final JButton broseWordListButton = new JButton();
@@ -281,7 +287,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
         gbc.gridy = 0;
         //gbc.ipady = 140;                          // ограничение минимального размера
         //gbc.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, 0, 0, leftAndRightMargin);
+        gbc.insets = new Insets(upAndUnderMargin, 0, upAndUnderMargin, leftAndRightMargin);
         loadWordListPanel.add(broseWordListButton, gbc);
 
         pack();

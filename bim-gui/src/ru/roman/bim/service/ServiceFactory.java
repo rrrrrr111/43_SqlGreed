@@ -7,8 +7,8 @@ import ru.roman.bim.service.http.HttpClientService;
 import ru.roman.bim.service.http.HttpClientServiceImpl;
 import ru.roman.bim.service.translate.TranslationService;
 import ru.roman.bim.service.translate.YandexService;
-import ru.roman.bim.service.wordLoad.WordLoaderService;
-import ru.roman.bim.service.wordLoad.WordLoaderServiceImpl;
+import ru.roman.bim.service.wordload.WordLoaderService;
+import ru.roman.bim.service.wordload.WordLoaderServiceImpl;
 import ru.roman.bim.util.Const;
 
 /** @author Roman 22.12.12 15:37 */

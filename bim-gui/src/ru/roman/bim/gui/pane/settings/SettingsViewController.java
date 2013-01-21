@@ -5,7 +5,7 @@ import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.Controller;
 import ru.roman.bim.gui.pane.PaineFactory;
 import ru.roman.bim.service.ServiceFactory;
-import ru.roman.bim.service.wordLoad.WordLoaderService;
+import ru.roman.bim.service.wordload.WordLoaderService;
 import ru.roman.bim.util.GuiUtils;
 
 import java.io.File;
