@@ -29,7 +29,7 @@ public interface LocalCache {
 
     Integer getRecordsCount();
 
-    List<MainViewModel> getCache();
+    List<MainViewModel> getCacheData();
 
     void clearCache();
 

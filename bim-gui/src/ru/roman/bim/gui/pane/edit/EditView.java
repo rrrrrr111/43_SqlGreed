@@ -6,6 +6,7 @@ import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.View;
 import ru.roman.bim.gui.custom.widget.TiedCheckBoxPanel;
 import ru.roman.bim.model.Lang;
+import ru.roman.bim.model.WordCategory;
 import ru.roman.bim.model.WordType;
 import ru.roman.bim.util.GuiUtils;
 import ru.roman.bim.util.WsUtil;
@@ -35,6 +36,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
 
     private TiedCheckBoxPanel checkPanel;
     private JComboBox typeComboBox;
+    private JComboBox categoryComboBox;
 
     private final JLabel facedLangReduction = new JLabel("XX");
     private final JLabel translationLangReduction = new JLabel("YY");
@@ -76,6 +78,8 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
 
         Collection <WordType> types = controller.getTypes();
         typeComboBox = new JComboBox(new Vector<WordType>(types));
+        Collection <WordCategory> categories = controller.getCategories();
+        categoryComboBox = new JComboBox(new Vector<WordCategory>(categories));
 
         // текст
 //        final JPanel textPanel = new JPanel(new CardLayout());
@@ -87,7 +91,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         final GridBagConstraints gbc1 = new GridBagConstraints();
         gbc1.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
         gbc1.anchor = GridBagConstraints.PAGE_START;  // привязка к краю контейнера
-        gbc1.gridwidth = 5;                         // кол-во ячеек заполняемых по ширине
+        gbc1.gridwidth = 6;                         // кол-во ячеек заполняемых по ширине
         gbc1.gridheight = 1;                         // кол-во ячеек заполняемых по высоте
         gbc1.weighty = 1.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
         gbc1.weightx = 1.0;
@@ -100,7 +104,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         final GridBagConstraints gbc1$1 = new GridBagConstraints();
         gbc1$1.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
         //gbc1$1.anchor = GridBagConstraints.PAGE_START;  // привязка к краю контейнера
-        gbc1$1.gridwidth = 5;                         // кол-во ячеек заполняемых по ширине
+        gbc1$1.gridwidth = 6;                         // кол-во ячеек заполняемых по ширине
         gbc1$1.weighty = 1.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
         gbc1$1.weightx = 1.0;
         gbc1$1.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
@@ -209,7 +213,18 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         gbc8.gridy = 2;
         gbc8.weighty = 0.0;
         gbc8.weightx = 1.0;
+        gbc8.insets = new Insets(0,3,0,3);
         panel.add(typeComboBox, gbc8);
+
+        GridBagConstraints gbc9 = new GridBagConstraints();
+        gbc9.fill = GridBagConstraints.HORIZONTAL;
+        gbc9.gridwidth = 1;
+        gbc9.gridx = 5;
+        gbc9.gridy = 2;
+        gbc9.weighty = 0.0;
+        gbc9.weightx = 1.0;
+        gbc9.insets = new Insets(0,0,0,3);
+        panel.add(categoryComboBox, gbc9);
 
 
         JPanel facedAreaButtonsPanel = new JPanel();
@@ -219,16 +234,17 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
 
         facedLangReduction.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
 
-        final GridBagConstraints gbc9 = new GridBagConstraints();
+        gbc9 = new GridBagConstraints();
         gbc9.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
         //gbc9.anchor = GridBagConstraints.PAGE_START;  // привязка к краю контейнера
         gbc9.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
         gbc9.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
         gbc9.weightx = 0.0;
-        gbc9.gridx = 5;                             // gridx и  gridy координаты куда кладется компонент
+        gbc9.gridx = 6;                             // gridx и  gridy координаты куда кладется компонент
         gbc9.gridy = 0;
         //gbc9.ipady = 140;                          // ограничение минимального размера
         //gbc9.ipadx = 270;                          // ограничение минимального размера
+        gbc9.insets = new Insets(0,0,0,0);
         panel.add(facedAreaButtonsPanel, gbc9);
 
         JPanel translationAreaButtonsPanel = new JPanel();
@@ -244,7 +260,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         gbc11.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
         gbc11.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
         gbc11.weightx = 0.0;
-        gbc11.gridx = 5;                             // gridx и  gridy координаты куда кладется компонент
+        gbc11.gridx = 6;                             // gridx и  gridy координаты куда кладется компонент
         gbc11.gridy = 1;
         //gbc11.ipady = 140;                          // ограничение минимального размера
         //gbc11.ipadx = 270;                          // ограничение минимального размера
@@ -259,6 +275,8 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
     public void setValues(EditViewModel model) {
         setTexts(model);
         typeComboBox.getModel().setSelectedItem(WordType.valueOf(model.getType()));
+        categoryComboBox.getModel().setSelectedItem(
+                model.getCategory() == null ? WordCategory.COMMON : WordCategory.valueOf(model.getCategory()));
         checkPanel.setRating(model.getRating().intValue());
         setTitle(model);
 
@@ -288,6 +306,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         currModel.setRating(Long.valueOf(checkPanel.getRating()));
         fillTexts(currModel);
         currModel.setType(((WordType) typeComboBox.getItemAt(typeComboBox.getSelectedIndex())).getOrdinal());
+        currModel.setCategory(((WordCategory) categoryComboBox.getItemAt(categoryComboBox.getSelectedIndex())).getOrdinal());
         currModel.setEditDate(WsUtil.getCurrGregorian());
     }
 

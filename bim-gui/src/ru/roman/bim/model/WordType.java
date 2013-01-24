@@ -9,6 +9,7 @@ public enum WordType {
     WORD(0L, "word"),
     EXPRESSION(1L, "expression"),
     IDIOM(2L, "idiom"),
+    RULE(3L, "rule"),
     ;
 
     private final Long id;

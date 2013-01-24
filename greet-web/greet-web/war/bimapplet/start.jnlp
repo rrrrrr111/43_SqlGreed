@@ -2,7 +2,7 @@
 <jnlp spec="1.0+"
         codebase="http://churganovroman.appspot.com/bimapplet/" href="start.jnlp">
     <information>
-        <title>Bim</title>
+        <title>Bim 1.17</title>
         <vendor>Roman</vendor>
         <homepage href="http://churganovroman.appspot.com/index.jsp"/>
         <description>Be in mind</description>
@@ -12,7 +12,7 @@
         <all-permissions/>
     </security>
     <resources>
-        <j2se version="1.6+"/>
+        <j2se version="1.7+"/>
         <jar href="bim-gui.jar"/>
     </resources>
     <application-desc main-class="ru.roman.bim.StartBim"/>

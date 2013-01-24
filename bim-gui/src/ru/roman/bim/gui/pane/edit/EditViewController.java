@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.Controller;
+import ru.roman.bim.model.WordCategory;
 import ru.roman.bim.model.WordType;
 import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.cache.LocalCache;
@@ -128,5 +129,9 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
                 currModel.getShadowedLangId(), currModel.getFacedLangId());
         currModel.setTextFaced(tr);
         view.setTexts(currModel);
+    }
+
+    public Collection<WordCategory> getCategories() {
+        return Arrays.asList(WordCategory.values());
     }
 }

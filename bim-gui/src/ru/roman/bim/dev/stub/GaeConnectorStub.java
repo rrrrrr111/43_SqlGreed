@@ -1,5 +1,6 @@
 package ru.roman.bim.dev.stub;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.pane.main.MainViewModel;
@@ -10,35 +11,36 @@ import ru.roman.bim.service.gae.wsclient.GaeGetListRequest;
 import ru.roman.bim.service.gae.wsclient.GaeGetListResponse;
 import ru.roman.bim.util.WsUtil;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+import java.util.TreeSet;
 
 /** @author Roman 22.12.12 15:43 */
 public class GaeConnectorStub implements GaeConnector {
     private static final Log log = LogFactory.getLog(GaeConnectorStub.class);
 
-    static Set<MainViewModel> store = new HashSet<MainViewModel>();
+    static TreeSet<MainViewModel> store = new TreeSet<MainViewModel>();
     static long counter;
-    public static final int SERVICE_TIMEOUT = 2000;
+    public static final int SERVICE_TIMEOUT = 1000;
 
     static {
         Date currDate = new Date();
-        store.add(new MainViewModel(counter++, "word1","transl1",1l,2l,1l, WordType.EXPRESSION.getOrdinal()
+        store.add(new MainViewModel(counter++, "1 word1","transl1",1l,2l,1l, WordType.EXPRESSION.getOrdinal()
                 , WordCategory.COMMON.getOrdinal(), null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
-        store.add(new MainViewModel(counter++, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        store.add(new MainViewModel(counter++, "2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 1l,2l,1l, WordType.EXPRESSION.getOrdinal(),
                 WordCategory.COMMON.getOrdinal(), null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
-        store.add(new MainViewModel(counter++, "word3","transl3",1l,2l,4l, WordType.EXPRESSION.getOrdinal()
+        store.add(new MainViewModel(counter++, "3 word3","transl3",1l,2l,4l, WordType.EXPRESSION.getOrdinal()
                 , WordCategory.COMMON.getOrdinal(), null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
-        store.add(new MainViewModel(counter++, "word4","transl4",1l,2l,3l, WordType.WORD.getOrdinal()
+        store.add(new MainViewModel(counter++, "4 word4","transl4",1l,2l,3l, WordType.WORD.getOrdinal()
                 , WordCategory.COMMON.getOrdinal(), null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
-        store.add(new MainViewModel(counter++, "word5","transl5",1l,2l,4l, WordType.IDIOM.getOrdinal()
+        store.add(new MainViewModel(counter++, "5 word5","transl5",1l,2l,4l, WordType.IDIOM.getOrdinal()
                 , WordCategory.COMMON.getOrdinal(), null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
-        store.add(new MainViewModel(counter++, "word6","transl6",1l,2l,2l, WordType.WORD.getOrdinal()
+        store.add(new MainViewModel(counter++, "6 word6","transl6",1l,2l,2l, WordType.WORD.getOrdinal()
                 , WordCategory.COMMON.getOrdinal(), null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
-        store.add(new MainViewModel(counter++, "word7","transl7",1l,2l,5l, WordType.WORD.getOrdinal()
+        store.add(new MainViewModel(counter++, "7 word7","transl7",1l,2l,5l, WordType.WORD.getOrdinal()
                 , WordCategory.COMMON.getOrdinal(), null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
     }
 
@@ -52,7 +54,7 @@ public class GaeConnectorStub implements GaeConnector {
             store.remove(model);
         }
         store.add(model);
-        log.info("Stub save");
+        log.info("Stub save : " + ToStringBuilder.reflectionToString(model));
         sleep();
         return model.getId();
 
@@ -60,10 +62,19 @@ public class GaeConnectorStub implements GaeConnector {
 
     @Override
     public GaeGetListResponse getList(GaeGetListRequest request) {
+        List<MainViewModel> list = new ArrayList<MainViewModel>(store);
+        final MainViewModel from = list.get(request.getOffset());
+        int toIdx = request.getOffset() + request.getCount() - 1;
+        if (toIdx >= list.size()) {
+            toIdx = list.size() - 1;
+        }
+        final MainViewModel to = list.get(toIdx);
+
         GaeGetListResponse resp = new GaeGetListResponse();
-        resp.getList().addAll(store);
+        resp.getList().addAll(store.subSet(from, true, to, true));
         resp.setRecordsCount(store.size());
-        log.info("Stub getList");
+        log.info(String.format("Stub getList : %s, return : %s models",
+                ToStringBuilder.reflectionToString(request), resp.getList().size()));
         sleep();
         return resp;
     }
@@ -75,7 +86,7 @@ public class GaeConnectorStub implements GaeConnector {
                 mainViewModel.setRating(rating.longValue());
             }
         }
-        log.info("Stub renewRating");
+        log.info(String.format("Stub renewRating id=%s, rating=%s", id, rating));
         sleep();
     }
 

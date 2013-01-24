@@ -19,36 +19,28 @@ import java.util.List;
 public class LocalCacheImpl implements LocalCache {
     private static final Log log = LogFactory.getLog(LocalCacheImpl.class);
 
-    GaeConnector gaeConnector = ServiceFactory.getGaeConnector();
-    /*
-   кэш
-    */
-    private final List<MainViewModel> cache;
-    /**
-    счетчик относительно которого идет перебор слов в БД
-     */
-    private Integer currentNum = 0;
-    /**
-    сдвиг относително начала БД для текущего набора в кэше
-     */
-    private Integer currentOffset = 0;
-    /**
-    общее кол-во записей
-     */
-    private Integer recordsCount = 0;
+    private GaeConnector gaeConnector = ServiceFactory.getGaeConnector();
 
-    protected LocalCacheImpl(LocalCache localCache) {
-        super();
-        cache = localCache.getCache();
-        recordsCount = localCache.getRecordsCount();
-        initCache(localCache.getCurrentNum(), localCache.getCurrentOffset());
-    }
+    /* кэш */
+    private final List<MainViewModel> cache;
+    /** счетчик относительно которого идет перебор слов в БД, начинается с нуля */
+    private Integer currentNum = 0;
+    /** сдвиг относително начала БД для текущего набора в кэше */
+    private Integer currentOffset = 0;
+    /** общее кол-во записей */
+    private Integer recordsCount = 0;
 
     protected LocalCacheImpl() {
         super();
         cache = new ArrayList<MainViewModel>(Const.CACHE_MAX_SIZE);
     }
 
+    protected LocalCacheImpl(LocalCache localCache) {
+        super();
+        cache = localCache.getCacheData();
+        recordsCount = localCache.getRecordsCount();
+        initCache(localCache.getCurrentNum(), localCache.getCurrentOffset());
+    }
 
     @Override
     public synchronized void initCache(Integer currentNum, Integer currentOffset) {
@@ -84,28 +76,28 @@ public class LocalCacheImpl implements LocalCache {
             model.setModelNum(currentNum.longValue());
             return model;
         }
-        throw new BimException(String.format("Illegal cache state, value %s too big", num));
+        throw new BimException(String.format("Illegal cache state, wrong value wordNum %s", num));
     }
 
 
     private void checkCacheState() {
-        if (currentNum <= 0 || currentNum > recordsCount) {
+        if (currentNum >= recordsCount) {
             currentNum = 0;
-            currentOffset = 0;
         }
-        if (currentNum < currentOffset) {
-            currentOffset = currentNum;
+        if (currentNum < 0 ) {
+            currentNum = recordsCount - 1;
         }
-        if ((currentNum > (currentOffset + Const.CACHE_MAX_SIZE)) || cache.isEmpty()) {
-            final Integer offset;
-            if (cache.isEmpty()) {
-                offset = currentOffset;
-            } else {
-                offset = currentOffset + Const.CACHE_MAX_SIZE;
-            }
+        int newOffset;
+        if (currentNum >= Const.CACHE_MAX_SIZE) {
+            newOffset = currentNum - currentNum % Const.CACHE_MAX_SIZE;
+        } else {
+            newOffset = 0;
+        }
+
+        if (currentOffset != newOffset || cache.isEmpty()) {
 
             final GaeGetListRequest req = new GaeGetListRequest();
-            req.setOffset(offset);
+            req.setOffset(newOffset);
             req.setCount(Const.CACHE_MAX_SIZE);
             req.setSortingField(Const.DEFAULT_SORTING_FIELD);
             req.setSortingDirection(Const.DEFAULT_SORTING_DIRECTION);
@@ -114,11 +106,13 @@ public class LocalCacheImpl implements LocalCache {
             req.setLangId(Const.DEFAULT_LANG_ID);
 
             GaeGetListResponse resp = gaeConnector.getList(req);
-
+            if (resp.getList() == null || resp.getList().size() == 0) {
+                throw new BimException("Words have not found in dictionary");
+            }
             cache.clear();
             cache.addAll(toModels(resp.getList()));
-            recordsCount = resp.getRecordsCount() - 1;  // отнимаем еденицу т к у нас все счетчики относительно индексов списка
-            currentOffset = offset;
+            recordsCount = resp.getRecordsCount();
+            currentOffset = newOffset;
         }
     }
 
@@ -141,7 +135,7 @@ public class LocalCacheImpl implements LocalCache {
     }
 
     @Override
-    public synchronized List<MainViewModel> getCache() {
+    public synchronized List<MainViewModel> getCacheData() {
         return new ArrayList<MainViewModel>(cache);
     }
 
@@ -152,8 +146,9 @@ public class LocalCacheImpl implements LocalCache {
 
     @Override
     public synchronized void clearCache() {
+        int size = cache.size();
         cache.clear();
-        log.info("Cache cleaned");
+        log.info(String.format("Cache cleaned, %s models deleted", size));
     }
 
     @Override

@@ -49,10 +49,11 @@ public class MainViewModel extends BimItemModel implements Model {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof MainViewModel)) return false;
-        MainViewModel that = (MainViewModel) o;
-        if (id != null) {
-            return id.equals(that.id);
+        if ((o instanceof MainViewModel)){
+            MainViewModel that = (MainViewModel) o;
+            if (id != null) {
+                return id.equals(that.id);
+            }
         }
         return false;
     }
@@ -65,5 +66,14 @@ public class MainViewModel extends BimItemModel implements Model {
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (id != null && (o instanceof MainViewModel)) {
+            MainViewModel that = (MainViewModel) o;
+            return id.compareTo(that.id);
+        }
+        return 0;
     }
 }
