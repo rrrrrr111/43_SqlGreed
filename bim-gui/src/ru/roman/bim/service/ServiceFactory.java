@@ -1,6 +1,10 @@
 package ru.roman.bim.service;
 
 import ru.roman.bim.dev.stub.GaeConnectorStub;
+import ru.roman.bim.service.config.CastorConfigServiceImpl;
+import ru.roman.bim.service.config.ConfigService;
+import ru.roman.bim.service.config.XmlConfigService;
+import ru.roman.bim.service.config.XmlConfigServiceImpl;
 import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.gae.GaeConnectorImpl;
 import ru.roman.bim.service.http.HttpClientService;
@@ -17,6 +21,8 @@ public class ServiceFactory {
     private static volatile HttpClientService httpClientInstance;
     private static volatile TranslationService yandexService;
     private static volatile WordLoaderService wordLoaderService;
+    private static volatile XmlConfigService xmlConfigService;
+    private static volatile ConfigService configService;
 
     public static synchronized GaeConnector getGaeConnector() {
         if (gaeConnector == null) {
@@ -47,6 +53,20 @@ public class ServiceFactory {
             wordLoaderService = new WordLoaderServiceImpl();
         }
         return wordLoaderService;
+    }
+
+    public static synchronized XmlConfigService getXmlConfigService() {
+        if (xmlConfigService == null) {
+            xmlConfigService = new XmlConfigServiceImpl();
+        }
+        return xmlConfigService;
+    }
+
+    public static synchronized ConfigService getConfigService() {
+        if (configService == null) {
+            configService = new CastorConfigServiceImpl();
+        }
+        return configService;
     }
 
 }

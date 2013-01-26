@@ -1,9 +1,9 @@
 package ru.roman.bim.server.dao;
 
 import com.google.appengine.api.datastore.*;
-import ru.roman.bim.server.service.data.dto.BimItemModel;
-import ru.roman.bim.server.service.data.dto.GaeGetListRequest;
-import ru.roman.bim.server.service.data.dto.GaeGetListResponse;
+import ru.roman.bim.server.service.data.dto.word.BimItemModel;
+import ru.roman.bim.server.service.data.dto.word.GetListRequest;
+import ru.roman.bim.server.service.data.dto.word.GetListResp;
 import ru.roman.bim.server.util.EntityUtil;
 
 import java.util.ArrayList;
@@ -85,7 +85,7 @@ public class WordDao {
     }
 
 
-    public static GaeGetListResponse getWords(GaeGetListRequest req) {
+    public static GetListResp getWords(GetListRequest req) {
 
         Query q = new Query(ENT_NAME);
         q.addFilter(FACED_LANG_ID, Query.FilterOperator.EQUAL, req.getLangId());
@@ -117,7 +117,7 @@ public class WordDao {
         }
 
         final int size = EntityUtil.getCount(ENT_NAME);
-        final GaeGetListResponse resp = new GaeGetListResponse();
+        final GetListResp resp = new GetListResp();
         resp.setList(list);
         resp.setRecordsCount(size);
         return resp;

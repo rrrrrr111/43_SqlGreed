@@ -13,14 +13,14 @@ import javax.xml.bind.annotation.XmlType;
 public class Save {
 
     @XmlElement(name = "arg0", namespace = "")
-    private ru.roman.bim.server.service.data.dto.BimItemModel arg0;
+    private ru.roman.bim.server.service.data.dto.word.SaveRequest arg0;
 
     /**
      * 
      * @return
-     *     returns BimItemModel
+     *     returns SaveRequest
      */
-    public ru.roman.bim.server.service.data.dto.BimItemModel getArg0() {
+    public ru.roman.bim.server.service.data.dto.word.SaveRequest getArg0() {
         return this.arg0;
     }
 
@@ -29,7 +29,7 @@ public class Save {
      * @param arg0
      *     the value for the arg0 property
      */
-    public void setArg0(ru.roman.bim.server.service.data.dto.BimItemModel arg0) {
+    public void setArg0(ru.roman.bim.server.service.data.dto.word.SaveRequest arg0) {
         this.arg0 = arg0;
     }
 

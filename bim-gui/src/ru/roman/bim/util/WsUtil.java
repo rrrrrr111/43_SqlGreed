@@ -1,5 +1,8 @@
 package ru.roman.bim.util;
 
+import ru.roman.bim.service.gae.wsclient.AbstractRequest;
+import ru.roman.bim.service.gae.wsclient.RequestInfo;
+
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -58,5 +61,14 @@ public abstract class WsUtil {
         } else {
             return xgc.toGregorianCalendar().getTime();
         }
+    }
+
+
+    public static <T extends AbstractRequest> T prepareRequest(T req) {
+        final RequestInfo requestInfo = new RequestInfo();
+        requestInfo.setUserId(Const.DEFAULT_OWNER_ID);
+        requestInfo.setVersion(Const.VERSION);
+        req.setRequestInfo(requestInfo);
+        return req;
     }
 }

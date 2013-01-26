@@ -25,8 +25,10 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _RenewRatingResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "renewRatingResponse");
+    private final static QName _StoreSettings_QNAME = new QName("http://data.service.server.bim.roman.ru/", "storeSettings");
     private final static QName _GetList_QNAME = new QName("http://data.service.server.bim.roman.ru/", "getList");
     private final static QName _GetListResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "getListResponse");
+    private final static QName _StoreSettingsResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "storeSettingsResponse");
     private final static QName _SaveResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "saveResponse");
     private final static QName _RenewRating_QNAME = new QName("http://data.service.server.bim.roman.ru/", "renewRating");
     private final static QName _Save_QNAME = new QName("http://data.service.server.bim.roman.ru/", "save");
@@ -63,6 +65,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link StoreSettingsResponse }
+     * 
+     */
+    public StoreSettingsResponse createStoreSettingsResponse() {
+        return new StoreSettingsResponse();
+    }
+
+    /**
      * Create an instance of {@link GetListResponse }
      * 
      */
@@ -79,6 +89,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link StoreSettings }
+     * 
+     */
+    public StoreSettings createStoreSettings() {
+        return new StoreSettings();
+    }
+
+    /**
      * Create an instance of {@link RenewRatingResponse }
      * 
      */
@@ -87,11 +105,75 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GaeGetListRequest }
+     * Create an instance of {@link GetListRequest }
      * 
      */
-    public GaeGetListRequest createGaeGetListRequest() {
-        return new GaeGetListRequest();
+    public GetListRequest createGetListRequest() {
+        return new GetListRequest();
+    }
+
+    /**
+     * Create an instance of {@link RenewRatingRequest }
+     * 
+     */
+    public RenewRatingRequest createRenewRatingRequest() {
+        return new RenewRatingRequest();
+    }
+
+    /**
+     * Create an instance of {@link StoreSettingsResp }
+     * 
+     */
+    public StoreSettingsResp createStoreSettingsResp() {
+        return new StoreSettingsResp();
+    }
+
+    /**
+     * Create an instance of {@link GetListResp }
+     * 
+     */
+    public GetListResp createGetListResp() {
+        return new GetListResp();
+    }
+
+    /**
+     * Create an instance of {@link StoreSettingsRequest }
+     * 
+     */
+    public StoreSettingsRequest createStoreSettingsRequest() {
+        return new StoreSettingsRequest();
+    }
+
+    /**
+     * Create an instance of {@link UserSettingsModel }
+     * 
+     */
+    public UserSettingsModel createUserSettingsModel() {
+        return new UserSettingsModel();
+    }
+
+    /**
+     * Create an instance of {@link RequestInfo }
+     * 
+     */
+    public RequestInfo createRequestInfo() {
+        return new RequestInfo();
+    }
+
+    /**
+     * Create an instance of {@link AbstractResponse }
+     * 
+     */
+    public AbstractResponse createAbstractResponse() {
+        return new AbstractResponse();
+    }
+
+    /**
+     * Create an instance of {@link SaveRequest }
+     * 
+     */
+    public SaveRequest createSaveRequest() {
+        return new SaveRequest();
     }
 
     /**
@@ -103,11 +185,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GaeGetListResponse }
+     * Create an instance of {@link AbstractRequest }
      * 
      */
-    public GaeGetListResponse createGaeGetListResponse() {
-        return new GaeGetListResponse();
+    public AbstractRequest createAbstractRequest() {
+        return new AbstractRequest();
     }
 
     /**
@@ -117,6 +199,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "renewRatingResponse")
     public JAXBElement<RenewRatingResponse> createRenewRatingResponse(RenewRatingResponse value) {
         return new JAXBElement<RenewRatingResponse>(_RenewRatingResponse_QNAME, RenewRatingResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link StoreSettings }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "storeSettings")
+    public JAXBElement<StoreSettings> createStoreSettings(StoreSettings value) {
+        return new JAXBElement<StoreSettings>(_StoreSettings_QNAME, StoreSettings.class, null, value);
     }
 
     /**
@@ -135,6 +226,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "getListResponse")
     public JAXBElement<GetListResponse> createGetListResponse(GetListResponse value) {
         return new JAXBElement<GetListResponse>(_GetListResponse_QNAME, GetListResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link StoreSettingsResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "storeSettingsResponse")
+    public JAXBElement<StoreSettingsResponse> createStoreSettingsResponse(StoreSettingsResponse value) {
+        return new JAXBElement<StoreSettingsResponse>(_StoreSettingsResponse_QNAME, StoreSettingsResponse.class, null, value);
     }
 
     /**

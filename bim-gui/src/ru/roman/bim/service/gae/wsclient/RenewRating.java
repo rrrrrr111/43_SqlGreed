@@ -16,8 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="arg0" type="{http://data.service.server.bim.roman.ru/}renewRatingRequest" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -28,23 +27,21 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "renewRating", propOrder = {
-    "arg0",
-    "arg1"
+    "arg0"
 })
 public class RenewRating {
 
-    protected Long arg0;
-    protected Integer arg1;
+    protected RenewRatingRequest arg0;
 
     /**
      * Gets the value of the arg0 property.
      * 
      * @return
      *     possible object is
-     *     {@link Long }
+     *     {@link RenewRatingRequest }
      *     
      */
-    public Long getArg0() {
+    public RenewRatingRequest getArg0() {
         return arg0;
     }
 
@@ -53,35 +50,11 @@ public class RenewRating {
      * 
      * @param value
      *     allowed object is
-     *     {@link Long }
+     *     {@link RenewRatingRequest }
      *     
      */
-    public void setArg0(Long value) {
+    public void setArg0(RenewRatingRequest value) {
         this.arg0 = value;
-    }
-
-    /**
-     * Gets the value of the arg1 property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getArg1() {
-        return arg1;
-    }
-
-    /**
-     * Sets the value of the arg1 property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setArg1(Integer value) {
-        this.arg1 = value;
     }
 
 }

@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="arg0" type="{http://data.service.server.bim.roman.ru/}bimItemModel" minOccurs="0"/>
+ *         &lt;element name="arg0" type="{http://data.service.server.bim.roman.ru/}saveRequest" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,17 +31,17 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class Save {
 
-    protected BimItemModel arg0;
+    protected SaveRequest arg0;
 
     /**
      * Gets the value of the arg0 property.
      * 
      * @return
      *     possible object is
-     *     {@link BimItemModel }
+     *     {@link SaveRequest }
      *     
      */
-    public BimItemModel getArg0() {
+    public SaveRequest getArg0() {
         return arg0;
     }
 
@@ -50,10 +50,10 @@ public class Save {
      * 
      * @param value
      *     allowed object is
-     *     {@link BimItemModel }
+     *     {@link SaveRequest }
      *     
      */
-    public void setArg0(BimItemModel value) {
+    public void setArg0(SaveRequest value) {
         this.arg0 = value;
     }
 

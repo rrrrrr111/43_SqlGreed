@@ -13,14 +13,14 @@ import javax.xml.bind.annotation.XmlType;
 public class GetListResponse {
 
     @XmlElement(name = "return", namespace = "")
-    private ru.roman.bim.server.service.data.dto.GaeGetListResponse _return;
+    private ru.roman.bim.server.service.data.dto.word.GetListResp _return;
 
     /**
      * 
      * @return
-     *     returns GaeGetListResponse
+     *     returns GetListResp
      */
-    public ru.roman.bim.server.service.data.dto.GaeGetListResponse getReturn() {
+    public ru.roman.bim.server.service.data.dto.word.GetListResp getReturn() {
         return this._return;
     }
 
@@ -29,7 +29,7 @@ public class GetListResponse {
      * @param _return
      *     the value for the _return property
      */
-    public void setReturn(ru.roman.bim.server.service.data.dto.GaeGetListResponse _return) {
+    public void setReturn(ru.roman.bim.server.service.data.dto.word.GetListResp _return) {
         this._return = _return;
     }
 

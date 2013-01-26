@@ -4,23 +4,30 @@ JAX-WS RI 2.2.4-b01
 [endpointReferencesInterface: false]
 [declaring class has WebSevice: true]
 [returning: true]
-[WrapperGen - method: save(ru.roman.bim.server.service.data.dto.BimItemModel)]
+[WrapperGen - method: save(ru.roman.bim.server.service.data.dto.word.SaveRequest)]
 [method.getDeclaringType(): ru.roman.bim.server.service.data.DataProvider]
 [requestWrapper: ru.roman.bim.server.service.data.jaxws.Save]
 [should process method: getList hasWebMethods: true ]
 [endpointReferencesInterface: false]
 [declaring class has WebSevice: true]
 [returning: true]
-[WrapperGen - method: getList(ru.roman.bim.server.service.data.dto.GaeGetListRequest)]
+[WrapperGen - method: getList(ru.roman.bim.server.service.data.dto.word.GetListRequest)]
 [method.getDeclaringType(): ru.roman.bim.server.service.data.DataProvider]
 [requestWrapper: ru.roman.bim.server.service.data.jaxws.GetList]
 [should process method: renewRating hasWebMethods: true ]
 [endpointReferencesInterface: false]
 [declaring class has WebSevice: true]
 [returning: true]
-[WrapperGen - method: renewRating(java.lang.Long,java.lang.Integer)]
+[WrapperGen - method: renewRating(ru.roman.bim.server.service.data.dto.word.RenewRatingRequest)]
 [method.getDeclaringType(): ru.roman.bim.server.service.data.DataProvider]
 [requestWrapper: ru.roman.bim.server.service.data.jaxws.RenewRating]
+[should process method: storeSettings hasWebMethods: true ]
+[endpointReferencesInterface: false]
+[declaring class has WebSevice: true]
+[returning: true]
+[WrapperGen - method: storeSettings(ru.roman.bim.server.service.data.dto.settings.StoreSettingsRequest)]
+[method.getDeclaringType(): ru.roman.bim.server.service.data.DataProvider]
+[requestWrapper: ru.roman.bim.server.service.data.jaxws.StoreSettings]
 [ProcessedMethods Class: java.lang.Object]
 ru\roman\bim\server\service\data\jaxws\GetList.java
 ru\roman\bim\server\service\data\jaxws\GetListResponse.java
@@ -28,3 +35,5 @@ ru\roman\bim\server\service\data\jaxws\RenewRating.java
 ru\roman\bim\server\service\data\jaxws\RenewRatingResponse.java
 ru\roman\bim\server\service\data\jaxws\Save.java
 ru\roman\bim\server\service\data\jaxws\SaveResponse.java
+ru\roman\bim\server\service\data\jaxws\StoreSettings.java
+ru\roman\bim\server\service\data\jaxws\StoreSettingsResponse.java

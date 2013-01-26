@@ -13,14 +13,14 @@ import javax.xml.bind.annotation.XmlType;
 public class GetList {
 
     @XmlElement(name = "arg0", namespace = "")
-    private ru.roman.bim.server.service.data.dto.GaeGetListRequest arg0;
+    private ru.roman.bim.server.service.data.dto.word.GetListRequest arg0;
 
     /**
      * 
      * @return
-     *     returns GaeGetListRequest
+     *     returns GetListRequest
      */
-    public ru.roman.bim.server.service.data.dto.GaeGetListRequest getArg0() {
+    public ru.roman.bim.server.service.data.dto.word.GetListRequest getArg0() {
         return this.arg0;
     }
 
@@ -29,7 +29,7 @@ public class GetList {
      * @param arg0
      *     the value for the arg0 property
      */
-    public void setArg0(ru.roman.bim.server.service.data.dto.GaeGetListRequest arg0) {
+    public void setArg0(ru.roman.bim.server.service.data.dto.word.GetListRequest arg0) {
         this.arg0 = arg0;
     }
 

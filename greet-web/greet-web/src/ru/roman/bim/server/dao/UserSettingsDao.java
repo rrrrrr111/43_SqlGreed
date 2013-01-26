@@ -1,7 +1,7 @@
 package ru.roman.bim.server.dao;
 
 import org.apache.commons.beanutils.BeanUtilsBean;
-import ru.roman.bim.server.service.data.dto.UserSettingsModel;
+import ru.roman.bim.server.service.data.dto.settings.UserSettingsModel;
 
 import java.util.Map;
 import java.util.logging.Logger;

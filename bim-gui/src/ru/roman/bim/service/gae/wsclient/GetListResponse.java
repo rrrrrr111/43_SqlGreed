@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://data.service.server.bim.roman.ru/}gaeGetListResponse" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://data.service.server.bim.roman.ru/}getListResp" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,17 +33,17 @@ import javax.xml.bind.annotation.XmlType;
 public class GetListResponse {
 
     @XmlElement(name = "return")
-    protected GaeGetListResponse _return;
+    protected GetListResp _return;
 
     /**
      * Gets the value of the return property.
      * 
      * @return
      *     possible object is
-     *     {@link GaeGetListResponse }
+     *     {@link GetListResp }
      *     
      */
-    public GaeGetListResponse getReturn() {
+    public GetListResp getReturn() {
         return _return;
     }
 
@@ -52,10 +52,10 @@ public class GetListResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link GaeGetListResponse }
+     *     {@link GetListResp }
      *     
      */
-    public void setReturn(GaeGetListResponse value) {
+    public void setReturn(GetListResp value) {
         this._return = value;
     }
 

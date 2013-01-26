@@ -1,8 +1,9 @@
 package ru.roman.bim.server.service.data;
 
-import ru.roman.bim.server.service.data.dto.BimItemModel;
-import ru.roman.bim.server.service.data.dto.GaeGetListRequest;
-import ru.roman.bim.server.service.data.dto.GaeGetListResponse;
+import ru.roman.bim.server.service.data.dto.word.GetListRequest;
+import ru.roman.bim.server.service.data.dto.word.GetListResp;
+import ru.roman.bim.server.service.data.dto.word.RenewRatingRequest;
+import ru.roman.bim.server.service.data.dto.word.SaveRequest;
 import ru.roman.bim.server.service.data.jaxws.*;
 
 /** @author Roman 07.01.13 23:48 */
@@ -11,25 +12,24 @@ public class DataProviderAdapter {
     private DataProvider dataProvider = new DataProvider();
 
     public SaveResponse save(Save request){
-        BimItemModel req = request.getArg0();
+        SaveRequest req = request.getArg0();
         Long res = dataProvider.save(req);
         SaveResponse response = new SaveResponse();
         response.setReturn(res);
         return response;
     }
 
-    public GetListResponse getList(GetList request){
-        GaeGetListRequest req = request.getArg0();
-        GaeGetListResponse res = dataProvider.getList(req);
-        GetListResponse response = new GetListResponse();
+    public ru.roman.bim.server.service.data.jaxws.GetListResponse getList(GetList request){
+        GetListRequest req = request.getArg0();
+        GetListResp res = dataProvider.getList(req);
+        ru.roman.bim.server.service.data.jaxws.GetListResponse response = new ru.roman.bim.server.service.data.jaxws.GetListResponse();
         response.setReturn(res);
         return response;
     }
 
     public RenewRatingResponse renewRating(RenewRating request){
-        Long id = request.getArg0();
-        Integer rating = request.getArg1();
-        dataProvider.renewRating(id, rating);;
+        RenewRatingRequest req = request.getArg0();
+        dataProvider.renewRating(req);
         RenewRatingResponse response = new RenewRatingResponse();
         return response;
     }

@@ -54,6 +54,7 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
         currModel.setShadowedLangId(old.getShadowedLangId());
         currModel.setRating(Const.DEFAULT_RATING);
         currModel.setType(old.getType());
+        currModel.setCategory(old.getCategory());
         currModel.setOwner(Const.DEFAULT_OWNER_ID);
         view.setValues(currModel);
     }

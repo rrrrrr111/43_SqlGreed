@@ -26,7 +26,21 @@ public interface DataProvider {
 
     /**
      * 
-     * @param arg1
+     * @param arg0
+     * @return
+     *     returns ru.roman.bim.service.gae.wsclient.StoreSettingsResp
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "storeSettings", targetNamespace = "http://data.service.server.bim.roman.ru/", className = "ru.roman.bim.service.gae.wsclient.StoreSettings")
+    @ResponseWrapper(localName = "storeSettingsResponse", targetNamespace = "http://data.service.server.bim.roman.ru/", className = "ru.roman.bim.service.gae.wsclient.StoreSettingsResponse")
+    @Action(input = "http://data.service.server.bim.roman.ru/DataProvider/storeSettingsRequest", output = "http://data.service.server.bim.roman.ru/DataProvider/storeSettingsResponse")
+    public StoreSettingsResp storeSettings(
+        @WebParam(name = "arg0", targetNamespace = "")
+        StoreSettingsRequest arg0);
+
+    /**
+     * 
      * @param arg0
      */
     @WebMethod
@@ -35,9 +49,7 @@ public interface DataProvider {
     @Action(input = "http://data.service.server.bim.roman.ru/DataProvider/renewRatingRequest", output = "http://data.service.server.bim.roman.ru/DataProvider/renewRatingResponse")
     public void renewRating(
         @WebParam(name = "arg0", targetNamespace = "")
-        Long arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        Integer arg1);
+        RenewRatingRequest arg0);
 
     /**
      * 
@@ -52,21 +64,21 @@ public interface DataProvider {
     @Action(input = "http://data.service.server.bim.roman.ru/DataProvider/saveRequest", output = "http://data.service.server.bim.roman.ru/DataProvider/saveResponse")
     public Long save(
         @WebParam(name = "arg0", targetNamespace = "")
-        BimItemModel arg0);
+        SaveRequest arg0);
 
     /**
      * 
      * @param arg0
      * @return
-     *     returns ru.roman.bim.service.gae.wsclient.GaeGetListResponse
+     *     returns ru.roman.bim.service.gae.wsclient.GetListResp
      */
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "getList", targetNamespace = "http://data.service.server.bim.roman.ru/", className = "ru.roman.bim.service.gae.wsclient.GetList")
     @ResponseWrapper(localName = "getListResponse", targetNamespace = "http://data.service.server.bim.roman.ru/", className = "ru.roman.bim.service.gae.wsclient.GetListResponse")
     @Action(input = "http://data.service.server.bim.roman.ru/DataProvider/getListRequest", output = "http://data.service.server.bim.roman.ru/DataProvider/getListResponse")
-    public GaeGetListResponse getList(
+    public GetListResp getList(
         @WebParam(name = "arg0", targetNamespace = "")
-        GaeGetListRequest arg0);
+        GetListRequest arg0);
 
 }

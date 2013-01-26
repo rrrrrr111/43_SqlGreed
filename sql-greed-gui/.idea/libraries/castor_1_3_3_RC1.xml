@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="castor-1.3.3-RC1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/castor/castor-1.3.3-RC1-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/castor/castor-1.3.3-RC1-xml.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/castor/castor-1.3.3-RC1-src.zip!/castor-1.3.3-RC1/ddlgen/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/castor/castor-1.3.3-RC1-src.zip!/castor-1.3.3-RC1/xml/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/castor/castor-1.3.3-RC1-src.zip!/castor-1.3.3-RC1/schema/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/castor/castor-1.3.3-RC1-src.zip!/castor-1.3.3-RC1/codegen/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/castor/castor-1.3.3-RC1-src.zip!/castor-1.3.3-RC1/cpa/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/castor/castor-1.3.3-RC1-src.zip!/castor-1.3.3-RC1/core/src/main/java" />
+    </SOURCES>
+  </library>
+</component>

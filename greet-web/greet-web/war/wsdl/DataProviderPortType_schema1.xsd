@@ -13,9 +13,29 @@
 
   <xs:element name="saveResponse" type="tns:saveResponse"/>
 
+  <xs:element name="storeSettings" type="tns:storeSettings"/>
+
+  <xs:element name="storeSettingsResponse" type="tns:storeSettingsResponse"/>
+
   <xs:complexType name="save">
     <xs:sequence>
-      <xs:element name="arg0" type="tns:bimItemModel" minOccurs="0"/>
+      <xs:element name="arg0" type="tns:saveRequest" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="saveRequest">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractRequest">
+        <xs:sequence>
+          <xs:element name="model" type="tns:bimItemModel" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="abstractRequest">
+    <xs:sequence>
+      <xs:element name="requestInfo" type="tns:requestInfo" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -35,6 +55,13 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="requestInfo">
+    <xs:sequence>
+      <xs:element name="userId" type="xs:long" minOccurs="0"/>
+      <xs:element name="version" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="saveResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:long" minOccurs="0"/>
@@ -43,44 +70,117 @@
 
   <xs:complexType name="renewRating">
     <xs:sequence>
-      <xs:element name="arg0" type="xs:long" minOccurs="0"/>
-      <xs:element name="arg1" type="xs:int" minOccurs="0"/>
+      <xs:element name="arg0" type="tns:renewRatingRequest" minOccurs="0"/>
     </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="renewRatingRequest">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractRequest">
+        <xs:sequence>
+          <xs:element name="id" type="xs:long" minOccurs="0"/>
+          <xs:element name="rating" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="renewRatingResponse">
     <xs:sequence/>
   </xs:complexType>
 
-  <xs:complexType name="getList">
+  <xs:complexType name="storeSettings">
     <xs:sequence>
-      <xs:element name="arg0" type="tns:gaeGetListRequest" minOccurs="0"/>
+      <xs:element name="arg0" type="tns:storeSettingsRequest" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="gaeGetListRequest">
+  <xs:complexType name="storeSettingsRequest">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractRequest">
+        <xs:sequence>
+          <xs:element name="userSettingsModel" type="tns:userSettingsModel" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="userSettingsModel">
     <xs:sequence>
-      <xs:element name="count" type="xs:int" minOccurs="0"/>
-      <xs:element name="langId" type="xs:int" minOccurs="0"/>
-      <xs:element name="offset" type="xs:int" minOccurs="0"/>
-      <xs:element name="ratingsList" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="cacheMaxSize" type="xs:long" minOccurs="0"/>
+      <xs:element name="currentNum" type="xs:long" minOccurs="0"/>
+      <xs:element name="facedLangId" type="xs:long" minOccurs="0"/>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="login" type="xs:string" minOccurs="0"/>
+      <xs:element name="opacity" type="xs:double" minOccurs="0"/>
+      <xs:element name="password" type="xs:string" minOccurs="0"/>
+      <xs:element name="portion" type="xs:long" minOccurs="0"/>
+      <xs:element name="previewDuration" type="xs:long" minOccurs="0"/>
+      <xs:element name="previewInterval" type="xs:long" minOccurs="0"/>
+      <xs:element name="ratings" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="recordsCount" type="xs:long" minOccurs="0"/>
+      <xs:element name="shadowedLangId" type="xs:long" minOccurs="0"/>
       <xs:element name="sortingDirection" type="xs:string" minOccurs="0"/>
       <xs:element name="sortingField" type="xs:string" minOccurs="0"/>
-      <xs:element name="types" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="subscribed" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="storeSettingsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:storeSettingsResp" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="storeSettingsResp">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResponse">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="abstractResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getList">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:getListRequest" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getListRequest">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractRequest">
+        <xs:sequence>
+          <xs:element name="count" type="xs:int" minOccurs="0"/>
+          <xs:element name="langId" type="xs:int" minOccurs="0"/>
+          <xs:element name="offset" type="xs:int" minOccurs="0"/>
+          <xs:element name="ratingsList" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sortingDirection" type="xs:string" minOccurs="0"/>
+          <xs:element name="sortingField" type="xs:string" minOccurs="0"/>
+          <xs:element name="types" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="getListResponse">
     <xs:sequence>
-      <xs:element name="return" type="tns:gaeGetListResponse" minOccurs="0"/>
+      <xs:element name="return" type="tns:getListResp" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="gaeGetListResponse">
-    <xs:sequence>
-      <xs:element name="list" type="tns:bimItemModel" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="recordsCount" type="xs:int" minOccurs="0"/>
-    </xs:sequence>
+  <xs:complexType name="getListResp">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResponse">
+        <xs:sequence>
+          <xs:element name="list" type="tns:bimItemModel" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="recordsCount" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 </xs:schema>
 

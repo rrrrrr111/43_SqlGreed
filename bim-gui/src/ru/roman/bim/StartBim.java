@@ -1,6 +1,7 @@
 package ru.roman.bim;
 
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.pane.PaineFactory;
@@ -9,8 +10,8 @@ import ru.roman.bim.service.lock.LockerUtils;
 import ru.roman.bim.util.Const;
 import ru.roman.bim.util.GuiUtils;
 
-import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 
 
 /** @author Roman 17.12.12 23:44 */
@@ -42,11 +43,13 @@ public class StartBim {
     }
 
     private static void prepareEnvironment() {
-        File configDir = new File(Const.APP_CONFIG_PATH);
-        if (!configDir.exists()) {
-             configDir.mkdirs();
+        try {
+            File configDir = new File(Const.APP_CONFIG_PATH);
+            if (!configDir.exists()) {
+                FileUtils.forceMkdir(configDir);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-
     }
-
 }

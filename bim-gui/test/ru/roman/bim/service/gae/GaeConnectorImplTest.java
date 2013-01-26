@@ -2,10 +2,9 @@ package ru.roman.bim.service.gae;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import ru.roman.bim.service.gae.wsclient.BimItemModel;
-import ru.roman.bim.service.gae.wsclient.DataProvider;
-import ru.roman.bim.service.gae.wsclient.DataProvider_Service;
+import ru.roman.bim.service.gae.wsclient.*;
 import ru.roman.bim.util.Const;
+import ru.roman.bim.util.WsUtil;
 
 /** @author Roman 14.01.13 23:56 */
 public class GaeConnectorImplTest {
@@ -25,21 +24,26 @@ public class GaeConnectorImplTest {
         arg0.setRating(1L);
         arg0.setType(1L);
 
-        Long r = provider.save(arg0);
+        SaveRequest req = new SaveRequest();
+        req.setModel(arg0);
+        Long r = provider.save(req);
         log.info("saved id : " + r);
 
 
-        ru.roman.bim.service.gae.wsclient.GaeGetListRequest req = new ru.roman.bim.service.gae.wsclient.GaeGetListRequest();
-        req.setCount(100);
-        req.setLangId(1);
-        req.setOffset(0);
-        req.setSortingField(Const.DEFAULT_SORTING_FIELD);
-        req.getTypes().add(1);
-        ru.roman.bim.service.gae.wsclient.GaeGetListResponse res = provider.getList(req);
+        GetListRequest req1 = WsUtil.prepareRequest(new GetListRequest());
+        req1.setCount(100);
+        req1.setLangId(1);
+        req1.setOffset(0);
+        req1.setSortingField(Const.DEFAULT_SORTING_FIELD);
+        req1.getTypes().add(1);
+        ru.roman.bim.service.gae.wsclient.GetListResp res = provider.getList(req1);
 
         log.info("items count : " + res.getList().size() + " all : " + res.getRecordsCount());
 
-        provider.renewRating(3333L, 5);
+        RenewRatingRequest req3 = WsUtil.prepareRequest(new RenewRatingRequest());
+        req3.setId(1L);
+        req3.setRating(4);
+        provider.renewRating(req3);
         log.info("renew complete");
     }
 }

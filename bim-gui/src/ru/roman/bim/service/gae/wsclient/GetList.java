@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="arg0" type="{http://data.service.server.bim.roman.ru/}gaeGetListRequest" minOccurs="0"/>
+ *         &lt;element name="arg0" type="{http://data.service.server.bim.roman.ru/}getListRequest" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,17 +31,17 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class GetList {
 
-    protected GaeGetListRequest arg0;
+    protected GetListRequest arg0;
 
     /**
      * Gets the value of the arg0 property.
      * 
      * @return
      *     possible object is
-     *     {@link GaeGetListRequest }
+     *     {@link GetListRequest }
      *     
      */
-    public GaeGetListRequest getArg0() {
+    public GetListRequest getArg0() {
         return arg0;
     }
 
@@ -50,10 +50,10 @@ public class GetList {
      * 
      * @param value
      *     allowed object is
-     *     {@link GaeGetListRequest }
+     *     {@link GetListRequest }
      *     
      */
-    public void setArg0(GaeGetListRequest value) {
+    public void setArg0(GetListRequest value) {
         this.arg0 = value;
     }
 

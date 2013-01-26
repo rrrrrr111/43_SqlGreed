@@ -7,8 +7,8 @@ import ru.roman.bim.gui.pane.main.MainViewModel;
 import ru.roman.bim.model.WordCategory;
 import ru.roman.bim.model.WordType;
 import ru.roman.bim.service.gae.GaeConnector;
-import ru.roman.bim.service.gae.wsclient.GaeGetListRequest;
-import ru.roman.bim.service.gae.wsclient.GaeGetListResponse;
+import ru.roman.bim.service.gae.wsclient.GetListRequest;
+import ru.roman.bim.service.gae.wsclient.GetListResp;
 import ru.roman.bim.util.WsUtil;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.TreeSet;
 public class GaeConnectorStub implements GaeConnector {
     private static final Log log = LogFactory.getLog(GaeConnectorStub.class);
 
-    static TreeSet<MainViewModel> store = new TreeSet<MainViewModel>();
+    public static TreeSet<MainViewModel> store = new TreeSet<MainViewModel>();
     static long counter;
     public static final int SERVICE_TIMEOUT = 1000;
 
@@ -61,7 +61,7 @@ public class GaeConnectorStub implements GaeConnector {
     }
 
     @Override
-    public GaeGetListResponse getList(GaeGetListRequest request) {
+    public GetListResp getList(GetListRequest request) {
         List<MainViewModel> list = new ArrayList<MainViewModel>(store);
         final MainViewModel from = list.get(request.getOffset());
         int toIdx = request.getOffset() + request.getCount() - 1;
@@ -70,7 +70,7 @@ public class GaeConnectorStub implements GaeConnector {
         }
         final MainViewModel to = list.get(toIdx);
 
-        GaeGetListResponse resp = new GaeGetListResponse();
+        GetListResp resp = new GetListResp();
         resp.getList().addAll(store.subSet(from, true, to, true));
         resp.setRecordsCount(store.size());
         log.info(String.format("Stub getList : %s, return : %s models",

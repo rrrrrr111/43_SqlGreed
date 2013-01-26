@@ -6,10 +6,11 @@ import ru.roman.bim.gui.pane.main.MainViewModel;
 import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.gae.wsclient.BimItemModel;
-import ru.roman.bim.service.gae.wsclient.GaeGetListRequest;
-import ru.roman.bim.service.gae.wsclient.GaeGetListResponse;
+import ru.roman.bim.service.gae.wsclient.GetListRequest;
+import ru.roman.bim.service.gae.wsclient.GetListResp;
 import ru.roman.bim.util.BimException;
 import ru.roman.bim.util.Const;
+import ru.roman.bim.util.WsUtil;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -96,7 +97,7 @@ public class LocalCacheImpl implements LocalCache {
 
         if (currentOffset != newOffset || cache.isEmpty()) {
 
-            final GaeGetListRequest req = new GaeGetListRequest();
+            final GetListRequest req = WsUtil.prepareRequest(new GetListRequest());
             req.setOffset(newOffset);
             req.setCount(Const.CACHE_MAX_SIZE);
             req.setSortingField(Const.DEFAULT_SORTING_FIELD);
@@ -105,9 +106,14 @@ public class LocalCacheImpl implements LocalCache {
             req.getTypes().addAll(Const.DEFAULT_TYPES);
             req.setLangId(Const.DEFAULT_LANG_ID);
 
-            GaeGetListResponse resp = gaeConnector.getList(req);
+            GetListResp resp = gaeConnector.getList(req);
             if (resp.getList() == null || resp.getList().size() == 0) {
-                throw new BimException("Words have not found in dictionary");
+                if (currentNum == 0) {
+                    throw new BimException("Words have not found in dictionary");
+                } else {
+                    currentNum = 0;
+                    checkCacheState();
+                }
             }
             cache.clear();
             cache.addAll(toModels(resp.getList()));
@@ -154,7 +160,7 @@ public class LocalCacheImpl implements LocalCache {
     @Override
     public synchronized void renewModel(MainViewModel model) {
         int idx = cache.indexOf(model);
-        if (idx >=0 ) {
+        if (idx >=0) {
             cache.remove(idx);
             cache.add(idx, model);
         }

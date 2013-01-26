@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+        "http://castor.org/mapping.dtd">
+<mapping>
+    <description></description>
+    <class name="ru.roman.bim.gui.pane.main.MainViewModel">
+        <map-to xml="MainViewModel"/>
+        <field name="id" type="long">
+            <bind-xml name="id" node="element"/>
+        </field>
+        <field name="facedLangId" type="long">
+            <bind-xml name="facedLangId" node="element"/>
+        </field>
+        <field name="modelNum" type="long">
+            <bind-xml name="modelNum" node="element"/>
+        </field>
+        <field name="category" type="long">
+            <bind-xml name="category" node="element"/>
+        </field>
+        <field name="owner" type="long">
+            <bind-xml name="owner" node="element"/>
+        </field>
+        <field name="rating" type="long">
+            <bind-xml name="rating" node="element"/>
+        </field>
+        <field name="shadowedLangId" type="long">
+            <bind-xml name="shadowedLangId" node="element"/>
+        </field>
+        <field name="textFaced" type="string">
+            <bind-xml name="textFaced" node="element"/>
+        </field>
+        <field name="textShadowed" type="string">
+            <bind-xml name="textShadowed" node="element"/>
+        </field>
+        <field name="type" type="long">
+            <bind-xml name="type" node="element"/>
+        </field>
+    </class>
+
+</mapping>
