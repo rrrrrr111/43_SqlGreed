@@ -16,6 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="ip" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="userId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="version" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
@@ -28,13 +29,39 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "requestInfo", propOrder = {
+    "ip",
     "userId",
     "version"
 })
 public class RequestInfo {
 
+    protected String ip;
     protected Long userId;
     protected String version;
+
+    /**
+     * Gets the value of the ip property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getIp() {
+        return ip;
+    }
+
+    /**
+     * Sets the value of the ip property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setIp(String value) {
+        this.ip = value;
+    }
 
     /**
      * Gets the value of the userId property.

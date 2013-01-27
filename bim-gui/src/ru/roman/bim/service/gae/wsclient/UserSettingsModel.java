@@ -1,12 +1,12 @@
 
 package ru.roman.bim.service.gae.wsclient;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="facedLangId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="login" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="lookAndFeel" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="opacity" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
  *         &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="portion" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
@@ -50,6 +51,7 @@ import javax.xml.bind.annotation.XmlType;
     "facedLangId",
     "id",
     "login",
+    "lookAndFeel",
     "opacity",
     "password",
     "portion",
@@ -69,6 +71,7 @@ public class UserSettingsModel {
     protected Long facedLangId;
     protected Long id;
     protected String login;
+    protected String lookAndFeel;
     protected Double opacity;
     protected String password;
     protected Long portion;
@@ -201,6 +204,30 @@ public class UserSettingsModel {
      */
     public void setLogin(String value) {
         this.login = value;
+    }
+
+    /**
+     * Gets the value of the lookAndFeel property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getLookAndFeel() {
+        return lookAndFeel;
+    }
+
+    /**
+     * Sets the value of the lookAndFeel property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setLookAndFeel(String value) {
+        this.lookAndFeel = value;
     }
 
     /**

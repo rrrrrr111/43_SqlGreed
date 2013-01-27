@@ -1,6 +1,9 @@
 package ru.roman.bim.service.config;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.exolab.castor.mapping.Mapping;
+import ru.roman.bim.gui.pane.settings.SettingsViewModel;
 import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.config.reader.CastorReader;
 import ru.roman.bim.service.config.writer.CastorWriter;
@@ -10,7 +13,9 @@ import java.net.URL;
 
 /** @author Roman 26.01.13 0:28 */
 public class CastorConfigServiceImpl implements ConfigService {
+    private static final Log log = LogFactory.getLog(CastorConfigServiceImpl.class);
 
+    public static final String SETTINGS_FILE_NAME = "settings";
     private XmlConfigService xmlConfigService = ServiceFactory.getXmlConfigService();
     private static final XmlWriter WRITER = new CastorWriter();
 
@@ -32,6 +37,22 @@ public class CastorConfigServiceImpl implements ConfigService {
     @Override
     public <T> void saveEncryptedConfig(T model, String fileName) {
         xmlConfigService.saveEncryptedConfig(model, fileName, WRITER);
+    }
+
+
+    public static SettingsViewModel settingsModel;
+    @Override
+    public synchronized SettingsViewModel loadSettingsConfig() {
+        if (settingsModel == null) {
+            settingsModel = loadEncryptedConfig(SETTINGS_FILE_NAME, SettingsViewModel.class);
+        }
+        return settingsModel;
+    }
+
+    @Override
+    public synchronized void saveSettingsConfig(SettingsViewModel model) {
+        saveEncryptedConfig(model, SETTINGS_FILE_NAME);
+        settingsModel = model;
     }
 
     public static Mapping mapping;

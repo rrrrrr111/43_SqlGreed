@@ -3,6 +3,7 @@ package ru.roman.bim.server.service.data;
 import ru.roman.bim.server.service.data.jaxws.GetList;
 import ru.roman.bim.server.service.data.jaxws.RenewRating;
 import ru.roman.bim.server.service.data.jaxws.Save;
+import ru.roman.bim.server.service.data.jaxws.StoreSettings;
 
 import javax.xml.bind.JAXB;
 import javax.xml.namespace.QName;
@@ -17,6 +18,7 @@ public class DataProviderSOAPHandler {
     private static final QName SAVE_QNAME = new QName(NAMESPACE_URI,"save");
     private static final QName GET_LIST_QNAME = new QName(NAMESPACE_URI,"getList");
     private static final QName RENEW_RATING_QNAME = new QName(NAMESPACE_URI,"renewRating");
+    private static final QName STORE_SETTINGS_QNAME = new QName(NAMESPACE_URI,"storeSettings");
 
 
     private MessageFactory messageFactory;
@@ -47,6 +49,9 @@ public class DataProviderSOAPHandler {
                 } else if(RENEW_RATING_QNAME.equals(qname)) {
                     responsePojo = handleRenewRating(soapElement);
                     break;
+                } else if(STORE_SETTINGS_QNAME.equals(qname)) {
+                    responsePojo = handleStoreSettings(soapElement);
+                    break;
                 }
             }
         }
@@ -75,6 +80,11 @@ public class DataProviderSOAPHandler {
     private Object handleRenewRating(SOAPElement soapElement){
         RenewRating res = JAXB.unmarshal(new DOMSource(soapElement), RenewRating.class);
         return greeterAdapter.renewRating(res);
+    }
+
+    private Object handleStoreSettings(SOAPElement soapElement){
+        StoreSettings res = JAXB.unmarshal(new DOMSource(soapElement), StoreSettings.class);
+        return greeterAdapter.storeSettings(res);
     }
 
 

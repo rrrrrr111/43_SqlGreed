@@ -9,6 +9,7 @@ import ru.roman.bim.model.WordType;
 import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.gae.wsclient.GetListRequest;
 import ru.roman.bim.service.gae.wsclient.GetListResp;
+import ru.roman.bim.service.gae.wsclient.UserSettingsModel;
 import ru.roman.bim.util.WsUtil;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class GaeConnectorStub implements GaeConnector {
     private static final Log log = LogFactory.getLog(GaeConnectorStub.class);
 
     public static TreeSet<MainViewModel> store = new TreeSet<MainViewModel>();
+    public static List<UserSettingsModel> settings = new ArrayList<UserSettingsModel>();
     static long counter;
     public static final int SERVICE_TIMEOUT = 1000;
 
@@ -90,6 +92,24 @@ public class GaeConnectorStub implements GaeConnector {
         sleep();
     }
 
+    @Override
+    public UserSettingsModel storeSettings(UserSettingsModel model) {
+        UserSettingsModel stored = null;
+        for (UserSettingsModel setting : settings) {
+            if (setting.getLogin().equalsIgnoreCase(model.getLogin())) {
+                stored = setting;
+                break;
+            }
+        }
+        if (stored != null) {
+            if (!stored.getPassword().equals(model.getPassword())) {
+                throw new RuntimeException("password or login wrong");
+            }
+            settings.remove(stored);
+        }
+        settings.add(model);
+        return model;
+    }
 
 
     private void sleep() {

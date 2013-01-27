@@ -15,6 +15,7 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.sax.SAXTransformerFactory;
 import javax.xml.transform.sax.TransformerHandler;
 import javax.xml.transform.stream.StreamResult;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -55,9 +56,13 @@ public class XmlConfigServiceImpl implements XmlConfigService {
         CipherInputStream is = null;
         FileInputStream fis;
         final String configFullName = XmlUtils.prepareConfig(fileName);
+        final File file = new File(configFullName);
+        if (!file.exists()) {
+             return null;
+        }
         try {
             final Cipher cipher = initCipher(Cipher.DECRYPT_MODE);
-            fis = new FileInputStream(configFullName);
+            fis = new FileInputStream(file);
             is = new CipherInputStream(fis, cipher);
             final Document doc = XmlUtils.readDocument(is);
             //log.trace("Loaded decrypted XML : \n" + docToString(doc));

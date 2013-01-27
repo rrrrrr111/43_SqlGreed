@@ -5,10 +5,12 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.pane.PaineFactory;
+import ru.roman.bim.gui.pane.settings.SettingsViewModel;
 import ru.roman.bim.gui.pane.tray.TrayUtils;
+import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.lock.LockerUtils;
 import ru.roman.bim.util.Const;
-import ru.roman.bim.util.GuiUtils;
+import ru.roman.bim.util.GuiUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,14 +21,17 @@ public class StartBim {
     private static final Log log = LogFactory.getLog(StartBim.class);
 
     public static void main(String args[]) {
-        GuiUtils.startSwingApp(new GuiUtils.Starter() {
+        GuiUtil.startSwingApp(new GuiUtil.Starter() {
             @Override
             public void onStart() {
                 prepareEnvironment();
-                PaineFactory.createMainView();
-                LockerUtils.tryLockApplication();
-
-
+                prepareCredentials(new RegistrationCallBack() {
+                    @Override
+                    public void afterRegistration() {
+                        PaineFactory.createMainView();
+                        LockerUtils.tryLockApplication();
+                    }
+                });
             }
         });
     }
@@ -52,4 +57,19 @@ public class StartBim {
             throw new RuntimeException(e);
         }
     }
+
+    private static void prepareCredentials(RegistrationCallBack callBack) {
+        SettingsViewModel config = ServiceFactory.getConfigService().loadSettingsConfig();
+        if (config == null) {
+            PaineFactory.getSettingsViewController().fillCredentials(callBack);
+        } else {
+            callBack.afterRegistration();
+        }
+
+    }
+
+    public interface RegistrationCallBack {
+        void afterRegistration();
+    }
+
 }

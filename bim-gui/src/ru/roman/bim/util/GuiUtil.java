@@ -7,12 +7,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.lang.reflect.Method;
 import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
 /** @author Roman 18.12.12 0:10 */
-public abstract class GuiUtils {
-    private static final Log log = LogFactory.getLog(GuiUtils.class);
+public abstract class GuiUtil {
+    private static final Log log = LogFactory.getLog(GuiUtil.class);
     public static final int TASK_BAR_HEIGHT = 40;
     private static Dimension screenSize;
 
@@ -89,7 +91,7 @@ public abstract class GuiUtils {
 
     public static Image createImage(String path) {
         if (!images.containsKey(path)) {
-            final URL imageURL = GuiUtils.class.getResource(path);
+            final URL imageURL = GuiUtil.class.getResource(path);
             final ImageIcon icon;
             if (imageURL == null) {
                 log.warn("Resource not found : " + path);
@@ -126,6 +128,26 @@ public abstract class GuiUtils {
             return screenSize;
         } catch (RuntimeException e) {
             throw new RuntimeException("Exception while screen resolution detection", e);
+        }
+    }
+
+
+    public static String createDigest(char [] bytes) {
+        try{
+            MessageDigest algorithm = MessageDigest.getInstance("MD5");
+            algorithm.reset();
+            for (char aByte : bytes) {
+                algorithm.update((byte)aByte);
+            }
+            byte messageDigest[] = algorithm.digest();
+
+            StringBuffer hexString = new StringBuffer();
+            for (int i=0; i < messageDigest.length; i++) {
+                hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
+            }
+            return hexString.toString();
+        } catch(NoSuchAlgorithmException e){
+            throw new RuntimeException(e);
         }
     }
 }

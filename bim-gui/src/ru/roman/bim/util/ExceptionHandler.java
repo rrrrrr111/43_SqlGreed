@@ -6,6 +6,7 @@ import org.apache.commons.lang3.text.StrBuilder;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.StartBim;
+import ru.roman.bim.gui.common.validator.BimValidationException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,8 +31,23 @@ public class ExceptionHandler {
 
     public static void showMessage(Throwable t){
         Validate.notNull(t);
+        final String mess = createErrorText(t);
+        final String title;
+        if (t instanceof BimValidationException) {
+            ERR_PAINE.setMessageType(JOptionPane.WARNING_MESSAGE);
+            title = Const.APP_NAME + " validation error";
+        } else {
+            ERR_PAINE.setMessageType(JOptionPane.ERROR_MESSAGE);
+            title = Const.APP_NAME + " error";
+            log.error(Const.APP_NAME + " exception :", t);
+        }
+
+        ERR_PAINE.setMessage(mess);
+        ERR_PAINE.createDialog(null, title).setVisible(true);
+    }
+
+    private static String createErrorText(Throwable e) {
         final StrBuilder ms = new StrBuilder();
-        Throwable e = t;
         String mess;
         while (e != null) {
             if (e instanceof SQLException) {
@@ -50,10 +66,8 @@ public class ExceptionHandler {
             }
             ms.append(" : ");
         }
-        log.error(Const.APP_NAME + " exception :", t);
         mess = ms.substring(0, ms.length()-3).replace(" :  : ", " : ");
-        ERR_PAINE.setMessage(mess);
-        ERR_PAINE.createDialog(null, Const.APP_NAME + " error").setVisible(true);
+        return mess;
     }
 
     private static void checkMess(String mess, StrBuilder ms, String prefix) {

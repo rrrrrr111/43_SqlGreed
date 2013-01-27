@@ -1,11 +1,15 @@
 package ru.roman.bim.service.gae;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.pane.main.MainViewModel;
 import ru.roman.bim.service.gae.wsclient.*;
+import ru.roman.bim.util.Const;
 import ru.roman.bim.util.ExceptionHandler;
 import ru.roman.bim.util.WsUtil;
+
+import javax.xml.ws.BindingProvider;
 
 /** @author Roman 22.12.12 15:36 */
 public class GaeConnectorImpl implements GaeConnector {
@@ -16,6 +20,11 @@ public class GaeConnectorImpl implements GaeConnector {
     public GaeConnectorImpl() {
         try {
             provider = new DataProvider_Service().getDataProviderPort();
+            BindingProvider bp = (BindingProvider)provider;
+            bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, Const.DEFAULT_ENDPOINT);
+
+            bp.getRequestContext().put(BindingProvider.USERNAME_PROPERTY, "bim");
+            bp.getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, "technoBim");
         } catch (Exception e) {
             ExceptionHandler.showErrorMessageAndExit(e);
         }
@@ -44,6 +53,16 @@ public class GaeConnectorImpl implements GaeConnector {
         req.setRating(rating);
         provider.renewRating(req);
         log.info(String.format("rating %s renew for id=%s complete", rating, id));
+    }
+
+    @Override
+    public UserSettingsModel storeSettings(UserSettingsModel model) {
+        StoreSettingsRequest req = WsUtil.prepareRequest(new StoreSettingsRequest());
+        req.setUserSettingsModel(model);
+        StoreSettingsResp resp = provider.storeSettings(req);
+        model = resp.getUserSettingsModel();
+        log.info(String.format("Settings stored %s", ToStringBuilder.reflectionToString(model)));
+        return model;
     }
 
 }

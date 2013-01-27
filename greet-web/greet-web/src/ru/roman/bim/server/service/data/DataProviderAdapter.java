@@ -1,5 +1,7 @@
 package ru.roman.bim.server.service.data;
 
+import ru.roman.bim.server.service.data.dto.settings.StoreSettingsRequest;
+import ru.roman.bim.server.service.data.dto.settings.StoreSettingsResp;
 import ru.roman.bim.server.service.data.dto.word.GetListRequest;
 import ru.roman.bim.server.service.data.dto.word.GetListResp;
 import ru.roman.bim.server.service.data.dto.word.RenewRatingRequest;
@@ -31,6 +33,14 @@ public class DataProviderAdapter {
         RenewRatingRequest req = request.getArg0();
         dataProvider.renewRating(req);
         RenewRatingResponse response = new RenewRatingResponse();
+        return response;
+    }
+
+    public StoreSettingsResponse storeSettings(StoreSettings request){
+        StoreSettingsRequest req = request.getArg0();
+        StoreSettingsResp res = dataProvider.storeSettings(req);
+        StoreSettingsResponse response = new StoreSettingsResponse();
+        response.setReturn(res);
         return response;
     }
 }

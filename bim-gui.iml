@@ -20,6 +20,7 @@
     <orderEntry type="library" scope="TEST" name="junit-4.10" level="application" />
     <orderEntry type="library" name="poi-3.9-20121203" level="application" />
     <orderEntry type="library" name="castor-1.3.3-RC1" level="project" />
+    <orderEntry type="library" name="commons-beanutils-1.8.3" level="application" />
   </component>
   <component name="org.twodividedbyzero.idea.findbugs">
     <option name="_basePreferences">

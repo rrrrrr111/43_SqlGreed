@@ -43,7 +43,7 @@
   </binding>
   <service name="DataProvider">
     <port name="DataProviderPort" binding="tns:DataProviderPortBinding">
-      <soap:address location="http://churganovroman.appspot.com/DataProvider"/>
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
     </port>
   </service>
 </definitions>

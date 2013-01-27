@@ -3,6 +3,8 @@ package ru.roman.bim.server.dao;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
+import ru.roman.bim.server.service.data.dto.settings.UserSettingsModel;
+import ru.roman.bim.server.util.EntityUtil;
 
 /** @author Roman 21.01.13 23:57 */
 public class SettingsDaoTest {
@@ -11,7 +13,7 @@ public class SettingsDaoTest {
 
     @Test
     public void simplyTry() {
-        log.info("UserSettingsModel properties : " + UserSettingsDao.getProps());
+        log.info("UserSettingsModel properties : " + EntityUtil.describe(new UserSettingsModel()));
 
     }
 }

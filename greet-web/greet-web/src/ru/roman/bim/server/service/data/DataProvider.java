@@ -1,9 +1,11 @@
 package ru.roman.bim.server.service.data;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
+import ru.roman.bim.server.dao.UserSettingsDao;
 import ru.roman.bim.server.dao.WordDao;
 import ru.roman.bim.server.service.data.dto.settings.StoreSettingsRequest;
 import ru.roman.bim.server.service.data.dto.settings.StoreSettingsResp;
+import ru.roman.bim.server.service.data.dto.settings.UserSettingsModel;
 import ru.roman.bim.server.service.data.dto.word.GetListRequest;
 import ru.roman.bim.server.service.data.dto.word.GetListResp;
 import ru.roman.bim.server.service.data.dto.word.RenewRatingRequest;
@@ -55,9 +57,9 @@ public class DataProvider {
     @WebMethod
     public StoreSettingsResp storeSettings(StoreSettingsRequest req){
         try {
-            log.log(Level.INFO, "Save settings : " + ToStringBuilder.reflectionToString(req));
-            // TODO
-            return new StoreSettingsResp();
+            log.log(Level.INFO, "Save settings : " + ToStringBuilder.reflectionToString(req.getUserSettingsModel()));
+            UserSettingsModel res = UserSettingsDao.storeSettings(req.getUserSettingsModel());
+            return new StoreSettingsResp(res);
         } catch (RuntimeException e) {
             log.log(Level.SEVERE, "", e);
             throw e;

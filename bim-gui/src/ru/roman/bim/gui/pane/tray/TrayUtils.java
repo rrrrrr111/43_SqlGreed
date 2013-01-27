@@ -7,7 +7,7 @@ import ru.roman.bim.gui.pane.PaineFactory;
 import ru.roman.bim.gui.pane.main.State;
 import ru.roman.bim.util.BimException;
 import ru.roman.bim.util.Const;
-import ru.roman.bim.util.GuiUtils;
+import ru.roman.bim.util.GuiUtil;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -32,7 +32,7 @@ public class TrayUtils {
         }
 
         removeTrayIcon();
-        trayIcon = new TrayIcon(GuiUtils.createMainImage());
+        trayIcon = new TrayIcon(GuiUtil.createMainImage());
 
         // Create a pop-up menu components
         final PopupMenu popUp = new PopupMenu();
@@ -85,7 +85,7 @@ public class TrayUtils {
 
         aboutItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                GuiUtils.showInfoMessage("This is Bim  v." + Const.VERSION);
+                GuiUtil.showInfoMessage("This is Bim  v." + Const.VERSION);
             }
         });
 
@@ -114,7 +114,7 @@ public class TrayUtils {
 
         settingsMenu.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                PaineFactory.createSettingsView().setVisible(true);
+                PaineFactory.getSettingsViewController().showView();
             }
         });
 

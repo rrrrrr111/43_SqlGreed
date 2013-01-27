@@ -21,6 +21,7 @@ public class UserSettingsModel implements Serializable {
     private Double opacity;
     private Long previewInterval;
     private Long previewDuration;
+    private String lookAndFeel;
 
     private String sortingField;
     private String sortingDirection;
@@ -157,5 +158,13 @@ public class UserSettingsModel implements Serializable {
 
     public void setRecordsCount(Long recordsCount) {
         this.recordsCount = recordsCount;
+    }
+
+    public String getLookAndFeel() {
+        return lookAndFeel;
+    }
+
+    public void setLookAndFeel(String lookAndFeel) {
+        this.lookAndFeel = lookAndFeel;
     }
 }

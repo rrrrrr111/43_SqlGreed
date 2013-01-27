@@ -1,4 +1,4 @@
-package ru.roman.bim.gui.common;
+package ru.roman.bim.gui.common.mvc;
 
 import java.io.Serializable;
 

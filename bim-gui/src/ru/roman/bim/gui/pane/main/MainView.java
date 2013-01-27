@@ -2,12 +2,12 @@ package ru.roman.bim.gui.pane.main;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import ru.roman.bim.gui.common.View;
+import ru.roman.bim.gui.common.mvc.View;
 import ru.roman.bim.gui.custom.widget.TiedCheckBoxPanel;
 import ru.roman.bim.gui.pane.tray.TrayUtils;
 import ru.roman.bim.model.Lang;
 import ru.roman.bim.model.WordType;
-import ru.roman.bim.util.GuiUtils;
+import ru.roman.bim.util.GuiUtil;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -204,7 +204,7 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
         panel.add(typeLabel, gbc8);
 
         pack();
-        Point pos = GuiUtils.getRightCornerPosition(getSize(), 3);
+        Point pos = GuiUtil.getRightCornerPosition(getSize(), 3);
         setLocation(pos);
     }
 
@@ -212,18 +212,19 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
         checkPanel.setRating(rating);
     }
 
-    public Integer getRating() {
-        return checkPanel.getRating();
-    }
-
     @Override
-    public void setValues(MainViewModel model) {
+    public void fillWidgets(MainViewModel model) {
         setText(model.getTextFaced());
         typeLabel.setText(WordType.valueOf(model.getType()).toString());
         setRating(model.getRating().intValue());
 
         titledEmptyBorder.setTitle(String.format("%s-%s", Lang.valueOf(model.getFacedLangId()).getReductionLower(),
                         Lang.valueOf(model.getShadowedLangId()).getReductionLower()));
+    }
+
+    @Override
+    public void fillModel(MainViewModel currModel) {
+        throw new RuntimeException("not implemented");
     }
 
     private void setText(String str) {

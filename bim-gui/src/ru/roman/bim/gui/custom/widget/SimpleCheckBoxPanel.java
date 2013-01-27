@@ -5,6 +5,7 @@ import org.apache.commons.logging.LogFactory;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -38,6 +39,11 @@ public class SimpleCheckBoxPanel extends JPanel {
         checkBoxList.add(checkBox4);
         checkBoxList.add(checkBox5);
 
+    }
+
+
+    public void setRatings(Integer... ratings) {
+        setRatings(Arrays.asList(ratings));
     }
 
     public void setRatings(List<Integer> ratings) {

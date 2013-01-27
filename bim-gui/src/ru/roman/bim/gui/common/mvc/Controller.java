@@ -1,4 +1,4 @@
-package ru.roman.bim.gui.common;
+package ru.roman.bim.gui.common.mvc;
 
 /** @author Roman 21.12.12 0:31 */
 public abstract class Controller<V extends View, M extends Model> {
@@ -13,4 +13,13 @@ public abstract class Controller<V extends View, M extends Model> {
     public M getModel() {
         return currModel;
     }
+
+    public void viewDataToModel() {
+        view.fillModel(currModel);
+    }
+
+    public void modelDataToView() {
+        view.fillWidgets(currModel);
+    }
+
 }

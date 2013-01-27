@@ -68,6 +68,7 @@ public abstract class WsUtil {
         final RequestInfo requestInfo = new RequestInfo();
         requestInfo.setUserId(Const.DEFAULT_OWNER_ID);
         requestInfo.setVersion(Const.VERSION);
+        //requestInfo.setIp();
         req.setRequestInfo(requestInfo);
         return req;
     }

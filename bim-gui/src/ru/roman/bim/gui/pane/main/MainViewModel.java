@@ -1,7 +1,7 @@
 package ru.roman.bim.gui.pane.main;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import ru.roman.bim.gui.common.Model;
+import ru.roman.bim.gui.common.mvc.Model;
 import ru.roman.bim.service.gae.wsclient.BimItemModel;
 
 import javax.xml.datatype.XMLGregorianCalendar;

@@ -57,6 +57,7 @@
 
   <xs:complexType name="requestInfo">
     <xs:sequence>
+      <xs:element name="ip" type="xs:string" minOccurs="0"/>
       <xs:element name="userId" type="xs:long" minOccurs="0"/>
       <xs:element name="version" type="xs:string" minOccurs="0"/>
     </xs:sequence>
@@ -112,6 +113,7 @@
       <xs:element name="facedLangId" type="xs:long" minOccurs="0"/>
       <xs:element name="id" type="xs:long" minOccurs="0"/>
       <xs:element name="login" type="xs:string" minOccurs="0"/>
+      <xs:element name="lookAndFeel" type="xs:string" minOccurs="0"/>
       <xs:element name="opacity" type="xs:double" minOccurs="0"/>
       <xs:element name="password" type="xs:string" minOccurs="0"/>
       <xs:element name="portion" type="xs:long" minOccurs="0"/>
@@ -135,7 +137,9 @@
   <xs:complexType name="storeSettingsResp">
     <xs:complexContent>
       <xs:extension base="tns:abstractResponse">
-        <xs:sequence/>
+        <xs:sequence>
+          <xs:element name="userSettingsModel" type="tns:userSettingsModel" minOccurs="0"/>
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>

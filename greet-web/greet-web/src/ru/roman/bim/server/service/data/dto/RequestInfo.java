@@ -5,6 +5,7 @@ public class RequestInfo {
 
     private String version;
     private Long userId;
+    private String Ip;
 
 
     public String getVersion() {
@@ -21,5 +22,13 @@ public class RequestInfo {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public String getIp() {
+        return Ip;
+    }
+
+    public void setIp(String ip) {
+        Ip = ip;
     }
 }

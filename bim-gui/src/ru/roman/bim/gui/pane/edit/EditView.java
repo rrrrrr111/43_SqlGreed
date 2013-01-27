@@ -3,12 +3,12 @@ package ru.roman.bim.gui.pane.edit;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import ru.roman.bim.gui.common.View;
+import ru.roman.bim.gui.common.mvc.View;
 import ru.roman.bim.gui.custom.widget.TiedCheckBoxPanel;
 import ru.roman.bim.model.Lang;
 import ru.roman.bim.model.WordCategory;
 import ru.roman.bim.model.WordType;
-import ru.roman.bim.util.GuiUtils;
+import ru.roman.bim.util.GuiUtil;
 import ru.roman.bim.util.WsUtil;
 
 import javax.swing.*;
@@ -60,8 +60,8 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         final Dimension preferredSize = new Dimension(470, 340);
         setPreferredSize(preferredSize);
         setResizable(true);
-        setIconImage(GuiUtils.createMainImage());
-        setLocation(GuiUtils.getCenterPosition(preferredSize));
+        setIconImage(GuiUtil.createMainImage());
+        setLocation(GuiUtil.getCenterPosition(preferredSize));
 
         Font font = new Font(Font.SANS_SERIF, Font.PLAIN, 14);
         facedArea.setEditable(true);
@@ -272,7 +272,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
     private static final int TITLE_MAX_LENGTH = 35;
 
     @Override
-    public void setValues(EditViewModel model) {
+    public void fillWidgets(EditViewModel model) {
         setTexts(model);
         typeComboBox.getModel().setSelectedItem(WordType.valueOf(model.getType()));
         categoryComboBox.getModel().setSelectedItem(

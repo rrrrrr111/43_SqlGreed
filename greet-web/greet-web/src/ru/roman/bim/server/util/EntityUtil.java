@@ -15,6 +15,10 @@ package ru.roman.bim.server.util;
 
 import com.google.appengine.api.datastore.*;
 import com.google.appengine.api.datastore.Query.FilterOperator;
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils.PropertyUtils;
+import org.apache.commons.lang.ObjectUtils;
+import ru.roman.bim.server.service.data.dto.settings.UserSettingsModel;
 
 import java.util.Iterator;
 import java.util.List;
@@ -70,9 +74,9 @@ public class EntityUtil {
         return null;
     }
 
-    public static Entity findFirstEntity(String kind, String field, Object key) {
+    public static Entity findFirstEntity(String kind, String field, Object bean) {
         Query query = new Query(kind);
-        query.addFilter(field, FilterOperator.EQUAL, key);
+        query.addFilter(field, FilterOperator.EQUAL, getProperty(bean, field));
         List<Entity> results = storeService.prepare(query).asList(
                 FetchOptions.Builder.withDefaults());
         if (!results.isEmpty()) {
@@ -174,5 +178,45 @@ public class EntityUtil {
         PreparedQuery pq2 = EntityUtil.getDataStore().prepare(q2);
         List<Entity> res2 = pq2.asList(FetchOptions.Builder.withDefaults());
         return res2.size();
+    }
+
+    public static Map<String, Object> describe(Object obj) {
+        try {
+            Map props = BeanUtils.describe(obj);
+            props.remove("class");
+            return props;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static boolean equalsProperty(Entity ent, Object model, String prop) {
+        return ObjectUtils.equals(getProperty(model, prop), ent.getProperty(prop));
+    }
+
+    public static Object getProperty(Object bean, String name) {
+        try {
+            return PropertyUtils.getProperty(bean, name);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void setProperty(Entity ent, String name, Object model) {
+        ent.setProperty(name, getProperty(model, name));
+    }
+
+    public static void setProperty(Object bean, String name, Object value) {
+        try {
+            PropertyUtils.setProperty(bean, name, value);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void setPropertyIfNull(UserSettingsModel model, String name, Object value) {
+        if (getProperty(model, name) == null) {
+            setProperty(model, name , value);
+        }
     }
 }

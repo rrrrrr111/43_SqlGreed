@@ -2,7 +2,7 @@ package ru.roman.bim.gui.pane.main;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import ru.roman.bim.gui.common.Controller;
+import ru.roman.bim.gui.common.mvc.Controller;
 import ru.roman.bim.gui.custom.tools.OpacityTimer;
 import ru.roman.bim.gui.pane.PaineFactory;
 import ru.roman.bim.gui.pane.tray.TrayUtils;
@@ -38,7 +38,7 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
         TrayUtils.addTrayIcon();
         localCache = LocalCacheFactory.createLocalCacheInstance(0, 0);   // TODO - сохранять на сервисе
         currModel = localCache.getCurrent();
-        view.setValues(currModel);
+        view.fillWidgets(currModel);
         ghostService.start();
 
     }
@@ -56,12 +56,12 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
 
     protected void onPrev() {
         currModel = localCache.getPrev();
-        view.setValues(currModel);
+        view.fillWidgets(currModel);
     }
 
     protected void onNext() {
         currModel = localCache.getNext();
-        view.setValues(currModel);
+        view.fillWidgets(currModel);
     }
 
     protected void onTranslate() {

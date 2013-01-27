@@ -3,7 +3,7 @@ package ru.roman.bim.gui.pane.edit;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import ru.roman.bim.gui.common.Controller;
+import ru.roman.bim.gui.common.mvc.Controller;
 import ru.roman.bim.model.WordCategory;
 import ru.roman.bim.model.WordType;
 import ru.roman.bim.service.ServiceFactory;
@@ -12,7 +12,7 @@ import ru.roman.bim.service.cache.LocalCacheFactory;
 import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.translate.TranslationService;
 import ru.roman.bim.util.Const;
-import ru.roman.bim.util.GuiUtils;
+import ru.roman.bim.util.GuiUtil;
 
 import javax.swing.*;
 import java.util.Arrays;
@@ -37,13 +37,13 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
 
     protected synchronized void onPrev() {
         currModel = new EditViewModel(localCache.getPrev());
-        view.setValues(currModel);
+        view.fillWidgets(currModel);
         originalModel = currModel.clone();
     }
 
     protected synchronized void onNext() {
         currModel = new EditViewModel(localCache.getNext());
-        view.setValues(currModel);
+        view.fillWidgets(currModel);
         originalModel = currModel.clone();
     }
 
@@ -56,7 +56,7 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
         currModel.setType(old.getType());
         currModel.setCategory(old.getCategory());
         currModel.setOwner(Const.DEFAULT_OWNER_ID);
-        view.setValues(currModel);
+        view.fillWidgets(currModel);
     }
 
     protected synchronized void onSave() {
@@ -64,7 +64,7 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
         view.fillModel(currModel);
         if (StringUtils.isBlank(currModel.getTextFaced()) ||
                 StringUtils.isBlank(currModel.getTextShadowed())) {
-            GuiUtils.showInfoMessage("Cue word and the translation can not be empty");
+            GuiUtil.showInfoMessage("Cue word and the translation can not be empty");
         } else {
 
             WordUtils.checkIdiom(currModel);
@@ -94,7 +94,7 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
             Long id = gaeConnector.save(currModel);
             currModel.setId(id);
             localCache.renewModel(currModel);
-            view.setValues(currModel);
+            view.fillWidgets(currModel);
             originalModel = currModel.clone();
         }
     }
@@ -106,7 +106,7 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
     public synchronized void show(LocalCache cache) {
         this.localCache = LocalCacheFactory.createLocalCacheInstance(cache);
         currModel = new EditViewModel(localCache.getCurrent());
-        view.setValues(currModel);
+        view.fillWidgets(currModel);
         originalModel = currModel.clone();
         view.setVisible(true);
     }

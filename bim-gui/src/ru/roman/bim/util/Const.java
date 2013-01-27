@@ -14,9 +14,9 @@ import java.util.List;
  */
 public interface Const {
 
-    boolean DEV_MODE = false;
+    boolean DEV_MODE = true;
 
-    String VERSION = "1.19";
+    String VERSION = "1.20";
     String APP_NAME = "Bim";
     String APP_DATA_PATH = FileUtils.getUserDirectoryPath() + "/." + APP_NAME;
     String APP_CONFIG_PATH = APP_DATA_PATH + "/config";
@@ -33,5 +33,9 @@ public interface Const {
     Long DEFAULT_OWNER_ID = 1L;
     Collection<? extends Integer> DEFAULT_RATINGS = Arrays.asList(1, 2, 3, 4, 5);
     Long DEFAULT_RATING = 3l;
+
+    //String DEFAULT_ENDPOINT = "http://churganovroman.appspot.com/DataProvider";
+    String DEFAULT_ENDPOINT = "http://localhost:8080/DataProvider";
+
 }
 

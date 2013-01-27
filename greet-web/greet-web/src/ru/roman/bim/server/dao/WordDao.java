@@ -36,7 +36,7 @@ public class WordDao {
     public static Long createOrUpdate(BimItemModel model) {
 
         // логика исключения дублирования
-        Entity word = EntityUtil.findFirstEntity(ENT_NAME, TEXT_FACED, model.getTextFaced());
+        Entity word = EntityUtil.findFirstEntity(ENT_NAME, TEXT_FACED, model);
         String oldTransl = null;
         if(model.getId() == null){
             if (word == null) {
