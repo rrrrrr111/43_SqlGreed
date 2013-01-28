@@ -1,6 +1,7 @@
 package ru.roman.bim.server.service.data;
 
 import org.apache.commons.beanutils.MethodUtils;
+import org.apache.commons.lang.exception.ExceptionUtils;
 import ru.roman.bim.server.service.data.jaxws.*;
 
 import javax.xml.bind.JAXB;
@@ -76,9 +77,8 @@ public class DataProviderSOAPHandler {
         T res = JAXB.unmarshal(new DOMSource(soapElement), clazz);
         try {
             return MethodUtils.invokeMethod(greeterAdapter, name, res);
-            //return ReflectionUtil.getMethod(greeterAdapter, name, new Class[] {clazz}).invoke(greeterAdapter, res);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(ExceptionUtils.getRootCauseMessage(e), e);
         }
     }
 }

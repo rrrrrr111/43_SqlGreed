@@ -184,8 +184,10 @@ public class EntityUtil {
 
     public static Map<String, Object> describe(Object obj) {
         try {
-            Map props = bub.describe(obj);
+            Map<String, Object> props = bub.describe(obj);
             props.remove("class");
+            props.remove("id");
+            log.info("bean properties described : " + props);
             return props;
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -210,6 +212,8 @@ public class EntityUtil {
 
     public static void setProperty(Object bean, String name, Object value) {
         try {
+            //log.info("bean: " + bean + ", name: " + name + ", value: " + value
+            //        + (value != null ? ", valueClass: " + value.getClass() : ""));
             pub.setProperty(bean, name, value);
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -225,7 +229,7 @@ public class EntityUtil {
     public static void setAllProperties(Entity entity, Object model) {
         Map<String, Object> props = describe(model);
         for (Map.Entry<String, Object> entry : props.entrySet()) {
-            entity.setProperty(entry.getKey(), entry.getValue());
+            entity.setProperty(entry.getKey(), getProperty(model, entry.getKey()));
         }
     }
 

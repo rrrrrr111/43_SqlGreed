@@ -1,8 +1,8 @@
-<!-- Indices written at Sun, 27 Jan 2013 13:45:47 UTC -->
+<!-- Indices written at Mon, 28 Jan 2013 21:31:53 UTC -->
 
 <datastore-indexes>
 
-    <!-- Used 60 times in query history -->
+    <!-- Used 20 times in query history -->
     <datastore-index kind="Word" ancestor="false" source="auto">
         <property name="facedLangId" direction="asc"/>
         <property name="rating" direction="asc"/>
