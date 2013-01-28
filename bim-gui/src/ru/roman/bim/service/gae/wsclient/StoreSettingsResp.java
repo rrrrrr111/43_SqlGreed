@@ -16,7 +16,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;extension base="{http://data.service.server.bim.roman.ru/}abstractResponse">
  *       &lt;sequence>
- *         &lt;element name="userSettingsModel" type="{http://data.service.server.bim.roman.ru/}userSettingsModel" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/extension>
  *   &lt;/complexContent>
@@ -26,37 +25,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "storeSettingsResp", propOrder = {
-    "userSettingsModel"
-})
+@XmlType(name = "storeSettingsResp")
 public class StoreSettingsResp
     extends AbstractResponse
 {
 
-    protected UserSettingsModel userSettingsModel;
-
-    /**
-     * Gets the value of the userSettingsModel property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link UserSettingsModel }
-     *     
-     */
-    public UserSettingsModel getUserSettingsModel() {
-        return userSettingsModel;
-    }
-
-    /**
-     * Sets the value of the userSettingsModel property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link UserSettingsModel }
-     *     
-     */
-    public void setUserSettingsModel(UserSettingsModel value) {
-        this.userSettingsModel = value;
-    }
 
 }

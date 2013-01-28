@@ -114,7 +114,7 @@ public class TrayUtils {
 
         settingsMenu.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                PaineFactory.getSettingsViewController().showView();
+                PaineFactory.getSettingsViewController().showSettingsView();
             }
         });
 

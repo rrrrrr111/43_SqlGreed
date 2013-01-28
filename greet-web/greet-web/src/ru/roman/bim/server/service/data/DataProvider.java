@@ -3,9 +3,7 @@ package ru.roman.bim.server.service.data;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import ru.roman.bim.server.dao.UserSettingsDao;
 import ru.roman.bim.server.dao.WordDao;
-import ru.roman.bim.server.service.data.dto.settings.StoreSettingsRequest;
-import ru.roman.bim.server.service.data.dto.settings.StoreSettingsResp;
-import ru.roman.bim.server.service.data.dto.settings.UserSettingsModel;
+import ru.roman.bim.server.service.data.dto.settings.*;
 import ru.roman.bim.server.service.data.dto.word.GetListRequest;
 import ru.roman.bim.server.service.data.dto.word.GetListResp;
 import ru.roman.bim.server.service.data.dto.word.RenewRatingRequest;
@@ -24,7 +22,7 @@ public class DataProvider {
     @WebMethod
     public Long save(SaveRequest req){
         try {
-            log.log(Level.INFO, "Saving item : " + ToStringBuilder.reflectionToString(req.getModel()));
+            log.log(Level.INFO, "Saving item, params : " + ToStringBuilder.reflectionToString(req.getModel()));
             return WordDao.createOrUpdate(req.getModel());
         } catch (RuntimeException e) {
             log.log(Level.SEVERE, "", e);
@@ -35,7 +33,7 @@ public class DataProvider {
     @WebMethod
     public GetListResp getList(GetListRequest req){
         try {
-            log.log(Level.INFO, "Getting list : " + ToStringBuilder.reflectionToString(req));
+            log.log(Level.INFO, "Getting list, params : " + ToStringBuilder.reflectionToString(req));
             return WordDao.getWords(req);
         } catch (RuntimeException e) {
             log.log(Level.SEVERE, "", e);
@@ -46,8 +44,20 @@ public class DataProvider {
     @WebMethod
     public void renewRating(RenewRatingRequest req){
         try {
-            log.log(Level.INFO, "Renew rating : " + ToStringBuilder.reflectionToString(req));
+            log.log(Level.INFO, "Renew rating, params : " + ToStringBuilder.reflectionToString(req));
             WordDao.renewRating(req.getId(), req.getRating());
+        } catch (RuntimeException e) {
+            log.log(Level.SEVERE, "", e);
+            throw e;
+        }
+    }
+
+    @WebMethod
+    public RegisterNewAndLoadSettingsResp registerNewAndLoadSettings(RegisterNewAndLoadSettingsRequest req){
+        try {
+            log.log(Level.INFO, "Load settings, params : " + ToStringBuilder.reflectionToString(req.getUserSettingsModel()));
+            final UserSettingsModel res = UserSettingsDao.registerNewAndLoadSettings(req.getUserSettingsModel());
+            return new RegisterNewAndLoadSettingsResp(res);
         } catch (RuntimeException e) {
             log.log(Level.SEVERE, "", e);
             throw e;
@@ -58,8 +68,8 @@ public class DataProvider {
     public StoreSettingsResp storeSettings(StoreSettingsRequest req){
         try {
             log.log(Level.INFO, "Save settings : " + ToStringBuilder.reflectionToString(req.getUserSettingsModel()));
-            UserSettingsModel res = UserSettingsDao.storeSettings(req.getUserSettingsModel());
-            return new StoreSettingsResp(res);
+            UserSettingsDao.storeSettings(req.getUserSettingsModel());
+            return new StoreSettingsResp();
         } catch (RuntimeException e) {
             log.log(Level.SEVERE, "", e);
             throw e;

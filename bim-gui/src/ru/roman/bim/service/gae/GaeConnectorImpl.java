@@ -56,13 +56,19 @@ public class GaeConnectorImpl implements GaeConnector {
     }
 
     @Override
-    public UserSettingsModel storeSettings(UserSettingsModel model) {
+    public void storeSettings(UserSettingsModel model) {
         StoreSettingsRequest req = WsUtil.prepareRequest(new StoreSettingsRequest());
         req.setUserSettingsModel(model);
         StoreSettingsResp resp = provider.storeSettings(req);
-        model = resp.getUserSettingsModel();
         log.info(String.format("Settings stored %s", ToStringBuilder.reflectionToString(model)));
-        return model;
     }
 
+    @Override
+    public UserSettingsModel registerNewAndLoadSettings(UserSettingsModel model) {
+        RegisterNewAndLoadSettingsRequest req = WsUtil.prepareRequest(new RegisterNewAndLoadSettingsRequest());
+        req.setUserSettingsModel(model);
+        RegisterNewAndLoadSettingsResp resp = provider.registerNewAndLoadSettings(req);
+        log.info(String.format("Settings stored %s", ToStringBuilder.reflectionToString(resp.getUserSettingsModel())));
+        return resp.getUserSettingsModel();
+    }
 }

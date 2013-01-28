@@ -5,6 +5,10 @@
 
   <xs:element name="getListResponse" type="tns:getListResponse"/>
 
+  <xs:element name="registerNewAndLoadSettings" type="tns:registerNewAndLoadSettings"/>
+
+  <xs:element name="registerNewAndLoadSettingsResponse" type="tns:registerNewAndLoadSettingsResponse"/>
+
   <xs:element name="renewRating" type="tns:renewRating"/>
 
   <xs:element name="renewRatingResponse" type="tns:renewRatingResponse"/>
@@ -137,9 +141,7 @@
   <xs:complexType name="storeSettingsResp">
     <xs:complexContent>
       <xs:extension base="tns:abstractResponse">
-        <xs:sequence>
-          <xs:element name="userSettingsModel" type="tns:userSettingsModel" minOccurs="0"/>
-        </xs:sequence>
+        <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -182,6 +184,38 @@
         <xs:sequence>
           <xs:element name="list" type="tns:bimItemModel" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
           <xs:element name="recordsCount" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="registerNewAndLoadSettings">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:registerNewAndLoadSettingsRequest" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="registerNewAndLoadSettingsRequest">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractRequest">
+        <xs:sequence>
+          <xs:element name="userSettingsModel" type="tns:userSettingsModel" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="registerNewAndLoadSettingsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:registerNewAndLoadSettingsResp" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="registerNewAndLoadSettingsResp">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResponse">
+        <xs:sequence>
+          <xs:element name="userSettingsModel" type="tns:userSettingsModel" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

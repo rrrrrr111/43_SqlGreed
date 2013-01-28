@@ -15,8 +15,8 @@ package ru.roman.bim.server.util;
 
 import com.google.appengine.api.datastore.*;
 import com.google.appengine.api.datastore.Query.FilterOperator;
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.beanutils.PropertyUtils;
+import org.apache.commons.beanutils.BeanUtilsBean;
+import org.apache.commons.beanutils.PropertyUtilsBean;
 import org.apache.commons.lang.ObjectUtils;
 import ru.roman.bim.server.service.data.dto.settings.UserSettingsModel;
 
@@ -36,6 +36,8 @@ public class EntityUtil {
 
     private static final Logger log = Logger.getLogger(EntityUtil.class.getCanonicalName());
     private static DatastoreService storeService = DatastoreServiceFactory.getDatastoreService();
+    private static final PropertyUtilsBean pub = new PropertyUtilsBean();
+    private static final BeanUtilsBean bub = BeanUtilsBean.getInstance();
 
 
     public static void persistEntity(Entity entity) {
@@ -182,7 +184,7 @@ public class EntityUtil {
 
     public static Map<String, Object> describe(Object obj) {
         try {
-            Map props = BeanUtils.describe(obj);
+            Map props = bub.describe(obj);
             props.remove("class");
             return props;
         } catch (Exception e) {
@@ -196,7 +198,7 @@ public class EntityUtil {
 
     public static Object getProperty(Object bean, String name) {
         try {
-            return PropertyUtils.getProperty(bean, name);
+            return pub.getProperty(bean, name);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -208,7 +210,7 @@ public class EntityUtil {
 
     public static void setProperty(Object bean, String name, Object value) {
         try {
-            PropertyUtils.setProperty(bean, name, value);
+            pub.setProperty(bean, name, value);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -219,4 +221,19 @@ public class EntityUtil {
             setProperty(model, name , value);
         }
     }
+
+    public static void setAllProperties(Entity entity, Object model) {
+        Map<String, Object> props = describe(model);
+        for (Map.Entry<String, Object> entry : props.entrySet()) {
+            entity.setProperty(entry.getKey(), entry.getValue());
+        }
+    }
+
+    public static void setAllProperties(UserSettingsModel model, Entity entity) {
+        Map<String, Object> props = entity.getProperties();
+        for (Map.Entry<String, Object> entry : props.entrySet()) {
+            setProperty(model, entry.getKey(), entry.getValue());
+        }
+    }
+
 }

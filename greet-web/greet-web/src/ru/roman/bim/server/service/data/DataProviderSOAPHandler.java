@@ -1,9 +1,7 @@
 package ru.roman.bim.server.service.data;
 
-import ru.roman.bim.server.service.data.jaxws.GetList;
-import ru.roman.bim.server.service.data.jaxws.RenewRating;
-import ru.roman.bim.server.service.data.jaxws.Save;
-import ru.roman.bim.server.service.data.jaxws.StoreSettings;
+import org.apache.commons.beanutils.MethodUtils;
+import ru.roman.bim.server.service.data.jaxws.*;
 
 import javax.xml.bind.JAXB;
 import javax.xml.namespace.QName;
@@ -15,14 +13,16 @@ import java.util.Iterator;
 public class DataProviderSOAPHandler {
 
     private static final String NAMESPACE_URI = "http://data.service.server.bim.roman.ru/";
+
     private static final QName SAVE_QNAME = new QName(NAMESPACE_URI,"save");
     private static final QName GET_LIST_QNAME = new QName(NAMESPACE_URI,"getList");
     private static final QName RENEW_RATING_QNAME = new QName(NAMESPACE_URI,"renewRating");
     private static final QName STORE_SETTINGS_QNAME = new QName(NAMESPACE_URI,"storeSettings");
+    private static final QName REGISTER_NEW_AND_LOAD_SETTINGS_QNAME = new QName(NAMESPACE_URI,"registerNewAndLoadSettings");
 
 
-    private MessageFactory messageFactory;
-    private DataProviderAdapter greeterAdapter;
+    private final MessageFactory messageFactory;
+    private final DataProviderAdapter greeterAdapter;
 
 
     public DataProviderSOAPHandler() throws SOAPException {
@@ -33,24 +33,29 @@ public class DataProviderSOAPHandler {
     @SuppressWarnings("rawtypes")
     public SOAPMessage handleSOAPRequest(SOAPMessage request) throws SOAPException {
         SOAPBody soapBody = request.getSOAPBody();
-        Iterator iterator = soapBody.getChildElements();
+        final Iterator iterator = soapBody.getChildElements();
         Object responsePojo = null;
         while (iterator.hasNext()) {
-            Object next = iterator.next();
+            final Object next = iterator.next();
             if (next instanceof SOAPElement) {
-                SOAPElement soapElement = (SOAPElement) next;
-                QName qname = soapElement.getElementQName();
+                final SOAPElement soapElement = (SOAPElement) next;
+                final QName qname = soapElement.getElementQName();
+                final String name = qname.getLocalPart();
+
                 if(SAVE_QNAME.equals(qname)) {
-                    responsePojo = handleSave(soapElement);
+                    responsePojo = handleRequest(soapElement, name, Save.class);
                     break;
                 } else if(GET_LIST_QNAME.equals(qname)) {
-                    responsePojo = handleGetList(soapElement);
+                    responsePojo = handleRequest(soapElement, name, GetList.class);
                     break;
                 } else if(RENEW_RATING_QNAME.equals(qname)) {
-                    responsePojo = handleRenewRating(soapElement);
+                    responsePojo = handleRequest(soapElement, name, RenewRating.class);
                     break;
                 } else if(STORE_SETTINGS_QNAME.equals(qname)) {
-                    responsePojo = handleStoreSettings(soapElement);
+                    responsePojo = handleRequest(soapElement, name, StoreSettings.class);
+                    break;
+                } else if(REGISTER_NEW_AND_LOAD_SETTINGS_QNAME.equals(qname)) {
+                    responsePojo = handleRequest(soapElement, name, RegisterNewAndLoadSettings.class);
                     break;
                 }
             }
@@ -67,26 +72,13 @@ public class DataProviderSOAPHandler {
         return soapResponse;
     }
 
-    private Object handleSave(SOAPElement soapElement){
-        Save res = JAXB.unmarshal(new DOMSource(soapElement), Save.class);
-        return greeterAdapter.save(res);
+    private <T> Object handleRequest(SOAPElement soapElement, String name, Class<T> clazz){
+        T res = JAXB.unmarshal(new DOMSource(soapElement), clazz);
+        try {
+            return MethodUtils.invokeMethod(greeterAdapter, name, res);
+            //return ReflectionUtil.getMethod(greeterAdapter, name, new Class[] {clazz}).invoke(greeterAdapter, res);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
-
-    private Object handleGetList(SOAPElement soapElement){
-        GetList res = JAXB.unmarshal(new DOMSource(soapElement), GetList.class);
-        return greeterAdapter.getList(res);
-    }
-
-    private Object handleRenewRating(SOAPElement soapElement){
-        RenewRating res = JAXB.unmarshal(new DOMSource(soapElement), RenewRating.class);
-        return greeterAdapter.renewRating(res);
-    }
-
-    private Object handleStoreSettings(SOAPElement soapElement){
-        StoreSettings res = JAXB.unmarshal(new DOMSource(soapElement), StoreSettings.class);
-        return greeterAdapter.storeSettings(res);
-    }
-
-
-
 }

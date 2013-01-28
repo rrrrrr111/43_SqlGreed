@@ -24,11 +24,13 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _RegisterNewAndLoadSettings_QNAME = new QName("http://data.service.server.bim.roman.ru/", "registerNewAndLoadSettings");
     private final static QName _RenewRatingResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "renewRatingResponse");
     private final static QName _StoreSettings_QNAME = new QName("http://data.service.server.bim.roman.ru/", "storeSettings");
     private final static QName _GetList_QNAME = new QName("http://data.service.server.bim.roman.ru/", "getList");
     private final static QName _GetListResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "getListResponse");
     private final static QName _StoreSettingsResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "storeSettingsResponse");
+    private final static QName _RegisterNewAndLoadSettingsResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "registerNewAndLoadSettingsResponse");
     private final static QName _SaveResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "saveResponse");
     private final static QName _RenewRating_QNAME = new QName("http://data.service.server.bim.roman.ru/", "renewRating");
     private final static QName _Save_QNAME = new QName("http://data.service.server.bim.roman.ru/", "save");
@@ -62,6 +64,14 @@ public class ObjectFactory {
      */
     public SaveResponse createSaveResponse() {
         return new SaveResponse();
+    }
+
+    /**
+     * Create an instance of {@link RegisterNewAndLoadSettingsResponse }
+     * 
+     */
+    public RegisterNewAndLoadSettingsResponse createRegisterNewAndLoadSettingsResponse() {
+        return new RegisterNewAndLoadSettingsResponse();
     }
 
     /**
@@ -102,6 +112,22 @@ public class ObjectFactory {
      */
     public RenewRatingResponse createRenewRatingResponse() {
         return new RenewRatingResponse();
+    }
+
+    /**
+     * Create an instance of {@link RegisterNewAndLoadSettings }
+     * 
+     */
+    public RegisterNewAndLoadSettings createRegisterNewAndLoadSettings() {
+        return new RegisterNewAndLoadSettings();
+    }
+
+    /**
+     * Create an instance of {@link RegisterNewAndLoadSettingsResp }
+     * 
+     */
+    public RegisterNewAndLoadSettingsResp createRegisterNewAndLoadSettingsResp() {
+        return new RegisterNewAndLoadSettingsResp();
     }
 
     /**
@@ -177,6 +203,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link RegisterNewAndLoadSettingsRequest }
+     * 
+     */
+    public RegisterNewAndLoadSettingsRequest createRegisterNewAndLoadSettingsRequest() {
+        return new RegisterNewAndLoadSettingsRequest();
+    }
+
+    /**
      * Create an instance of {@link BimItemModel }
      * 
      */
@@ -190,6 +224,15 @@ public class ObjectFactory {
      */
     public AbstractRequest createAbstractRequest() {
         return new AbstractRequest();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterNewAndLoadSettings }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "registerNewAndLoadSettings")
+    public JAXBElement<RegisterNewAndLoadSettings> createRegisterNewAndLoadSettings(RegisterNewAndLoadSettings value) {
+        return new JAXBElement<RegisterNewAndLoadSettings>(_RegisterNewAndLoadSettings_QNAME, RegisterNewAndLoadSettings.class, null, value);
     }
 
     /**
@@ -235,6 +278,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "storeSettingsResponse")
     public JAXBElement<StoreSettingsResponse> createStoreSettingsResponse(StoreSettingsResponse value) {
         return new JAXBElement<StoreSettingsResponse>(_StoreSettingsResponse_QNAME, StoreSettingsResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterNewAndLoadSettingsResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "registerNewAndLoadSettingsResponse")
+    public JAXBElement<RegisterNewAndLoadSettingsResponse> createRegisterNewAndLoadSettingsResponse(RegisterNewAndLoadSettingsResponse value) {
+        return new JAXBElement<RegisterNewAndLoadSettingsResponse>(_RegisterNewAndLoadSettingsResponse_QNAME, RegisterNewAndLoadSettingsResponse.class, null, value);
     }
 
     /**

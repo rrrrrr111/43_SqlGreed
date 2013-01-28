@@ -340,10 +340,12 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
 
     public void prepareForFirstInput() {
         saveButton.setText("Save/Register");
-
-        ratingsPanel.setRatings(1, 2, 3);
-        portionText.setText(String.valueOf(100));
     }
+
+    public void prepareSettingsView() {
+        saveButton.setText("Save");
+    }
+
 
     @Override
     public SettingsViewController getController() {

@@ -63,7 +63,7 @@ public class StartBim {
         if (config == null) {
             PaineFactory.getSettingsViewController().fillCredentials(callBack);
         } else {
-            callBack.afterRegistration();
+            PaineFactory.getSettingsViewController().reloadSettings(callBack);
         }
 
     }

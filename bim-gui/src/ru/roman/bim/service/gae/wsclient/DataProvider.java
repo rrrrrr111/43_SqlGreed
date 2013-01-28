@@ -55,6 +55,21 @@ public interface DataProvider {
      * 
      * @param arg0
      * @return
+     *     returns ru.roman.bim.service.gae.wsclient.RegisterNewAndLoadSettingsResp
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "registerNewAndLoadSettings", targetNamespace = "http://data.service.server.bim.roman.ru/", className = "ru.roman.bim.service.gae.wsclient.RegisterNewAndLoadSettings")
+    @ResponseWrapper(localName = "registerNewAndLoadSettingsResponse", targetNamespace = "http://data.service.server.bim.roman.ru/", className = "ru.roman.bim.service.gae.wsclient.RegisterNewAndLoadSettingsResponse")
+    @Action(input = "http://data.service.server.bim.roman.ru/DataProvider/registerNewAndLoadSettingsRequest", output = "http://data.service.server.bim.roman.ru/DataProvider/registerNewAndLoadSettingsResponse")
+    public RegisterNewAndLoadSettingsResp registerNewAndLoadSettings(
+        @WebParam(name = "arg0", targetNamespace = "")
+        RegisterNewAndLoadSettingsRequest arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
      *     returns java.lang.Long
      */
     @WebMethod

@@ -30,50 +30,52 @@ public class UserSettingsDao {
     private static final String PORTION = "portion";
 
 
-    public static UserSettingsModel storeSettings(UserSettingsModel model) {
+    public static UserSettingsModel registerNewAndLoadSettings(UserSettingsModel model) {
 
         Entity sett = findFirstEntity(ENT_NAME, LOGIN, model);
         if (sett == null) {
             sett = new Entity(ENT_NAME);
-            setProperty(sett, LOGIN, model);
-            setProperty(sett, PASSWORD, model);
+            setPropertyIfNull(model, SORTING_FIELD, "editDate");
+            setPropertyIfNull(model, SORTING_DIRECTION, "DESCENDING");
+            setPropertyIfNull(model, SHADOWED_LANG_ID, 2L);
+            setPropertyIfNull(model, SUBSCRIBED, Arrays.asList(1L));
+            setPropertyIfNull(model, CURRENT_NUM, 0L);
+            setPropertyIfNull(model, CACHE_MAX_SIZE, 100L);
+            setPropertyIfNull(model, FACED_LANG_ID, 1L);
+            setPropertyIfNull(model, LOOK_AND_FEEL, "");
+            setPropertyIfNull(model, PREVIEW_DURATION, 0L);
+            setPropertyIfNull(model, OPACITY, 0.75);
+            setPropertyIfNull(model, PREVIEW_INTERVAL, 0L);
+            setPropertyIfNull(model, RATINGS, Arrays.asList(1, 2, 3));
+            setPropertyIfNull(model, RECORDS_COUNT, 0L);
+            setPropertyIfNull(model, PORTION, 100L);
+
+            setAllProperties(sett, model);
+            persistEntity(sett);
         } else {
-            if (!equalsProperty(sett, model, PASSWORD)) {
-                throw new RuntimeException("Wrong login or password");
-            }
+            checkPassword(model, sett);
+            setAllProperties(model, sett);
         }
-        setPropertyIfNull(model, SORTING_FIELD, "editDate");
-        setPropertyIfNull(model, SORTING_DIRECTION, "DESCENDING");
-        setPropertyIfNull(model, SHADOWED_LANG_ID, 2L);
-        setPropertyIfNull(model, SUBSCRIBED, Arrays.asList(1L));
-        setPropertyIfNull(model, CURRENT_NUM, 0L);
-        setPropertyIfNull(model, CACHE_MAX_SIZE, 100L);
-        setPropertyIfNull(model, FACED_LANG_ID, 1L);
-        setPropertyIfNull(model, LOOK_AND_FEEL, "");
-        setPropertyIfNull(model, PREVIEW_DURATION, 0L);
-        setPropertyIfNull(model, OPACITY, 0.75);
-        setPropertyIfNull(model, PREVIEW_INTERVAL, 0L);
-        setPropertyIfNull(model, RATINGS, Arrays.asList(1, 2, 3));
-        setPropertyIfNull(model, RECORDS_COUNT, 0L);
-        setPropertyIfNull(model, PORTION, 100L);
-
-        setProperty(sett, SORTING_FIELD, model);
-        setProperty(sett, SORTING_DIRECTION, model);
-        setProperty(sett, SHADOWED_LANG_ID, model);
-        setProperty(sett, SUBSCRIBED, model);
-        setProperty(sett, CURRENT_NUM, model);
-        setProperty(sett, CACHE_MAX_SIZE, model);
-        setProperty(sett, FACED_LANG_ID, model);
-        setProperty(sett, LOOK_AND_FEEL, model);
-        setProperty(sett, PREVIEW_DURATION, model);
-        setProperty(sett, OPACITY, model);
-        setProperty(sett, PREVIEW_INTERVAL, model);
-        setProperty(sett, RATINGS, model);
-        setProperty(sett, RECORDS_COUNT, model);
-        setProperty(sett, PORTION, model);
-
-        persistEntity(sett);
         model.setId(sett.getKey().getId());
         return model;
+
+    }
+
+    public static void storeSettings(UserSettingsModel model) {
+        Entity sett = findFirstEntity(ENT_NAME, LOGIN, model);
+        if (sett == null) {
+            throw new RuntimeException(String.format("User %s doesn't registered", model.getLogin()));
+        } else {
+            checkPassword(model, sett);
+            setAllProperties(sett, model);
+            persistEntity(sett);
+        }
+    }
+
+    private static void checkPassword(UserSettingsModel model, Entity sett) {
+        if (!equalsProperty(sett, model, PASSWORD)) {
+            throw new RuntimeException("Wrong login or password");
+        }
     }
 }
+

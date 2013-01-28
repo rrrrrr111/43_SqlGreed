@@ -14,6 +14,7 @@ import ru.roman.bim.service.wordload.WordLoaderService;
 import ru.roman.bim.util.GuiUtil;
 
 import java.io.File;
+import java.util.Arrays;
 
 
 /** @author Roman 16.01.13 23:59 */
@@ -42,23 +43,45 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
         view.prepareForFirstInput();
         view.setVisible(true);
         view.selectTab(1);
-        currModel = new SettingsViewModel();
+        if (currModel == null) {
+            currModel = new SettingsViewModel();
+            currModel.setPortion(100L);
+            currModel.getRatings().addAll(Arrays.asList(1, 2, 3));
+        }
+        modelDataToView();
+    }
 
+    public void reloadSettings(StartBim.RegistrationCallBack callBack) {
+        SettingsViewModel config = configService.loadSettingsConfig();
+        try {
+            UserSettingsModel res = gaeConnector.registerNewAndLoadSettings(config);
+            currModel = new SettingsViewModel(res);
+        } catch (Exception e) {
+            log.error("Error while settings loading", e);
+            currModel = config;
+            fillCredentials(callBack);
+            return;
+        }
+        configService.saveSettingsConfig(currModel);
+        callBack.afterRegistration();
+    }
 
+    public void showSettingsView() {
+        currModel = configService.loadSettingsConfig();
+        modelDataToView();
+        view.setVisible(true);
     }
 
     public void onSaveOrRegister() {
         viewDataToModel();
-
         // validation
         validator.validateLogin(currModel.getLogin());
         validator.validateRatings(currModel.getRatings());
 
-
-
         switch (state) {
             case FIRST_INPUT:
-
+                UserSettingsModel res = gaeConnector.registerNewAndLoadSettings(currModel);
+                currModel = new SettingsViewModel(res);
                 break;
             case REGISTERED:
                 // additional properties
@@ -79,11 +102,10 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
                 //model.setSortingField(Const.DEFAULT_SORTING_FIELD);
                 //model.getRatings().addAll(ratingsPanel.getRatings());
 
+                gaeConnector.storeSettings(currModel);
                 break;
         }
 
-        UserSettingsModel res = gaeConnector.storeSettings(currModel);
-        currModel = new SettingsViewModel(res);
         configService.saveSettingsConfig(currModel);
         modelDataToView();
 
@@ -92,6 +114,8 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
 
                 view.setVisible(false);
                 callBack.afterRegistration();
+                callBack = null;
+                view.prepareSettingsView();
                 state = State.REGISTERED;
                 break;
             case REGISTERED:
@@ -123,9 +147,6 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
         return validator;
     }
 
-    public void showView() {
-        currModel = ServiceFactory.getConfigService().loadSettingsConfig();
-        modelDataToView();
-        view.setVisible(true);
-    }
+
+
 }

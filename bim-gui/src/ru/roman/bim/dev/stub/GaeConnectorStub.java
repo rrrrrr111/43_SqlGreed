@@ -93,7 +93,12 @@ public class GaeConnectorStub implements GaeConnector {
     }
 
     @Override
-    public UserSettingsModel storeSettings(UserSettingsModel model) {
+    public void storeSettings(UserSettingsModel model) {
+        registerNewAndLoadSettings(model);
+    }
+
+    @Override
+    public UserSettingsModel registerNewAndLoadSettings(UserSettingsModel model) {
         UserSettingsModel stored = null;
         for (UserSettingsModel setting : settings) {
             if (setting.getLogin().equalsIgnoreCase(model.getLogin())) {
@@ -108,6 +113,7 @@ public class GaeConnectorStub implements GaeConnector {
             settings.remove(stored);
         }
         settings.add(model);
+        sleep();
         return model;
     }
 

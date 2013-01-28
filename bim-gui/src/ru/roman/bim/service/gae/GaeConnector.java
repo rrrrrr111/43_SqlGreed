@@ -11,14 +11,12 @@ public interface GaeConnector {
 
 
     Long save(MainViewModel model);
-    /*
-   предполагаем что сервис не будет возвращать пустой список, всегда хотябы одно значение
-    */
+    /* предполагаем что сервис не будет возвращать пустой список, всегда хотябы одно значение */
     GetListResp getList(GetListRequest request);
-
 
     void renewRating(Long id, Integer rating);
 
+    void storeSettings(UserSettingsModel model);
 
-    UserSettingsModel storeSettings(UserSettingsModel model);
+    UserSettingsModel registerNewAndLoadSettings(UserSettingsModel model);
 }
