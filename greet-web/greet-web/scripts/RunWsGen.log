@@ -21,6 +21,13 @@ JAX-WS RI 2.2.4-b01
 [WrapperGen - method: renewRating(ru.roman.bim.server.service.data.dto.word.RenewRatingRequest)]
 [method.getDeclaringType(): ru.roman.bim.server.service.data.DataProvider]
 [requestWrapper: ru.roman.bim.server.service.data.jaxws.RenewRating]
+[should process method: registerNewAndLoadSettings hasWebMethods: true ]
+[endpointReferencesInterface: false]
+[declaring class has WebSevice: true]
+[returning: true]
+[WrapperGen - method: registerNewAndLoadSettings(ru.roman.bim.server.service.data.dto.settings.RegisterNewAndLoadSettingsRequest)]
+[method.getDeclaringType(): ru.roman.bim.server.service.data.DataProvider]
+[requestWrapper: ru.roman.bim.server.service.data.jaxws.RegisterNewAndLoadSettings]
 [should process method: storeSettings hasWebMethods: true ]
 [endpointReferencesInterface: false]
 [declaring class has WebSevice: true]
@@ -31,6 +38,8 @@ JAX-WS RI 2.2.4-b01
 [ProcessedMethods Class: java.lang.Object]
 ru\roman\bim\server\service\data\jaxws\GetList.java
 ru\roman\bim\server\service\data\jaxws\GetListResponse.java
+ru\roman\bim\server\service\data\jaxws\RegisterNewAndLoadSettings.java
+ru\roman\bim\server\service\data\jaxws\RegisterNewAndLoadSettingsResponse.java
 ru\roman\bim\server\service\data\jaxws\RenewRating.java
 ru\roman\bim\server\service\data\jaxws\RenewRatingResponse.java
 ru\roman\bim\server\service\data\jaxws\Save.java
