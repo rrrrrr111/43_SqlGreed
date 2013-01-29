@@ -21,6 +21,60 @@
 
   <xs:element name="storeSettingsResponse" type="tns:storeSettingsResponse"/>
 
+  <xs:element name="systemTask" type="tns:systemTask"/>
+
+  <xs:element name="systemTaskResponse" type="tns:systemTaskResponse"/>
+
+  <xs:complexType name="systemTask">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:systemTaskRequest" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="systemTaskRequest">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractRequest">
+        <xs:sequence>
+          <xs:element name="taskNum" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="abstractRequest">
+    <xs:sequence>
+      <xs:element name="requestInfo" type="tns:requestInfo" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="requestInfo">
+    <xs:sequence>
+      <xs:element name="ip" type="xs:string" minOccurs="0"/>
+      <xs:element name="userId" type="xs:long" minOccurs="0"/>
+      <xs:element name="version" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="systemTaskResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:systemTaskResp" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="systemTaskResp">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResponse">
+        <xs:sequence>
+          <xs:element name="resultCount" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="abstractResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
   <xs:complexType name="save">
     <xs:sequence>
       <xs:element name="arg0" type="tns:saveRequest" minOccurs="0"/>
@@ -37,12 +91,6 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:complexType name="abstractRequest">
-    <xs:sequence>
-      <xs:element name="requestInfo" type="tns:requestInfo" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-
   <xs:complexType name="bimItemModel">
     <xs:sequence>
       <xs:element name="category" type="xs:long" minOccurs="0"/>
@@ -56,14 +104,6 @@
       <xs:element name="textFaced" type="xs:string" minOccurs="0"/>
       <xs:element name="textShadowed" type="xs:string" minOccurs="0"/>
       <xs:element name="type" type="xs:long" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="requestInfo">
-    <xs:sequence>
-      <xs:element name="ip" type="xs:string" minOccurs="0"/>
-      <xs:element name="userId" type="xs:long" minOccurs="0"/>
-      <xs:element name="version" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -129,6 +169,7 @@
       <xs:element name="sortingDirection" type="xs:string" minOccurs="0"/>
       <xs:element name="sortingField" type="xs:string" minOccurs="0"/>
       <xs:element name="subscribed" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="types" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -144,10 +185,6 @@
         <xs:sequence/>
       </xs:extension>
     </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="abstractResponse">
-    <xs:sequence/>
   </xs:complexType>
 
   <xs:complexType name="getList">

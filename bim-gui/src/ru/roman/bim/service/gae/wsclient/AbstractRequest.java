@@ -34,6 +34,7 @@ import javax.xml.bind.annotation.XmlType;
     GetListRequest.class,
     RenewRatingRequest.class,
     StoreSettingsRequest.class,
+    SystemTaskRequest.class,
     SaveRequest.class,
     RegisterNewAndLoadSettingsRequest.class
 })

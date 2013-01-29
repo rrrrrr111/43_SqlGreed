@@ -3,6 +3,8 @@ package ru.roman.bim.service.cache;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.pane.main.MainViewModel;
+import ru.roman.bim.gui.pane.settings.Settings;
+import ru.roman.bim.gui.pane.settings.SettingsViewModel;
 import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.gae.wsclient.BimItemModel;
@@ -33,20 +35,19 @@ public class LocalCacheImpl implements LocalCache {
 
     protected LocalCacheImpl() {
         super();
-        cache = new ArrayList<MainViewModel>(Const.CACHE_MAX_SIZE);
+        cache = new ArrayList<MainViewModel>(Settings.get().getCacheMaxSize().intValue());
     }
 
     protected LocalCacheImpl(LocalCache localCache) {
         super();
         cache = localCache.getCacheData();
-        recordsCount = localCache.getRecordsCount();
-        initCache(localCache.getCurrentNum(), localCache.getCurrentOffset());
+        initCache(localCache.getCurrentNum(), localCache.getRecordsCount());
     }
 
     @Override
-    public synchronized void initCache(Integer currentNum, Integer currentOffset) {
+    public synchronized void initCache(Integer currentNum, Integer recordsCount) {
         this.currentNum = currentNum;
-        this.currentOffset = currentOffset;
+        this.recordsCount = recordsCount;
         checkCacheState();
     }
 
@@ -89,8 +90,10 @@ public class LocalCacheImpl implements LocalCache {
             currentNum = recordsCount - 1;
         }
         int newOffset;
-        if (currentNum >= Const.CACHE_MAX_SIZE) {
-            newOffset = currentNum - currentNum % Const.CACHE_MAX_SIZE;
+        SettingsViewModel sett = Settings.get();
+        final int cacheMaxSize = sett.getCacheMaxSize().intValue();
+        if (currentNum >= cacheMaxSize) {
+            newOffset = currentNum - currentNum % cacheMaxSize;
         } else {
             newOffset = 0;
         }
@@ -99,12 +102,12 @@ public class LocalCacheImpl implements LocalCache {
 
             final GetListRequest req = WsUtil.prepareRequest(new GetListRequest());
             req.setOffset(newOffset);
-            req.setCount(Const.CACHE_MAX_SIZE);
-            req.setSortingField(Const.DEFAULT_SORTING_FIELD);
-            req.setSortingDirection(Const.DEFAULT_SORTING_DIRECTION);
-            req.getRatingsList().addAll(Const.DEFAULT_RATINGS);
+            req.setCount(cacheMaxSize);
+            req.setSortingField(sett.getSortingField());
+            req.setSortingDirection(sett.getSortingDirection());
+            req.getRatingsList().addAll(sett.getRatings());
             req.getTypes().addAll(Const.DEFAULT_TYPES);
-            req.setLangId(Const.DEFAULT_LANG_ID);
+            req.setLangId(sett.getFacedLangId().intValue());
 
             GetListResp resp = gaeConnector.getList(req);
             if (resp.getList() == null || resp.getList().size() == 0) {

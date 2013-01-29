@@ -8,7 +8,7 @@ import java.util.List;
 public interface LocalCache {
 
 
-    public void initCache(Integer currentNum, Integer currentOffset);
+    public void initCache(Integer currentNum, Integer recordsCount);
 
 
     MainViewModel getCurrent();

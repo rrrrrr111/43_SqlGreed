@@ -26,6 +26,7 @@ public class ObjectFactory {
 
     private final static QName _RegisterNewAndLoadSettings_QNAME = new QName("http://data.service.server.bim.roman.ru/", "registerNewAndLoadSettings");
     private final static QName _RenewRatingResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "renewRatingResponse");
+    private final static QName _SystemTaskResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "systemTaskResponse");
     private final static QName _StoreSettings_QNAME = new QName("http://data.service.server.bim.roman.ru/", "storeSettings");
     private final static QName _GetList_QNAME = new QName("http://data.service.server.bim.roman.ru/", "getList");
     private final static QName _GetListResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "getListResponse");
@@ -34,12 +35,21 @@ public class ObjectFactory {
     private final static QName _SaveResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "saveResponse");
     private final static QName _RenewRating_QNAME = new QName("http://data.service.server.bim.roman.ru/", "renewRating");
     private final static QName _Save_QNAME = new QName("http://data.service.server.bim.roman.ru/", "save");
+    private final static QName _SystemTask_QNAME = new QName("http://data.service.server.bim.roman.ru/", "systemTask");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: ru.roman.bim.service.gae.wsclient
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link SystemTask }
+     * 
+     */
+    public SystemTask createSystemTask() {
+        return new SystemTask();
     }
 
     /**
@@ -107,6 +117,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SystemTaskResponse }
+     * 
+     */
+    public SystemTaskResponse createSystemTaskResponse() {
+        return new SystemTaskResponse();
+    }
+
+    /**
      * Create an instance of {@link RenewRatingResponse }
      * 
      */
@@ -136,6 +154,38 @@ public class ObjectFactory {
      */
     public GetListRequest createGetListRequest() {
         return new GetListRequest();
+    }
+
+    /**
+     * Create an instance of {@link RequestInfo }
+     * 
+     */
+    public RequestInfo createRequestInfo() {
+        return new RequestInfo();
+    }
+
+    /**
+     * Create an instance of {@link AbstractResponse }
+     * 
+     */
+    public AbstractResponse createAbstractResponse() {
+        return new AbstractResponse();
+    }
+
+    /**
+     * Create an instance of {@link AbstractRequest }
+     * 
+     */
+    public AbstractRequest createAbstractRequest() {
+        return new AbstractRequest();
+    }
+
+    /**
+     * Create an instance of {@link SystemTaskResp }
+     * 
+     */
+    public SystemTaskResp createSystemTaskResp() {
+        return new SystemTaskResp();
     }
 
     /**
@@ -179,19 +229,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RequestInfo }
+     * Create an instance of {@link SystemTaskRequest }
      * 
      */
-    public RequestInfo createRequestInfo() {
-        return new RequestInfo();
-    }
-
-    /**
-     * Create an instance of {@link AbstractResponse }
-     * 
-     */
-    public AbstractResponse createAbstractResponse() {
-        return new AbstractResponse();
+    public SystemTaskRequest createSystemTaskRequest() {
+        return new SystemTaskRequest();
     }
 
     /**
@@ -203,14 +245,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RegisterNewAndLoadSettingsRequest }
-     * 
-     */
-    public RegisterNewAndLoadSettingsRequest createRegisterNewAndLoadSettingsRequest() {
-        return new RegisterNewAndLoadSettingsRequest();
-    }
-
-    /**
      * Create an instance of {@link BimItemModel }
      * 
      */
@@ -219,11 +253,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AbstractRequest }
+     * Create an instance of {@link RegisterNewAndLoadSettingsRequest }
      * 
      */
-    public AbstractRequest createAbstractRequest() {
-        return new AbstractRequest();
+    public RegisterNewAndLoadSettingsRequest createRegisterNewAndLoadSettingsRequest() {
+        return new RegisterNewAndLoadSettingsRequest();
     }
 
     /**
@@ -242,6 +276,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "renewRatingResponse")
     public JAXBElement<RenewRatingResponse> createRenewRatingResponse(RenewRatingResponse value) {
         return new JAXBElement<RenewRatingResponse>(_RenewRatingResponse_QNAME, RenewRatingResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SystemTaskResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "systemTaskResponse")
+    public JAXBElement<SystemTaskResponse> createSystemTaskResponse(SystemTaskResponse value) {
+        return new JAXBElement<SystemTaskResponse>(_SystemTaskResponse_QNAME, SystemTaskResponse.class, null, value);
     }
 
     /**
@@ -314,6 +357,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "save")
     public JAXBElement<Save> createSave(Save value) {
         return new JAXBElement<Save>(_Save_QNAME, Save.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SystemTask }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "systemTask")
+    public JAXBElement<SystemTask> createSystemTask(SystemTask value) {
+        return new JAXBElement<SystemTask>(_SystemTask_QNAME, SystemTask.class, null, value);
     }
 
 }

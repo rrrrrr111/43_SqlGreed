@@ -16,7 +16,7 @@ public class EditViewTest {
             @Override
             public void onStart() {
                 PaineFactory.getEditViewController().show(
-                        LocalCacheFactory.createLocalCacheInstance(0, 0));
+                        LocalCacheFactory.createLocalCacheInstance(0L, 0L));
             }
         });
 

@@ -1,11 +1,14 @@
 package ru.roman.bim.util;
 
+import ru.roman.bim.gui.pane.settings.Settings;
 import ru.roman.bim.service.gae.wsclient.AbstractRequest;
 import ru.roman.bim.service.gae.wsclient.RequestInfo;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -63,12 +66,15 @@ public abstract class WsUtil {
         }
     }
 
-
     public static <T extends AbstractRequest> T prepareRequest(T req) {
         final RequestInfo requestInfo = new RequestInfo();
-        requestInfo.setUserId(Const.DEFAULT_OWNER_ID);
+        requestInfo.setUserId(Settings.get().getId());
         requestInfo.setVersion(Const.VERSION);
-        //requestInfo.setIp();
+        try {
+            requestInfo.setIp(InetAddress.getLocalHost().toString());
+        } catch (UnknownHostException e) {
+            throw new RuntimeException(e);
+        }
         req.setRequestInfo(requestInfo);
         return req;
     }

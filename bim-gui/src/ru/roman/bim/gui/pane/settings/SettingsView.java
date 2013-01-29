@@ -365,7 +365,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
     public void fillModel(SettingsViewModel model) {
         //model.setCacheMaxSize();
         //model.setCurrentNum();
-        model.setFacedLangId(Const.DEFAULT_LANG_ID.longValue());
+        //model.setFacedLangId(Const.DEFAULT_LANG_ID.longValue());
         //model.setId();
         model.setLogin(loginText.getText());
         //model.setOpacity();
@@ -380,8 +380,8 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
         //model.setPreviewInterval();
         //model.setRecordsCount();
         //model.setShadowedLangId(Const.);
-        model.setSortingDirection(Const.DEFAULT_SORTING_DIRECTION);
-        model.setSortingField(Const.DEFAULT_SORTING_FIELD);
+        //model.setSortingDirection(Const.DEFAULT_SORTING_DIRECTION);
+        //model.setSortingField(Const.DEFAULT_SORTING_FIELD);
         model.getRatings().clear();
         model.getRatings().addAll(ratingsPanel.getRatings());
     }

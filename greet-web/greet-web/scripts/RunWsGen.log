@@ -35,6 +35,13 @@ JAX-WS RI 2.2.4-b01
 [WrapperGen - method: storeSettings(ru.roman.bim.server.service.data.dto.settings.StoreSettingsRequest)]
 [method.getDeclaringType(): ru.roman.bim.server.service.data.DataProvider]
 [requestWrapper: ru.roman.bim.server.service.data.jaxws.StoreSettings]
+[should process method: systemTask hasWebMethods: true ]
+[endpointReferencesInterface: false]
+[declaring class has WebSevice: true]
+[returning: true]
+[WrapperGen - method: systemTask(ru.roman.bim.server.service.data.dto.system.SystemTaskRequest)]
+[method.getDeclaringType(): ru.roman.bim.server.service.data.DataProvider]
+[requestWrapper: ru.roman.bim.server.service.data.jaxws.SystemTask]
 [ProcessedMethods Class: java.lang.Object]
 ru\roman\bim\server\service\data\jaxws\GetList.java
 ru\roman\bim\server\service\data\jaxws\GetListResponse.java
@@ -46,3 +53,5 @@ ru\roman\bim\server\service\data\jaxws\Save.java
 ru\roman\bim\server\service\data\jaxws\SaveResponse.java
 ru\roman\bim\server\service\data\jaxws\StoreSettings.java
 ru\roman\bim\server\service\data\jaxws\StoreSettingsResponse.java
+ru\roman\bim\server\service\data\jaxws\SystemTask.java
+ru\roman\bim\server\service\data\jaxws\SystemTaskResponse.java

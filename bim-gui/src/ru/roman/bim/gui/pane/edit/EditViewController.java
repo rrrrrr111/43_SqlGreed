@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.mvc.Controller;
+import ru.roman.bim.gui.pane.settings.Settings;
 import ru.roman.bim.model.WordCategory;
 import ru.roman.bim.model.WordType;
 import ru.roman.bim.service.ServiceFactory;
@@ -11,7 +12,6 @@ import ru.roman.bim.service.cache.LocalCache;
 import ru.roman.bim.service.cache.LocalCacheFactory;
 import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.translate.TranslationService;
-import ru.roman.bim.util.Const;
 import ru.roman.bim.util.GuiUtil;
 
 import javax.swing.*;
@@ -52,10 +52,10 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
         currModel = new EditViewModel();
         currModel.setFacedLangId(old.getFacedLangId());
         currModel.setShadowedLangId(old.getShadowedLangId());
-        currModel.setRating(Const.DEFAULT_RATING);
+        currModel.setRating(3L);
         currModel.setType(old.getType());
         currModel.setCategory(old.getCategory());
-        currModel.setOwner(Const.DEFAULT_OWNER_ID);
+        currModel.setOwner(Settings.get().getId());
         view.fillWidgets(currModel);
     }
 

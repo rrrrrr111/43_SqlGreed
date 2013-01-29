@@ -29,6 +29,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "abstractResponse")
 @XmlSeeAlso({
     RegisterNewAndLoadSettingsResp.class,
+    SystemTaskResp.class,
     StoreSettingsResp.class,
     GetListResp.class
 })

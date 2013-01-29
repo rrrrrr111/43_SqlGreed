@@ -20,6 +20,7 @@ public class DataProviderSOAPHandler {
     private static final QName RENEW_RATING_QNAME = new QName(NAMESPACE_URI,"renewRating");
     private static final QName STORE_SETTINGS_QNAME = new QName(NAMESPACE_URI,"storeSettings");
     private static final QName REGISTER_NEW_AND_LOAD_SETTINGS_QNAME = new QName(NAMESPACE_URI,"registerNewAndLoadSettings");
+    private static final QName SYSTEM_TASK_QNAME = new QName(NAMESPACE_URI,"systemTask");
 
 
     private final MessageFactory messageFactory;
@@ -57,6 +58,9 @@ public class DataProviderSOAPHandler {
                     break;
                 } else if(REGISTER_NEW_AND_LOAD_SETTINGS_QNAME.equals(qname)) {
                     responsePojo = handleRequest(soapElement, name, RegisterNewAndLoadSettings.class);
+                    break;
+                } else if(SYSTEM_TASK_QNAME.equals(qname)) {
+                    responsePojo = handleRequest(soapElement, name, SystemTask.class);
                     break;
                 }
             }

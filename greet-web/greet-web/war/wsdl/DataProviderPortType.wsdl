@@ -6,6 +6,12 @@
       <xsd:import namespace="http://data.service.server.bim.roman.ru/" schemaLocation="DataProviderPortType_schema1.xsd"/>
     </xsd:schema>
   </types>
+  <message name="registerNewAndLoadSettings">
+    <part name="parameters" element="tns:registerNewAndLoadSettings"/>
+  </message>
+  <message name="registerNewAndLoadSettingsResponse">
+    <part name="parameters" element="tns:registerNewAndLoadSettingsResponse"/>
+  </message>
   <message name="storeSettings">
     <part name="parameters" element="tns:storeSettings"/>
   </message>
@@ -18,11 +24,11 @@
   <message name="renewRatingResponse">
     <part name="parameters" element="tns:renewRatingResponse"/>
   </message>
-  <message name="registerNewAndLoadSettings">
-    <part name="parameters" element="tns:registerNewAndLoadSettings"/>
+  <message name="systemTask">
+    <part name="parameters" element="tns:systemTask"/>
   </message>
-  <message name="registerNewAndLoadSettingsResponse">
-    <part name="parameters" element="tns:registerNewAndLoadSettingsResponse"/>
+  <message name="systemTaskResponse">
+    <part name="parameters" element="tns:systemTaskResponse"/>
   </message>
   <message name="save">
     <part name="parameters" element="tns:save"/>
@@ -37,25 +43,29 @@
     <part name="parameters" element="tns:getListResponse"/>
   </message>
   <portType name="DataProvider">
+    <operation name="registerNewAndLoadSettings">
+      <input ns1:Action="http://data.service.server.bim.roman.ru/DataProvider/registerNewAndLoadSettingsRequest" message="tns:registerNewAndLoadSettings" xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns2:Action="http://data.service.server.bim.roman.ru/DataProvider/registerNewAndLoadSettingsResponse" message="tns:registerNewAndLoadSettingsResponse" xmlns:ns2="http://www.w3.org/2007/05/addressing/metadata"/>
+    </operation>
     <operation name="storeSettings">
-      <input ns1:Action="http://data.service.server.bim.roman.ru/DataProvider/storeSettingsRequest" message="tns:storeSettings" xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns2:Action="http://data.service.server.bim.roman.ru/DataProvider/storeSettingsResponse" message="tns:storeSettingsResponse" xmlns:ns2="http://www.w3.org/2007/05/addressing/metadata"/>
+      <input ns3:Action="http://data.service.server.bim.roman.ru/DataProvider/storeSettingsRequest" message="tns:storeSettings" xmlns:ns3="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns4:Action="http://data.service.server.bim.roman.ru/DataProvider/storeSettingsResponse" message="tns:storeSettingsResponse" xmlns:ns4="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
     <operation name="renewRating">
-      <input ns3:Action="http://data.service.server.bim.roman.ru/DataProvider/renewRatingRequest" message="tns:renewRating" xmlns:ns3="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns4:Action="http://data.service.server.bim.roman.ru/DataProvider/renewRatingResponse" message="tns:renewRatingResponse" xmlns:ns4="http://www.w3.org/2007/05/addressing/metadata"/>
+      <input ns5:Action="http://data.service.server.bim.roman.ru/DataProvider/renewRatingRequest" message="tns:renewRating" xmlns:ns5="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns6:Action="http://data.service.server.bim.roman.ru/DataProvider/renewRatingResponse" message="tns:renewRatingResponse" xmlns:ns6="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
-    <operation name="registerNewAndLoadSettings">
-      <input ns5:Action="http://data.service.server.bim.roman.ru/DataProvider/registerNewAndLoadSettingsRequest" message="tns:registerNewAndLoadSettings" xmlns:ns5="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns6:Action="http://data.service.server.bim.roman.ru/DataProvider/registerNewAndLoadSettingsResponse" message="tns:registerNewAndLoadSettingsResponse" xmlns:ns6="http://www.w3.org/2007/05/addressing/metadata"/>
+    <operation name="systemTask">
+      <input ns7:Action="http://data.service.server.bim.roman.ru/DataProvider/systemTaskRequest" message="tns:systemTask" xmlns:ns7="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns8:Action="http://data.service.server.bim.roman.ru/DataProvider/systemTaskResponse" message="tns:systemTaskResponse" xmlns:ns8="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
     <operation name="save">
-      <input ns7:Action="http://data.service.server.bim.roman.ru/DataProvider/saveRequest" message="tns:save" xmlns:ns7="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns8:Action="http://data.service.server.bim.roman.ru/DataProvider/saveResponse" message="tns:saveResponse" xmlns:ns8="http://www.w3.org/2007/05/addressing/metadata"/>
+      <input ns9:Action="http://data.service.server.bim.roman.ru/DataProvider/saveRequest" message="tns:save" xmlns:ns9="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns10:Action="http://data.service.server.bim.roman.ru/DataProvider/saveResponse" message="tns:saveResponse" xmlns:ns10="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
     <operation name="getList">
-      <input ns9:Action="http://data.service.server.bim.roman.ru/DataProvider/getListRequest" message="tns:getList" xmlns:ns9="http://www.w3.org/2007/05/addressing/metadata"/>
-      <output ns10:Action="http://data.service.server.bim.roman.ru/DataProvider/getListResponse" message="tns:getListResponse" xmlns:ns10="http://www.w3.org/2007/05/addressing/metadata"/>
+      <input ns11:Action="http://data.service.server.bim.roman.ru/DataProvider/getListRequest" message="tns:getList" xmlns:ns11="http://www.w3.org/2007/05/addressing/metadata"/>
+      <output ns12:Action="http://data.service.server.bim.roman.ru/DataProvider/getListResponse" message="tns:getListResponse" xmlns:ns12="http://www.w3.org/2007/05/addressing/metadata"/>
     </operation>
   </portType>
 </definitions>

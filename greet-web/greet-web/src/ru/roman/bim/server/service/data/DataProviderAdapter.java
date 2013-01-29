@@ -4,6 +4,8 @@ import ru.roman.bim.server.service.data.dto.settings.RegisterNewAndLoadSettingsR
 import ru.roman.bim.server.service.data.dto.settings.RegisterNewAndLoadSettingsResp;
 import ru.roman.bim.server.service.data.dto.settings.StoreSettingsRequest;
 import ru.roman.bim.server.service.data.dto.settings.StoreSettingsResp;
+import ru.roman.bim.server.service.data.dto.system.SystemTaskRequest;
+import ru.roman.bim.server.service.data.dto.system.SystemTaskResp;
 import ru.roman.bim.server.service.data.dto.word.GetListRequest;
 import ru.roman.bim.server.service.data.dto.word.GetListResp;
 import ru.roman.bim.server.service.data.dto.word.RenewRatingRequest;
@@ -50,6 +52,14 @@ public class DataProviderAdapter {
         StoreSettingsRequest req = request.getArg0();
         StoreSettingsResp res = dataProvider.storeSettings(req);
         StoreSettingsResponse response = new StoreSettingsResponse();
+        response.setReturn(res);
+        return response;
+    }
+
+    public SystemTaskResponse systemTask(SystemTask request){
+        SystemTaskRequest req = request.getArg0();
+        SystemTaskResp res = dataProvider.systemTask(req);
+        SystemTaskResponse response = new SystemTaskResponse();
         response.setReturn(res);
         return response;
     }

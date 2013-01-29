@@ -87,7 +87,7 @@ public class EntityUtil {
         return null;
     }
 
-    public static Iterable<Entity> listEntities(String kind, String searchBy, String searchFor) {
+    public static Iterable<Entity> listEntities(String kind, String searchBy, Object searchFor) {
         Query q = new Query(kind);
         if (searchFor != null && !"".equals(searchFor)) {
             q.addFilter(searchBy, FilterOperator.EQUAL, searchFor);
@@ -102,6 +102,21 @@ public class EntityUtil {
         q.addFilter(Entity.KEY_RESERVED_PROPERTY, FilterOperator.GREATER_THAN, ancestor);
         PreparedQuery pq = storeService.prepare(q);
         return pq.asIterable();
+    }
+
+    public static Entity findFirstChild(String kind, Key ancestor, String searchBy, Object searchFor) {
+        final Query q = new Query(kind);
+        q.setAncestor(ancestor);
+        q.addFilter(Entity.KEY_RESERVED_PROPERTY, FilterOperator.GREATER_THAN, ancestor);
+        if (searchFor != null && !"".equals(searchFor)) {
+            q.addFilter(searchBy, FilterOperator.EQUAL, searchFor);
+        }
+        final PreparedQuery pq = storeService.prepare(q);
+        final Iterator<Entity> iterator = pq.asIterable().iterator();
+        if (iterator.hasNext()) {
+            return iterator.next();
+        }
+        return null;
     }
 
     public static Iterable<Entity> listChildKeys(String kind, Key ancestor) {
@@ -182,6 +197,13 @@ public class EntityUtil {
         return res2.size();
     }
 
+    public static List<Entity> getAll(String entName) {
+        Query q2 = new Query(entName);
+        PreparedQuery pq2 = EntityUtil.getDataStore().prepare(q2);
+        List<Entity> res2 = pq2.asList(FetchOptions.Builder.withDefaults());
+        return res2;
+    }
+
     public static Map<String, Object> describe(Object obj) {
         try {
             Map<String, Object> props = bub.describe(obj);
@@ -233,7 +255,7 @@ public class EntityUtil {
         }
     }
 
-    public static void setAllProperties(UserSettingsModel model, Entity entity) {
+    public static void setAllProperties(Object model, Entity entity) {
         Map<String, Object> props = entity.getProperties();
         for (Map.Entry<String, Object> entry : props.entrySet()) {
             setProperty(model, entry.getKey(), entry.getValue());

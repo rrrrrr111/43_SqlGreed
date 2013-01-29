@@ -3,7 +3,11 @@ package ru.roman.bim.server.service.data;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import ru.roman.bim.server.dao.UserSettingsDao;
 import ru.roman.bim.server.dao.WordDao;
+import ru.roman.bim.server.service.complex.SystemService;
+import ru.roman.bim.server.service.complex.SystemServiceImpl;
 import ru.roman.bim.server.service.data.dto.settings.*;
+import ru.roman.bim.server.service.data.dto.system.SystemTaskRequest;
+import ru.roman.bim.server.service.data.dto.system.SystemTaskResp;
 import ru.roman.bim.server.service.data.dto.word.GetListRequest;
 import ru.roman.bim.server.service.data.dto.word.GetListResp;
 import ru.roman.bim.server.service.data.dto.word.RenewRatingRequest;
@@ -18,6 +22,8 @@ import java.util.logging.Logger;
 @WebService
 public class DataProvider {
     private final Logger log = Logger.getLogger(this.getClass().getName());
+
+    private final SystemService systemService = new SystemServiceImpl();
 
     @WebMethod
     public Long save(SaveRequest req){
@@ -45,7 +51,7 @@ public class DataProvider {
     public void renewRating(RenewRatingRequest req){
         try {
             log.log(Level.INFO, "Renew rating, params : " + ToStringBuilder.reflectionToString(req));
-            WordDao.renewRating(req.getId(), req.getRating());
+            WordDao.renewRating(req.getId(), req.getRating(), req.getRequestInfo().getUserId());
         } catch (RuntimeException e) {
             log.log(Level.SEVERE, "", e);
             throw e;
@@ -67,9 +73,20 @@ public class DataProvider {
     @WebMethod
     public StoreSettingsResp storeSettings(StoreSettingsRequest req){
         try {
-            log.log(Level.INFO, "Save settings : " + ToStringBuilder.reflectionToString(req.getUserSettingsModel()));
+            log.log(Level.INFO, "Save settings, params : " + ToStringBuilder.reflectionToString(req.getUserSettingsModel()));
             UserSettingsDao.storeSettings(req.getUserSettingsModel());
             return new StoreSettingsResp();
+        } catch (RuntimeException e) {
+            log.log(Level.SEVERE, "", e);
+            throw e;
+        }
+    }
+
+    @WebMethod
+    public SystemTaskResp systemTask(SystemTaskRequest req){
+        try {
+            log.log(Level.INFO, "System task, params : " + ToStringBuilder.reflectionToString(req));
+            return systemService.systemTask(req);
         } catch (RuntimeException e) {
             log.log(Level.SEVERE, "", e);
             throw e;

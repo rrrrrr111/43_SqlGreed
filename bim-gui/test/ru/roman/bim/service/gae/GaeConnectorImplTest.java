@@ -3,7 +3,6 @@ package ru.roman.bim.service.gae;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.service.gae.wsclient.*;
-import ru.roman.bim.util.Const;
 import ru.roman.bim.util.WsUtil;
 
 /** @author Roman 14.01.13 23:56 */
@@ -34,7 +33,7 @@ public class GaeConnectorImplTest {
         req1.setCount(100);
         req1.setLangId(1);
         req1.setOffset(0);
-        req1.setSortingField(Const.DEFAULT_SORTING_FIELD);
+        req1.setSortingField("editDate");
         req1.getTypes().add(1);
         ru.roman.bim.service.gae.wsclient.GetListResp res = provider.getList(req1);
 

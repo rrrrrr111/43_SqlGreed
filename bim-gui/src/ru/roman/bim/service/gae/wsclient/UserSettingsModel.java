@@ -36,6 +36,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="sortingDirection" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="sortingField" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="subscribed" type="{http://www.w3.org/2001/XMLSchema}long" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="types" type="{http://www.w3.org/2001/XMLSchema}long" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -62,7 +63,8 @@ import javax.xml.bind.annotation.XmlType;
     "shadowedLangId",
     "sortingDirection",
     "sortingField",
-    "subscribed"
+    "subscribed",
+    "types"
 })
 public class UserSettingsModel {
 
@@ -85,6 +87,8 @@ public class UserSettingsModel {
     protected String sortingField;
     @XmlElement(nillable = true)
     protected List<Long> subscribed;
+    @XmlElement(nillable = true)
+    protected List<Long> types;
 
     /**
      * Gets the value of the cacheMaxSize property.
@@ -502,6 +506,35 @@ public class UserSettingsModel {
             subscribed = new ArrayList<Long>();
         }
         return this.subscribed;
+    }
+
+    /**
+     * Gets the value of the types property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the types property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getTypes().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Long }
+     * 
+     * 
+     */
+    public List<Long> getTypes() {
+        if (types == null) {
+            types = new ArrayList<Long>();
+        }
+        return this.types;
     }
 
 }

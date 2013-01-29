@@ -5,10 +5,10 @@ public class LocalCacheFactory {
 
 
 
-    public static LocalCache createLocalCacheInstance(Integer currentNum, Integer currentOffset) {
+    public static LocalCache createLocalCacheInstance(Long currentNum, Long recordsCount) {
 
         LocalCache instance = new LocalCacheImpl();
-        instance.initCache(currentNum, currentOffset);
+        instance.initCache(currentNum.intValue(), recordsCount.intValue());
         return instance;
     }
 

@@ -4,7 +4,6 @@ import org.apache.commons.io.FileUtils;
 import ru.roman.bim.model.WordType;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -27,17 +26,16 @@ public interface Const {
     String APP_CONFIG_PATH = APP_DATA_PATH + "/config";
 
     boolean SHOW_TRAY_NOTIFICATIONS = true;
-    /* размер кеша */
-    Integer CACHE_MAX_SIZE = 100;
-    /* сортировка по БД */
-    String DEFAULT_SORTING_FIELD = "editDate";
-    String DEFAULT_SORTING_DIRECTION = "DESCENDING";  // ASCENDING, DESCENDING
 
-    Integer DEFAULT_LANG_ID = 1;
+    //Integer CACHE_MAX_SIZE = 100;
+    //String DEFAULT_SORTING_FIELD = "editDate";
+    //String DEFAULT_SORTING_DIRECTION = "DESCENDING";  // ASCENDING, DESCENDING
+
+    //Integer DEFAULT_LANG_ID = 1;
     List<Integer> DEFAULT_TYPES = WordType.getOrdinals(Arrays.asList(WordType.values()));
-    Long DEFAULT_OWNER_ID = 1L;
-    Collection<? extends Integer> DEFAULT_RATINGS = Arrays.asList(1, 2, 3, 4, 5);
-    Long DEFAULT_RATING = 3l;
+    //Long DEFAULT_OWNER_ID = 1L;
+    //Collection<? extends Integer> DEFAULT_RATINGS = Arrays.asList(1, 2, 3, 4, 5);
+    //Long DEFAULT_RATING = 3l;
 
 
 

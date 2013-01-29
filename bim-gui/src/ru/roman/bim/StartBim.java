@@ -5,9 +5,8 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.pane.PaineFactory;
-import ru.roman.bim.gui.pane.settings.SettingsViewModel;
+import ru.roman.bim.gui.pane.settings.Settings;
 import ru.roman.bim.gui.pane.tray.TrayUtils;
-import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.lock.LockerUtils;
 import ru.roman.bim.util.Const;
 import ru.roman.bim.util.GuiUtil;
@@ -59,8 +58,7 @@ public class StartBim {
     }
 
     private static void prepareCredentials(RegistrationCallBack callBack) {
-        SettingsViewModel config = ServiceFactory.getConfigService().loadSettingsConfig();
-        if (config == null) {
+        if (Settings.get() == null) {
             PaineFactory.getSettingsViewController().fillCredentials(callBack);
         } else {
             PaineFactory.getSettingsViewController().reloadSettings(callBack);

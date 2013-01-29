@@ -10,13 +10,13 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import ru.roman.bim.gui.pane.edit.WordUtils;
 import ru.roman.bim.gui.pane.main.MainViewModel;
+import ru.roman.bim.gui.pane.settings.Settings;
 import ru.roman.bim.model.Lang;
 import ru.roman.bim.model.WordCategory;
 import ru.roman.bim.model.WordType;
 import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.util.BimException;
-import ru.roman.bim.util.Const;
 import ru.roman.bim.util.WsUtil;
 
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -113,7 +113,7 @@ public class WordLoaderServiceImpl implements WordLoaderService {
                     checkColumn(columnNames, COLUMN_TYPE);
                 } else {
                     model.setEditDate(currDate);
-                    model.setOwner(Const.DEFAULT_OWNER_ID);
+                    model.setOwner(Settings.get().getId());
                     model.setId(null);
                     //model.setModelNum();
                     sheetData.add(model);

@@ -5,10 +5,12 @@ import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.mvc.Controller;
 import ru.roman.bim.gui.custom.tools.OpacityTimer;
 import ru.roman.bim.gui.pane.PaineFactory;
+import ru.roman.bim.gui.pane.settings.SettingsViewModel;
 import ru.roman.bim.gui.pane.tray.TrayUtils;
 import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.cache.LocalCache;
 import ru.roman.bim.service.cache.LocalCacheFactory;
+import ru.roman.bim.service.config.ConfigService;
 import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.ghost.GhostController;
 import ru.roman.bim.service.ghost.GhostService;
@@ -19,6 +21,7 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
     private static final Log log = LogFactory.getLog(MainViewController.class);
 
     private final GaeConnector gaeConnector = ServiceFactory.getGaeConnector();
+    private final ConfigService configService = ServiceFactory.getConfigService();
     private LocalCache localCache;
     private final OpacityTimer opacityTimer;
     private final GhostService ghostService;
@@ -36,7 +39,8 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
     public void onInit() {
 
         TrayUtils.addTrayIcon();
-        localCache = LocalCacheFactory.createLocalCacheInstance(0, 0);   // TODO - сохранять на сервисе
+        final SettingsViewModel sett = configService.loadSettingsConfig();
+        localCache = LocalCacheFactory.createLocalCacheInstance(sett.getCurrentNum(), sett.getRecordsCount());
         currModel = localCache.getCurrent();
         view.fillWidgets(currModel);
         ghostService.start();

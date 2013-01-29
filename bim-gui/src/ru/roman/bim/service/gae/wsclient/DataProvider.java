@@ -28,6 +28,21 @@ public interface DataProvider {
      * 
      * @param arg0
      * @return
+     *     returns ru.roman.bim.service.gae.wsclient.RegisterNewAndLoadSettingsResp
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "registerNewAndLoadSettings", targetNamespace = "http://data.service.server.bim.roman.ru/", className = "ru.roman.bim.service.gae.wsclient.RegisterNewAndLoadSettings")
+    @ResponseWrapper(localName = "registerNewAndLoadSettingsResponse", targetNamespace = "http://data.service.server.bim.roman.ru/", className = "ru.roman.bim.service.gae.wsclient.RegisterNewAndLoadSettingsResponse")
+    @Action(input = "http://data.service.server.bim.roman.ru/DataProvider/registerNewAndLoadSettingsRequest", output = "http://data.service.server.bim.roman.ru/DataProvider/registerNewAndLoadSettingsResponse")
+    public RegisterNewAndLoadSettingsResp registerNewAndLoadSettings(
+        @WebParam(name = "arg0", targetNamespace = "")
+        RegisterNewAndLoadSettingsRequest arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
      *     returns ru.roman.bim.service.gae.wsclient.StoreSettingsResp
      */
     @WebMethod
@@ -55,16 +70,16 @@ public interface DataProvider {
      * 
      * @param arg0
      * @return
-     *     returns ru.roman.bim.service.gae.wsclient.RegisterNewAndLoadSettingsResp
+     *     returns ru.roman.bim.service.gae.wsclient.SystemTaskResp
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "registerNewAndLoadSettings", targetNamespace = "http://data.service.server.bim.roman.ru/", className = "ru.roman.bim.service.gae.wsclient.RegisterNewAndLoadSettings")
-    @ResponseWrapper(localName = "registerNewAndLoadSettingsResponse", targetNamespace = "http://data.service.server.bim.roman.ru/", className = "ru.roman.bim.service.gae.wsclient.RegisterNewAndLoadSettingsResponse")
-    @Action(input = "http://data.service.server.bim.roman.ru/DataProvider/registerNewAndLoadSettingsRequest", output = "http://data.service.server.bim.roman.ru/DataProvider/registerNewAndLoadSettingsResponse")
-    public RegisterNewAndLoadSettingsResp registerNewAndLoadSettings(
+    @RequestWrapper(localName = "systemTask", targetNamespace = "http://data.service.server.bim.roman.ru/", className = "ru.roman.bim.service.gae.wsclient.SystemTask")
+    @ResponseWrapper(localName = "systemTaskResponse", targetNamespace = "http://data.service.server.bim.roman.ru/", className = "ru.roman.bim.service.gae.wsclient.SystemTaskResponse")
+    @Action(input = "http://data.service.server.bim.roman.ru/DataProvider/systemTaskRequest", output = "http://data.service.server.bim.roman.ru/DataProvider/systemTaskResponse")
+    public SystemTaskResp systemTask(
         @WebParam(name = "arg0", targetNamespace = "")
-        RegisterNewAndLoadSettingsRequest arg0);
+        SystemTaskRequest arg0);
 
     /**
      * 

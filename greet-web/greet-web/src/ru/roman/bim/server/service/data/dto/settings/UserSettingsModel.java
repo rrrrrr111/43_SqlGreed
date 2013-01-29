@@ -16,20 +16,18 @@ public class UserSettingsModel implements Serializable {
 
     private List<Integer> ratings;
     private List<Long> subscribed;
+    private List<Long> types;
     private Long portion;
+    private String sortingField;
+    private String sortingDirection;
+    private Long cacheMaxSize;
+    private Long currentNum;
+    private Long recordsCount;
 
     private Double opacity;
     private Long previewInterval;
     private Long previewDuration;
     private String lookAndFeel;
-
-    private String sortingField;
-    private String sortingDirection;
-
-    private Long cacheMaxSize;
-    private Long currentNum;
-    private Long recordsCount;
-
 
 
     public Long getId() {
@@ -166,5 +164,14 @@ public class UserSettingsModel implements Serializable {
 
     public void setLookAndFeel(String lookAndFeel) {
         this.lookAndFeel = lookAndFeel;
+    }
+
+
+    public List<Long> getTypes() {
+        return types;
+    }
+
+    public void setTypes(List<Long> types) {
+        this.types = types;
     }
 }
