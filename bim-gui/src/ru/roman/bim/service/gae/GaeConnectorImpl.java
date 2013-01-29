@@ -10,6 +10,7 @@ import ru.roman.bim.util.ExceptionHandler;
 import ru.roman.bim.util.WsUtil;
 
 import javax.xml.ws.BindingProvider;
+import java.net.URL;
 
 /** @author Roman 22.12.12 15:36 */
 public class GaeConnectorImpl implements GaeConnector {
@@ -19,7 +20,7 @@ public class GaeConnectorImpl implements GaeConnector {
 
     public GaeConnectorImpl() {
         try {
-            provider = new DataProvider_Service().getDataProviderPort();
+            provider = new DataProvider_Service(new URL(Const.DEFAULT_ENDPOINT_WSDL)).getDataProviderPort();
             BindingProvider bp = (BindingProvider)provider;
             bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, Const.DEFAULT_ENDPOINT);
 

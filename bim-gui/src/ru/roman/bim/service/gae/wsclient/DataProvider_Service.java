@@ -1,14 +1,10 @@
 
 package ru.roman.bim.service.gae.wsclient;
 
+import javax.xml.namespace.QName;
+import javax.xml.ws.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-import javax.xml.namespace.QName;
-import javax.xml.ws.Service;
-import javax.xml.ws.WebEndpoint;
-import javax.xml.ws.WebServiceClient;
-import javax.xml.ws.WebServiceException;
-import javax.xml.ws.WebServiceFeature;
 
 
 /**
@@ -17,7 +13,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "DataProvider", targetNamespace = "http://data.service.server.bim.roman.ru", wsdlLocation = "http://localhost:8080/wsdl/DataProvider.wsdl")
+@WebServiceClient(name = "DataProvider", targetNamespace = "http://data.service.server.bim.roman.ru", wsdlLocation = "http://churganovroman.appspot.com/wsdl/DataProvider.wsdl")
 public class DataProvider_Service
     extends Service
 {
@@ -30,7 +26,7 @@ public class DataProvider_Service
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:8080/wsdl/DataProvider.wsdl");
+            url = new URL("http://churganovroman.appspot.com/wsdl/DataProvider.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
