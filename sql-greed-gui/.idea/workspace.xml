@@ -1,49 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="Bim application version 1.23">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/Settings.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/SystemTask.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/SystemTaskRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/SystemTaskResp.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/SystemTaskResponse.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dao/UserRatingDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/complex/SystemService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/complex/SystemServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/data/dto/system/SystemTaskRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/data/dto/system/SystemTaskResp.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/data/jaxws/SystemTask.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/data/jaxws/SystemTaskResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/StartBim.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/StartBim.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/edit/EditViewController.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/edit/EditViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainViewController.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsView.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCache.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCache.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheFactory.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheImpl.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/AbstractRequest.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/AbstractRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/AbstractResponse.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/AbstractResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/DataProvider.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/DataProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/DataProvider_Service.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/DataProvider_Service.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/ObjectFactory.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/ObjectFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/UserSettingsModel.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/UserSettingsModel.java" />
-      <change type="MODIFICATION" beforePath="C:\1_work\43_SqlGreed\bim-gui\src\ru\roman\bim\service\wordload\WordLoaderServiceImpl.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/wordload/WordLoaderServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/WsUtil.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/WsUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/gui/pane/edit/EditViewTest.java" afterPath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/gui/pane/edit/EditViewTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/gae/GaeConnectorImplTest.java" afterPath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/gae/GaeConnectorImplTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/scripts/RunWsGen.log" afterPath="$PROJECT_DIR$/../greet-web/greet-web/scripts/RunWsGen.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/scripts/RunWsImport.cmd" afterPath="$PROJECT_DIR$/../greet-web/greet-web/scripts/RunWsImport.cmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dao/WordDao.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dao/WordDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/data/DataProvider.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/data/DataProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/data/DataProviderAdapter.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/data/DataProviderAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/data/DataProviderSOAPHandler.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/data/DataProviderSOAPHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/data/dto/settings/UserSettingsModel.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/data/dto/settings/UserSettingsModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/util/EntityUtil.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/util/EntityUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/appengine-generated/datastore-indexes-auto.xml" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/appengine-generated/datastore-indexes-auto.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProvider.wsdl" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProvider.wsdl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProviderPortType.wsdl" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProviderPortType.wsdl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProviderPortType_schema1.xsd" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProviderPortType_schema1.xsd" />
+    <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="71cfb641-5bee-4208-8ab0-751480a58831" name="builded" comment="builded">
@@ -1833,7 +1791,11 @@
       <created>1359482862772</created>
       <updated>1359482862772</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Bim application version 1.23 individual rating first commit">
+      <created>1359490924309</created>
+      <updated>1359490924309</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1858,7 +1820,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.599359" sideWeight="0.4939302" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.67147434" order="5" side_tool="false" content_ui="tabs" />
@@ -1924,7 +1886,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bim application version 1.23" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bim application version 1.23 individual rating first commit" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1937,7 +1899,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Bim application third commit" />
     <MESSAGE value="Bim application fourth commit" />
     <MESSAGE value="Bim application 5-s commit" />
     <MESSAGE value="Bim application edit window" />
@@ -1962,6 +1923,7 @@
     <MESSAGE value="Bim application version 1.20 login implementation first commit" />
     <MESSAGE value="Bim application version 1.20 login implementation bug fixes" />
     <MESSAGE value="Bim application version 1.23" />
+    <MESSAGE value="Bim application version 1.23 individual rating first commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
