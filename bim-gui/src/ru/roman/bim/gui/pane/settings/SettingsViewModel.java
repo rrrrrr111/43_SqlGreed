@@ -14,6 +14,9 @@ public class SettingsViewModel extends UserSettingsModel implements Model{
     public SettingsViewModel(UserSettingsModel res) {
         PropUtil.copyProperties(this, res);
         getRatings().addAll(res.getRatings());
+        getCategories().addAll(res.getCategories());
+        getSubscribed().addAll(res.getSubscribed());
+        getTypes().addAll(res.getTypes());
     }
 
     @Override

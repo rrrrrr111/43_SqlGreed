@@ -23,7 +23,7 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
 		String serverInfo = getServletContext().getServerInfo();
 		String userAgent = getThreadLocalRequest().getHeader("User-Agent");
 
-		// Escape data from the client to avoid cross-site script vulnerabilities.
+		// Escape dataws from the client to avoid cross-site script vulnerabilities.
 		input = escapeHtml(input);
 		userAgent = escapeHtml(userAgent);
 
@@ -32,7 +32,7 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
 	}
 
 	/**
-	 * Escape an html string. Escaping data received from the client helps to
+	 * Escape an html string. Escaping dataws received from the client helps to
 	 * prevent cross-site script vulnerabilities.
 	 * 
 	 * @param html the html string to escape

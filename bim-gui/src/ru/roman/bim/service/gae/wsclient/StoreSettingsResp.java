@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="storeSettingsResp">
  *   &lt;complexContent>
- *     &lt;extension base="{http://data.service.server.bim.roman.ru/}abstractResponse">
+ *     &lt;extension base="{http://dataws.service.server.bim.roman.ru/}abstractResponse">
  *       &lt;sequence>
  *       &lt;/sequence>
  *     &lt;/extension>

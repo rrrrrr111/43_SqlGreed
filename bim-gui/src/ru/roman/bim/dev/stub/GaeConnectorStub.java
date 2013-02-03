@@ -117,6 +117,11 @@ public class GaeConnectorStub implements GaeConnector {
         return model;
     }
 
+    @Override
+    public void systemTask(int num) {
+
+    }
+
 
     private void sleep() {
         try {

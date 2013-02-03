@@ -14,8 +14,8 @@ cd %SCRIPTS_HOME%
 set CPATH="../war/WEB-INF/classes/"
 set SRC="../src/"
 set WSDLDIR="../war/wsdl/"
-set CLASS="ru.roman.bim.server.service.data.DataProvider"
-set SRV="{http://data.service.server.bim.roman.ru}DataProvider"
+set CLASS="ru.roman.bim.server.service.dataws.DataProvider"
+set SRV="{http://dataws.service.server.bim.roman.ru}DataProvider"
 
 call "%JAVA_HOME%/bin/wsgen.exe" -help $1 $2 >help_wsgen.txt
 call "%JAVA_HOME%/bin/wsgen.exe" -version $1 $2 >RunWsGen.log

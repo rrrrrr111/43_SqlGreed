@@ -17,14 +17,14 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "DataProvider", targetNamespace = "http://data.service.server.bim.roman.ru", wsdlLocation = "http://localhost:8080/wsdl/DataProvider.wsdl")
+@WebServiceClient(name = "DataProvider", targetNamespace = "http://dataws.service.server.bim.roman.ru", wsdlLocation = "http://localhost:8080/wsdl/DataProvider.wsdl")
 public class DataProvider_Service
     extends Service
 {
 
     private final static URL DATAPROVIDER_WSDL_LOCATION;
     private final static WebServiceException DATAPROVIDER_EXCEPTION;
-    private final static QName DATAPROVIDER_QNAME = new QName("http://data.service.server.bim.roman.ru", "DataProvider");
+    private final static QName DATAPROVIDER_QNAME = new QName("http://dataws.service.server.bim.roman.ru", "DataProvider");
 
     static {
         URL url = null;
@@ -69,7 +69,7 @@ public class DataProvider_Service
      */
     @WebEndpoint(name = "DataProviderPort")
     public DataProvider getDataProviderPort() {
-        return super.getPort(new QName("http://data.service.server.bim.roman.ru", "DataProviderPort"), DataProvider.class);
+        return super.getPort(new QName("http://dataws.service.server.bim.roman.ru", "DataProviderPort"), DataProvider.class);
     }
 
     /**
@@ -81,7 +81,7 @@ public class DataProvider_Service
      */
     @WebEndpoint(name = "DataProviderPort")
     public DataProvider getDataProviderPort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://data.service.server.bim.roman.ru", "DataProviderPort"), DataProvider.class, features);
+        return super.getPort(new QName("http://dataws.service.server.bim.roman.ru", "DataProviderPort"), DataProvider.class, features);
     }
 
     private static URL __getWsdlLocation() {

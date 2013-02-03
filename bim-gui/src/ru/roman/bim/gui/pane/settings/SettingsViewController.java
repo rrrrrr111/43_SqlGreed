@@ -84,25 +84,7 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
                 currModel = new SettingsViewModel(res);
                 break;
             case REGISTERED:
-                // additional properties
-                LocalCache mainCache = PaineFactory.getMainViewController().getLocalCache();
-                //model.setCacheMaxSize();
-                currModel.setCurrentNum(mainCache.getCurrentNum().longValue());
-                //model.setFacedLangId(Const.DEFAULT_LANG_ID.longValue());
-                //model.setId();
-                //model.setLogin(loginText.getText());
-                //model.setOpacity();
-                //model.setPassword(GuiUtil.createDigest(passwordText.getPassword()));
-                //model.setPortion(Long.valueOf(portionText.getText()));
-                //model.setPreviewDuration();
-                //model.setPreviewInterval();
-                currModel.setRecordsCount(mainCache.getRecordsCount().longValue());
-                //model.setShadowedLangId(Const.);
-                //model.setSortingDirection(Const.DEFAULT_SORTING_DIRECTION);
-                //model.setSortingField(Const.DEFAULT_SORTING_FIELD);
-                //model.getRatings().addAll(ratingsPanel.getRatings());
-
-                gaeConnector.storeSettings(currModel);
+                gaeStoreSettings();
                 break;
         }
 
@@ -123,6 +105,33 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
 
                 break;
         }
+    }
+
+    private void gaeStoreSettings() {// additional properties
+        LocalCache mainCache = PaineFactory.getMainViewController().getLocalCache();
+        //model.setCacheMaxSize();
+        currModel.setCurrentNum(mainCache.getCurrentNum().longValue());
+        //model.setFacedLangId(Const.DEFAULT_LANG_ID.longValue());
+        //model.setId();
+        //model.setLogin(loginText.getText());
+        //model.setOpacity();
+        //model.setPassword(GuiUtil.createDigest(passwordText.getPassword()));
+        //model.setPortion(Long.valueOf(portionText.getText()));
+        //model.setPreviewDuration();
+        //model.setPreviewInterval();
+        currModel.setRecordsCount(mainCache.getRecordsCount().longValue());
+        //model.setShadowedLangId(Const.);
+        //model.setSortingDirection(Const.DEFAULT_SORTING_DIRECTION);
+        //model.setSortingField(Const.DEFAULT_SORTING_FIELD);
+        //model.getRatings().addAll(ratingsPanel.getRatings());
+
+        gaeConnector.storeSettings(currModel);
+    }
+
+
+    public void saveConfig() {
+        gaeStoreSettings();
+        configService.saveSettingsConfig(currModel);
     }
 
     public void onCancel() {
@@ -146,7 +155,6 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
     public SettingsViewValidator getValidator() {
         return validator;
     }
-
 
 
 }

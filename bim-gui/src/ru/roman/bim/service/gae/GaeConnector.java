@@ -19,4 +19,6 @@ public interface GaeConnector {
     void storeSettings(UserSettingsModel model);
 
     UserSettingsModel registerNewAndLoadSettings(UserSettingsModel model);
+
+    void systemTask(int num);
 }

@@ -90,6 +90,15 @@
         <field name="subscribed" type="long" collection="arraylist">
             <bind-xml name="subscribed" node="element"/>
         </field>
+        <field name="categories" type="long" collection="arraylist">
+            <bind-xml name="categories" node="element"/>
+        </field>
+        <field name="types" type="long" collection="arraylist">
+            <bind-xml name="types" node="element"/>
+        </field>
+        <field name="workWithPortion" type="boolean">
+            <bind-xml name="workWithPortion" node="element"/>
+        </field>
     </class>
 
 </mapping>

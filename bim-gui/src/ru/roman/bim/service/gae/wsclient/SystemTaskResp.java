@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="systemTaskResp">
  *   &lt;complexContent>
- *     &lt;extension base="{http://data.service.server.bim.roman.ru/}abstractResponse">
+ *     &lt;extension base="{http://dataws.service.server.bim.roman.ru/}abstractResponse">
  *       &lt;sequence>
  *         &lt;element name="resultCount" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>

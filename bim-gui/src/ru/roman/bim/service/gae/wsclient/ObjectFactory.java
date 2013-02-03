@@ -24,18 +24,18 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _RegisterNewAndLoadSettings_QNAME = new QName("http://data.service.server.bim.roman.ru/", "registerNewAndLoadSettings");
-    private final static QName _RenewRatingResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "renewRatingResponse");
-    private final static QName _SystemTaskResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "systemTaskResponse");
-    private final static QName _StoreSettings_QNAME = new QName("http://data.service.server.bim.roman.ru/", "storeSettings");
-    private final static QName _GetList_QNAME = new QName("http://data.service.server.bim.roman.ru/", "getList");
-    private final static QName _GetListResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "getListResponse");
-    private final static QName _StoreSettingsResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "storeSettingsResponse");
-    private final static QName _RegisterNewAndLoadSettingsResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "registerNewAndLoadSettingsResponse");
-    private final static QName _SaveResponse_QNAME = new QName("http://data.service.server.bim.roman.ru/", "saveResponse");
-    private final static QName _RenewRating_QNAME = new QName("http://data.service.server.bim.roman.ru/", "renewRating");
-    private final static QName _Save_QNAME = new QName("http://data.service.server.bim.roman.ru/", "save");
-    private final static QName _SystemTask_QNAME = new QName("http://data.service.server.bim.roman.ru/", "systemTask");
+    private final static QName _StoreSettings_QNAME = new QName("http://dataws.service.server.bim.roman.ru/", "storeSettings");
+    private final static QName _GetList_QNAME = new QName("http://dataws.service.server.bim.roman.ru/", "getList");
+    private final static QName _GetListResponse_QNAME = new QName("http://dataws.service.server.bim.roman.ru/", "getListResponse");
+    private final static QName _SystemTaskResponse_QNAME = new QName("http://dataws.service.server.bim.roman.ru/", "systemTaskResponse");
+    private final static QName _RenewRatingResponse_QNAME = new QName("http://dataws.service.server.bim.roman.ru/", "renewRatingResponse");
+    private final static QName _RegisterNewAndLoadSettings_QNAME = new QName("http://dataws.service.server.bim.roman.ru/", "registerNewAndLoadSettings");
+    private final static QName _SystemTask_QNAME = new QName("http://dataws.service.server.bim.roman.ru/", "systemTask");
+    private final static QName _RegisterNewAndLoadSettingsResponse_QNAME = new QName("http://dataws.service.server.bim.roman.ru/", "registerNewAndLoadSettingsResponse");
+    private final static QName _SaveResponse_QNAME = new QName("http://dataws.service.server.bim.roman.ru/", "saveResponse");
+    private final static QName _RenewRating_QNAME = new QName("http://dataws.service.server.bim.roman.ru/", "renewRating");
+    private final static QName _Save_QNAME = new QName("http://dataws.service.server.bim.roman.ru/", "save");
+    private final static QName _StoreSettingsResponse_QNAME = new QName("http://dataws.service.server.bim.roman.ru/", "storeSettingsResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: ru.roman.bim.service.gae.wsclient
@@ -213,19 +213,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link StoreSettingsRequest }
-     * 
-     */
-    public StoreSettingsRequest createStoreSettingsRequest() {
-        return new StoreSettingsRequest();
-    }
-
-    /**
      * Create an instance of {@link UserSettingsModel }
      * 
      */
     public UserSettingsModel createUserSettingsModel() {
         return new UserSettingsModel();
+    }
+
+    /**
+     * Create an instance of {@link StoreSettingsRequest }
+     * 
+     */
+    public StoreSettingsRequest createStoreSettingsRequest() {
+        return new StoreSettingsRequest();
     }
 
     /**
@@ -261,37 +261,10 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterNewAndLoadSettings }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "registerNewAndLoadSettings")
-    public JAXBElement<RegisterNewAndLoadSettings> createRegisterNewAndLoadSettings(RegisterNewAndLoadSettings value) {
-        return new JAXBElement<RegisterNewAndLoadSettings>(_RegisterNewAndLoadSettings_QNAME, RegisterNewAndLoadSettings.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RenewRatingResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "renewRatingResponse")
-    public JAXBElement<RenewRatingResponse> createRenewRatingResponse(RenewRatingResponse value) {
-        return new JAXBElement<RenewRatingResponse>(_RenewRatingResponse_QNAME, RenewRatingResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SystemTaskResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "systemTaskResponse")
-    public JAXBElement<SystemTaskResponse> createSystemTaskResponse(SystemTaskResponse value) {
-        return new JAXBElement<SystemTaskResponse>(_SystemTaskResponse_QNAME, SystemTaskResponse.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link StoreSettings }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "storeSettings")
+    @XmlElementDecl(namespace = "http://dataws.service.server.bim.roman.ru/", name = "storeSettings")
     public JAXBElement<StoreSettings> createStoreSettings(StoreSettings value) {
         return new JAXBElement<StoreSettings>(_StoreSettings_QNAME, StoreSettings.class, null, value);
     }
@@ -300,7 +273,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link GetList }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "getList")
+    @XmlElementDecl(namespace = "http://dataws.service.server.bim.roman.ru/", name = "getList")
     public JAXBElement<GetList> createGetList(GetList value) {
         return new JAXBElement<GetList>(_GetList_QNAME, GetList.class, null, value);
     }
@@ -309,25 +282,52 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link GetListResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "getListResponse")
+    @XmlElementDecl(namespace = "http://dataws.service.server.bim.roman.ru/", name = "getListResponse")
     public JAXBElement<GetListResponse> createGetListResponse(GetListResponse value) {
         return new JAXBElement<GetListResponse>(_GetListResponse_QNAME, GetListResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link StoreSettingsResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SystemTaskResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "storeSettingsResponse")
-    public JAXBElement<StoreSettingsResponse> createStoreSettingsResponse(StoreSettingsResponse value) {
-        return new JAXBElement<StoreSettingsResponse>(_StoreSettingsResponse_QNAME, StoreSettingsResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://dataws.service.server.bim.roman.ru/", name = "systemTaskResponse")
+    public JAXBElement<SystemTaskResponse> createSystemTaskResponse(SystemTaskResponse value) {
+        return new JAXBElement<SystemTaskResponse>(_SystemTaskResponse_QNAME, SystemTaskResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RenewRatingResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dataws.service.server.bim.roman.ru/", name = "renewRatingResponse")
+    public JAXBElement<RenewRatingResponse> createRenewRatingResponse(RenewRatingResponse value) {
+        return new JAXBElement<RenewRatingResponse>(_RenewRatingResponse_QNAME, RenewRatingResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterNewAndLoadSettings }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dataws.service.server.bim.roman.ru/", name = "registerNewAndLoadSettings")
+    public JAXBElement<RegisterNewAndLoadSettings> createRegisterNewAndLoadSettings(RegisterNewAndLoadSettings value) {
+        return new JAXBElement<RegisterNewAndLoadSettings>(_RegisterNewAndLoadSettings_QNAME, RegisterNewAndLoadSettings.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SystemTask }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://dataws.service.server.bim.roman.ru/", name = "systemTask")
+    public JAXBElement<SystemTask> createSystemTask(SystemTask value) {
+        return new JAXBElement<SystemTask>(_SystemTask_QNAME, SystemTask.class, null, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link RegisterNewAndLoadSettingsResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "registerNewAndLoadSettingsResponse")
+    @XmlElementDecl(namespace = "http://dataws.service.server.bim.roman.ru/", name = "registerNewAndLoadSettingsResponse")
     public JAXBElement<RegisterNewAndLoadSettingsResponse> createRegisterNewAndLoadSettingsResponse(RegisterNewAndLoadSettingsResponse value) {
         return new JAXBElement<RegisterNewAndLoadSettingsResponse>(_RegisterNewAndLoadSettingsResponse_QNAME, RegisterNewAndLoadSettingsResponse.class, null, value);
     }
@@ -336,7 +336,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link SaveResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "saveResponse")
+    @XmlElementDecl(namespace = "http://dataws.service.server.bim.roman.ru/", name = "saveResponse")
     public JAXBElement<SaveResponse> createSaveResponse(SaveResponse value) {
         return new JAXBElement<SaveResponse>(_SaveResponse_QNAME, SaveResponse.class, null, value);
     }
@@ -345,7 +345,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link RenewRating }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "renewRating")
+    @XmlElementDecl(namespace = "http://dataws.service.server.bim.roman.ru/", name = "renewRating")
     public JAXBElement<RenewRating> createRenewRating(RenewRating value) {
         return new JAXBElement<RenewRating>(_RenewRating_QNAME, RenewRating.class, null, value);
     }
@@ -354,18 +354,18 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link Save }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "save")
+    @XmlElementDecl(namespace = "http://dataws.service.server.bim.roman.ru/", name = "save")
     public JAXBElement<Save> createSave(Save value) {
         return new JAXBElement<Save>(_Save_QNAME, Save.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SystemTask }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link StoreSettingsResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://data.service.server.bim.roman.ru/", name = "systemTask")
-    public JAXBElement<SystemTask> createSystemTask(SystemTask value) {
-        return new JAXBElement<SystemTask>(_SystemTask_QNAME, SystemTask.class, null, value);
+    @XmlElementDecl(namespace = "http://dataws.service.server.bim.roman.ru/", name = "storeSettingsResponse")
+    public JAXBElement<StoreSettingsResponse> createStoreSettingsResponse(StoreSettingsResponse value) {
+        return new JAXBElement<StoreSettingsResponse>(_StoreSettingsResponse_QNAME, StoreSettingsResponse.class, null, value);
     }
 
 }

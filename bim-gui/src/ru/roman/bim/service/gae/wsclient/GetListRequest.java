@@ -17,15 +17,18 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="getListRequest">
  *   &lt;complexContent>
- *     &lt;extension base="{http://data.service.server.bim.roman.ru/}abstractRequest">
+ *     &lt;extension base="{http://dataws.service.server.bim.roman.ru/}abstractRequest">
  *       &lt;sequence>
+ *         &lt;element name="categories" type="{http://www.w3.org/2001/XMLSchema}long" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="count" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
- *         &lt;element name="langId" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="facedLangId" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="offset" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="ratingsList" type="{http://www.w3.org/2001/XMLSchema}int" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="shadowedLangId" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="sortingDirection" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="sortingField" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="types" type="{http://www.w3.org/2001/XMLSchema}int" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="subscribed" type="{http://www.w3.org/2001/XMLSchema}long" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="types" type="{http://www.w3.org/2001/XMLSchema}long" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/extension>
  *   &lt;/complexContent>
@@ -36,27 +39,64 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "getListRequest", propOrder = {
+    "categories",
     "count",
-    "langId",
+    "facedLangId",
     "offset",
     "ratingsList",
+    "shadowedLangId",
     "sortingDirection",
     "sortingField",
+    "subscribed",
     "types"
 })
 public class GetListRequest
     extends AbstractRequest
 {
 
+    @XmlElement(nillable = true)
+    protected List<Long> categories;
     protected Integer count;
-    protected Integer langId;
+    protected Integer facedLangId;
     protected Integer offset;
     @XmlElement(nillable = true)
     protected List<Integer> ratingsList;
+    protected Integer shadowedLangId;
     protected String sortingDirection;
     protected String sortingField;
     @XmlElement(nillable = true)
-    protected List<Integer> types;
+    protected List<Long> subscribed;
+    @XmlElement(nillable = true)
+    protected List<Long> types;
+
+    /**
+     * Gets the value of the categories property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the categories property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getCategories().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Long }
+     * 
+     * 
+     */
+    public List<Long> getCategories() {
+        if (categories == null) {
+            categories = new ArrayList<Long>();
+        }
+        return this.categories;
+    }
 
     /**
      * Gets the value of the count property.
@@ -83,27 +123,27 @@ public class GetListRequest
     }
 
     /**
-     * Gets the value of the langId property.
+     * Gets the value of the facedLangId property.
      * 
      * @return
      *     possible object is
      *     {@link Integer }
      *     
      */
-    public Integer getLangId() {
-        return langId;
+    public Integer getFacedLangId() {
+        return facedLangId;
     }
 
     /**
-     * Sets the value of the langId property.
+     * Sets the value of the facedLangId property.
      * 
      * @param value
      *     allowed object is
      *     {@link Integer }
      *     
      */
-    public void setLangId(Integer value) {
-        this.langId = value;
+    public void setFacedLangId(Integer value) {
+        this.facedLangId = value;
     }
 
     /**
@@ -160,6 +200,30 @@ public class GetListRequest
     }
 
     /**
+     * Gets the value of the shadowedLangId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *     
+     */
+    public Integer getShadowedLangId() {
+        return shadowedLangId;
+    }
+
+    /**
+     * Sets the value of the shadowedLangId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Integer }
+     *     
+     */
+    public void setShadowedLangId(Integer value) {
+        this.shadowedLangId = value;
+    }
+
+    /**
      * Gets the value of the sortingDirection property.
      * 
      * @return
@@ -208,6 +272,35 @@ public class GetListRequest
     }
 
     /**
+     * Gets the value of the subscribed property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the subscribed property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getSubscribed().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Long }
+     * 
+     * 
+     */
+    public List<Long> getSubscribed() {
+        if (subscribed == null) {
+            subscribed = new ArrayList<Long>();
+        }
+        return this.subscribed;
+    }
+
+    /**
      * Gets the value of the types property.
      * 
      * <p>
@@ -225,13 +318,13 @@ public class GetListRequest
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Integer }
+     * {@link Long }
      * 
      * 
      */
-    public List<Integer> getTypes() {
+    public List<Long> getTypes() {
         if (types == null) {
-            types = new ArrayList<Integer>();
+            types = new ArrayList<Long>();
         }
         return this.types;
     }

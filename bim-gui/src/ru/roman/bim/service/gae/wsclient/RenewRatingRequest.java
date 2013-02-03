@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="renewRatingRequest">
  *   &lt;complexContent>
- *     &lt;extension base="{http://data.service.server.bim.roman.ru/}abstractRequest">
+ *     &lt;extension base="{http://dataws.service.server.bim.roman.ru/}abstractRequest">
  *       &lt;sequence>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="rating" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>

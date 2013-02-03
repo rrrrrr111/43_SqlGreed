@@ -1,57 +1,57 @@
 JAX-WS RI 2.2.4-b01
-[ProcessedMethods Class: ru.roman.bim.server.service.data.DataProvider]
+[ProcessedMethods Class: ru.roman.bim.server.service.dataws.DataProvider]
 [should process method: save hasWebMethods: true ]
 [endpointReferencesInterface: false]
 [declaring class has WebSevice: true]
 [returning: true]
-[WrapperGen - method: save(ru.roman.bim.server.service.data.dto.word.SaveRequest)]
-[method.getDeclaringType(): ru.roman.bim.server.service.data.DataProvider]
-[requestWrapper: ru.roman.bim.server.service.data.jaxws.Save]
+[WrapperGen - method: save(ru.roman.bim.server.service.dataws.dto.word.SaveRequest)]
+[method.getDeclaringType(): ru.roman.bim.server.service.dataws.DataProvider]
+[requestWrapper: ru.roman.bim.server.service.dataws.jaxws.Save]
 [should process method: getList hasWebMethods: true ]
 [endpointReferencesInterface: false]
 [declaring class has WebSevice: true]
 [returning: true]
-[WrapperGen - method: getList(ru.roman.bim.server.service.data.dto.word.GetListRequest)]
-[method.getDeclaringType(): ru.roman.bim.server.service.data.DataProvider]
-[requestWrapper: ru.roman.bim.server.service.data.jaxws.GetList]
+[WrapperGen - method: getList(ru.roman.bim.server.service.dataws.dto.word.GetListRequest)]
+[method.getDeclaringType(): ru.roman.bim.server.service.dataws.DataProvider]
+[requestWrapper: ru.roman.bim.server.service.dataws.jaxws.GetList]
 [should process method: renewRating hasWebMethods: true ]
 [endpointReferencesInterface: false]
 [declaring class has WebSevice: true]
 [returning: true]
-[WrapperGen - method: renewRating(ru.roman.bim.server.service.data.dto.word.RenewRatingRequest)]
-[method.getDeclaringType(): ru.roman.bim.server.service.data.DataProvider]
-[requestWrapper: ru.roman.bim.server.service.data.jaxws.RenewRating]
+[WrapperGen - method: renewRating(ru.roman.bim.server.service.dataws.dto.word.RenewRatingRequest)]
+[method.getDeclaringType(): ru.roman.bim.server.service.dataws.DataProvider]
+[requestWrapper: ru.roman.bim.server.service.dataws.jaxws.RenewRating]
 [should process method: registerNewAndLoadSettings hasWebMethods: true ]
 [endpointReferencesInterface: false]
 [declaring class has WebSevice: true]
 [returning: true]
-[WrapperGen - method: registerNewAndLoadSettings(ru.roman.bim.server.service.data.dto.settings.RegisterNewAndLoadSettingsRequest)]
-[method.getDeclaringType(): ru.roman.bim.server.service.data.DataProvider]
-[requestWrapper: ru.roman.bim.server.service.data.jaxws.RegisterNewAndLoadSettings]
+[WrapperGen - method: registerNewAndLoadSettings(ru.roman.bim.server.service.dataws.dto.settings.RegisterNewAndLoadSettingsRequest)]
+[method.getDeclaringType(): ru.roman.bim.server.service.dataws.DataProvider]
+[requestWrapper: ru.roman.bim.server.service.dataws.jaxws.RegisterNewAndLoadSettings]
 [should process method: storeSettings hasWebMethods: true ]
 [endpointReferencesInterface: false]
 [declaring class has WebSevice: true]
 [returning: true]
-[WrapperGen - method: storeSettings(ru.roman.bim.server.service.data.dto.settings.StoreSettingsRequest)]
-[method.getDeclaringType(): ru.roman.bim.server.service.data.DataProvider]
-[requestWrapper: ru.roman.bim.server.service.data.jaxws.StoreSettings]
+[WrapperGen - method: storeSettings(ru.roman.bim.server.service.dataws.dto.settings.StoreSettingsRequest)]
+[method.getDeclaringType(): ru.roman.bim.server.service.dataws.DataProvider]
+[requestWrapper: ru.roman.bim.server.service.dataws.jaxws.StoreSettings]
 [should process method: systemTask hasWebMethods: true ]
 [endpointReferencesInterface: false]
 [declaring class has WebSevice: true]
 [returning: true]
-[WrapperGen - method: systemTask(ru.roman.bim.server.service.data.dto.system.SystemTaskRequest)]
-[method.getDeclaringType(): ru.roman.bim.server.service.data.DataProvider]
-[requestWrapper: ru.roman.bim.server.service.data.jaxws.SystemTask]
+[WrapperGen - method: systemTask(ru.roman.bim.server.service.dataws.dto.system.SystemTaskRequest)]
+[method.getDeclaringType(): ru.roman.bim.server.service.dataws.DataProvider]
+[requestWrapper: ru.roman.bim.server.service.dataws.jaxws.SystemTask]
 [ProcessedMethods Class: java.lang.Object]
-ru\roman\bim\server\service\data\jaxws\GetList.java
-ru\roman\bim\server\service\data\jaxws\GetListResponse.java
-ru\roman\bim\server\service\data\jaxws\RegisterNewAndLoadSettings.java
-ru\roman\bim\server\service\data\jaxws\RegisterNewAndLoadSettingsResponse.java
-ru\roman\bim\server\service\data\jaxws\RenewRating.java
-ru\roman\bim\server\service\data\jaxws\RenewRatingResponse.java
-ru\roman\bim\server\service\data\jaxws\Save.java
-ru\roman\bim\server\service\data\jaxws\SaveResponse.java
-ru\roman\bim\server\service\data\jaxws\StoreSettings.java
-ru\roman\bim\server\service\data\jaxws\StoreSettingsResponse.java
-ru\roman\bim\server\service\data\jaxws\SystemTask.java
-ru\roman\bim\server\service\data\jaxws\SystemTaskResponse.java
+ru\roman\bim\server\service\dataws\jaxws\GetList.java
+ru\roman\bim\server\service\dataws\jaxws\GetListResponse.java
+ru\roman\bim\server\service\dataws\jaxws\RegisterNewAndLoadSettings.java
+ru\roman\bim\server\service\dataws\jaxws\RegisterNewAndLoadSettingsResponse.java
+ru\roman\bim\server\service\dataws\jaxws\RenewRating.java
+ru\roman\bim\server\service\dataws\jaxws\RenewRatingResponse.java
+ru\roman\bim\server\service\dataws\jaxws\Save.java
+ru\roman\bim\server\service\dataws\jaxws\SaveResponse.java
+ru\roman\bim\server\service\dataws\jaxws\StoreSettings.java
+ru\roman\bim\server\service\dataws\jaxws\StoreSettingsResponse.java
+ru\roman\bim\server\service\dataws\jaxws\SystemTask.java
+ru\roman\bim\server\service\dataws\jaxws\SystemTaskResponse.java

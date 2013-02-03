@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="getListResp">
  *   &lt;complexContent>
- *     &lt;extension base="{http://data.service.server.bim.roman.ru/}abstractResponse">
+ *     &lt;extension base="{http://dataws.service.server.bim.roman.ru/}abstractResponse">
  *       &lt;sequence>
- *         &lt;element name="list" type="{http://data.service.server.bim.roman.ru/}bimItemModel" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="list" type="{http://dataws.service.server.bim.roman.ru/}bimItemModel" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="recordsCount" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/extension>

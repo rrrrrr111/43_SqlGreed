@@ -15,11 +15,8 @@ package ru.roman.bim.server.util;
 
 import com.google.appengine.api.datastore.*;
 import com.google.appengine.api.datastore.Query.FilterOperator;
-import org.apache.commons.beanutils.BeanUtilsBean;
-import org.apache.commons.beanutils.PropertyUtilsBean;
-import org.apache.commons.lang.ObjectUtils;
-import ru.roman.bim.server.service.data.dto.settings.UserSettingsModel;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -36,8 +33,7 @@ public class EntityUtil {
 
     private static final Logger log = Logger.getLogger(EntityUtil.class.getCanonicalName());
     private static DatastoreService storeService = DatastoreServiceFactory.getDatastoreService();
-    private static final PropertyUtilsBean pub = new PropertyUtilsBean();
-    private static final BeanUtilsBean bub = BeanUtilsBean.getInstance();
+
 
 
     public static void persistEntity(Entity entity) {
@@ -64,6 +60,10 @@ public class EntityUtil {
         }
     }
 
+    public static Map<Key, Entity> findEntities(List<Key> keys) {
+        return storeService.get(keys);
+    }
+
     public static Entity findEntity(String kind, Key key) {
         Query query = new Query(kind)
             .addFilter(Entity.KEY_RESERVED_PROPERTY, FilterOperator.EQUAL, key);
@@ -77,8 +77,12 @@ public class EntityUtil {
     }
 
     public static Entity findFirstEntity(String kind, String field, Object bean) {
+        return findFirstEntityByValue(kind, field, PropUtil.getProperty(bean, field));
+    }
+
+    public static Entity findFirstEntityByValue(String kind, String field, Object value) {
         Query query = new Query(kind);
-        query.addFilter(field, FilterOperator.EQUAL, getProperty(bean, field));
+        query.addFilter(field, FilterOperator.EQUAL, value);
         List<Entity> results = storeService.prepare(query).asList(
                 FetchOptions.Builder.withDefaults());
         if (!results.isEmpty()) {
@@ -125,6 +129,32 @@ public class EntityUtil {
         q.addFilter(Entity.KEY_RESERVED_PROPERTY, FilterOperator.GREATER_THAN, ancestor);
         PreparedQuery pq = storeService.prepare(q);
         return pq.asIterable();
+    }
+
+    public static int getCount(String entName) {
+        Query q2 = new Query(entName).setKeysOnly();
+        PreparedQuery pq2 = getDataStore().prepare(q2);
+        List<Entity> res2 = pq2.asList(FetchOptions.Builder.withDefaults());
+        return res2.size();
+    }
+
+    public static List<Entity> getAll(String entName) {
+        Query q2 = new Query(entName);
+        PreparedQuery pq2 = EntityUtil.getDataStore().prepare(q2);
+        List<Entity> res2 = pq2.asList(FetchOptions.Builder.withDefaults());
+        return res2;
+    }
+
+    public static List<Key> getAllKeys(String entName) {
+        Query q2 = new Query(entName).setKeysOnly();
+        PreparedQuery pq2 = getDataStore().prepare(q2);
+        final List<Entity> entityList = pq2.asList(FetchOptions.Builder.withDefaults());
+        List<Key> keyList = new ArrayList<Key>(entityList.size());
+        for (Entity entity : entityList) {
+            keyList.add(entity.getKey());
+        }
+        return keyList;
+
     }
 
     public static String writeJSON(Iterable<Entity> entities) {
@@ -189,77 +219,6 @@ public class EntityUtil {
         return storeService;
     }
 
-    public static int getCount(String entName) {
-        Query q2 = new Query(entName);
-        q2.setKeysOnly();
-        PreparedQuery pq2 = EntityUtil.getDataStore().prepare(q2);
-        List<Entity> res2 = pq2.asList(FetchOptions.Builder.withDefaults());
-        return res2.size();
-    }
 
-    public static List<Entity> getAll(String entName) {
-        Query q2 = new Query(entName);
-        PreparedQuery pq2 = EntityUtil.getDataStore().prepare(q2);
-        List<Entity> res2 = pq2.asList(FetchOptions.Builder.withDefaults());
-        return res2;
-    }
-
-    public static Map<String, Object> describe(Object obj) {
-        try {
-            Map<String, Object> props = bub.describe(obj);
-            props.remove("class");
-            props.remove("id");
-            log.info("bean properties described : " + props);
-            return props;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static boolean equalsProperty(Entity ent, Object model, String prop) {
-        return ObjectUtils.equals(getProperty(model, prop), ent.getProperty(prop));
-    }
-
-    public static Object getProperty(Object bean, String name) {
-        try {
-            return pub.getProperty(bean, name);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static void setProperty(Entity ent, String name, Object model) {
-        ent.setProperty(name, getProperty(model, name));
-    }
-
-    public static void setProperty(Object bean, String name, Object value) {
-        try {
-            //log.info("bean: " + bean + ", name: " + name + ", value: " + value
-            //        + (value != null ? ", valueClass: " + value.getClass() : ""));
-            pub.setProperty(bean, name, value);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static void setPropertyIfNull(UserSettingsModel model, String name, Object value) {
-        if (getProperty(model, name) == null) {
-            setProperty(model, name , value);
-        }
-    }
-
-    public static void setAllProperties(Entity entity, Object model) {
-        Map<String, Object> props = describe(model);
-        for (Map.Entry<String, Object> entry : props.entrySet()) {
-            entity.setProperty(entry.getKey(), getProperty(model, entry.getKey()));
-        }
-    }
-
-    public static void setAllProperties(Object model, Entity entity) {
-        Map<String, Object> props = entity.getProperties();
-        for (Map.Entry<String, Object> entry : props.entrySet()) {
-            setProperty(model, entry.getKey(), entry.getValue());
-        }
-    }
 
 }

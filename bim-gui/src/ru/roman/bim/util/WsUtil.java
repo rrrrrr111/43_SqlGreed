@@ -69,6 +69,7 @@ public abstract class WsUtil {
     public static <T extends AbstractRequest> T prepareRequest(T req) {
         final RequestInfo requestInfo = new RequestInfo();
         requestInfo.setUserId(Settings.get().getId());
+        requestInfo.setPassHash(Settings.get().getPassword());
         requestInfo.setVersion(Const.VERSION);
         try {
             requestInfo.setIp(InetAddress.getLocalHost().toString());

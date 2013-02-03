@@ -11,7 +11,6 @@ import ru.roman.bim.service.gae.wsclient.BimItemModel;
 import ru.roman.bim.service.gae.wsclient.GetListRequest;
 import ru.roman.bim.service.gae.wsclient.GetListResp;
 import ru.roman.bim.util.BimException;
-import ru.roman.bim.util.Const;
 import ru.roman.bim.util.WsUtil;
 
 import java.util.ArrayList;
@@ -83,14 +82,23 @@ public class LocalCacheImpl implements LocalCache {
 
 
     private void checkCacheState() {
-        if (currentNum >= recordsCount) {
+        final SettingsViewModel sett = Settings.get();
+        final int portion = sett.getPortion().intValue();
+        final boolean isPortionWorking = sett.isWorkWithPortion();
+        final int volume;
+        if (portion > recordsCount || !isPortionWorking) {
+            volume = recordsCount;
+        } else {
+            volume = portion;
+        }
+
+        if (currentNum >= volume) {
             currentNum = 0;
         }
         if (currentNum < 0 ) {
-            currentNum = recordsCount - 1;
+            currentNum = volume - 1;
         }
         int newOffset;
-        SettingsViewModel sett = Settings.get();
         final int cacheMaxSize = sett.getCacheMaxSize().intValue();
         if (currentNum >= cacheMaxSize) {
             newOffset = currentNum - currentNum % cacheMaxSize;
@@ -106,8 +114,10 @@ public class LocalCacheImpl implements LocalCache {
             req.setSortingField(sett.getSortingField());
             req.setSortingDirection(sett.getSortingDirection());
             req.getRatingsList().addAll(sett.getRatings());
-            req.getTypes().addAll(Const.DEFAULT_TYPES);
-            req.setLangId(sett.getFacedLangId().intValue());
+            req.getTypes().addAll(sett.getTypes());
+            req.getCategories().addAll(sett.getCategories());
+            req.setFacedLangId(sett.getFacedLangId().intValue());
+            req.setShadowedLangId(sett.getShadowedLangId().intValue());
 
             GetListResp resp = gaeConnector.getList(req);
             if (resp.getList() == null || resp.getList().size() == 0) {

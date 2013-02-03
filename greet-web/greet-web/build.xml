@@ -1,5 +1,5 @@
 <project name="greet-web" default="compile">
-  <property name="appengine.sdk" location="C:\1_work\45_JavaLib\appengine-java-sdk-1.7.2\" />
+  <property name="appengine.sdk" location="C:\1_work\45_JavaLib\appengine-java-sdk-1.7.4\" />
 
   <import file="${appengine.sdk}/config/user/ant-macros.xml" />
 
@@ -10,19 +10,26 @@
     </fileset>
     <fileset dir="${appengine.sdk}/lib">
       <include name="shared/**/*.jar" />
+      <include name="testing/**/*.jar" />
     </fileset>
   </path>
 
-  <target name="copyjars"
-      description="Copies the App Engine JARs to the WAR.">
-    <copy
-        todir="war/WEB-INF/lib"
-        flatten="true">
-      <fileset dir="${appengine.sdk}/lib/user">
-        <include name="**/*.jar" />
-      </fileset>
-    </copy>
-  </target>
+    <target name="copyjars"
+            description="Copies the App Engine JARs to the WAR.">
+        <mkdir dir="war/WEB-INF/lib" />
+        <copy
+                todir="war/WEB-INF/lib"
+                flatten="true">
+            <fileset dir="${appengine.sdk}/lib/user">
+                <include name="**/appengine-api-1.0-sdk*.jar" />
+            </fileset>
+            <fileset dir="${appengine.sdk}/lib/opt/user">
+                <include name="appengine-api-labs/v1/*.jar" />
+                <include name="jsr107/v1/*.jar" />
+                <include name="datanucleus/v2/*.jar" />
+            </fileset>
+        </copy>
+    </target>
 
   <target name="compile" depends="copyjars"
       description="Compiles Java source and copies other source files to the WAR.">
@@ -39,12 +46,29 @@
         debug="on" />
   </target>
 
+  <target name="datanucleusenhance"
+            description="Performs enhancement on compiled data classes.">
+      <enhance_war war="war">
+          <args>
+              <arg value="-enhancerVersion"/>
+              <arg value="v2"/>
+          </args>
+      </enhance_war>
+  </target>
+
   <target name="runserver" depends="compile"
       description="Starts the development server.">
-    <dev_appserver war="war" />
+      <antcall target="datanucleusenhance"/>
+      <dev_appserver war="war" />
   </target>
 
     <target name="stopserver" description="Kill Java process">
+        <exec executable="cmd">
+            <arg value="/c"/>
+            <arg value="c:/1_work/35_tools/pskill.exe"/>
+            <arg value="-t"/>
+            <arg value="java.exe"/>
+        </exec>
         <exec executable="cmd">
             <arg value="/c"/>
             <arg value="c:/1_work/35_tools/pskill.exe"/>

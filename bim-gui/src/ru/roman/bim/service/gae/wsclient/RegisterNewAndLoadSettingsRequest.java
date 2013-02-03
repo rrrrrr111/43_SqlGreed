@@ -14,9 +14,9 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="registerNewAndLoadSettingsRequest">
  *   &lt;complexContent>
- *     &lt;extension base="{http://data.service.server.bim.roman.ru/}abstractRequest">
+ *     &lt;extension base="{http://dataws.service.server.bim.roman.ru/}abstractRequest">
  *       &lt;sequence>
- *         &lt;element name="userSettingsModel" type="{http://data.service.server.bim.roman.ru/}userSettingsModel" minOccurs="0"/>
+ *         &lt;element name="userSettingsModel" type="{http://dataws.service.server.bim.roman.ru/}userSettingsModel" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/extension>
  *   &lt;/complexContent>

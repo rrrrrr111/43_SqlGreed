@@ -6,7 +6,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.pane.PaineFactory;
 import ru.roman.bim.gui.pane.settings.Settings;
+import ru.roman.bim.gui.pane.settings.SettingsViewController;
 import ru.roman.bim.gui.pane.tray.TrayUtils;
+import ru.roman.bim.service.ServiceFactory;
+import ru.roman.bim.service.config.ConfigService;
 import ru.roman.bim.service.lock.LockerUtils;
 import ru.roman.bim.util.Const;
 import ru.roman.bim.util.GuiUtil;
@@ -18,6 +21,7 @@ import java.io.IOException;
 /** @author Roman 17.12.12 23:44 */
 public class StartBim {
     private static final Log log = LogFactory.getLog(StartBim.class);
+    private static SettingsViewController settingsController = PaineFactory.getSettingsViewController();
 
     public static void main(String args[]) {
         GuiUtil.startSwingApp(new GuiUtil.Starter() {
@@ -38,6 +42,7 @@ public class StartBim {
     public static void stop(int exitCode) {
         try {
             TrayUtils.removeTrayIcon();
+            settingsController.saveConfig();
             log.info(Const.APP_NAME + " closed");
         } catch (Exception ex){
             log.info("Error while closing", ex);
@@ -59,9 +64,9 @@ public class StartBim {
 
     private static void prepareCredentials(RegistrationCallBack callBack) {
         if (Settings.get() == null) {
-            PaineFactory.getSettingsViewController().fillCredentials(callBack);
+            settingsController.fillCredentials(callBack);
         } else {
-            PaineFactory.getSettingsViewController().reloadSettings(callBack);
+            settingsController.reloadSettings(callBack);
         }
 
     }

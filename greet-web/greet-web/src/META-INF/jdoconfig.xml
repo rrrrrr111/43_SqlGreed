@@ -5,11 +5,16 @@
 
    <persistence-manager-factory name="transactions-optional">
        <property name="javax.jdo.PersistenceManagerFactoryClass"
-           value="org.datanucleus.store.appengine.jdo.DatastoreJDOPersistenceManagerFactory"/>
+                 value="org.datanucleus.api.jdo.JDOPersistenceManagerFactory"/>
        <property name="javax.jdo.option.ConnectionURL" value="appengine"/>
        <property name="javax.jdo.option.NontransactionalRead" value="true"/>
        <property name="javax.jdo.option.NontransactionalWrite" value="true"/>
        <property name="javax.jdo.option.RetainValues" value="true"/>
        <property name="datanucleus.appengine.autoCreateDatastoreTxns" value="true"/>
+       <property name="datanucleus.appengine.datastoreEnableXGTransactions" value="true"/>
+       <!-- EVENTUAL (для чтения со случайной целостностью) и STRONG (для чтения со строгой целостностью) -->
+       <property name="datanucleus.appengine.datastoreReadConsistency" value="EVENTUAL "/>
+       <property name="javax.jdo.option.DatastoreReadTimeoutMillis" value="60000" />
+       <property name="javax.jdo.option.DatastoreWriteTimeoutMillis" value="60000" />
    </persistence-manager-factory>
 </jdoconfig>

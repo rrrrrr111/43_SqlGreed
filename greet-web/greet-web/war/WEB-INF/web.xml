@@ -18,7 +18,7 @@
 
     <servlet>
         <servlet-name>DataProvider</servlet-name>
-        <servlet-class>ru.roman.bim.server.service.data.DataProviderServlet</servlet-class>
+        <servlet-class>ru.roman.bim.server.service.dataws.DataProviderServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DataProvider</servlet-name>

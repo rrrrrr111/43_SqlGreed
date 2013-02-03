@@ -1,12 +1,12 @@
 
 package ru.roman.bim.service.gae.wsclient;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -20,6 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="cacheMaxSize" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
+ *         &lt;element name="categories" type="{http://www.w3.org/2001/XMLSchema}long" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="currentNum" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="facedLangId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
@@ -37,6 +38,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="sortingField" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="subscribed" type="{http://www.w3.org/2001/XMLSchema}long" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="types" type="{http://www.w3.org/2001/XMLSchema}long" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="workWithPortion" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -48,6 +50,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "userSettingsModel", propOrder = {
     "cacheMaxSize",
+    "categories",
     "currentNum",
     "facedLangId",
     "id",
@@ -64,11 +67,14 @@ import javax.xml.bind.annotation.XmlType;
     "sortingDirection",
     "sortingField",
     "subscribed",
-    "types"
+    "types",
+    "workWithPortion"
 })
 public class UserSettingsModel {
 
     protected Long cacheMaxSize;
+    @XmlElement(nillable = true)
+    protected List<Long> categories;
     protected Long currentNum;
     protected Long facedLangId;
     protected Long id;
@@ -89,6 +95,7 @@ public class UserSettingsModel {
     protected List<Long> subscribed;
     @XmlElement(nillable = true)
     protected List<Long> types;
+    protected boolean workWithPortion;
 
     /**
      * Gets the value of the cacheMaxSize property.
@@ -112,6 +119,35 @@ public class UserSettingsModel {
      */
     public void setCacheMaxSize(Long value) {
         this.cacheMaxSize = value;
+    }
+
+    /**
+     * Gets the value of the categories property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the categories property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getCategories().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Long }
+     * 
+     * 
+     */
+    public List<Long> getCategories() {
+        if (categories == null) {
+            categories = new ArrayList<Long>();
+        }
+        return this.categories;
     }
 
     /**
@@ -535,6 +571,22 @@ public class UserSettingsModel {
             types = new ArrayList<Long>();
         }
         return this.types;
+    }
+
+    /**
+     * Gets the value of the workWithPortion property.
+     * 
+     */
+    public boolean isWorkWithPortion() {
+        return workWithPortion;
+    }
+
+    /**
+     * Sets the value of the workWithPortion property.
+     * 
+     */
+    public void setWorkWithPortion(boolean value) {
+        this.workWithPortion = value;
     }
 
 }

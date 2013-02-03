@@ -72,4 +72,11 @@ public class GaeConnectorImpl implements GaeConnector {
         log.info(String.format("Settings stored %s", ToStringBuilder.reflectionToString(resp.getUserSettingsModel())));
         return resp.getUserSettingsModel();
     }
+
+    public void systemTask(int num) {
+        SystemTaskRequest req = WsUtil.prepareRequest(new SystemTaskRequest());
+        req.setTaskNum(num);
+        SystemTaskResp resp = provider.systemTask(req);
+        log.info(String.format("SystemTask executed %s", ToStringBuilder.reflectionToString(resp)));
+    }
 }
