@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/cron.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/WsUtil.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/WsUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/gae/GaeTaskExecutor.java" afterPath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/gae/GaeTaskExecutor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/NormalizeWordsTask.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/NormalizeWordsTask.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
-    <list id="71cfb641-5bee-4208-8ab0-751480a58831" name="builded" comment="builded" />
+    <list id="71cfb641-5bee-4208-8ab0-751480a58831" name="builded" comment="builded">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" />
+    </list>
     <ignored path="sql-greed-gui.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,6 +35,19 @@
   <component name="DebuggerManager">
     <line_breakpoints>
       <breakpoint url="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsViewController.java" line="64" class="ru.roman.bim.gui.pane.settings.SettingsViewController" package="ru.roman.bim.gui.pane.settings">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/GaeConnectorImpl.java" line="76" class="ru.roman.bim.service.gae.GaeConnectorImpl" package="ru.roman.bim.service.gae">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -100,98 +118,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UserRatingDao.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserRatingDao.java">
+      <file leaf-file-name="GaeConnector.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/GaeConnector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="78" selection-start="3451" selection-end="3451" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserSettingsDao.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserSettingsDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="34" selection-start="3690" selection-end="3690" vertical-scroll-proportion="0.0">
+            <state line="22" column="0" selection-start="684" selection-end="684" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EntityUtil.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/util/EntityUtil.java">
+      <file leaf-file-name="WsUtil.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/WsUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="143" column="74" selection-start="5228" selection-end="5263" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#8060#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WordDao.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/WordDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="44" selection-start="4466" selection-end="4466" vertical-scroll-proportion="0.0">
+            <state line="71" column="34" selection-start="2509" selection-end="2509" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LocalCacheImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheImpl.java">
+      <file leaf-file-name="GaeConnectorImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/GaeConnectorImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="14" selection-start="4533" selection-end="4533" vertical-scroll-proportion="0.0">
+            <state line="15" column="13" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Const.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="6" selection-start="430" selection-end="430" vertical-scroll-proportion="0.62215906">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NormalizeWordsTask.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/NormalizeWordsTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="13" selection-start="581" selection-end="581" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GaeTaskExecutor.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="GaeTaskExecutor.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/gae/GaeTaskExecutor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="13" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
+            <state line="15" column="27" selection-start="513" selection-end="513" vertical-scroll-proportion="0.38434783">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegisterNewAndLoadSettingsRequest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/dataws/dto/settings/RegisterNewAndLoadSettingsRequest.java">
+      <file leaf-file-name="ConfigService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/config/ConfigService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="13" selection-start="171" selection-end="171" vertical-scroll-proportion="0.0">
+            <state line="15" column="0" selection-start="399" selection-end="399" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SettingsViewModel.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsViewModel.java">
+      <file leaf-file-name="CastorConfigServiceImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/config/CastorConfigServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="42" selection-start="625" selection-end="625" vertical-scroll-proportion="0.0">
+            <state line="50" column="9" selection-start="1814" selection-end="1814" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -229,9 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/CheckUserRatingsConsistencyTask.java" />
-        <option value="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/dataws/DataProvider.java" />
-        <option value="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/dataws/dto/settings/UserSettingsModel.java" />
         <option value="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/util/EntityUtil.java" />
         <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/UserSettingsModel.java" />
         <option value="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/util/PropUtil.java" />
@@ -245,6 +217,9 @@
         <option value="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserSettingsDao.java" />
         <option value="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserRatingDao.java" />
         <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/WsUtil.java" />
+        <option value="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/NormalizeWordsTask.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/gae/GaeTaskExecutor.java" />
       </list>
     </option>
   </component>
@@ -255,10 +230,10 @@
     <option name="jreName" value="1.7" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="62" />
-    <option name="y" value="57" />
-    <option name="width" value="1244" />
-    <option name="height" value="618" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -791,6 +766,44 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="word" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="greet-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="roman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dataws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1593,7 +1606,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="bim-gui" />
       <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -2006,14 +2025,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="62" y="57" width="1244" height="618" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.599359" sideWeight="0.4939302" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.67147434" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44551283" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13983051" sideWeight="0.40064102" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12518968" sideWeight="0.40064102" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38141027" sideWeight="0.4969651" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.599359" sideWeight="0.5007587" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.21794872" order="0" side_tool="true" content_ui="tabs" />
@@ -2024,8 +2043,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.724359" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.67147434" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39984825" sideWeight="0.67147434" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27118644" sideWeight="0.40064102" order="2" side_tool="true" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4198718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24279211" sideWeight="0.40064102" order="2" side_tool="true" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30769232" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1182" height="584" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.43589744" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.2996795" order="2" side_tool="false" content_ui="combo" />
@@ -2181,111 +2200,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/util/PropUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="19" selection-start="2432" selection-end="2432" vertical-scroll-proportion="0.37628865">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/WsUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="22" selection-start="523" selection-end="523" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="40" selection-start="2151" selection-end="2151" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/UserSettingsModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="29" selection-start="3852" selection-end="3852" vertical-scroll-proportion="0.6352313">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/CastorMappings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="51" selection-start="3993" selection-end="3993" vertical-scroll-proportion="1.4730434">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsViewModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="42" selection-start="625" selection-end="625" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/NormalizeWordsTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="581" selection-end="581" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/gae/GaeTaskExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/dataws/dto/settings/RegisterNewAndLoadSettingsRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="171" selection-end="171" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/WordDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="44" selection-start="4466" selection-end="4466" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../45_JavaLib/appengine-java-sdk-1.7.4/lib/user/appengine-api-1.0-sdk-1.7.4.jar!/com/google/appengine/api/datastore/Query.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="52" selection-start="4610" selection-end="4610" vertical-scroll-proportion="0.34951457">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/util/EntityUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="74" selection-start="5228" selection-end="5263" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#8060#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserSettingsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="34" selection-start="3690" selection-end="3690" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserRatingDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="78" selection-start="3451" selection-end="3451" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="130" column="14" selection-start="4533" selection-end="4533" vertical-scroll-proportion="0.0">
@@ -2295,7 +2209,109 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="6" selection-start="430" selection-end="430" vertical-scroll-proportion="0.62215906">
+        <state line="16" column="26" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/right/RightsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="39" selection-start="1210" selection-end="1210" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/GaeConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="684" selection-end="684" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/config/ConfigService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="399" selection-end="399" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/SystemTaskRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="961" selection-end="961" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ServiceFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="0" selection-start="2451" selection-end="2451" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/config/CastorConfigServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="9" selection-start="1814" selection-end="1814" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/Settings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/dataws/dto/RequestInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="13" selection-start="97" selection-end="97" vertical-scroll-proportion="-0.56379825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/RequestInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="4" selection-start="1227" selection-end="1253" vertical-scroll-proportion="0.3115727">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/model/WordType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="12" selection-start="128" selection-end="128" vertical-scroll-proportion="0.23545706">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/NormalizeWordsTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="65" selection-start="1531" selection-end="1531" vertical-scroll-proportion="0.43950617">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/WsUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="34" selection-start="2509" selection-end="2509" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/GaeConnectorImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="13" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/gae/GaeTaskExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="27" selection-start="513" selection-end="513" vertical-scroll-proportion="0.38434783">
           <folding />
         </state>
       </provider>

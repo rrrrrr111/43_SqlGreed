@@ -1,6 +1,7 @@
 package ru.roman.bim.util;
 
 import ru.roman.bim.gui.pane.settings.Settings;
+import ru.roman.bim.gui.pane.settings.SettingsViewModel;
 import ru.roman.bim.service.gae.wsclient.AbstractRequest;
 import ru.roman.bim.service.gae.wsclient.RequestInfo;
 
@@ -68,8 +69,14 @@ public abstract class WsUtil {
 
     public static <T extends AbstractRequest> T prepareRequest(T req) {
         final RequestInfo requestInfo = new RequestInfo();
-        requestInfo.setUserId(Settings.get().getId());
-        requestInfo.setPassHash(Settings.get().getPassword());
+        final SettingsViewModel sett = Settings.get();
+        if (sett == null) {
+            requestInfo.setUserId(-1L);
+            requestInfo.setPassHash(null);
+        } else {
+            requestInfo.setUserId(sett.getId());
+            requestInfo.setPassHash(sett.getPassword());
+        }
         requestInfo.setVersion(Const.VERSION);
         try {
             requestInfo.setIp(InetAddress.getLocalHost().toString());

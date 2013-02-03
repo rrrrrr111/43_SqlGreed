@@ -29,14 +29,15 @@ public class NormalizeWordsTask implements SystemTask {
         for (Entity word : list) {
             final Long type = PropUtil.getEntProperty(word, WordDao.TYPE);
             final Long category = PropUtil.getEntProperty(word, WordDao.CATEGORY);
-            if (type == 3L || category == 1L) {
+            if (Long.valueOf(3L).equals(type)  ||  Long.valueOf(1L).equals(category)) {
                 word.setProperty(WordDao.RATING, 2L);
-            } else if (type == 2L) {
+            } else if (Long.valueOf(2L).equals(type)) {
                 word.setProperty(WordDao.RATING, 4L);
             } else {
                 word.setProperty(WordDao.RATING, 3L);
             }
             PropUtil.setEntPropertyIfNull(word, WordDao.CATEGORY, 0);
+            PropUtil.setEntPropertyIfNull(word, WordDao.TYPE, 0);
             word.setProperty(WordDao.OWNER, masterUser.getKey().getId());
             persistEntity(word);
             UserRatingDao.createUserRatings(word);

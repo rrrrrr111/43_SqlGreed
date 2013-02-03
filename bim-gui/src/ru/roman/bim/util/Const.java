@@ -14,7 +14,7 @@ public interface Const {
     String DEFAULT_ENDPOINT_WSDL = "http://churganovroman.appspot.com/wsdl/DataProvider.wsdl";
     //String DEFAULT_ENDPOINT = "http://localhost:8080/DataProvider";
     //String DEFAULT_ENDPOINT_WSDL = "http://localhost:8080/wsdl/DataProvider.wsdl";
-    String VERSION = "1.24";
+    String VERSION = "1.25";
 
 
     String APP_NAME = "Bim";
