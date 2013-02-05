@@ -7,7 +7,7 @@
 
 
 ::set JAVA_HOME=C:\Program Files\Java\jdk1.7.0_01
-set APPENGINE_HOME=C:\1_work\45_JavaLib\appengine-java-sdk-1.7.2
+set APPENGINE_HOME=C:\1_work\45_JavaLib\appengine-java-sdk-1.7.4
 set ANT_HOME=C:\1_work\45_JavaLib\apache-ant-1.8.4
 ::set APPENGINE_HOME=C:\1_work\40_STS\01_appengine-java-sdk\appengine-java-sdk-1.6.0
 
