@@ -47,7 +47,6 @@ public class LocalCacheImpl implements LocalCache {
     public synchronized void initCache(Integer currentNum, Integer recordsCount) {
         this.currentNum = currentNum;
         this.recordsCount = recordsCount;
-        checkCacheState();
     }
 
     @Override
@@ -85,8 +84,8 @@ public class LocalCacheImpl implements LocalCache {
         final SettingsViewModel sett = Settings.get();
         final int portion = sett.getPortion().intValue();
         final boolean isPortionWorking = sett.isWorkWithPortion();
-        final int volume;
-        if (portion > recordsCount || !isPortionWorking) {
+        final int volume;               // определяет общее кол-во перебираемых слов
+        if ((portion > recordsCount) || !isPortionWorking) {
             volume = recordsCount;
         } else {
             volume = portion;
@@ -106,7 +105,11 @@ public class LocalCacheImpl implements LocalCache {
             newOffset = 0;
         }
 
-        if (currentOffset != newOffset || cache.isEmpty()) {
+        if (currentOffset != newOffset || cache.isEmpty() || currentNum == 0) {
+            // кеш перегружается в случае
+            //  - перехода на новую страницу данных
+            //  - при первом запуске (кэш пуст)
+            //  - при прохождении полного цикла currentNum == 0
 
             final GetListRequest req = WsUtil.prepareRequest(new GetListRequest());
             req.setOffset(newOffset);
@@ -167,7 +170,7 @@ public class LocalCacheImpl implements LocalCache {
     public synchronized void clearCache() {
         int size = cache.size();
         cache.clear();
-        log.info(String.format("Cache cleaned, %s models deleted", size));
+        log.info(String.format("Cache cleaned, %s models released", size));
     }
 
     @Override

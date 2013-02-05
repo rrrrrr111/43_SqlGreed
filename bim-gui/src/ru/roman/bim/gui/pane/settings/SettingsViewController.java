@@ -102,7 +102,7 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
                 break;
             case REGISTERED:
                 GuiUtil.showInfoMessage("Settings saved successfully");
-
+                view.setVisible(false);
                 break;
         }
     }

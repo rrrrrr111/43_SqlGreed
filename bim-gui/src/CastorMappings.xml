@@ -99,6 +99,49 @@
         <field name="workWithPortion" type="boolean">
             <bind-xml name="workWithPortion" node="element"/>
         </field>
+        <field name="editDate" >
+            <bind-xml name="editDate" node="element"/>
+        </field>
     </class>
+
+
+    <!--
+
+    -
+If there is no 'collection' attribute, the <type> is just the Java type specified in <type_attribute> (the value of the 'type' attribute in the XML document). The value of <type_attribute> can be a fully qualified Java object like 'java.lang.String' or one of the allowed short name:
+
+short name	Primitive type?	Java Class
+other	N	java.lang.Object
+string	N	java.lang.String
+integer	Y	java.lang.Integer.TYPE
+long	Y	java.lang.Long.TYPE
+boolean	Y	java.lang.Boolean.TYPE
+double	Y	java.lang.Double.TYPE
+float	Y	java.lang.Float.TYPE
+big-decimal	N	java.math.BigDecimal
+byte	Y	java.lang.Byte.TYPE
+date	N	java.util.Date
+short	Y	java.lang.Short.TYPE
+char	Y	java.lang.Character.TYPE
+bytes	N	byte[]
+chars	N	char[]
+strings	N	String[]
+locale	N	java.util.Locale
+Castor will try to cast the data in the XML file in the proper Java type.
+
+-	If there is a collection attribute, you can use the following table:
+name	<type>	default implementation
+array	<type_attribute>[]	<type_attribute>[]
+vector	java.util.Vector	java.util.Vector
+hashtable	java.util.Hashtable	java.util.Hashtable
+collection	java.util.Collection	java.util.Arraylist
+set	java.util.Set	java.util.Hashset
+map	java.util.Map	java.util.Hashmap
+The type of the object inside the collection is <type_attribute>. The 'default implementation' is the type used if the object holding the collection is found to be null and need to be instantiated.
+
+For hashtable and map, Castor will add an object with put(object, object): the object is both the key and the value. This will be improved in the future.
+
+    -->
+
 
 </mapping>

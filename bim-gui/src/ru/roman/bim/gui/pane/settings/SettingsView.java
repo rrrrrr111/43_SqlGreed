@@ -316,7 +316,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
 
 
         final JPanel buttonsPanel = new JPanel();
-        saveButton = new JButton("Save");
+        saveButton = new JButton("OK");
         cancelButton = new JButton("Cancel");
         buttonsPanel.add(saveButton);
         buttonsPanel.add(cancelButton);
@@ -343,7 +343,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
     }
 
     public void prepareSettingsView() {
-        saveButton.setText("Save");
+        saveButton.setText("OK");
     }
 
 

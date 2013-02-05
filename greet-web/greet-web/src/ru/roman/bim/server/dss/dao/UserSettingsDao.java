@@ -7,6 +7,7 @@ import ru.roman.bim.server.service.dataws.dto.settings.UserSettingsModel;
 import ru.roman.bim.server.util.EntityUtil;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -37,47 +38,51 @@ public class UserSettingsDao {
     public static final String RECORDS_COUNT = "recordsCount";
     public static final String PORTION = "portion";
     public static final String WORK_WITH_PORTION = "workWithPortion";
+    public static final String EDIT_DATE = "editDate";
+    public static final String LAST_ACCESS = "lastAccess";
     public static final List<String> EXCLUDE_FOR_ENTITY = Arrays.asList("id", "key");
+    public static final List<String> EXCLUDE_FOR_BEAN = Arrays.asList("id", "key", LAST_ACCESS);
 
 
     public static UserSettingsModel registerNewAndLoadSettings(UserSettingsModel model) {
 
         Entity sett = findFirstEntity(ENT_NAME, LOGIN, model);
+        final Date currDate = new Date();
         if (sett == null) {
             sett = new Entity(ENT_NAME);
-            setEntPropertyIfNull(sett, SORTING_FIELD, "editDate");
-            setEntPropertyIfNull(sett, SORTING_DIRECTION, "DESCENDING");
-            setEntPropertyIfNull(sett, SHADOWED_LANG_ID, 2L);
-            setEntPropertyIfNull(sett, CURRENT_NUM, 0L);
-            setEntPropertyIfNull(sett, CACHE_MAX_SIZE, 100L);
-            setEntPropertyIfNull(sett, FACED_LANG_ID, 1L);
-            setEntPropertyIfNull(sett, LOOK_AND_FEEL, "");
-            setEntPropertyIfNull(sett, PREVIEW_DURATION, 5 * 60 * 1000);
-            setEntPropertyIfNull(sett, OPACITY, 0.75);
-            setEntPropertyIfNull(sett, PREVIEW_INTERVAL, 30 * 1000);
-            setEntPropertyIfNull(sett, RATINGS, Arrays.asList(1, 2, 3));
-            setEntPropertyIfNull(sett, RECORDS_COUNT, 0L);
-            setEntPropertyIfNull(sett, PORTION, 100L);
+            sett.setProperty(EDIT_DATE, currDate);
             persistEntity(sett);
             UserRatingDao.createNewUserRatings(sett);
-
         } else {
             checkPassword(model, sett);
         }
 
-        boolean res1 = setEntPropertyIfNull(sett, WORK_WITH_PORTION, true);
-        boolean res2 = setEntPropertyIfNull(sett, TYPES, Arrays.asList(0, 1, 2, 3));
-        boolean res3 = setEntPropertyIfNull(sett, CATEGORIES, Arrays.asList(0, 1));
-        boolean res4 = setEntPropertyIfNull(sett, SUBSCRIBED,
-                Arrays.asList(UserSettingsDao.getMasterUser().getKey().getId()));
-        if (res1 || res2 || res3 || res4) {
-            persistEntity(sett);
-        }
-        setAllProperties(model, sett);
+        setEntPropertyIfNull(sett, SORTING_FIELD, WordDao.EDIT_DATE);
+        setEntPropertyIfNull(sett, SORTING_DIRECTION, "DESCENDING");
+        setEntPropertyIfNull(sett, SHADOWED_LANG_ID, 2L);
+        setEntPropertyIfNull(sett, CURRENT_NUM, 0L);
+        setEntPropertyIfNull(sett, CACHE_MAX_SIZE, 100L);
+        setEntPropertyIfNull(sett, FACED_LANG_ID, 1L);
+        setEntPropertyIfNull(sett, LOOK_AND_FEEL, "");
+        setEntPropertyIfNull(sett, PREVIEW_DURATION, 5 * 60 * 1000);
+        setEntPropertyIfNull(sett, OPACITY, 0.75);
+        setEntPropertyIfNull(sett, PREVIEW_INTERVAL, 30 * 1000);
+        setEntPropertyIfNull(sett, RATINGS, Arrays.asList(1, 2, 3));
+        setEntPropertyIfNull(sett, RECORDS_COUNT, 0L);
+        setEntPropertyIfNull(sett, PORTION, 100L);
+        setEntPropertyIfNull(sett, WORK_WITH_PORTION, true);
+        setEntPropertyIfNull(sett, TYPES, Arrays.asList(0, 1, 2, 3));
+        setEntPropertyIfNull(sett, CATEGORIES, Arrays.asList(0, 1));
+        setEntPropertyIfNull(sett, SUBSCRIBED, Arrays.asList(UserSettingsDao.getMasterUser().getKey().getId()));
+        sett.setProperty(LAST_ACCESS, currDate);
+
+        persistEntity(sett);
+        setAllProperties(model, sett, EXCLUDE_FOR_BEAN);
         model.setId(sett.getKey().getId());
         return model;
 
     }
+
 
     public static void storeSettings(UserSettingsModel model) {
         Entity sett = findFirstEntity(ENT_NAME, LOGIN, model);
@@ -86,6 +91,7 @@ public class UserSettingsDao {
         } else {
             checkPassword(model, sett);
             copyEntProperties(sett, model, EXCLUDE_FOR_ENTITY);
+            sett.setProperty(LAST_ACCESS, new Date());
             persistEntity(sett);
         }
     }

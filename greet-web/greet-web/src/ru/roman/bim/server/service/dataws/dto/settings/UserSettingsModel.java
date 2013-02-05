@@ -1,6 +1,7 @@
 package ru.roman.bim.server.service.dataws.dto.settings;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /** @author Roman 21.01.13 23:35 */
@@ -31,6 +32,8 @@ public class UserSettingsModel implements Serializable {
     private Long previewInterval;
     private Long previewDuration;
     private String lookAndFeel;
+
+    private Date editDate;
 
     public List<Long> getCategories() {
         return categories;
@@ -191,5 +194,13 @@ public class UserSettingsModel implements Serializable {
 
     public void setWorkWithPortion(boolean workWithPortion) {
         this.workWithPortion = workWithPortion;
+    }
+
+    public Date getEditDate() {
+        return editDate;
+    }
+
+    public void setEditDate(Date editDate) {
+        this.editDate = editDate;
     }
 }

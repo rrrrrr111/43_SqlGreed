@@ -8,6 +8,8 @@ import ru.roman.bim.service.gae.wsclient.BimItemModel;
 public abstract class WordUtils {
 
 
+    public static final String STRIP_CHARS = " .,-;:`'\"";
+
     public static void checkIdiom(BimItemModel model) {
         if (StringUtils.containsIgnoreCase(model.getTextFaced(), "(идиома)")) {
             String facedText = StringUtils.removeEndIgnoreCase(model.getTextFaced(), "(идиома)");
@@ -19,10 +21,10 @@ public abstract class WordUtils {
 
     public static void fillTexts(BimItemModel currModel, String faced, String shadowed) {
         faced = StringUtils.normalizeSpace(faced);
-        faced = StringUtils.strip(faced, " .,");
+        faced = StringUtils.strip(faced, STRIP_CHARS);
 
         shadowed = StringUtils.normalizeSpace(shadowed);
-        shadowed = StringUtils.strip(shadowed, " .,");
+        shadowed = StringUtils.strip(shadowed, STRIP_CHARS);
 
         currModel.setTextFaced(faced);
         currModel.setTextShadowed(shadowed);

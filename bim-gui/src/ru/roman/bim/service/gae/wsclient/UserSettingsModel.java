@@ -1,10 +1,8 @@
 
 package ru.roman.bim.service.gae.wsclient;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
+import javax.xml.datatype.XMLGregorianCalendar;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +20,7 @@ import java.util.List;
  *         &lt;element name="cacheMaxSize" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="categories" type="{http://www.w3.org/2001/XMLSchema}long" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="currentNum" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
+ *         &lt;element name="editDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *         &lt;element name="facedLangId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="login" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -52,6 +51,7 @@ import java.util.List;
     "cacheMaxSize",
     "categories",
     "currentNum",
+    "editDate",
     "facedLangId",
     "id",
     "login",
@@ -76,6 +76,8 @@ public class UserSettingsModel {
     @XmlElement(nillable = true)
     protected List<Long> categories;
     protected Long currentNum;
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar editDate;
     protected Long facedLangId;
     protected Long id;
     protected String login;
@@ -172,6 +174,30 @@ public class UserSettingsModel {
      */
     public void setCurrentNum(Long value) {
         this.currentNum = value;
+    }
+
+    /**
+     * Gets the value of the editDate property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getEditDate() {
+        return editDate;
+    }
+
+    /**
+     * Sets the value of the editDate property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setEditDate(XMLGregorianCalendar value) {
+        this.editDate = value;
     }
 
     /**

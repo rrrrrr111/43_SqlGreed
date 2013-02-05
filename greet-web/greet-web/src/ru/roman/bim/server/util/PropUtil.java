@@ -5,6 +5,8 @@ import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.beanutils.PropertyUtilsBean;
 import org.apache.commons.lang3.ObjectUtils;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -87,7 +89,14 @@ public class PropUtil {
     }
 
     public static void setAllProperties(Object model, Entity entity) {
-        Map<String, Object> props = entity.getProperties();
+        setAllProperties(model, entity, Collections.EMPTY_LIST);
+    }
+
+    public static void setAllProperties(Object model, Entity entity, List<String> exclude) {
+        Map<String, Object> props = new HashMap<String, Object>(entity.getProperties());
+        for (String excl : exclude) {
+            props.remove(excl);
+        }
         for (Map.Entry<String, Object> entry : props.entrySet()) {
             setBeanProperty(model, entry.getKey(), entry.getValue());
         }
