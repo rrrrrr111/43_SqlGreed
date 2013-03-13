@@ -3,6 +3,7 @@ package ru.roman.bim.gui.pane.main;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.mvc.View;
+import ru.roman.bim.gui.custom.widget.LoadingPanel;
 import ru.roman.bim.gui.custom.widget.TiedCheckBoxPanel;
 import ru.roman.bim.gui.pane.tray.TrayUtils;
 import ru.roman.bim.model.Lang;
@@ -12,10 +13,7 @@ import ru.roman.bim.util.GuiUtil;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 
 /** @author Roman 18.12.12 0:02 */
 public class MainView extends JWindow implements View<MainViewModel, MainView, MainViewController> {
@@ -25,6 +23,9 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
 
     private TitledBorder titledEmptyBorder;
     private final JLabel textLabel = new JLabel();
+    private final JScrollPane textScroll = new JScrollPane(textLabel,
+            JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+            JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
     private final JButton prevButton = new JButton("pr");
     private final JButton nextButton = new JButton("nx");
@@ -33,8 +34,11 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
     private final JButton hideButton = new JButton("hide");
 
     private TiedCheckBoxPanel checkPanel;
-
     private final JLabel typeLabel = new JLabel();
+
+    private Point mouseDownScreenCoords;
+    private Point mouseDownCompCoords;
+
 
     public MainView() {
 
@@ -59,24 +63,7 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
         //setResizable(false);
         setAlwaysOnTop(true);
 
-        final MouseAdapter mouseListener = new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                controller.getGhostService().stop();
-                controller.showQuickly();
-            }
 
-            @Override
-            public void mouseExited(MouseEvent e) {
-                controller.getGhostService().startFromOpened();
-            }
-        };
-        panel.addMouseListener(mouseListener);
-        prevButton.addMouseListener(mouseListener);
-        nextButton.addMouseListener(mouseListener);
-        translateButton.addMouseListener(mouseListener);
-        editButton.addMouseListener(mouseListener);
-        hideButton.addMouseListener(mouseListener);
 
         // текст
         //final JPanel textPanel = new JPanel();
@@ -95,6 +82,10 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
                 TitledBorder.RIGHT, TitledBorder.DEFAULT_POSITION);
         textLabel.setBorder(titledEmptyBorder);
 
+
+        textScroll.setBorder(BorderFactory.createEmptyBorder());
+        //textScroll.set
+
         final GridBagConstraints gbc1 = new GridBagConstraints();
         gbc1.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
         //gbc1.anchor = GridBagConstraints.PAGE_START;  // привязка к краю контейнера
@@ -105,7 +96,7 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
         gbc1.gridy = 0;
         //gbc1.ipady = 140;                          // ограничение минимального размера
         //gbc1.ipadx = 270;                          // ограничение минимального размера
-        panel.add(textLabel, gbc1);
+        panel.add(textScroll, gbc1);
 
         // кнопки
         final GridBagConstraints gbc2 = new GridBagConstraints();
@@ -194,14 +185,77 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
         panel.add(checkPanel, gbc7);
 
 
-        final GridBagConstraints gbc8 = new GridBagConstraints();
+        GridBagConstraints gbc8 = new GridBagConstraints();
         gbc8.fill = GridBagConstraints.HORIZONTAL;
-        gbc8.gridwidth = 2;
+        gbc8.gridwidth = 1;
         gbc8.gridx = 3;
         gbc8.gridy = 2;
         gbc8.weighty = 0.0;
         gbc8.weightx = 1.0;
         panel.add(typeLabel, gbc8);
+
+        gbc8 = new GridBagConstraints();
+        gbc8.fill = GridBagConstraints.HORIZONTAL;
+        gbc8.gridwidth = 1;
+        gbc8.gridx = 4;
+        gbc8.gridy = 2;
+        gbc8.weighty = 0.0;
+        gbc8.weightx = 0.0;
+        gbc8.insets = new Insets(0,10,0,10);  // padding
+        panel.add(LoadingPanel.createSharedInstance(), gbc8);
+
+
+        final MouseAdapter mouseListener = new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                controller.getGhostService().stop();
+                controller.showQuickly();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                controller.getGhostService().startFromOpened();
+            }
+        };
+        panel.addMouseListener(mouseListener);
+        prevButton.addMouseListener(mouseListener);
+        nextButton.addMouseListener(mouseListener);
+        translateButton.addMouseListener(mouseListener);
+        editButton.addMouseListener(mouseListener);
+        hideButton.addMouseListener(mouseListener);
+        textScroll.addMouseListener(mouseListener);
+        textScroll.getVerticalScrollBar().addMouseListener(mouseListener);
+        textLabel.addMouseListener(mouseListener);
+
+        final MouseAdapter mouseCaptureListener = new MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                mouseDownScreenCoords = null;
+                mouseDownCompCoords = null;
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+                mouseDownScreenCoords = e.getLocationOnScreen();
+                mouseDownCompCoords = e.getPoint();
+            }
+        };
+        panel.addMouseListener(mouseCaptureListener);
+        textScroll.addMouseListener(mouseCaptureListener);
+        textLabel.addMouseListener(mouseCaptureListener);
+
+        final MouseMotionListener mouseMotionListener = new MouseMotionListener() {
+            public void mouseMoved(MouseEvent e) {
+            }
+
+            public void mouseDragged(MouseEvent e) {
+                Point currCoords = e.getLocationOnScreen();
+                MainView.this.setLocation(mouseDownScreenCoords.x + (currCoords.x - mouseDownScreenCoords.x) - mouseDownCompCoords.x,
+                        mouseDownScreenCoords.y + (currCoords.y - mouseDownScreenCoords.y) - mouseDownCompCoords.y);
+            }
+        };
+        panel.addMouseMotionListener(mouseMotionListener);
+        textScroll.addMouseMotionListener(mouseMotionListener);
+        textLabel.addMouseMotionListener(mouseMotionListener);
 
         pack();
         Point pos = GuiUtil.getRightCornerPosition(getSize(), 3);
@@ -230,9 +284,9 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
     private void setText(String str) {
         // border: 4px double black;
         //
-
+        String length = "250";
         textLabel.setText(String.format("<html>" +
-                "<div width='206px' align='center' style='color:blue;font:10px;'>%s</div>" +
+                "<div width='" + length + "' align='center' style='color:blue;font:10px;'>%s</div>" +
                 "</html>", str));
         //textLabel.setText(String.format("%s", str));
     }

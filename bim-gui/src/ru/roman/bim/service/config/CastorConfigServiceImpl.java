@@ -8,6 +8,7 @@ import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.config.reader.CastorReader;
 import ru.roman.bim.service.config.writer.CastorWriter;
 import ru.roman.bim.service.config.writer.XmlWriter;
+import ru.roman.bim.util.Const;
 
 import java.net.URL;
 
@@ -15,7 +16,15 @@ import java.net.URL;
 public class CastorConfigServiceImpl implements ConfigService {
     private static final Log log = LogFactory.getLog(CastorConfigServiceImpl.class);
 
-    public static final String SETTINGS_FILE_NAME = "settings";
+    public static final String SETTINGS_FILE_NAME;
+    static {
+        if (Const.DEV_MODE) {
+            SETTINGS_FILE_NAME = "settings.dev";
+        } else {
+            SETTINGS_FILE_NAME = "settings";
+        }
+    }
+
     private XmlConfigService xmlConfigService = ServiceFactory.getXmlConfigService();
     private static final XmlWriter WRITER = new CastorWriter();
 

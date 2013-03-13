@@ -87,6 +87,10 @@ public abstract class GuiUtil {
         return createImage(Res.MAIN_IMAGE_PATH);
     }
 
+    public static Image createLoadingImage() {
+        return createImage(Res.LOADING_IMAGE_PATH);
+    }
+
     private static Map<String, ImageIcon> images = new HashMap<String, ImageIcon>();
 
     public static Image createImage(String path) {

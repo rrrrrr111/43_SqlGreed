@@ -44,14 +44,22 @@ public class WordLoaderServiceImpl implements WordLoaderService {
     public void loadFile(File fileFroLoading) {
 
         List<MainViewModel> sheetData = parseExcel(fileFroLoading);
-        for (MainViewModel model : sheetData) {
+        for (final MainViewModel model : sheetData) {
             WordUtils.checkIdiom(model);
             WordUtils.fillTexts(model, model.getTextFaced(), model.getTextShadowed());
 
-            Long id = gaeConnector.save(model);
-            model.setId(id);
+            gaeConnector.save(model, new GaeConnector.GaeCallBack<Long>() {
+                @Override
+                protected void onSuccess(Long id) {
+                    model.setId(id);
+                }
+            });
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
-
     }
 
     private List<MainViewModel> parseExcel(File fileFroLoading) {

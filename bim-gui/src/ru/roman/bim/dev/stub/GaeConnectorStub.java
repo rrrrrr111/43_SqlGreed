@@ -7,6 +7,7 @@ import ru.roman.bim.gui.pane.main.MainViewModel;
 import ru.roman.bim.model.WordCategory;
 import ru.roman.bim.model.WordType;
 import ru.roman.bim.service.gae.GaeConnector;
+import ru.roman.bim.service.gae.GaeConnectorImpl;
 import ru.roman.bim.service.gae.wsclient.GetListRequest;
 import ru.roman.bim.service.gae.wsclient.GetListResp;
 import ru.roman.bim.service.gae.wsclient.UserSettingsModel;
@@ -28,9 +29,17 @@ public class GaeConnectorStub implements GaeConnector {
 
     static {
         Date currDate = new Date();
-        store.add(new MainViewModel(counter++, "1 word1","transl1",1l,2l,1l, WordType.EXPRESSION.getOrdinal()
+
+
+        store.add(new MainViewModel(counter++, "1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, " +
+                "sed do eiusmod tempor incididunt ut labore","transl1",1l,2l,1l, WordType.EXPRESSION.getOrdinal()
                 , WordCategory.COMMON.getOrdinal(), null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
-        store.add(new MainViewModel(counter++, "2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        store.add(new MainViewModel(counter++, "2 Lorem ipsum dolor sit amet, " +
+                "consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore " +
+                "et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod " +
+                "tempor incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod " +
+                "tempor incididunt ut labore",
                 "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 1l,2l,1l, WordType.EXPRESSION.getOrdinal(),
                 WordCategory.COMMON.getOrdinal(), null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
@@ -44,11 +53,32 @@ public class GaeConnectorStub implements GaeConnector {
                 , WordCategory.COMMON.getOrdinal(), null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
         store.add(new MainViewModel(counter++, "7 word7","transl7",1l,2l,5l, WordType.WORD.getOrdinal()
                 , WordCategory.COMMON.getOrdinal(), null, 1l, WsUtil.asXMLGregorianCalendar(currDate)));
+
+
+        UserSettingsModel settingsModel = new UserSettingsModel();
+        settingsModel.setCacheMaxSize(100L);
+        settingsModel.setCurrentNum(0L);
+        settingsModel.setEditDate(WsUtil.getCurrGregorian());
+        settingsModel.setFacedLangId(1L);
+        settingsModel.setId(1L);
+        settingsModel.setLogin("tra@gmail.com");
+        settingsModel.setLookAndFeel("");
+        settingsModel.setOpacity(0.75);
+        settingsModel.setPassword("355869f9511e558c3fbdde6779dcc0");     //tratra11
+        settingsModel.setPortion(100L);
+        settingsModel.setPreviewDuration((long)(5 * 60 * 1000));
+        settingsModel.setPreviewInterval((long)(30 * 1000));
+        settingsModel.setRecordsCount(1000L);
+        settingsModel.setShadowedLangId(2L);
+        settingsModel.setSortingDirection("DESCENDING");
+        settingsModel.setSortingField("editDate");
+        settingsModel.setWorkWithPortion(true);
+        settings.add(settingsModel);
     }
 
 
     @Override
-    public Long save(MainViewModel model) {
+    public void save(MainViewModel model, GaeConnector.GaeCallBack<Long> callBack) {
         if (model.getId() == null) {
             model.setId(++counter);
         }
@@ -58,12 +88,12 @@ public class GaeConnectorStub implements GaeConnector {
         store.add(model);
         log.info("Stub save : " + ToStringBuilder.reflectionToString(model));
         sleep();
-        return model.getId();
+        callBack.run(model.getId());
 
     }
 
     @Override
-    public GetListResp getList(GetListRequest request) {
+    public void getList(GetListRequest request, GaeConnector.GaeCallBack<GetListResp> callBack) {
         List<MainViewModel> list = new ArrayList<MainViewModel>(store);
         final MainViewModel from = list.get(request.getOffset());
         int toIdx = request.getOffset() + request.getCount() - 1;
@@ -78,11 +108,12 @@ public class GaeConnectorStub implements GaeConnector {
         log.info(String.format("Stub getList : %s, return : %s models",
                 ToStringBuilder.reflectionToString(request), resp.getList().size()));
         sleep();
-        return resp;
+        callBack.run(resp);
     }
 
     @Override
     public void renewRating(Long id, Integer rating) {
+        GaeConnectorImpl.CALL_BACK_STUB.showLoading();
         for (MainViewModel mainViewModel : store) {
             if (mainViewModel.getId().equals(id)) {
                 mainViewModel.setRating(rating.longValue());
@@ -94,32 +125,41 @@ public class GaeConnectorStub implements GaeConnector {
 
     @Override
     public void storeSettings(UserSettingsModel model) {
-        registerNewAndLoadSettings(model);
+        registerNewAndLoadSettings(model, new GaeCallBack<UserSettingsModel>() {
+            @Override
+            protected void onSuccess(UserSettingsModel result) {
+            }
+        });
     }
 
     @Override
-    public UserSettingsModel registerNewAndLoadSettings(UserSettingsModel model) {
-        UserSettingsModel stored = null;
+    public void registerNewAndLoadSettings(UserSettingsModel model, GaeConnector.GaeCallBack<UserSettingsModel> callBack) {
+        final UserSettingsModel[] stored = new UserSettingsModel[]{null};
         for (UserSettingsModel setting : settings) {
             if (setting.getLogin().equalsIgnoreCase(model.getLogin())) {
-                stored = setting;
+                stored[0] = setting;
                 break;
             }
         }
-        if (stored != null) {
-            if (!stored.getPassword().equals(model.getPassword())) {
+        if (stored[0] != null) {
+            if (!stored[0].getPassword().equals(model.getPassword())) {
                 throw new RuntimeException("password or login wrong");
             }
-            settings.remove(stored);
+            sleep();
+            callBack.run(stored[0]);
+        } else {
+            settings.add(model);
+            callBack.run(stored[0]);
         }
-        settings.add(model);
-        sleep();
-        return model;
+
+
     }
 
     @Override
     public void systemTask(int num) {
-
+        GaeConnectorImpl.CALL_BACK_STUB.showLoading();
+        sleep();
+        GaeConnectorImpl.CALL_BACK_STUB.stopLoading();
     }
 
 

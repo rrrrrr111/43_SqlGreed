@@ -41,7 +41,7 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
         TrayUtils.addTrayIcon();
         final SettingsViewModel sett = configService.loadSettingsConfig();
         localCache = LocalCacheFactory.createLocalCacheInstance(sett.getCurrentNum(), sett.getRecordsCount());
-        currModel = localCache.getCurrent();
+        currModel = localCache.getCurrentSync();
         view.fillWidgets(currModel);
         ghostService.start();
 
@@ -59,13 +59,23 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
     }
 
     protected void onPrev() {
-        currModel = localCache.getPrev();
-        view.fillWidgets(currModel);
+        localCache.getPrev(new LocalCache.CacheCallBack() {
+            @Override
+            public void onGot(MainViewModel model) {
+                currModel = model;
+                view.fillWidgets(currModel);
+            }
+        });
     }
 
     protected void onNext() {
-        currModel = localCache.getNext();
-        view.fillWidgets(currModel);
+        localCache.getNext(new LocalCache.CacheCallBack() {
+            @Override
+            public void onGot(MainViewModel model) {
+                currModel = model;
+                view.fillWidgets(currModel);
+            }
+        });
     }
 
     protected void onTranslate() {

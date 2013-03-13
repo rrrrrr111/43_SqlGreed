@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.mvc.Controller;
+import ru.roman.bim.gui.pane.main.MainViewModel;
 import ru.roman.bim.gui.pane.settings.Settings;
 import ru.roman.bim.model.WordCategory;
 import ru.roman.bim.model.WordType;
@@ -36,15 +37,27 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
     }
 
     protected synchronized void onPrev() {
-        currModel = new EditViewModel(localCache.getPrev());
-        view.fillWidgets(currModel);
-        originalModel = currModel.clone();
+        localCache.getPrev(
+                new LocalCache.CacheCallBack() {
+                    @Override
+                    public void onGot(MainViewModel model) {
+                        currModel = new EditViewModel(model);
+                        view.fillWidgets(currModel);
+                        originalModel = currModel.clone();
+                    }
+                }
+        );
     }
 
     protected synchronized void onNext() {
-        currModel = new EditViewModel(localCache.getNext());
-        view.fillWidgets(currModel);
-        originalModel = currModel.clone();
+        localCache.getNext(new LocalCache.CacheCallBack() {
+            @Override
+            public void onGot(MainViewModel model) {
+                currModel = new EditViewModel(model);
+                view.fillWidgets(currModel);
+                originalModel = currModel.clone();
+            }
+        });
     }
 
     public synchronized void onNew() {
@@ -91,11 +104,15 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
                         return;
                 }
             }
-            Long id = gaeConnector.save(currModel);
-            currModel.setId(id);
-            localCache.renewModel(currModel);
-            view.fillWidgets(currModel);
-            originalModel = currModel.clone();
+            gaeConnector.save(currModel, new GaeConnector.GaeCallBack<Long>() {
+                @Override
+                protected void onSuccess(Long id) {
+                    currModel.setId(id);
+                    localCache.renewModel(currModel);
+                    view.fillWidgets(currModel);
+                    originalModel = currModel.clone();
+                }
+            });
         }
     }
 
@@ -105,16 +122,20 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
 
     public synchronized void show(LocalCache cache) {
         this.localCache = LocalCacheFactory.createLocalCacheInstance(cache);
-        currModel = new EditViewModel(localCache.getCurrent());
-        view.fillWidgets(currModel);
-        originalModel = currModel.clone();
-        view.setVisible(true);
+        localCache.getCurrent(new LocalCache.CacheCallBack() {
+            @Override
+            public void onGot(MainViewModel model) {
+                currModel = new EditViewModel(model);
+                view.fillWidgets(currModel);
+                originalModel = currModel.clone();
+                view.setVisible(true);
+            }
+        });
     }
 
     public Collection<WordType> getTypes() {
         return Arrays.asList(WordType.values());
     }
-
 
     public void onTranslateFacedYandex() {
         view.fillTexts(currModel);

@@ -27,25 +27,35 @@ public class GaeConnectorImplTest {
         arg0.setRating(1L);
         arg0.setType(1L);
 
-        Long r = gaeConnector.save(arg0);
-        arg0.setId(r);
-        log.info("saved id : " + r);
+        gaeConnector.save(arg0, new GaeConnector.GaeCallBack<Long>() {
+            @Override
+            protected void onSuccess(final Long r) {
+                arg0.setId(r);
+                log.info("saved id : " + r);
 
 
-        GetListRequest req1 = WsUtil.prepareRequest(new GetListRequest());
-        req1.setCount(100);
-        req1.setFacedLangId(1);
-        req1.setShadowedLangId(2);
-        req1.setOffset(0);
-        req1.setSortingField("editDate");
-        req1.setSortingDirection("DESCENDING");
-        req1.getTypes().addAll(Arrays.asList(0L,1L,2L,3L,4L,5L));
-        req1.getRatingsList().addAll(Arrays.asList(1,2,3,4,5));
-        ru.roman.bim.service.gae.wsclient.GetListResp res = gaeConnector.getList(req1);
+                GetListRequest req1 = WsUtil.prepareRequest(new GetListRequest());
+                req1.setCount(100);
+                req1.setFacedLangId(1);
+                req1.setShadowedLangId(2);
+                req1.setOffset(0);
+                req1.setSortingField("editDate");
+                req1.setSortingDirection("DESCENDING");
+                req1.getTypes().addAll(Arrays.asList(0L,1L,2L,3L,4L,5L));
+                req1.getRatingsList().addAll(Arrays.asList(1,2,3,4,5));
+                gaeConnector.getList(req1,
+                        new GaeConnector.GaeCallBack<GetListResp>() {
+                            @Override
+                            protected void onSuccess(GetListResp res) {
+                                log.info("items count : " + res.getList().size() + " all : " + res.getRecordsCount());
+                                gaeConnector.renewRating(r, 4);
+                                log.info("renew complete");
+                            }
+                        });
 
-        log.info("items count : " + res.getList().size() + " all : " + res.getRecordsCount());
 
-        gaeConnector.renewRating(r, 4);
-        log.info("renew complete");
+            }
+        });
+
     }
 }

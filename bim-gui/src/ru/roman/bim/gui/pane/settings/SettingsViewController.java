@@ -51,19 +51,23 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
         modelDataToView();
     }
 
-    public void reloadSettings(StartBim.RegistrationCallBack callBack) {
-        SettingsViewModel config = configService.loadSettingsConfig();
-        try {
-            UserSettingsModel res = gaeConnector.registerNewAndLoadSettings(config);
-            currModel = new SettingsViewModel(res);
-        } catch (Exception e) {
-            log.error("Error while settings loading", e);
-            currModel = config;
-            fillCredentials(callBack);
-            return;
-        }
-        configService.saveSettingsConfig(currModel);
-        callBack.afterRegistration();
+    public void reloadSettings(final StartBim.RegistrationCallBack callBack) {
+        final SettingsViewModel config = configService.loadSettingsConfig();
+        gaeConnector.registerNewAndLoadSettings(config, new GaeConnector.GaeCallBack<UserSettingsModel>() {
+            @Override
+            public void onSuccess(UserSettingsModel result) {
+                currModel = new SettingsViewModel(result);
+                configService.saveSettingsConfig(currModel);
+                callBack.afterRegistration();
+            }
+            @Override
+            public void onFailure(Exception e) {
+                log.error("Error while settings loading", e);
+                currModel = config;
+                fillCredentials(callBack);
+                return;
+            }
+        });
     }
 
     public void showSettingsView() {
@@ -80,8 +84,12 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
 
         switch (state) {
             case FIRST_INPUT:
-                UserSettingsModel res = gaeConnector.registerNewAndLoadSettings(currModel);
-                currModel = new SettingsViewModel(res);
+                gaeConnector.registerNewAndLoadSettings(currModel, new GaeConnector.GaeCallBack<UserSettingsModel>() {
+                            @Override
+                            protected void onSuccess(UserSettingsModel result) {
+                                currModel = new SettingsViewModel(result);
+                            }
+                        });
                 break;
             case REGISTERED:
                 gaeStoreSettings();

@@ -26,10 +26,11 @@ public class ServiceFactory {
 
     public static synchronized GaeConnector getGaeConnector() {
         if (gaeConnector == null) {
-            if (Const.DEV_MODE)
+            if (Const.DEV_MODE) {
                 gaeConnector = new GaeConnectorStub();
-            else
+            } else {
                 gaeConnector = new GaeConnectorImpl();
+            }
         }
         return gaeConnector;
     }

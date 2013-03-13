@@ -8,18 +8,19 @@ import java.util.List;
 public interface LocalCache {
 
 
-    public void initCache(Integer currentNum, Integer recordsCount);
+    void initCache(Integer currentNum, Integer recordsCount);
 
+    void getCurrent(CacheCallBack callBack);
 
-    MainViewModel getCurrent();
+    MainViewModel getCurrentSync();
     /*
    дай следующее слово, счетчик увеличится
     */
-    MainViewModel getNext();
+    void getNext(CacheCallBack callBack);
     /*
     дай предыдущее слово, счетчик уменьшится
      */
-    MainViewModel getPrev();
+    void getPrev(CacheCallBack callBack);
     /*
    текущее значение счетчика
     */
@@ -34,4 +35,10 @@ public interface LocalCache {
     void clearCache();
 
     void renewModel(MainViewModel currModel);
+
+
+    public interface CacheCallBack {
+        void onGot(MainViewModel model);
+    }
+
 }

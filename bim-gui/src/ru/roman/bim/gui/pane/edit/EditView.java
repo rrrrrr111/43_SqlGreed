@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.mvc.View;
+import ru.roman.bim.gui.custom.widget.LoadingPanel;
 import ru.roman.bim.gui.custom.widget.TiedCheckBoxPanel;
 import ru.roman.bim.model.Lang;
 import ru.roman.bim.model.WordCategory;
@@ -254,7 +255,7 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
 
         translationLangReduction.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
 
-        final GridBagConstraints gbc11 = new GridBagConstraints();
+        GridBagConstraints gbc11 = new GridBagConstraints();
         gbc11.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
         //gbc9.anchor = GridBagConstraints.PAGE_START;  // привязка к краю контейнера
         gbc11.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
@@ -265,6 +266,19 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         //gbc11.ipady = 140;                          // ограничение минимального размера
         //gbc11.ipadx = 270;                          // ограничение минимального размера
         panel.add(translationAreaButtonsPanel, gbc11);
+
+        gbc11 = new GridBagConstraints();
+        gbc11.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+        //gbc9.anchor = GridBagConstraints.PAGE_START;  // привязка к краю контейнера
+        gbc11.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+        gbc11.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+        gbc11.weightx = 0.0;
+        gbc11.gridx = 6;                             // gridx и  gridy координаты куда кладется компонент
+        gbc11.gridy = 3;
+        //gbc11.ipady = 140;                          // ограничение минимального размера
+        //gbc11.ipadx = 270;                          // ограничение минимального размера
+        gbc11.insets = new Insets(0,2,0,2);
+        panel.add(LoadingPanel.createSharedInstance(), gbc11);
 
         pack();
     }

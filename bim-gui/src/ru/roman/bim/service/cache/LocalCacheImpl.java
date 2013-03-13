@@ -16,6 +16,8 @@ import ru.roman.bim.util.WsUtil;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 /** @author Roman 22.12.12 16:44 */
 public class LocalCacheImpl implements LocalCache {
@@ -50,23 +52,45 @@ public class LocalCacheImpl implements LocalCache {
     }
 
     @Override
-    public synchronized MainViewModel getCurrent() {
-        checkCacheState();
-        return getFromCache(currentNum);
+    public synchronized MainViewModel getCurrentSync() {
+        final MainViewModel[] modelArr = new MainViewModel[1];
+        final CountDownLatch signal = new CountDownLatch(1);
+        checkCacheState(new CacheCallBack() {
+            @Override
+            public void onGot(MainViewModel model) {
+                modelArr[0] = model;
+                signal.countDown();
+            }
+        });
+        try {
+            boolean result = signal.await(5, TimeUnit.MINUTES);
+            if (modelArr[0] == null) {
+                throw new BimException("Illegal state of synchronously invocation, model is null");
+            } else if (!result) {
+                throw new BimException("Illegal state of synchronously invocation, CountDownLatch" +
+                        " waits more then 5 minutes");
+            }
+            return modelArr[0];
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
-    public synchronized MainViewModel getNext() {
+    public synchronized void getCurrent(CacheCallBack callBack) {
+        checkCacheState(callBack);
+    }
+
+    @Override
+    public synchronized void getNext(CacheCallBack callBack) {
         ++currentNum;
-        checkCacheState();
-        return getFromCache(currentNum);
+        checkCacheState(callBack);
     }
 
     @Override
-    public synchronized MainViewModel getPrev() {
+    public synchronized void getPrev(CacheCallBack callBack) {
         --currentNum;
-        checkCacheState();
-        return getFromCache(currentNum);
+        checkCacheState(callBack);
     }
 
     private MainViewModel getFromCache(Integer num) {
@@ -80,7 +104,7 @@ public class LocalCacheImpl implements LocalCache {
     }
 
 
-    private void checkCacheState() {
+    private void checkCacheState(final CacheCallBack callBack) {
         final SettingsViewModel sett = Settings.get();
         final int portion = sett.getPortion().intValue();
         final boolean isPortionWorking = sett.isWorkWithPortion();
@@ -97,22 +121,22 @@ public class LocalCacheImpl implements LocalCache {
         if (currentNum < 0 ) {
             currentNum = volume - 1;
         }
-        int newOffset;
+        final int[] newOffset = new int[] {0};
         final int cacheMaxSize = sett.getCacheMaxSize().intValue();
         if (currentNum >= cacheMaxSize) {
-            newOffset = currentNum - currentNum % cacheMaxSize;
+            newOffset[0] = currentNum - currentNum % cacheMaxSize;
         } else {
-            newOffset = 0;
+            newOffset[0] = 0;
         }
 
-        if (currentOffset != newOffset || cache.isEmpty() || currentNum == 0) {
+        if (currentOffset != newOffset[0] || cache.isEmpty() || currentNum == 0) {
             // кеш перегружается в случае
             //  - перехода на новую страницу данных
             //  - при первом запуске (кэш пуст)
             //  - при прохождении полного цикла currentNum == 0
 
             final GetListRequest req = WsUtil.prepareRequest(new GetListRequest());
-            req.setOffset(newOffset);
+            req.setOffset(newOffset[0]);
             req.setCount(cacheMaxSize);
             req.setSortingField(sett.getSortingField());
             req.setSortingDirection(sett.getSortingDirection());
@@ -122,19 +146,26 @@ public class LocalCacheImpl implements LocalCache {
             req.setFacedLangId(sett.getFacedLangId().intValue());
             req.setShadowedLangId(sett.getShadowedLangId().intValue());
 
-            GetListResp resp = gaeConnector.getList(req);
-            if (resp.getList() == null || resp.getList().size() == 0) {
-                if (currentNum == 0) {
-                    throw new BimException("Words have not found in dictionary");
-                } else {
-                    currentNum = 0;
-                    checkCacheState();
+            gaeConnector.getList(req, new GaeConnector.GaeCallBack<GetListResp>() {
+                @Override
+                protected void onSuccess(GetListResp resp) {
+                    if (resp.getList() == null || resp.getList().size() == 0) {
+                        if (currentNum == 0) {
+                            throw new BimException("Words have not found in dictionary");
+                        } else {
+                            currentNum = 0;
+                            checkCacheState(callBack);
+                        }
+                    }
+                    cache.clear();
+                    cache.addAll(toModels(resp.getList()));
+                    recordsCount = resp.getRecordsCount();
+                    currentOffset = newOffset[0];
+                    callBack.onGot(getFromCache(currentNum));
                 }
-            }
-            cache.clear();
-            cache.addAll(toModels(resp.getList()));
-            recordsCount = resp.getRecordsCount();
-            currentOffset = newOffset;
+            });
+        } else {
+            callBack.onGot(getFromCache(currentNum));
         }
     }
 
@@ -181,4 +212,5 @@ public class LocalCacheImpl implements LocalCache {
             cache.add(idx, model);
         }
     }
+
 }

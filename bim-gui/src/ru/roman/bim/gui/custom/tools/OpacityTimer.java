@@ -39,6 +39,8 @@ public class OpacityTimer extends Timer {
                 } else {
                     pane.setOpacity(opacity);
                     pane.setVisible(true);
+                    //pane.setAlwaysOnTop(true);
+                    pane.toFront();
                 }
                 //log.info("OpacityTimer opacity : " + opacity);
             }
