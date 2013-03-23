@@ -2,19 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/CastorMappings.xml" afterPath="$PROJECT_DIR$/../bim-gui/src/CastorMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/dev/stub/GaeConnectorStub.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/dev/stub/GaeConnectorStub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainViewController.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayJPopupMenu.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayJPopupMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayUtils.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/UserSettingsModel.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/UserSettingsModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ghost/GhostService.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ghost/GhostService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ghost/GhostServiceImpl.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ghost/GhostServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserSettingsDao.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserSettingsDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/dataws/dto/settings/UserSettingsModel.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/dataws/dto/settings/UserSettingsModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/start.jnlp" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/start.jnlp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProviderPortType_schema1.xsd" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProviderPortType_schema1.xsd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="71cfb641-5bee-4208-8ab0-751480a58831" name="builded" comment="builded">
@@ -1558,7 +1545,11 @@
       <created>1364053452483</created>
       <updated>1364053452483</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Bim application version 1.33 delayed start">
+      <created>1364069077846</created>
+      <updated>1364069077846</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1649,7 +1640,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bim application version 1.32 bugfix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bim application version 1.33 delayed start" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1662,7 +1653,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Bim application GhostService" />
     <MESSAGE value="Bim application thirst GAE deployment" />
     <MESSAGE value="Bim application thirst GAE debugged" />
     <MESSAGE value="Bim application version 1.2" />
@@ -1687,6 +1677,7 @@
     <MESSAGE value="Bim application version 1.27 bugfix" />
     <MESSAGE value="Bim application version 1.30 asyncronius connection thirst version" />
     <MESSAGE value="Bim application version 1.32 bugfix" />
+    <MESSAGE value="Bim application version 1.33 delayed start" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
