@@ -2,6 +2,7 @@ package ru.roman.bim.service.ghost;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import ru.roman.bim.gui.pane.settings.Settings;
 import ru.roman.bim.util.Const;
 
 import javax.swing.*;
@@ -12,40 +13,43 @@ import java.awt.event.ActionListener;
 public class GhostServiceImpl implements GhostService {
     private static final Log log = LogFactory.getLog(GhostServiceImpl.class);
 
-    public static final int MAIN_INTERVAL;
-    public static final int THIRST_DELAY;
-    public static final int SHOW_INTERVAL;
+    public int mainInterval;
+    public int thirstDelay;
+    public int showInterval;
 
-
-    static {
-        if (Const.DEV_MODE) {
-            MAIN_INTERVAL = 15 * 1000;
-            THIRST_DELAY = 1 * 1000;
-            SHOW_INTERVAL = 3 * 1000;
-        } else {
-            MAIN_INTERVAL = 5 * 60 * 1000;
-            THIRST_DELAY = MAIN_INTERVAL;
-            SHOW_INTERVAL = 30 * 1000;
-        }
-    }
-
-    private GhostController controller;
+    private final GhostController controller;
 
     private Timer mainTicker;
     private Timer hideTicker;
     private Timer unfreezeTicker;
 
+    private DelayedAction delayedAction;
+
     public GhostServiceImpl(GhostController ctrl) {
         this.controller = ctrl;
-        mainTicker = new Timer(MAIN_INTERVAL, new ActionListener() {
+
+        if (Const.DEV_MODE) {
+            mainInterval = 15 * 1000;
+            thirstDelay = 1 * 1000;
+            showInterval = 3 * 1000;
+        } else {
+            mainInterval = Settings.get().getPreviewInterval().intValue();
+            thirstDelay = mainInterval;
+            showInterval = Settings.get().getPreviewDuration().intValue();
+        }
+
+        mainTicker = new Timer(mainInterval, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (delayedAction != null) {
+                    delayedAction.afterDelay();
+                    delayedAction = null;
+                }
                 controller.showSlowly();
                 hideTicker.restart();
             }
         });
         mainTicker.setCoalesce(true);
-        mainTicker.setInitialDelay(THIRST_DELAY);
         mainTicker.setRepeats(true);
 
         hideTicker = new Timer(0, new ActionListener() {
@@ -55,7 +59,6 @@ public class GhostServiceImpl implements GhostService {
             }
         });
         hideTicker.setCoalesce(true);
-        hideTicker.setInitialDelay(SHOW_INTERVAL);
         hideTicker.setRepeats(false);
 
         unfreezeTicker = new Timer(0, new ActionListener() {
@@ -66,13 +69,33 @@ public class GhostServiceImpl implements GhostService {
             }
         });
         unfreezeTicker.setCoalesce(true);
-        unfreezeTicker.setInitialDelay(SHOW_INTERVAL);
         unfreezeTicker.setRepeats(false);
 
+        loadTimers();
+    }
 
+    private void loadTimers() {
+        loadFirstDelay();
+        mainTicker.setDelay(mainInterval);
+        hideTicker.setInitialDelay(showInterval);
+        unfreezeTicker.setInitialDelay(showInterval);
+    }
+
+    private void loadFirstDelay() {
+        mainTicker.setInitialDelay(thirstDelay);
+    }
+
+    public void delayedStart(DelayedAction action) {
+        thirstDelay = Settings.get().getDisabilityDuration().intValue() * 60 * 1000;
+        loadFirstDelay();
+        delayedAction = action;
+        mainTicker.restart();
     }
 
     public void start() {
+        thirstDelay = mainInterval;
+        loadFirstDelay();
+        delayedAction = null;
         mainTicker.restart();
     }
 
@@ -85,4 +108,6 @@ public class GhostServiceImpl implements GhostService {
         hideTicker.stop();
         unfreezeTicker.stop();
     }
+
+
 }

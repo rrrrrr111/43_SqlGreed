@@ -73,6 +73,7 @@ public class GaeConnectorStub implements GaeConnector {
         settingsModel.setSortingDirection("DESCENDING");
         settingsModel.setSortingField("editDate");
         settingsModel.setWorkWithPortion(true);
+        settingsModel.setDisabilityDuration(1L);
         settings.add(settingsModel);
     }
 

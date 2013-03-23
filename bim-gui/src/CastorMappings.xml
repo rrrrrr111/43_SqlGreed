@@ -102,6 +102,9 @@
         <field name="editDate" >
             <bind-xml name="editDate" node="element"/>
         </field>
+        <field name="disabilityDuration" type="long">
+            <bind-xml name="disabilityDuration" node="element"/>
+        </field>
     </class>
 
 

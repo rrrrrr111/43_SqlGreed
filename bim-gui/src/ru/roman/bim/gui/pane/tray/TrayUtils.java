@@ -15,6 +15,7 @@ public class TrayUtils {
     private static final Log log = LogFactory.getLog(TrayUtils.class);
 
     private static TrayIcon trayIcon;
+    private static TrayJPopupMenu popupMenu;
 
     private TrayUtils(){;}
 
@@ -35,14 +36,14 @@ public class TrayUtils {
 //        final TrayPopupMenu popupMenu = new TrayPopupMenu(controller);
 //        trayIcon.setPopupMenu(popupMenu);
 
-        final TrayJPopupMenu jPopupMenu = new TrayJPopupMenu(controller);
+        popupMenu = new TrayJPopupMenu(controller);
         trayIcon.addMouseListener(new MouseAdapter() {
 
             public void mouseReleased(MouseEvent e) {
                 if (e.getButton() == MouseEvent.BUTTON3 && e.getClickCount() == 1) {
-                    jPopupMenu.setLocation(e.getX(), e.getY());
-                    jPopupMenu.setInvoker(jPopupMenu);
-                    jPopupMenu.setVisible(true);
+                    popupMenu.setLocation(e.getX(), e.getY());
+                    popupMenu.setInvoker(popupMenu);
+                    popupMenu.setVisible(true);
                 } else if (e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() == 1) {
                     controller.onShowQuickly();
                 }
@@ -74,7 +75,7 @@ public class TrayUtils {
         }
     }
 
-
-
-
+    public static TrayJPopupMenu getPopupMenu() {
+        return popupMenu;
+    }
 }

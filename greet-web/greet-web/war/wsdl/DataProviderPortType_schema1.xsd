@@ -52,6 +52,7 @@
       <xs:element name="cacheMaxSize" type="xs:long" minOccurs="0"/>
       <xs:element name="categories" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="currentNum" type="xs:long" minOccurs="0"/>
+      <xs:element name="disabilityDuration" type="xs:long" minOccurs="0"/>
       <xs:element name="editDate" type="xs:dateTime" minOccurs="0"/>
       <xs:element name="facedLangId" type="xs:long" minOccurs="0"/>
       <xs:element name="id" type="xs:long" minOccurs="0"/>

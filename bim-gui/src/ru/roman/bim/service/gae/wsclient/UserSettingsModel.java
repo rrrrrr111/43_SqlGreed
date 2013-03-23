@@ -20,6 +20,7 @@ import java.util.List;
  *         &lt;element name="cacheMaxSize" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="categories" type="{http://www.w3.org/2001/XMLSchema}long" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="currentNum" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
+ *         &lt;element name="disabilityDuration" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="editDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *         &lt;element name="facedLangId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
@@ -51,6 +52,7 @@ import java.util.List;
     "cacheMaxSize",
     "categories",
     "currentNum",
+    "disabilityDuration",
     "editDate",
     "facedLangId",
     "id",
@@ -76,6 +78,7 @@ public class UserSettingsModel {
     @XmlElement(nillable = true)
     protected List<Long> categories;
     protected Long currentNum;
+    protected Long disabilityDuration;
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar editDate;
     protected Long facedLangId;
@@ -174,6 +177,30 @@ public class UserSettingsModel {
      */
     public void setCurrentNum(Long value) {
         this.currentNum = value;
+    }
+
+    /**
+     * Gets the value of the disabilityDuration property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
+     */
+    public Long getDisabilityDuration() {
+        return disabilityDuration;
+    }
+
+    /**
+     * Sets the value of the disabilityDuration property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
+     */
+    public void setDisabilityDuration(Long value) {
+        this.disabilityDuration = value;
     }
 
     /**

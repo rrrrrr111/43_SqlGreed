@@ -31,9 +31,18 @@ public class UserSettingsModel implements Serializable {
     private Double opacity;
     private Long previewInterval;
     private Long previewDuration;
+    private Long disabilityDuration;
     private String lookAndFeel;
 
     private Date editDate;
+
+    public Long getDisabilityDuration() {
+        return disabilityDuration;
+    }
+
+    public void setDisabilityDuration(Long disabilityDuration) {
+        this.disabilityDuration = disabilityDuration;
+    }
 
     public List<Long> getCategories() {
         return categories;

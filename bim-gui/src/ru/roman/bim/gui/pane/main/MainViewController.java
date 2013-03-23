@@ -102,13 +102,19 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
     public synchronized void changeState(State state) {
         switch (state) {
             case DISABLED:
-                ghostService.stop();
+                ghostService.delayedStart(new GhostService.DelayedAction() {
+                    @Override
+                    public void afterDelay() {
+                        TrayUtils.getPopupMenu().setDisableItemSelected(false);
+                    }
+                });
                 opacityTimer.hideQuickly();
                 break;
             case SCHEDULED:
                 ghostService.start();
                 break;
         }
+        log.info("Changing main state to " + state);
         this.state = state;
     }
 

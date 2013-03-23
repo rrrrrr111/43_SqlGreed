@@ -11,6 +11,8 @@ public class TrayJPopupMenu extends JPopupMenu {
 
     private final TrayController controller;
 
+    private final JCheckBoxMenuItem cbDisabled;
+
     public TrayJPopupMenu(TrayController contr) throws HeadlessException {
         super();
         this.controller = contr;
@@ -21,7 +23,7 @@ public class TrayJPopupMenu extends JPopupMenu {
         final JMenuItem clearCacheItem = new JMenuItem("Clear cache");
         final JMenuItem infoItem = new JMenuItem();
         infoItem.setEnabled(false);
-        final JCheckBoxMenuItem cbDisabled = new JCheckBoxMenuItem("Disabled");
+        cbDisabled = new JCheckBoxMenuItem("Disabled");
         final JMenuItem editMenu = new JMenuItem("Edit");
         final JMenuItem settingsMenu = new JMenuItem("Settings");
         final JMenuItem exitItem = new JMenuItem("Exit");
@@ -41,48 +43,34 @@ public class TrayJPopupMenu extends JPopupMenu {
                 controller.onShowInfo();
             }
         });
-
         clearCacheItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 controller.onClearCache();
             }
         });
-
         cbDisabled.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
                 controller.onStateChanged(e);
             }
         });
-
         editMenu.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 controller.onShowEdit();
             }
         });
-
         settingsMenu.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 controller.onShowSettings();
             }
         });
-
         exitItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 controller.onExit();
             }
         });
+    }
 
-//        addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mouseEntered(MouseEvent e) {
-//                setVisible(true);
-//            }
-//
-//            @Override
-//            public void mouseExited(MouseEvent e) {
-//                setVisible(false);
-//            }
-//        });
-
+    public void setDisableItemSelected(boolean val) {
+        cbDisabled.setSelected(val);
     }
 }

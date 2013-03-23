@@ -9,12 +9,12 @@ import org.apache.commons.io.FileUtils;
  */
 public interface Const {
 
-    boolean DEV_MODE = false;  // увеличить номер версии при сборке
+    boolean DEV_MODE = true;  // увеличить номер версии при сборке
     String DEFAULT_ENDPOINT = "http://churganovroman.appspot.com/DataProvider";
     String DEFAULT_ENDPOINT_WSDL = "http://churganovroman.appspot.com/wsdl/DataProvider.wsdl";
     //String DEFAULT_ENDPOINT = "http://localhost:8080/DataProvider";
     //String DEFAULT_ENDPOINT_WSDL = "http://localhost:8080/wsdl/DataProvider.wsdl";
-    String VERSION = "1.32";
+    String VERSION = "1.33";
 
 
     String APP_NAME = "Bim";

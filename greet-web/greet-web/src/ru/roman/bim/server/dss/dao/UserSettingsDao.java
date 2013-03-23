@@ -40,6 +40,7 @@ public class UserSettingsDao {
     public static final String WORK_WITH_PORTION = "workWithPortion";
     public static final String EDIT_DATE = "editDate";
     public static final String LAST_ACCESS = "lastAccess";
+    public static final String DISABILITY_DURATION = "disabilityDuration";
     public static final List<String> EXCLUDE_FOR_ENTITY = Arrays.asList("id", "key");
     public static final List<String> EXCLUDE_FOR_BEAN = Arrays.asList("id", "key", LAST_ACCESS);
 
@@ -74,6 +75,7 @@ public class UserSettingsDao {
         setEntPropertyIfNull(sett, TYPES, Arrays.asList(0, 1, 2, 3));
         setEntPropertyIfNull(sett, CATEGORIES, Arrays.asList(0, 1));
         setEntPropertyIfNull(sett, SUBSCRIBED, Arrays.asList(UserSettingsDao.getMasterUser().getKey().getId()));
+        setEntPropertyIfNull(sett, DISABILITY_DURATION, 60L);
         sett.setProperty(LAST_ACCESS, currDate);
 
         persistEntity(sett);

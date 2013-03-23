@@ -3,11 +3,15 @@ package ru.roman.bim.service.ghost;
 /** @author Roman 10.01.13 23:43 */
 public interface GhostService {
 
-    public void start();
+    void start();
 
-    public void startFromOpened();
+    void startFromOpened();
 
-    public void stop();
+    void stop();
 
+    void delayedStart(DelayedAction action);
 
+    public interface DelayedAction {
+        void afterDelay();
+    }
 }
