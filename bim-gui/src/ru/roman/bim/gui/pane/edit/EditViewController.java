@@ -16,6 +16,7 @@ import ru.roman.bim.service.translate.TranslationService;
 import ru.roman.bim.util.GuiUtil;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -23,6 +24,7 @@ import java.util.Collection;
 public class EditViewController extends Controller<EditView, EditViewModel> {
     private static final Log log = LogFactory.getLog(EditViewController.class);
 
+    private State state;
     private final GaeConnector gaeConnector = ServiceFactory.getGaeConnector();
     private final TranslationService yaTranslator = ServiceFactory.getYandexService();
     private LocalCache localCache;
@@ -37,31 +39,52 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
     }
 
     protected synchronized void onPrev() {
-        localCache.getPrev(
-                new LocalCache.CacheCallBack() {
-                    @Override
-                    public void onGot(MainViewModel model) {
-                        currModel = new EditViewModel(model);
-                        view.fillWidgets(currModel);
-                        originalModel = currModel.clone();
-                    }
-                }
-        );
+        switch (state) {
+            case FILL_NEW:
+                state = State.LOADING;
+                localCache.getCurrent(
+                        new LocalCache.CacheCallBack() {
+                            @Override
+                            public void onGot(MainViewModel model) {
+                                showModel(model);
+                            }
+                        }
+                );
+                break;
+            default:
+                state = State.LOADING;
+                localCache.getPrev(
+                        new LocalCache.CacheCallBack() {
+                            @Override
+                            public void onGot(MainViewModel model) {
+                                showModel(model);
+                            }
+                        }
+                );
+        }
+    }
+
+    private synchronized void showModel(MainViewModel model) {
+        if (state == State.LOADING) {
+            currModel = new EditViewModel(model);
+            view.fillWidgets(currModel);
+            originalModel = currModel.clone();
+            state = State.EDIT;
+        }
     }
 
     protected synchronized void onNext() {
+        state = State.LOADING;
         localCache.getNext(new LocalCache.CacheCallBack() {
             @Override
             public void onGot(MainViewModel model) {
-                currModel = new EditViewModel(model);
-                view.fillWidgets(currModel);
-                originalModel = currModel.clone();
+                showModel(model);
             }
         });
     }
 
     public synchronized void onNew() {
-        EditViewModel old = currModel;
+        final EditViewModel old = currModel;
         currModel = new EditViewModel();
         currModel.setFacedLangId(old.getFacedLangId());
         currModel.setShadowedLangId(old.getShadowedLangId());
@@ -70,6 +93,7 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
         currModel.setCategory(old.getCategory());
         currModel.setOwner(Settings.get().getId());
         view.fillWidgets(currModel);
+        state = State.FILL_NEW;
     }
 
     protected synchronized void onSave() {
@@ -104,13 +128,13 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
                         return;
                 }
             }
+            state = State.LOADING;
             gaeConnector.save(currModel, new GaeConnector.GaeCallBack<Long>() {
                 @Override
                 protected void onSuccess(Long id) {
                     currModel.setId(id);
-                    localCache.renewModel(currModel);
-                    view.fillWidgets(currModel);
-                    originalModel = currModel.clone();
+                    localCache.addOrRenewModel(currModel);
+                    showModel(currModel);
                 }
             });
         }
@@ -121,6 +145,7 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
     }
 
     public synchronized void show(LocalCache cache) {
+        state = State.LOADING;
         this.localCache = LocalCacheFactory.createLocalCacheInstance(cache);
         localCache.getCurrent(new LocalCache.CacheCallBack() {
             @Override
@@ -129,6 +154,8 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
                 view.fillWidgets(currModel);
                 originalModel = currModel.clone();
                 view.setVisible(true);
+                view.setState(Frame.NORMAL);
+                state = State.EDIT;
             }
         });
     }

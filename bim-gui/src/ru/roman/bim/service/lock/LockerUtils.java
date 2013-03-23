@@ -32,8 +32,9 @@ public abstract class LockerUtils {
             timer.start();
 
         } else {
-            TrayUtils.showTrayNotification(Const.APP_NAME + " started", TrayIcon.MessageType.INFO);
-            log.info(Const.APP_NAME + " started");
+            final String mess = Const.APP_NAME + " " + Const.VERSION + " started";
+            TrayUtils.showTrayNotification(mess, TrayIcon.MessageType.INFO);
+            log.info(mess);
         }
     }
 

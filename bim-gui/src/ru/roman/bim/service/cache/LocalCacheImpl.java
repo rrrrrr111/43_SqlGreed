@@ -205,11 +205,14 @@ public class LocalCacheImpl implements LocalCache {
     }
 
     @Override
-    public synchronized void renewModel(MainViewModel model) {
+    public synchronized void addOrRenewModel(MainViewModel model) {
         int idx = cache.indexOf(model);
         if (idx >=0) {
             cache.remove(idx);
             cache.add(idx, model);
+        } else {
+            ++currentNum;
+            cache.add(currentNum - currentOffset, model);
         }
     }
 

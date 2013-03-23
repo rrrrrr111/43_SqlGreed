@@ -87,7 +87,7 @@ public class ExceptionHandler {
         }
     }
 
-    public static void registerUncatchExceptionHandler() {
+    public static void registerUncaughtExceptionHandler() {
         EventQueue queue = Toolkit.getDefaultToolkit().getSystemEventQueue();
         queue.push(new EventQueue () {
             @Override

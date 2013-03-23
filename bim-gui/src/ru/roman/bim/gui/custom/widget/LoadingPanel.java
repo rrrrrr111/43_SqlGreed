@@ -19,6 +19,7 @@ public class LoadingPanel extends JPanel {
         add(new JLabel(""));
         //setVisible(false);
         //activateLoading();
+        stopLoading();
     }
 
 

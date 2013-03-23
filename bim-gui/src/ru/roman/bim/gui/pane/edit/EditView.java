@@ -277,10 +277,11 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         gbc11.gridy = 3;
         //gbc11.ipady = 140;                          // ограничение минимального размера
         //gbc11.ipadx = 270;                          // ограничение минимального размера
-        gbc11.insets = new Insets(0,2,0,2);
+        gbc11.insets = new Insets(3,2,3,2);
         panel.add(LoadingPanel.createSharedInstance(), gbc11);
 
         pack();
+
     }
 
     private static final int TITLE_MAX_LENGTH = 35;

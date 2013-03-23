@@ -23,11 +23,9 @@ public abstract class GuiUtil {
 
             public void run() {
                 try {
-                    ExceptionHandler.registerUncatchExceptionHandler();
+                    ExceptionHandler.registerUncaughtExceptionHandler();
                     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-
                     starter.onStart();
-
                 } catch (Throwable e) {
                     ExceptionHandler.showErrorMessageAndExit(e);
                 }
@@ -87,13 +85,17 @@ public abstract class GuiUtil {
         return createImage(Res.MAIN_IMAGE_PATH);
     }
 
+    public static ImageIcon createMainIcon() {
+        return createIcon(Res.MAIN_IMAGE_PATH);
+    }
+
     public static Image createLoadingImage() {
         return createImage(Res.LOADING_IMAGE_PATH);
     }
 
     private static Map<String, ImageIcon> images = new HashMap<String, ImageIcon>();
 
-    public static Image createImage(String path) {
+    public static ImageIcon createIcon(String path) {
         if (!images.containsKey(path)) {
             final URL imageURL = GuiUtil.class.getResource(path);
             final ImageIcon icon;
@@ -105,8 +107,12 @@ public abstract class GuiUtil {
             }
             images.put(path, icon);
         }
-        return images.get(path) != null ? images.get(path).getImage() : null;
+        return images.get(path);
+    }
 
+    public static Image createImage(String path) {
+        ImageIcon icon = createIcon(path);
+        return icon != null ? icon.getImage() : null;
     }
 
     private static Dimension getScreenSize() {

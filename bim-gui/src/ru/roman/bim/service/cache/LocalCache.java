@@ -34,7 +34,7 @@ public interface LocalCache {
 
     void clearCache();
 
-    void renewModel(MainViewModel currModel);
+    void addOrRenewModel(MainViewModel currModel);
 
 
     public interface CacheCallBack {

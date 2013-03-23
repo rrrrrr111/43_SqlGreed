@@ -62,7 +62,7 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
         //setOpacity(Float.valueOf(0.75f));
         //setResizable(false);
         setAlwaysOnTop(true);
-
+        setFocusable(true);
 
 
         // текст
@@ -205,7 +205,7 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
         panel.add(LoadingPanel.createSharedInstance(), gbc8);
 
 
-        final MouseAdapter mouseListener = new MouseAdapter() {
+        final MouseAdapter showQuicklyListener = new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
                 controller.getGhostService().stop();
@@ -217,15 +217,25 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
                 controller.getGhostService().startFromOpened();
             }
         };
-        panel.addMouseListener(mouseListener);
-        prevButton.addMouseListener(mouseListener);
-        nextButton.addMouseListener(mouseListener);
-        translateButton.addMouseListener(mouseListener);
-        editButton.addMouseListener(mouseListener);
-        hideButton.addMouseListener(mouseListener);
-        textScroll.addMouseListener(mouseListener);
-        textScroll.getVerticalScrollBar().addMouseListener(mouseListener);
-        textLabel.addMouseListener(mouseListener);
+        panel.addMouseListener(showQuicklyListener);
+        prevButton.addMouseListener(showQuicklyListener);
+        nextButton.addMouseListener(showQuicklyListener);
+        translateButton.addMouseListener(showQuicklyListener);
+        editButton.addMouseListener(showQuicklyListener);
+        hideButton.addMouseListener(showQuicklyListener);
+        textScroll.addMouseListener(showQuicklyListener);
+        textScroll.getVerticalScrollBar().addMouseListener(showQuicklyListener);
+        textLabel.addMouseListener(showQuicklyListener);
+
+//        final MouseAdapter focusListener = new MouseAdapter() {
+//            @Override
+//            public void mouseEntered(MouseEvent e) {
+//                requestFocus();
+//            }
+//        };
+//        textScroll.addMouseListener(focusListener);
+//        textScroll.getVerticalScrollBar().addMouseListener(focusListener);
+//        textLabel.addMouseListener(focusListener);
 
         final MouseAdapter mouseCaptureListener = new MouseAdapter() {
             @Override
@@ -260,6 +270,18 @@ public class MainView extends JWindow implements View<MainViewModel, MainView, M
         pack();
         Point pos = GuiUtil.getRightCornerPosition(getSize(), 3);
         setLocation(pos);
+
+
+//        int c = JComponent.WHEN_IN_FOCUSED_WINDOW;
+//        KeyStroke ks = KeyStroke.getKeyStroke(KeyEvent.VK_D, InputEvent.ALT_DOWN_MASK);
+//        panel.getInputMap(c).put(ks, "disableOnAltD");
+//        panel.getActionMap().put("disableOnAltD", new AbstractAction() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                controller.changeState(State.DISABLED);
+//                System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>");
+//            }
+//        });
     }
 
     public void setRating(Integer rating) {

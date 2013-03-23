@@ -13,6 +13,7 @@ import ru.roman.bim.service.gae.wsclient.UserSettingsModel;
 import ru.roman.bim.service.wordload.WordLoaderService;
 import ru.roman.bim.util.GuiUtil;
 
+import java.awt.*;
 import java.io.File;
 import java.util.Arrays;
 
@@ -74,6 +75,7 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
         currModel = configService.loadSettingsConfig();
         modelDataToView();
         view.setVisible(true);
+        view.setState(Frame.NORMAL);
     }
 
     public void onSaveOrRegister() {

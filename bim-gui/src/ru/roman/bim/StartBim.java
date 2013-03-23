@@ -8,8 +8,6 @@ import ru.roman.bim.gui.pane.PaineFactory;
 import ru.roman.bim.gui.pane.settings.Settings;
 import ru.roman.bim.gui.pane.settings.SettingsViewController;
 import ru.roman.bim.gui.pane.tray.TrayUtils;
-import ru.roman.bim.service.ServiceFactory;
-import ru.roman.bim.service.config.ConfigService;
 import ru.roman.bim.service.lock.LockerUtils;
 import ru.roman.bim.util.Const;
 import ru.roman.bim.util.GuiUtil;
@@ -21,12 +19,14 @@ import java.io.IOException;
 /** @author Roman 17.12.12 23:44 */
 public class StartBim {
     private static final Log log = LogFactory.getLog(StartBim.class);
-    private static SettingsViewController settingsController = PaineFactory.getSettingsViewController();
+    private static SettingsViewController settingsController;
 
     public static void main(String args[]) {
+
         GuiUtil.startSwingApp(new GuiUtil.Starter() {
             @Override
             public void onStart() {
+                settingsController = PaineFactory.getSettingsViewController();
                 prepareEnvironment();
                 prepareCredentials(new RegistrationCallBack() {
                     @Override
