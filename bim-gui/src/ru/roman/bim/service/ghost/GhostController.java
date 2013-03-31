@@ -4,7 +4,7 @@ package ru.roman.bim.service.ghost;
 public interface GhostController {
 
 
-    void showSlowly();
+    void onShow();
 
-    void hideSlowly();
+    void onHide();
 }

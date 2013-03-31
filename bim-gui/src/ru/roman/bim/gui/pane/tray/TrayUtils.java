@@ -43,13 +43,13 @@ public class TrayUtils {
                 if (e.getButton() == MouseEvent.BUTTON3 && e.getClickCount() == 1) {
                     popupMenu.setLocation(e.getX(), e.getY());
                     popupMenu.setInvoker(popupMenu);
-                    popupMenu.setVisible(true);
+                    popupMenu.showPopup();
                 } else if (e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() == 1) {
                     controller.onShowQuickly();
                 }
             }
         });
-        trayIcon.setToolTip(Const.APP_NAME + " " + Const.VERSION);
+        trayIcon.setToolTip(Const.APP_NAME_WITH_VERSION);
         trayIcon.setImageAutoSize(true);
 
         try {

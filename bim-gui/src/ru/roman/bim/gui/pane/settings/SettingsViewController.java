@@ -3,6 +3,7 @@ package ru.roman.bim.gui.pane.settings;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.StartBim;
+import ru.roman.bim.gui.common.cbchain.CallBackChain;
 import ru.roman.bim.gui.common.mvc.Controller;
 import ru.roman.bim.gui.pane.PaineFactory;
 import ru.roman.bim.service.ServiceFactory;
@@ -28,7 +29,7 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
     private final ConfigService configService = ServiceFactory.getConfigService();
 
     private State state = State.REGISTERED;
-    private StartBim.RegistrationCallBack callBack;
+    private CallBackChain<UserSettingsModel> callBack;
 
     public SettingsViewController(SettingsView view) {
         super(view);
@@ -38,7 +39,7 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
 
     }
 
-    public void fillCredentials(StartBim.RegistrationCallBack callBack) {
+    public void fillCredentials(CallBackChain<UserSettingsModel> callBack) {
         state = State.FIRST_INPUT;
         this.callBack = callBack;
         view.prepareForFirstInput();
@@ -52,21 +53,20 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
         modelDataToView();
     }
 
-    public void reloadSettings(final StartBim.RegistrationCallBack callBack) {
+    public void reloadSettings(final CallBackChain<UserSettingsModel> callBack) {
         final SettingsViewModel config = configService.loadSettingsConfig();
         gaeConnector.registerNewAndLoadSettings(config, new GaeConnector.GaeCallBack<UserSettingsModel>() {
             @Override
             public void onSuccess(UserSettingsModel result) {
                 currModel = new SettingsViewModel(result);
                 configService.saveSettingsConfig(currModel);
-                callBack.afterRegistration();
+                callBack.run(result);
             }
             @Override
             public void onFailure(Exception e) {
                 log.error("Error while settings loading", e);
                 currModel = config;
                 fillCredentials(callBack);
-                return;
             }
         });
     }
@@ -87,11 +87,15 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
         switch (state) {
             case FIRST_INPUT:
                 gaeConnector.registerNewAndLoadSettings(currModel, new GaeConnector.GaeCallBack<UserSettingsModel>() {
-                            @Override
-                            protected void onSuccess(UserSettingsModel result) {
-                                currModel = new SettingsViewModel(result);
-                            }
-                        });
+                    @Override
+                    protected void onSuccess(UserSettingsModel result) {
+                        currModel = new SettingsViewModel(result);
+                    }
+                    @Override
+                    protected void onFailure(Exception e) {
+                        super.onFailure(e);
+                    }
+                });
                 break;
             case REGISTERED:
                 gaeStoreSettings();
@@ -105,7 +109,7 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
             case FIRST_INPUT:
 
                 view.setVisible(false);
-                callBack.afterRegistration();
+                callBack.run(currModel);
                 callBack = null;
                 view.prepareSettingsView();
                 state = State.REGISTERED;

@@ -65,9 +65,9 @@ public class UserSettingsDao {
         setEntPropertyIfNull(sett, CACHE_MAX_SIZE, 100L);
         setEntPropertyIfNull(sett, FACED_LANG_ID, 1L);
         setEntPropertyIfNull(sett, LOOK_AND_FEEL, "");
-        setEntPropertyIfNull(sett, PREVIEW_DURATION, 5 * 60 * 1000);
+        setEntPropertyIfNull(sett, PREVIEW_DURATION, 0.3);
         setEntPropertyIfNull(sett, OPACITY, 0.75);
-        setEntPropertyIfNull(sett, PREVIEW_INTERVAL, 30 * 1000);
+        setEntPropertyIfNull(sett, PREVIEW_INTERVAL, 5.0);
         setEntPropertyIfNull(sett, RATINGS, Arrays.asList(1, 2, 3));
         setEntPropertyIfNull(sett, RECORDS_COUNT, 0L);
         setEntPropertyIfNull(sett, PORTION, 100L);
@@ -75,7 +75,7 @@ public class UserSettingsDao {
         setEntPropertyIfNull(sett, TYPES, Arrays.asList(0, 1, 2, 3));
         setEntPropertyIfNull(sett, CATEGORIES, Arrays.asList(0, 1));
         setEntPropertyIfNull(sett, SUBSCRIBED, Arrays.asList(UserSettingsDao.getMasterUser().getKey().getId()));
-        setEntPropertyIfNull(sett, DISABILITY_DURATION, 60L);
+        setEntPropertyIfNull(sett, DISABILITY_DURATION, 60.0);
         sett.setProperty(LAST_ACCESS, currDate);
 
         persistEntity(sett);
@@ -87,13 +87,14 @@ public class UserSettingsDao {
 
 
     public static void storeSettings(UserSettingsModel model) {
-        Entity sett = findFirstEntity(ENT_NAME, LOGIN, model);
+        final Entity sett = findFirstEntity(ENT_NAME, LOGIN, model);
         if (sett == null) {
             throw new RuntimeException(String.format("User %s doesn't registered", model.getLogin()));
         } else {
             checkPassword(model, sett);
+            final Date currDate = new Date();
             copyEntProperties(sett, model, EXCLUDE_FOR_ENTITY);
-            sett.setProperty(LAST_ACCESS, new Date());
+            sett.setProperty(LAST_ACCESS, currDate);
             persistEntity(sett);
         }
     }

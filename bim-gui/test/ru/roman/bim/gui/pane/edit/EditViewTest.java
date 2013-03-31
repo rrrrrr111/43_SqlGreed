@@ -1,5 +1,6 @@
 package ru.roman.bim.gui.pane.edit;
 
+import ru.roman.bim.gui.common.cbchain.CallBackChain;
 import ru.roman.bim.gui.pane.PaineFactory;
 import ru.roman.bim.service.cache.LocalCacheFactory;
 import ru.roman.bim.util.GuiUtil;
@@ -12,9 +13,9 @@ public class EditViewTest {
 
     public static void main(String args[]) {
 
-        GuiUtil.startSwingApp(new GuiUtil.Starter() {
+        GuiUtil.startSwingApp(new CallBackChain<Void>() {
             @Override
-            public void onStart() {
+            public void onSuccess(Void result) {
                 PaineFactory.getEditViewController().show(
                         LocalCacheFactory.createLocalCacheInstance(0L, 0L));
             }

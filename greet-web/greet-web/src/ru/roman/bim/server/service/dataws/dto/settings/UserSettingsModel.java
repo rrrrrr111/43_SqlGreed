@@ -29,20 +29,15 @@ public class UserSettingsModel implements Serializable {
     private Long recordsCount;
 
     private Double opacity;
-    private Long previewInterval;
-    private Long previewDuration;
-    private Long disabilityDuration;
+    private Double previewInterval;
+    private Double previewDuration;
+    private Double disabilityDuration;
     private String lookAndFeel;
 
     private Date editDate;
 
-    public Long getDisabilityDuration() {
-        return disabilityDuration;
-    }
 
-    public void setDisabilityDuration(Long disabilityDuration) {
-        this.disabilityDuration = disabilityDuration;
-    }
+
 
     public List<Long> getCategories() {
         return categories;
@@ -106,30 +101,6 @@ public class UserSettingsModel implements Serializable {
 
     public void setPortion(Long portion) {
         this.portion = portion;
-    }
-
-    public Double getOpacity() {
-        return opacity;
-    }
-
-    public void setOpacity(Double opacity) {
-        this.opacity = opacity;
-    }
-
-    public Long getPreviewInterval() {
-        return previewInterval;
-    }
-
-    public void setPreviewInterval(Long previewInterval) {
-        this.previewInterval = previewInterval;
-    }
-
-    public Long getPreviewDuration() {
-        return previewDuration;
-    }
-
-    public void setPreviewDuration(Long previewDuration) {
-        this.previewDuration = previewDuration;
     }
 
     public String getSortingField() {
@@ -211,5 +182,37 @@ public class UserSettingsModel implements Serializable {
 
     public void setEditDate(Date editDate) {
         this.editDate = editDate;
+    }
+
+    public Double getOpacity() {
+        return opacity;
+    }
+
+    public void setOpacity(Double opacity) {
+        this.opacity = opacity;
+    }
+
+    public Double getPreviewInterval() {
+        return previewInterval;
+    }
+
+    public void setPreviewInterval(Double previewInterval) {
+        this.previewInterval = previewInterval;
+    }
+
+    public Double getPreviewDuration() {
+        return previewDuration;
+    }
+
+    public void setPreviewDuration(Double previewDuration) {
+        this.previewDuration = previewDuration;
+    }
+
+    public Double getDisabilityDuration() {
+        return disabilityDuration;
+    }
+
+    public void setDisabilityDuration(Double disabilityDuration) {
+        this.disabilityDuration = disabilityDuration;
     }
 }

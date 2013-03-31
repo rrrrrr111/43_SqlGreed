@@ -22,7 +22,7 @@ import java.sql.SQLException;
 public class ExceptionHandler {
     private static final Log log = LogFactory.getLog(ExceptionHandler.class);
     private final static NarrowOptionPane ERR_PAINE = new NarrowOptionPane();
-
+    private static volatile boolean errMessAlreadyShown;
 
     public static void showErrorMessageAndExit(Throwable t){
         showMessage(t);
@@ -30,20 +30,31 @@ public class ExceptionHandler {
     }
 
     public static void showMessage(Throwable t){
-        Validate.notNull(t);
-        final String mess = createErrorText(t);
-        final String title;
-        if (t instanceof BimValidationException) {
-            ERR_PAINE.setMessageType(JOptionPane.WARNING_MESSAGE);
-            title = Const.APP_NAME + " validation error";
-        } else {
-            ERR_PAINE.setMessageType(JOptionPane.ERROR_MESSAGE);
-            title = Const.APP_NAME + " error";
-            log.error(Const.APP_NAME + " exception :", t);
-        }
 
-        ERR_PAINE.setMessage(mess);
-        ERR_PAINE.createDialog(null, title).setVisible(true);
+        synchronized (ExceptionHandler.class) {
+            if (errMessAlreadyShown) {
+                log.error(Const.APP_NAME + " exception, message box missing, because already shown :", t);
+                return;
+            }
+            errMessAlreadyShown = true;
+        }
+        try {
+            Validate.notNull(t);
+            final String mess = createErrorText(t);
+            final String title;
+            if (t instanceof BimValidationException) {
+                ERR_PAINE.setMessageType(JOptionPane.WARNING_MESSAGE);
+                title = Const.APP_NAME + " validation error";
+            } else {
+                ERR_PAINE.setMessageType(JOptionPane.ERROR_MESSAGE);
+                title = Const.APP_NAME + " error";
+                log.error(Const.APP_NAME + " exception :", t);
+            }
+            ERR_PAINE.setMessage(mess);
+            ERR_PAINE.createDialog(null, title).setVisible(true);
+        } finally {
+            errMessAlreadyShown = false;
+        }
     }
 
     private static String createErrorText(Throwable e) {

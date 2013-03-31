@@ -10,7 +10,7 @@ import java.awt.event.*;
 public class TrayJPopupMenu extends JPopupMenu {
 
     private final TrayController controller;
-
+    private final Timer mouseExitedTicker;
     private final JCheckBoxMenuItem cbDisabled;
 
     public TrayJPopupMenu(TrayController contr) throws HeadlessException {
@@ -23,7 +23,7 @@ public class TrayJPopupMenu extends JPopupMenu {
         final JMenuItem clearCacheItem = new JMenuItem("Clear cache");
         final JMenuItem infoItem = new JMenuItem();
         infoItem.setEnabled(false);
-        cbDisabled = new JCheckBoxMenuItem("Disabled");
+        cbDisabled = new JCheckBoxMenuItem("Disabled   Alt+D");
         final JMenuItem editMenu = new JMenuItem("Edit");
         final JMenuItem settingsMenu = new JMenuItem("Settings");
         final JMenuItem exitItem = new JMenuItem("Exit");
@@ -68,9 +68,37 @@ public class TrayJPopupMenu extends JPopupMenu {
                 controller.onExit();
             }
         });
+
+        mouseExitedTicker = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TrayJPopupMenu.this.setVisible(false);
+            }
+        });
+        mouseExitedTicker.setCoalesce(true);
+        mouseExitedTicker.setRepeats(false);
+        final MouseAdapter mouseAdapter = new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                mouseExitedTicker.stop();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                mouseExitedTicker.restart();
+            }
+        };
+        GuiUtil.addMouseListenerToChilds(this, mouseAdapter);
+
     }
 
     public void setDisableItemSelected(boolean val) {
         cbDisabled.setSelected(val);
+    }
+
+    public void showPopup() {
+        setVisible(true);
+        mouseExitedTicker.restart();
+
     }
 }

@@ -2,6 +2,7 @@ package ru.roman.bim.service.cache;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import ru.roman.bim.gui.common.cbchain.CallBackChain;
 import ru.roman.bim.gui.pane.main.MainViewModel;
 import ru.roman.bim.gui.pane.settings.Settings;
 import ru.roman.bim.gui.pane.settings.SettingsViewModel;
@@ -28,36 +29,37 @@ public class LocalCacheImpl implements LocalCache {
     /* кэш */
     private final List<MainViewModel> cache;
     /** счетчик относительно которого идет перебор слов в БД, начинается с нуля */
-    private Integer currentNum = 0;
+    private Integer currentNum;
     /** сдвиг относително начала БД для текущего набора в кэше */
-    private Integer currentOffset = 0;
+    private Integer currentOffset;
     /** общее кол-во записей */
-    private Integer recordsCount = 0;
+    private Integer recordsCount;
 
     protected LocalCacheImpl() {
         super();
-        cache = new ArrayList<MainViewModel>(Settings.get().getCacheMaxSize().intValue());
+        this.cache = new ArrayList<MainViewModel>(Settings.get().getCacheMaxSize().intValue());
     }
 
-    protected LocalCacheImpl(LocalCache localCache) {
+    protected LocalCacheImpl(LocalCache cache) {
         super();
-        cache = localCache.getCacheData();
-        initCache(localCache.getCurrentNum(), localCache.getRecordsCount());
+        this.cache = cache.getCacheData();
+        initCache(cache.getCurrentNum(), cache.getRecordsCount(), cache.getCurrentOffset());
     }
 
     @Override
-    public synchronized void initCache(Integer currentNum, Integer recordsCount) {
+    public synchronized void initCache(Integer currentNum, Integer recordsCount, Integer currentOffset) {
         this.currentNum = currentNum;
         this.recordsCount = recordsCount;
+        this.currentOffset = currentOffset;
     }
 
     @Override
     public synchronized MainViewModel getCurrentSync() {
         final MainViewModel[] modelArr = new MainViewModel[1];
         final CountDownLatch signal = new CountDownLatch(1);
-        checkCacheState(new CacheCallBack() {
+        checkCacheState(new CallBackChain<MainViewModel>() {
             @Override
-            public void onGot(MainViewModel model) {
+            public void onSuccess(MainViewModel model) {
                 modelArr[0] = model;
                 signal.countDown();
             }
@@ -77,18 +79,18 @@ public class LocalCacheImpl implements LocalCache {
     }
 
     @Override
-    public synchronized void getCurrent(CacheCallBack callBack) {
+    public synchronized void getCurrent(CallBackChain callBack) {
         checkCacheState(callBack);
     }
 
     @Override
-    public synchronized void getNext(CacheCallBack callBack) {
+    public synchronized void getNext(CallBackChain callBack) {
         ++currentNum;
         checkCacheState(callBack);
     }
 
     @Override
-    public synchronized void getPrev(CacheCallBack callBack) {
+    public synchronized void getPrev(CallBackChain callBack) {
         --currentNum;
         checkCacheState(callBack);
     }
@@ -104,7 +106,7 @@ public class LocalCacheImpl implements LocalCache {
     }
 
 
-    private void checkCacheState(final CacheCallBack callBack) {
+    private void checkCacheState(final CallBackChain<MainViewModel> callBack) {
         final SettingsViewModel sett = Settings.get();
         final int portion = sett.getPortion().intValue();
         final boolean isPortionWorking = sett.isWorkWithPortion();
@@ -161,11 +163,16 @@ public class LocalCacheImpl implements LocalCache {
                     cache.addAll(toModels(resp.getList()));
                     recordsCount = resp.getRecordsCount();
                     currentOffset = newOffset[0];
-                    callBack.onGot(getFromCache(currentNum));
+                    callBack.run(getFromCache(currentNum));
+                }
+
+                @Override
+                protected void onFailure(Exception e) {
+                    callBack.exception(e);
                 }
             });
         } else {
-            callBack.onGot(getFromCache(currentNum));
+            callBack.run(getFromCache(currentNum));
         }
     }
 

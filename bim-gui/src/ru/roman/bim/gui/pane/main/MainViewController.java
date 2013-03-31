@@ -2,8 +2,10 @@ package ru.roman.bim.gui.pane.main;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import ru.roman.bim.gui.common.cbchain.CallBackChain;
 import ru.roman.bim.gui.common.mvc.Controller;
 import ru.roman.bim.gui.custom.tools.OpacityTimer;
+import ru.roman.bim.gui.custom.widget.TransparentWindowSupport;
 import ru.roman.bim.gui.pane.PaineFactory;
 import ru.roman.bim.gui.pane.settings.SettingsViewModel;
 import ru.roman.bim.gui.pane.tray.TrayUtils;
@@ -26,6 +28,7 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
     private final OpacityTimer opacityTimer;
     private final GhostService ghostService;
 
+    private final TransparentWindowSupport supp = new TransparentWindowSupport();
 
     private volatile State state;
 
@@ -38,6 +41,7 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
 
     public void onInit() {
 
+        state = State.SCHEDULED;
         TrayUtils.addTrayIcon();
         final SettingsViewModel sett = configService.loadSettingsConfig();
         localCache = LocalCacheFactory.createLocalCacheInstance(sett.getCurrentNum(), sett.getRecordsCount());
@@ -59,19 +63,19 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
     }
 
     protected void onPrev() {
-        localCache.getPrev(new LocalCache.CacheCallBack() {
+        localCache.getPrev(new CallBackChain<MainViewModel>() {
             @Override
-            public void onGot(MainViewModel model) {
+            public void onSuccess(MainViewModel model) {
                 currModel = model;
                 view.fillWidgets(currModel);
             }
         });
     }
 
-    protected void onNext() {
-        localCache.getNext(new LocalCache.CacheCallBack() {
+    protected void onNext(CallBackChain<MainViewModel> nextCallBack) {
+        localCache.getNext(new CallBackChain<MainViewModel>(null, nextCallBack) {
             @Override
-            public void onGot(MainViewModel model) {
+            public void onSuccess(MainViewModel model) {
                 currModel = model;
                 view.fillWidgets(currModel);
             }
@@ -82,12 +86,16 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
         view.translate();
     }
 
-    public void showSlowly() {
-        onNext();
-        opacityTimer.showSlowly();
+    public void onShow() {
+        onNext(new CallBackChain<MainViewModel>() {
+            @Override
+            protected void onSuccess(MainViewModel result) {
+                opacityTimer.showSlowly();
+            }
+        });
     }
 
-    public void hideSlowly() {
+    public void onHide() {
         opacityTimer.hideSlowly();
     }
 
@@ -97,18 +105,14 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
 
     public void showQuickly() {
         opacityTimer.showQuickly();
+        supp.setVisible(true);
     }
 
     public synchronized void changeState(State state) {
         switch (state) {
             case DISABLED:
-                ghostService.delayedStart(new GhostService.DelayedAction() {
-                    @Override
-                    public void afterDelay() {
-                        TrayUtils.getPopupMenu().setDisableItemSelected(false);
-                    }
-                });
                 opacityTimer.hideQuickly();
+                ghostService.stop();
                 break;
             case SCHEDULED:
                 ghostService.start();
@@ -122,8 +126,27 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
         return localCache;
     }
 
+    public void startGhostFromOpened() {
+        switch (state) {
+            case SCHEDULED:
+                ghostService.startFromOpened();
+                break;
+            case DISABLED:
+                opacityTimer.hideSlowly();
+                break;
+        }
+        supp.setVisible(false);
+    }
 
-    public GhostService getGhostService() {
-        return ghostService;
+    public void stopGhost() {
+        switch (state) {
+            case SCHEDULED:
+                ghostService.stop();
+                break;
+        }
+    }
+
+    public State getState() {
+        return state;
     }
 }

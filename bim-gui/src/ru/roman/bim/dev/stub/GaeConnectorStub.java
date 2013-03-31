@@ -66,14 +66,14 @@ public class GaeConnectorStub implements GaeConnector {
         settingsModel.setOpacity(0.75);
         settingsModel.setPassword("355869f9511e558c3fbdde6779dcc0");     //tratra11
         settingsModel.setPortion(100L);
-        settingsModel.setPreviewDuration((long)(5 * 60 * 1000));
-        settingsModel.setPreviewInterval((long)(30 * 1000));
+        settingsModel.setPreviewDuration(0.1);
+        settingsModel.setPreviewInterval(1d);
         settingsModel.setRecordsCount(1000L);
         settingsModel.setShadowedLangId(2L);
         settingsModel.setSortingDirection("DESCENDING");
         settingsModel.setSortingField("editDate");
         settingsModel.setWorkWithPortion(true);
-        settingsModel.setDisabilityDuration(1L);
+        settingsModel.setDisabilityDuration(3d);
         settings.add(settingsModel);
     }
 

@@ -16,7 +16,7 @@ public class LocalCacheImplTest {
 
     @Test
     public void someTest() {
-        lc.initCache(0, 0);
+        lc.initCache(0, 0, 0);
     }
 
 

@@ -8,7 +8,7 @@ public class LocalCacheFactory {
     public static LocalCache createLocalCacheInstance(Long currentNum, Long recordsCount) {
 
         LocalCache instance = new LocalCacheImpl();
-        instance.initCache(currentNum.intValue(), recordsCount.intValue());
+        instance.initCache(currentNum.intValue(), recordsCount.intValue(), 0);
         return instance;
     }
 

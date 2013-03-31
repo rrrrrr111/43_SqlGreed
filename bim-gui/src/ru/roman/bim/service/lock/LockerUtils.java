@@ -20,8 +20,10 @@ public abstract class LockerUtils {
 
 
     public static void tryLockApplication() {
+        final String mess;
         if(!isApplicationAlreadyRunning()){
-            TrayUtils.showTrayNotification(Const.APP_NAME + " is already running.", TrayIcon.MessageType.INFO);
+            mess = Const.APP_NAME + " is already running.";
+            TrayUtils.showTrayNotification(mess, TrayIcon.MessageType.INFO);
             final Timer timer = new Timer(3000, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -32,10 +34,10 @@ public abstract class LockerUtils {
             timer.start();
 
         } else {
-            final String mess = Const.APP_NAME + " " + Const.VERSION + " started";
+            mess = Const.APP_NAME + " " + Const.VERSION + " started";
             TrayUtils.showTrayNotification(mess, TrayIcon.MessageType.INFO);
-            log.info(mess);
         }
+        log.info(mess);
     }
 
 

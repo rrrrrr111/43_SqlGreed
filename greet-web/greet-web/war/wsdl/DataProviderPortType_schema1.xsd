@@ -52,7 +52,7 @@
       <xs:element name="cacheMaxSize" type="xs:long" minOccurs="0"/>
       <xs:element name="categories" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="currentNum" type="xs:long" minOccurs="0"/>
-      <xs:element name="disabilityDuration" type="xs:long" minOccurs="0"/>
+      <xs:element name="disabilityDuration" type="xs:double" minOccurs="0"/>
       <xs:element name="editDate" type="xs:dateTime" minOccurs="0"/>
       <xs:element name="facedLangId" type="xs:long" minOccurs="0"/>
       <xs:element name="id" type="xs:long" minOccurs="0"/>
@@ -61,8 +61,8 @@
       <xs:element name="opacity" type="xs:double" minOccurs="0"/>
       <xs:element name="password" type="xs:string" minOccurs="0"/>
       <xs:element name="portion" type="xs:long" minOccurs="0"/>
-      <xs:element name="previewDuration" type="xs:long" minOccurs="0"/>
-      <xs:element name="previewInterval" type="xs:long" minOccurs="0"/>
+      <xs:element name="previewDuration" type="xs:double" minOccurs="0"/>
+      <xs:element name="previewInterval" type="xs:double" minOccurs="0"/>
       <xs:element name="ratings" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="recordsCount" type="xs:long" minOccurs="0"/>
       <xs:element name="shadowedLangId" type="xs:long" minOccurs="0"/>

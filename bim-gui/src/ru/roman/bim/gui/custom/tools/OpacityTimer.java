@@ -40,7 +40,7 @@ public class OpacityTimer extends Timer {
                     pane.setOpacity(opacity);
                     pane.setVisible(true);
 
-                    //pane.setAlwaysOnTop(true);
+                    pane.setAlwaysOnTop(true);
                     pane.toFront();
                 }
                 //log.info("OpacityTimer opacity : " + opacity);
@@ -48,30 +48,23 @@ public class OpacityTimer extends Timer {
         });
     }
 
-    private void checkAndStart() {
-        restart();
-        /*if (!isRunning()) {
-            start();
-        }*/
-    }
-
     public void showSlowly() {
         step = OPACITY_STEP;
-        checkAndStart();
+        restart();
     }
 
     public void hideSlowly() {
         step = -OPACITY_STEP;
-        checkAndStart();
+        restart();
     }
 
     public void showQuickly() {
         step = FINAL_OPACITY;
-        checkAndStart();
+        restart();
     }
 
     public void hideQuickly() {
         step = -FINAL_OPACITY;
-        checkAndStart();
+        restart();
     }
 }

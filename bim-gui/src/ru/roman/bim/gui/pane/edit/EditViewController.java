@@ -3,6 +3,7 @@ package ru.roman.bim.gui.pane.edit;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import ru.roman.bim.gui.common.cbchain.CallBackChain;
 import ru.roman.bim.gui.common.mvc.Controller;
 import ru.roman.bim.gui.pane.main.MainViewModel;
 import ru.roman.bim.gui.pane.settings.Settings;
@@ -43,9 +44,9 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
             case FILL_NEW:
                 state = State.LOADING;
                 localCache.getCurrent(
-                        new LocalCache.CacheCallBack() {
+                        new CallBackChain<MainViewModel>() {
                             @Override
-                            public void onGot(MainViewModel model) {
+                            public void onSuccess(MainViewModel model) {
                                 showModel(model);
                             }
                         }
@@ -54,9 +55,9 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
             default:
                 state = State.LOADING;
                 localCache.getPrev(
-                        new LocalCache.CacheCallBack() {
+                        new CallBackChain<MainViewModel>() {
                             @Override
-                            public void onGot(MainViewModel model) {
+                            public void onSuccess(MainViewModel model) {
                                 showModel(model);
                             }
                         }
@@ -75,9 +76,9 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
 
     protected synchronized void onNext() {
         state = State.LOADING;
-        localCache.getNext(new LocalCache.CacheCallBack() {
+        localCache.getNext(new CallBackChain<MainViewModel>() {
             @Override
-            public void onGot(MainViewModel model) {
+            public void onSuccess(MainViewModel model) {
                 showModel(model);
             }
         });
@@ -147,9 +148,9 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
     public synchronized void show(LocalCache cache) {
         state = State.LOADING;
         this.localCache = LocalCacheFactory.createLocalCacheInstance(cache);
-        localCache.getCurrent(new LocalCache.CacheCallBack() {
+        localCache.getCurrent(new CallBackChain<MainViewModel>() {
             @Override
-            public void onGot(MainViewModel model) {
+            public void onSuccess(MainViewModel model) {
                 currModel = new EditViewModel(model);
                 view.fillWidgets(currModel);
                 originalModel = currModel.clone();

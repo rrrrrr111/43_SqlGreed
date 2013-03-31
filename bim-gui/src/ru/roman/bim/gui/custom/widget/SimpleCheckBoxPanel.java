@@ -65,6 +65,4 @@ public class SimpleCheckBoxPanel extends JPanel {
         }
         return res;
     }
-
-
 }

@@ -25,6 +25,7 @@ public class HttpClientServiceImpl implements HttpClientService {
     @Override
     public String executeGet(String host, String path, Map<String, String> params) {
 
+        HttpEntity entity = null;
         try {
             final URIBuilder builder = new URIBuilder();
             builder.setScheme("http").setHost(host).setPath(path);
@@ -33,30 +34,22 @@ public class HttpClientServiceImpl implements HttpClientService {
             }
             final URI uri = builder.build();
             final HttpGet httpget = new HttpGet(uri);
-
             final HttpResponse response = httpClient.execute(httpget);
-            final HttpEntity entity = response.getEntity();
+            entity = response.getEntity();
             if (entity != null) {
                 long len = entity.getContentLength();
-                if (len != -1 && len < 2048) {
+                if (len > -1){
                     return EntityUtils.toString(entity);
                 } else {
                     throw new BimException(String.format("Content length %s not supported by service", len));
                 }
             } else {
-                throw new BimException(String.format("Entity is null"));
+                throw new BimException(String.format("Response entity is null"));
             }
         } catch (Exception e) {
-            closeConnections();
             throw new RuntimeException("Exception in HTTP-Client service", e);
-        }
-    }
-
-    private void closeConnections() {
-        try {
-            httpClient.getConnectionManager().shutdown();
-        } catch (Exception e) {
-            log.error("Error while connection closing", e);
+        } finally {
+            EntityUtils.consumeQuietly(entity);
         }
     }
 

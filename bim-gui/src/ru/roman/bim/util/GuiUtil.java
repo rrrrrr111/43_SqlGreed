@@ -2,9 +2,11 @@ package ru.roman.bim.util;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import ru.roman.bim.gui.common.cbchain.CallBackChain;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.security.MessageDigest;
@@ -18,26 +20,30 @@ public abstract class GuiUtil {
     public static final int TASK_BAR_HEIGHT = 40;
     private static Dimension screenSize;
 
-    public static void startSwingApp(final Starter starter) {
+    public static void startSwingApp(final CallBackChain<Void> starter) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
                 try {
                     ExceptionHandler.registerUncaughtExceptionHandler();
                     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                    starter.onStart();
-                } catch (Throwable e) {
-                    ExceptionHandler.showErrorMessageAndExit(e);
+                    starter.run(null);
+                } catch (Exception e) {
+                    starter.exception(e);
                 }
             }
         });
     }
 
-
-
-
-    public interface Starter {
-        void onStart();
+    public static void addMouseListenerToChilds(Container component, MouseAdapter listener) {
+        component.addMouseListener(listener);
+        for (Component comp : component.getComponents()) {
+            if (comp instanceof Container) {
+                addMouseListenerToChilds((Container) comp, listener);
+            } else {
+                comp.addMouseListener(listener);
+            }
+        }
     }
 
 
@@ -72,6 +78,14 @@ public abstract class GuiUtil {
         Integer height = (int)dimension.getHeight();
         final Point position = new Point((width - (int)size.getWidth()) / 2,
                 (height - (int)size.getHeight() - TASK_BAR_HEIGHT) / 2);
+        return position;
+    }
+
+    public static Point getInvisiblePosition() {
+        Dimension dimension = getScreenSize();
+        Integer width = (int)dimension.getWidth();
+        Integer height = (int)dimension.getHeight();
+        final Point position = new Point(width + 1000, height + 1000);
         return position;
     }
 

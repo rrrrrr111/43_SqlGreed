@@ -3,6 +3,7 @@ package ru.roman.bim.service.ghost;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.pane.settings.Settings;
+import ru.roman.bim.util.BimException;
 import ru.roman.bim.util.Const;
 
 import javax.swing.*;
@@ -12,10 +13,11 @@ import java.awt.event.ActionListener;
 /** @author Roman 10.01.13 23:38 */
 public class GhostServiceImpl implements GhostService {
     private static final Log log = LogFactory.getLog(GhostServiceImpl.class);
+    public static final double MILLISEC_IN_MIN = 60000;
 
-    public int mainInterval;
-    public int thirstDelay;
-    public int showInterval;
+    public Integer mainInterval;
+    public Integer thirstDelay;
+    public Integer showInterval;
 
     private final GhostController controller;
 
@@ -23,7 +25,6 @@ public class GhostServiceImpl implements GhostService {
     private Timer hideTicker;
     private Timer unfreezeTicker;
 
-    private DelayedAction delayedAction;
 
     public GhostServiceImpl(GhostController ctrl) {
         this.controller = ctrl;
@@ -33,19 +34,15 @@ public class GhostServiceImpl implements GhostService {
             thirstDelay = 1 * 1000;
             showInterval = 3 * 1000;
         } else {
-            mainInterval = Settings.get().getPreviewInterval().intValue();
+            mainInterval = toMilliSec(Settings.get().getPreviewInterval());
             thirstDelay = mainInterval;
-            showInterval = Settings.get().getPreviewDuration().intValue();
+            showInterval = toMilliSec(Settings.get().getPreviewDuration());
         }
 
         mainTicker = new Timer(mainInterval, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (delayedAction != null) {
-                    delayedAction.afterDelay();
-                    delayedAction = null;
-                }
-                controller.showSlowly();
+                controller.onShow();
                 hideTicker.restart();
             }
         });
@@ -55,7 +52,7 @@ public class GhostServiceImpl implements GhostService {
         hideTicker = new Timer(0, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.hideSlowly();
+                controller.onHide();
             }
         });
         hideTicker.setCoalesce(true);
@@ -64,7 +61,7 @@ public class GhostServiceImpl implements GhostService {
         unfreezeTicker = new Timer(0, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.hideSlowly();
+                controller.onHide();
                 start();
             }
         });
@@ -75,39 +72,42 @@ public class GhostServiceImpl implements GhostService {
     }
 
     private void loadTimers() {
-        loadFirstDelay();
+        if (mainInterval < 60000 && ! Const.DEV_MODE) {
+            throw new BimException("Main interval can't be less then 1 minute");
+        } else if (showInterval < 1000) {
+            throw new BimException("Preview duration can't be less then 1 second");
+        }
+        mainTicker.setInitialDelay(thirstDelay);
         mainTicker.setDelay(mainInterval);
         hideTicker.setInitialDelay(showInterval);
         unfreezeTicker.setInitialDelay(showInterval);
     }
 
-    private void loadFirstDelay() {
-        mainTicker.setInitialDelay(thirstDelay);
-    }
 
-    public void delayedStart(DelayedAction action) {
-        thirstDelay = Settings.get().getDisabilityDuration().intValue() * 60 * 1000;
-        loadFirstDelay();
-        delayedAction = action;
-        mainTicker.restart();
-    }
 
     public void start() {
-        thirstDelay = mainInterval;
-        loadFirstDelay();
-        delayedAction = null;
+        //log.info("Start main ticker");
         mainTicker.restart();
     }
 
     public void startFromOpened() {
+        //log.info("Start main ticker from opened");
         unfreezeTicker.restart();
     }
 
     public void stop() {
+        //log.info("Stop all tickers");
         mainTicker.stop();
         hideTicker.stop();
         unfreezeTicker.stop();
     }
 
+
+    public static int toMilliSec(Double inMin) {
+        if (inMin == null || (inMin > (Integer.MAX_VALUE / MILLISEC_IN_MIN)) || inMin < 0.05d) {
+            throw new BimException("Wrong value for conversion Min to Milliseconds : " + inMin);
+        }
+        return (int)(inMin * MILLISEC_IN_MIN);
+    }
 
 }

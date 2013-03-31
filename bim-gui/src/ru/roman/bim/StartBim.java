@@ -4,12 +4,15 @@ package ru.roman.bim;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import ru.roman.bim.gui.common.cbchain.CallBackChain;
 import ru.roman.bim.gui.pane.PaineFactory;
 import ru.roman.bim.gui.pane.settings.Settings;
 import ru.roman.bim.gui.pane.settings.SettingsViewController;
 import ru.roman.bim.gui.pane.tray.TrayUtils;
+import ru.roman.bim.service.gae.wsclient.UserSettingsModel;
 import ru.roman.bim.service.lock.LockerUtils;
 import ru.roman.bim.util.Const;
+import ru.roman.bim.util.ExceptionHandler;
 import ru.roman.bim.util.GuiUtil;
 
 import java.io.File;
@@ -23,16 +26,20 @@ public class StartBim {
 
     public static void main(String args[]) {
 
-        GuiUtil.startSwingApp(new GuiUtil.Starter() {
+        GuiUtil.startSwingApp(new CallBackChain<Void>() {
             @Override
-            public void onStart() {
+            protected void onSuccess(Void result) {
                 settingsController = PaineFactory.getSettingsViewController();
                 prepareEnvironment();
-                prepareCredentials(new RegistrationCallBack() {
+                prepareCredentials(new CallBackChain<UserSettingsModel>() {
                     @Override
-                    public void afterRegistration() {
+                    public void onSuccess(UserSettingsModel sett) {
                         PaineFactory.createMainView();
                         LockerUtils.tryLockApplication();
+                    }
+                    @Override
+                    protected void onFailure(Exception e) {
+                        ExceptionHandler.showErrorMessageAndExit(e);
                     }
                 });
             }
@@ -62,17 +69,12 @@ public class StartBim {
         }
     }
 
-    private static void prepareCredentials(RegistrationCallBack callBack) {
+    private static void prepareCredentials(CallBackChain<UserSettingsModel> callBack) {
         if (Settings.get() == null) {
             settingsController.fillCredentials(callBack);
         } else {
             settingsController.reloadSettings(callBack);
         }
-
-    }
-
-    public interface RegistrationCallBack {
-        void afterRegistration();
     }
 
 }

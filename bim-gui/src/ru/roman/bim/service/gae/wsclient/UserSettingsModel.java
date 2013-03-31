@@ -1,10 +1,14 @@
 
 package ru.roman.bim.service.gae.wsclient;
 
-import javax.xml.bind.annotation.*;
-import javax.xml.datatype.XMLGregorianCalendar;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -20,7 +24,7 @@ import java.util.List;
  *         &lt;element name="cacheMaxSize" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="categories" type="{http://www.w3.org/2001/XMLSchema}long" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="currentNum" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="disabilityDuration" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
+ *         &lt;element name="disabilityDuration" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
  *         &lt;element name="editDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *         &lt;element name="facedLangId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
@@ -29,8 +33,8 @@ import java.util.List;
  *         &lt;element name="opacity" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
  *         &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="portion" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="previewDuration" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="previewInterval" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
+ *         &lt;element name="previewDuration" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
+ *         &lt;element name="previewInterval" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
  *         &lt;element name="ratings" type="{http://www.w3.org/2001/XMLSchema}int" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="recordsCount" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="shadowedLangId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
@@ -78,7 +82,7 @@ public class UserSettingsModel {
     @XmlElement(nillable = true)
     protected List<Long> categories;
     protected Long currentNum;
-    protected Long disabilityDuration;
+    protected Double disabilityDuration;
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar editDate;
     protected Long facedLangId;
@@ -88,8 +92,8 @@ public class UserSettingsModel {
     protected Double opacity;
     protected String password;
     protected Long portion;
-    protected Long previewDuration;
-    protected Long previewInterval;
+    protected Double previewDuration;
+    protected Double previewInterval;
     @XmlElement(nillable = true)
     protected List<Integer> ratings;
     protected Long recordsCount;
@@ -184,10 +188,10 @@ public class UserSettingsModel {
      * 
      * @return
      *     possible object is
-     *     {@link Long }
+     *     {@link Double }
      *     
      */
-    public Long getDisabilityDuration() {
+    public Double getDisabilityDuration() {
         return disabilityDuration;
     }
 
@@ -196,10 +200,10 @@ public class UserSettingsModel {
      * 
      * @param value
      *     allowed object is
-     *     {@link Long }
+     *     {@link Double }
      *     
      */
-    public void setDisabilityDuration(Long value) {
+    public void setDisabilityDuration(Double value) {
         this.disabilityDuration = value;
     }
 
@@ -400,10 +404,10 @@ public class UserSettingsModel {
      * 
      * @return
      *     possible object is
-     *     {@link Long }
+     *     {@link Double }
      *     
      */
-    public Long getPreviewDuration() {
+    public Double getPreviewDuration() {
         return previewDuration;
     }
 
@@ -412,10 +416,10 @@ public class UserSettingsModel {
      * 
      * @param value
      *     allowed object is
-     *     {@link Long }
+     *     {@link Double }
      *     
      */
-    public void setPreviewDuration(Long value) {
+    public void setPreviewDuration(Double value) {
         this.previewDuration = value;
     }
 
@@ -424,10 +428,10 @@ public class UserSettingsModel {
      * 
      * @return
      *     possible object is
-     *     {@link Long }
+     *     {@link Double }
      *     
      */
-    public Long getPreviewInterval() {
+    public Double getPreviewInterval() {
         return previewInterval;
     }
 
@@ -436,10 +440,10 @@ public class UserSettingsModel {
      * 
      * @param value
      *     allowed object is
-     *     {@link Long }
+     *     {@link Double }
      *     
      */
-    public void setPreviewInterval(Long value) {
+    public void setPreviewInterval(Double value) {
         this.previewInterval = value;
     }
 

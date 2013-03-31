@@ -1,5 +1,6 @@
 package ru.roman.bim.service.cache;
 
+import ru.roman.bim.gui.common.cbchain.CallBackChain;
 import ru.roman.bim.gui.pane.main.MainViewModel;
 
 import java.util.List;
@@ -8,19 +9,19 @@ import java.util.List;
 public interface LocalCache {
 
 
-    void initCache(Integer currentNum, Integer recordsCount);
+    void initCache(Integer currentNum, Integer recordsCount, Integer currentOffset);
 
-    void getCurrent(CacheCallBack callBack);
+    void getCurrent(CallBackChain callBack);
 
     MainViewModel getCurrentSync();
     /*
    дай следующее слово, счетчик увеличится
     */
-    void getNext(CacheCallBack callBack);
+    void getNext(CallBackChain callBack);
     /*
     дай предыдущее слово, счетчик уменьшится
      */
-    void getPrev(CacheCallBack callBack);
+    void getPrev(CallBackChain callBack);
     /*
    текущее значение счетчика
     */
@@ -35,10 +36,5 @@ public interface LocalCache {
     void clearCache();
 
     void addOrRenewModel(MainViewModel currModel);
-
-
-    public interface CacheCallBack {
-        void onGot(MainViewModel model);
-    }
 
 }

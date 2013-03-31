@@ -66,10 +66,10 @@
         <field name="portion" type="long">
             <bind-xml name="portion" node="element"/>
         </field>
-        <field name="previewDuration" type="long">
+        <field name="previewDuration" type="double">
             <bind-xml name="previewDuration" node="element"/>
         </field>
-        <field name="previewInterval" type="long">
+        <field name="previewInterval" type="double">
             <bind-xml name="previewInterval" node="element"/>
         </field>
         <field name="ratings" type="int" collection="arraylist">
@@ -102,7 +102,7 @@
         <field name="editDate" >
             <bind-xml name="editDate" node="element"/>
         </field>
-        <field name="disabilityDuration" type="long">
+        <field name="disabilityDuration" type="double">
             <bind-xml name="disabilityDuration" node="element"/>
         </field>
     </class>

@@ -9,9 +9,4 @@ public interface GhostService {
 
     void stop();
 
-    void delayedStart(DelayedAction action);
-
-    public interface DelayedAction {
-        void afterDelay();
-    }
 }
