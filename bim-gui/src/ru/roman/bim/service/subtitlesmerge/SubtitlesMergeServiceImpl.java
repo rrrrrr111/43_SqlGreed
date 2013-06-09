@@ -44,15 +44,16 @@ public class SubtitlesMergeServiceImpl implements SubtitlesMergeService {
         final MergingResultDto merRes = merge(data);
 
 
+        String filesNames = "";
         if (formatsList.contains(SRT_FORMAT)) {
-            srtCreator.createSrt(data, merRes);
+            filesNames += "\n" + srtCreator.createSrt(data, merRes);
         }
         if (formatsList.contains(HTML_FORMAT)) {
-            htmlCreator.createHtml(data, merRes);
+            filesNames += "\n" + htmlCreator.createHtml(data, merRes);
         }
 
         final String mess = String.format("Merging complete, %s rows processed from first file, %s from second. \n" +
-                "Result stored to %s", merRes.getFirstCounter(), merRes.getSecondCounter(), merRes.getFirstFileName());
+                "Result stored to : %s", merRes.getFirstCounter(), merRes.getSecondCounter(), filesNames);
         log.info(mess);
         GuiUtil.showInfoMessage(mess);
 

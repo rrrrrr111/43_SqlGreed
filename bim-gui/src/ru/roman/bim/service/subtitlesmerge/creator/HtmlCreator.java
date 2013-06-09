@@ -11,10 +11,10 @@ import java.io.File;
 public class HtmlCreator extends AbstractCreator {
 
 
-    public void createHtml(ParsedData parsedData, MergingResultDto data) {
+    public String createHtml(ParsedData parsedData, MergingResultDto data) {
         try {
 
-            String firstFileName = data.getFirstFileName();
+            String fileName = data.getFirstFileName();
             final StringBuilder resultStr = new StringBuilder();
 
             resultStr.append("<html>\n<head>\n" +
@@ -47,10 +47,10 @@ public class HtmlCreator extends AbstractCreator {
 
             resultStr.append("</body>\n</html>");
 
-            firstFileName = removeExtension(firstFileName) + "_merged.html";
-            final File resultFile = FileUtils.getFile(firstFileName);
+            fileName = removeExtension(fileName) + "_merged.html";
+            final File resultFile = FileUtils.getFile(fileName);
             FileUtils.write(resultFile, resultStr, "UTF-8", false);
-
+            return fileName;
 
         } catch (Exception e) {
             throw new RuntimeException("Error while creation html file", e);

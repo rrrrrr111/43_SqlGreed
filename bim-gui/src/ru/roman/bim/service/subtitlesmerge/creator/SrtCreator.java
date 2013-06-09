@@ -12,10 +12,10 @@ public class SrtCreator extends AbstractCreator {
 
 
 
-    public void createSrt(ParsedData parsedData, MergingResultDto data) {
+    public String createSrt(ParsedData parsedData, MergingResultDto data) {
         try {
 
-            String firstFileName = data.getFirstFileName();
+            String fileName = data.getFirstFileName();
             final StringBuilder resultStr = new StringBuilder();
 
             for (MergedFragmentModel model : data.getList()) {
@@ -36,10 +36,10 @@ public class SrtCreator extends AbstractCreator {
             }
 
 
-            firstFileName = removeExtension(firstFileName) + "_merged.srt";
-            final File resultFile = FileUtils.getFile(firstFileName);
+            fileName = removeExtension(fileName) + "_merged.srt";
+            final File resultFile = FileUtils.getFile(fileName);
             FileUtils.write(resultFile, resultStr, "Windows-1251", false);
-
+            return fileName;
 
         } catch (Exception e) {
             throw new RuntimeException("Error while creation srt file", e);
