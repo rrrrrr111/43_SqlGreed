@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsView.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
-    <list id="71cfb641-5bee-4208-8ab0-751480a58831" name="builded" comment="builded">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/sql-greed-gui.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/sql-greed-gui.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" />
-    </list>
+    <list id="71cfb641-5bee-4208-8ab0-751480a58831" name="builded" comment="builded" />
     <ignored path="sql-greed-gui.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -133,10 +132,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SettingsView.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SettingsView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="359" column="71" selection-start="22402" selection-end="22402" vertical-scroll-proportion="0.5471264">
+            <state line="392" column="18" selection-start="24823" selection-end="24823" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#18187#18456#0" expanded="true" />
+                <element signature="e#18437#18438#0" expanded="true" />
+                <element signature="e#26783#27069#0" expanded="true" />
+                <element signature="e#27050#27051#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Const.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="17" selection-start="140" selection-end="140" vertical-scroll-proportion="-0.02905569">
               <folding />
             </state>
           </provider>
@@ -1447,7 +1460,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5977564" sideWeight="0.4939302" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.67147434" order="5" side_tool="false" content_ui="tabs" />
@@ -1464,7 +1477,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.724359" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.67147434" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39984825" sideWeight="0.67147434" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2215478" sideWeight="0.74038464" order="2" side_tool="true" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2215478" sideWeight="0.74038464" order="2" side_tool="true" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30769232" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1182" height="584" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.43589744" order="1" side_tool="false" content_ui="tabs" />
@@ -1651,13 +1664,6 @@
         <state line="142" column="12" selection-start="5535" selection-end="5535" vertical-scroll-proportion="0.3321739" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="16" selection-start="233" selection-end="233" vertical-scroll-proportion="0.34170854">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/dto/SrtUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="33" selection-start="228" selection-end="228" vertical-scroll-proportion="0.0">
@@ -1720,7 +1726,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="359" column="71" selection-start="22402" selection-end="22402" vertical-scroll-proportion="0.5471264">
+        <state line="392" column="18" selection-start="24823" selection-end="24823" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#18187#18456#0" expanded="true" />
+            <element signature="e#18437#18438#0" expanded="true" />
+            <element signature="e#26783#27069#0" expanded="true" />
+            <element signature="e#27050#27051#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="17" selection-start="140" selection-end="140" vertical-scroll-proportion="-0.02905569">
           <folding />
         </state>
       </provider>

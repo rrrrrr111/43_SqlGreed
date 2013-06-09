@@ -296,7 +296,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
 
                 final JButton broseWordListButton = new JButton();
                 broseWordListButton.setPreferredSize(new Dimension(100, 0));
-                broseWordListButton.setAction(new AbstractAction() {
+                broseWordListButton.setAction(new AbstractAction() {//акшион нужно класть перед установкой текста кнопки
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         controller.onBroseFileForLoading();
@@ -358,7 +358,6 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
                 // button brose...
                 final JButton subtitlesMergeButton = new JButton();
                 subtitlesMergeButton.setPreferredSize(new Dimension(100, 0));
-                subtitlesMergeButton.setText("brose...");
                 gbc = new GridBagConstraints();
                 gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
                 gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
@@ -391,7 +390,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
 
                 // format list
                 final JList<String> list = new JList<String>();
-                //list.setPreferredSize(new Dimension(80, 80));
+                //list.setPreferredSize(new Dimension(80, 28));
                 list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
                 list.setLayoutOrientation(JList.VERTICAL);
                 DefaultListModel listModel = new DefaultListModel();
@@ -399,7 +398,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
                 listModel.addElement(SubtitlesMergeService.HTML_FORMAT);
                 list.setModel(listModel);
                 final JScrollPane listScroll = new JScrollPane(list);
-                //listScroll.setPreferredSize(new Dimension(190, 190));
+                //listScroll.setPreferredSize(new Dimension(80, 28));
                 listScroll.setAlignmentX(Component.CENTER_ALIGNMENT);
                 //listScroll.setAutoscrolls(true);
                 listScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -419,12 +418,13 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
                 subtitlesMergePanel.add(listScroll, gbc);
 
                 // listeners
-                subtitlesMergeButton.setAction(new AbstractAction() {
+                subtitlesMergeButton.setAction(new AbstractAction() {//акшион нужно класть перед установкой текста кнопки
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         controller.startMerge(list.getSelectedValuesList());
                     }
                 });
+                subtitlesMergeButton.setText("brose...");
             }
         }
         ///////////////////////////////////////////////////////////////////////////////
