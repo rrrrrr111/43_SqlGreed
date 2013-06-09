@@ -93,6 +93,9 @@ public abstract class GuiUtil {
         JOptionPane.showMessageDialog(null, mess);
     }
 
+    public static void showInfoMessage(String format, Object... params) {
+        JOptionPane.showMessageDialog(null, String.format(format, params));
+    }
 
 
     public static Image createMainImage() {

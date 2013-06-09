@@ -11,12 +11,14 @@ import ru.roman.bim.service.cache.LocalCache;
 import ru.roman.bim.service.config.ConfigService;
 import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.gae.wsclient.UserSettingsModel;
+import ru.roman.bim.service.subtitlesmerge.SubtitlesMergeService;
 import ru.roman.bim.service.wordload.WordLoaderService;
 import ru.roman.bim.util.GuiUtil;
 
 import java.awt.*;
 import java.io.File;
-import java.util.Arrays;
+import java.util.*;
+import java.util.List;
 
 
 /** @author Roman 16.01.13 23:59 */
@@ -27,6 +29,7 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
     private final GaeConnector gaeConnector = ServiceFactory.getGaeConnector();
     private final SettingsViewValidator validator = new SettingsViewValidator();
     private final ConfigService configService = ServiceFactory.getConfigService();
+    private final SubtitlesMergeService subtitlesMergeService = ServiceFactory.getSubtitlesMergeService();
 
     private State state = State.REGISTERED;
     private CallBackChain<UserSettingsModel> callBack;
@@ -158,7 +161,7 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
 
 
     public void onBroseFileForLoading() {
-        File fileFroLoading = PaineFactory.createFileChooser().showSelectFileDialog();
+        File fileFroLoading = PaineFactory.createXlsFileChooser().showSelectFileDialog();
         if (fileFroLoading != null) {
             log.info("Selected file for loading : " + fileFroLoading);
             wordLoaderService.loadFile(fileFroLoading);
@@ -170,5 +173,11 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
         return validator;
     }
 
+    public void selectTab(int tabNum) {
+        view.selectTab(tabNum);
+    }
 
+    public void startMerge(List<String> formatsList) {
+        subtitlesMergeService.startMerge(formatsList);
+    }
 }

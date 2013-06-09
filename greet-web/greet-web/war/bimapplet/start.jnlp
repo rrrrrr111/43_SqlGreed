@@ -2,7 +2,7 @@
 <jnlp spec="1.0+"
         codebase="http://churganovroman.appspot.com/bimapplet/" href="start.jnlp">
     <information>
-        <title>Bim 1.36</title>
+        <title>Bim 1.38</title>
         <vendor>Bim Inc.</vendor>
         <homepage href="http://churganovroman.appspot.com/index.jsp"/>
         <description>Be in mind</description>

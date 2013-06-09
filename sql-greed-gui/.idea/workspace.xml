@@ -1,44 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="Bim application version 1.37 bugfix">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/common/cbchain/CallBackChain.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/common/cbchain/ChaneCreationException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/custom/widget/TransparentWindowSupport.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/gui/common/cbchain/CallBackChainTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/gui/custom/widget/TransparentWindowSupportTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/CastorMappings.xml" afterPath="$PROJECT_DIR$/../bim-gui/src/CastorMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/StartBim.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/StartBim.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/dev/stub/GaeConnectorStub.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/dev/stub/GaeConnectorStub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/custom/tools/OpacityTimer.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/custom/tools/OpacityTimer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/custom/widget/SimpleCheckBoxPanel.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/custom/widget/SimpleCheckBoxPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/edit/EditViewController.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/edit/EditViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainView.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainViewController.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainViewController.java" />
+    <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/choose/FileChooserParams.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/SubtitlesMergeService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/SubtitlesMergeServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/creator/AbstractCreator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/creator/HtmlCreator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/creator/SrtCreator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/dto/MergedFragmentModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/dto/MergingResultDto.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/dto/ParsedData.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/dto/SrtFragmentModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/dto/SrtUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/subtitlesmerge/creator/AbstractCreatorTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/subtitlesmerge/creator/SrtCreatorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/PaineFactory.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/PaineFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/choose/FileChooser.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/choose/FileChooser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsView.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsViewController.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayController.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayJPopupMenu.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayJPopupMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayUtils.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCache.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCache.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheFactory.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheImpl.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/GaeConnector.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/GaeConnector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/UserSettingsModel.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/wsclient/UserSettingsModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ghost/GhostController.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ghost/GhostController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ghost/GhostService.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ghost/GhostService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ghost/GhostServiceImpl.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ghost/GhostServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/http/HttpClientServiceImpl.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/http/HttpClientServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/lock/LockerUtils.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/lock/LockerUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ServiceFactory.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ServiceFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/ExceptionHandler.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/ExceptionHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/GuiUtil.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/GuiUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/gui/pane/edit/EditViewTest.java" afterPath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/gui/pane/edit/EditViewTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/gui/pane/settings/SettingsViewTest.java" afterPath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/gui/pane/settings/SettingsViewTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/cache/LocalCacheImplTest.java" afterPath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/cache/LocalCacheImplTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserSettingsDao.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserSettingsDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/dataws/dto/settings/UserSettingsModel.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/dataws/dto/settings/UserSettingsModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/start.jnlp" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/start.jnlp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProviderPortType_schema1.xsd" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProviderPortType_schema1.xsd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="71cfb641-5bee-4208-8ab0-751480a58831" name="builded" comment="builded">
@@ -113,8 +98,8 @@
       <property name="field_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByClasses" value="true" />
       <property name="exception_breakpoints_viewId" value="TABLE" />
-      <property name="exception_breakpoints_groupByClasses" value="true" />
       <property name="field_breakpoints_viewId" value="TABLE" />
+      <property name="exception_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByMethods" value="false" />
     </ui_properties>
   </component>
@@ -123,100 +108,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainViewController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainViewController.java">
+      <file leaf-file-name="AbstractCreatorTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/subtitlesmerge/creator/AbstractCreatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="148" column="29" selection-start="4554" selection-end="4554" vertical-scroll-proportion="0.0">
+            <state line="17" column="75" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#3139#3325#0" expanded="true" />
-                <element signature="e#3314#3315#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Const.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java">
+      <file leaf-file-name="AbstractCreator.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/creator/AbstractCreator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="11" selection-start="618" selection-end="618" vertical-scroll-proportion="0.5860869">
+            <state line="3" column="22" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EditViewController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/edit/EditViewController.java">
+      <file leaf-file-name="HtmlCreator.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/creator/HtmlCreator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="60" selection-start="5319" selection-end="5319" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#5366#5775#0" expanded="true" />
-                <element signature="e#5764#5765#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LocalCacheFactory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="76" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0">
+            <state line="10" column="13" selection-start="358" selection-end="358" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LocalCacheImplTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/cache/LocalCacheImplTest.java">
+      <file leaf-file-name="SrtCreator.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/creator/SrtCreator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="28" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LocalCacheImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="0" selection-start="5611" selection-end="5611" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GhostServiceImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ghost/GhostServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="10" selection-start="2741" selection-end="2741" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransparentWindowSupport.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/custom/widget/TransparentWindowSupport.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="44" selection-start="1095" selection-end="1116" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#1573#2160#0" expanded="true" />
-                <element signature="e#2149#2150#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TrayUtils.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="49" selection-start="1701" selection-end="1701" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GaeConnectorImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/GaeConnectorImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="21" selection-start="2130" selection-end="2130" vertical-scroll-proportion="0.0">
+            <state line="10" column="13" selection-start="358" selection-end="358" vertical-scroll-proportion="0.14237855">
               <folding />
             </state>
           </provider>
@@ -254,22 +178,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/GuiUtil.java" />
-        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/StartBim.java" />
-        <option value="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/gui/pane/edit/EditViewTest.java" />
-        <option value="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/start.jnlp" />
-        <option value="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserSettingsDao.java" />
-        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayJPopupMenu.java" />
-        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainView.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/HtmlCreator.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/AbstractCreator.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/SrtCreator.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/dto/SrtFragmentModel.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/dto/ParsedData.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/dto/MergedFragmentModel.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/dto/MergingResultDto.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsView.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/SubtitlesMergeServiceImpl.java" />
         <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" />
-        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCache.java" />
-        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheImpl.java" />
-        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheFactory.java" />
-        <option value="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/cache/LocalCacheImplTest.java" />
-        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ghost/GhostServiceImpl.java" />
-        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainViewController.java" />
-        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/custom/widget/TransparentWindowSupport.java" />
-        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayUtils.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/dto/SrtUtil.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/subtitlesmerge/creator/SrtCreatorTest.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/creator/SrtCreator.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/creator/HtmlCreator.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/creator/AbstractCreator.java" />
+        <option value="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/subtitlesmerge/creator/AbstractCreatorTest.java" />
       </list>
     </option>
   </component>
@@ -458,137 +382,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="greet-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="greet-web" />
+              <option name="myItemId" value="bim-gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="war" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="greet-web" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="war" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wsdl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="greet-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="war" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bimapplet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="greet-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="greet-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="roman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="greet-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="roman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="greet-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="roman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
+              <option name="myItemId" value="bim" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -602,45 +404,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="greet-web" />
+              <option name="myItemId" value="bim-gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="roman" />
+              <option name="myItemId" value="bim" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="greet-web" />
+              <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="roman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
+              <option name="myItemId" value="creator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -651,6 +431,14 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bim-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bim" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -752,7 +540,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ghost" />
+              <option name="myItemId" value="subtitlesmerge" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -778,7 +566,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gae" />
+              <option name="myItemId" value="subtitlesmerge" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dto" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -804,7 +596,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cache" />
+              <option name="myItemId" value="subtitlesmerge" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="creator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -860,7 +656,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tray" />
+              <option name="myItemId" value="settings" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -890,7 +686,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
+              <option name="myItemId" value="edit" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -915,14 +711,6 @@
               <option name="myItemId" value="gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="custom" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widget" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -932,58 +720,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="bim-gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="custom" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bim-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql-greed-gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -999,22 +735,32 @@
         </subPane>
         <subPane subId="Changed Files" />
       </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
     <property name="project.structure.last.edited" value="Global Libraries" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="153" />
-    <property name="OverrideImplement.combined" value="true" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="153" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="recentsLimit" value="5" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="154" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="154" />
@@ -1030,30 +776,30 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/gui" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/subtitlesmerge/creator" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="preferences.sourceCode" />
     <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
-    <property name="DefaultHtmlFileTemplate" value="Html" />
-    <property name="project.structure.side.proportion" value="0.18728323" />
+    <property name="options.lastSelected" value="preferences.sourceCode" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="project.structure.side.proportion" value="0.18728323" />
+    <property name="DefaultHtmlFileTemplate" value="Html" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
     <property name="GenerateAntBuildDialog.backupFiles" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="ru.roman.bim.service.subtitlesmerge.creator" />
       <recent name="ru.roman.bim.gui.common.cbchaine" />
       <recent name="ru.roman.bim.gui.custom.widget" />
       <recent name="ru.roman.bim.service.config" />
       <recent name="ru.roman.bim.server.dao" />
-      <recent name="ru.roman.bim.gui.pane.settings" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ru.roman.bim.gui.pane.tray" />
@@ -1069,12 +815,15 @@
       <recent name="C:\1_work\43_SqlGreed\bim-gui\src\resources" />
       <recent name="C:\1_work\43_SqlGreed\bim-gui\src" />
     </key>
+    <key name="IntroduceConstantDialog.RECENTS_KEY">
+      <recent name="ru.roman.bim.service.subtitlesmerge.SubtitlesMergeServiceImpl" />
+    </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="ru.roman.bim.service.subtitlesmerge.dto.SrtUtil" />
       <recent name="ru.roman.bim.service.config.XmlUtils" />
       <recent name="ru.roman.bim.gui.pane.edit.WordUtils" />
       <recent name="ru.roman.greed.util.GuiUtils" />
       <recent name="ReflectionUtils" />
-      <recent name="ru.roman.greed.gui.pane.main.MainView" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ru.roman.bim.service.cache" />
@@ -1090,80 +839,14 @@
       <recent name="C:\1_work\43_SqlGreed\sql-greed-gui\src\ru\roman\greed\gui\pane\sysinfo" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ru.roman.bim.service.subtitlesmerge.creator" />
+      <recent name="ru.roman.bim.service.subtitlesmerge.dto" />
       <recent name="ru.roman.bim.server.service.right" />
       <recent name="ru.roman.bim.server.jdo" />
       <recent name="ru.roman.bim.server.dss" />
-      <recent name="ru.roman.bim.gui.common.mvc" />
-      <recent name="ru.roman.bim.gui.common.validator" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.StartBim">
-    <configuration default="false" name="TransparentWindowSupportTest" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="ru.roman.bim.gui.custom.widget.TransparentWindowSupportTest" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="bim-gui" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="CallBackChainTest.testRun" type="JUnit" factoryName="JUnit" temporary="true">
-      <module name="bim-gui" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ru.roman.bim.gui.common.cbchain" />
-      <option name="MAIN_CLASS_NAME" value="ru.roman.bim.gui.common.cbchain.CallBackChainTest" />
-      <option name="METHOD_NAME" value="testRun" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="CallBackChainTest.testException" type="JUnit" factoryName="JUnit" temporary="true">
-      <module name="bim-gui" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ru.roman.bim.gui.common.cbchain" />
-      <option name="MAIN_CLASS_NAME" value="ru.roman.bim.gui.common.cbchain.CallBackChainTest" />
-      <option name="METHOD_NAME" value="testException" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Application.SettingsViewTest">
     <configuration default="false" name="CallBackChainTest" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="ru.roman.bim.gui.common.cbchain.CallBackChainTest" />
       <option name="VM_PARAMETERS" />
@@ -1206,6 +889,76 @@
       <ConfigurationWrapper RunnerId="Debug" />
       <method />
     </configuration>
+    <configuration default="false" name="SettingsViewTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="bim-gui" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ru.roman.bim.gui.pane.settings" />
+      <option name="MAIN_CLASS_NAME" value="ru.roman.bim.gui.pane.settings.SettingsViewTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="SettingsViewTest" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="ru.roman.bim.gui.pane.settings.SettingsViewTest" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="bim-gui" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="AbstractCreatorTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="bim-gui" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ru.roman.bim.service.subtitlesmerge.creator" />
+      <option name="MAIN_CLASS_NAME" value="ru.roman.bim.service.subtitlesmerge.creator.AbstractCreatorTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
@@ -1226,24 +979,6 @@
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
@@ -1272,6 +1007,24 @@
       <envs />
       <properties />
       <listeners />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -1432,13 +1185,13 @@
       <item index="1" class="java.lang.String" itemvalue="JUnit.All in bim-gui" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.SettingsDaoTest.simplyTry" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.TestCastor" />
-      <item index="4" class="java.lang.String" itemvalue="Application.TransparentWindowSupportTest" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.CallBackChainTest.testRun" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.CallBackChainTest.testException" />
-      <item index="7" class="java.lang.String" itemvalue="JUnit.CallBackChainTest" />
-      <item index="8" class="java.lang.String" itemvalue="Application.CallBackChainTest" />
-      <item index="9" class="java.lang.String" itemvalue="JUnit.CallBackChainTest.testInnerException" />
-      <item index="10" class="java.lang.String" itemvalue="Application.StartBim" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.CallBackChainTest" />
+      <item index="5" class="java.lang.String" itemvalue="Application.CallBackChainTest" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.CallBackChainTest.testInnerException" />
+      <item index="7" class="java.lang.String" itemvalue="Application.StartBim" />
+      <item index="8" class="java.lang.String" itemvalue="JUnit.SettingsViewTest" />
+      <item index="9" class="java.lang.String" itemvalue="Application.SettingsViewTest" />
+      <item index="10" class="java.lang.String" itemvalue="JUnit.AbstractCreatorTest" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -1665,7 +1418,11 @@
       <created>1364069077846</created>
       <updated>1364069077846</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Bim application version 1.37 bugfix">
+      <created>1364746102981</created>
+      <updated>1364746102981</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1695,9 +1452,9 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5977564" sideWeight="0.4939302" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.67147434" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40064102" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.79647434" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.124430954" sideWeight="0.5833333" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42307693" sideWeight="0.4969651" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2596154" sideWeight="0.4969651" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.599359" sideWeight="0.5007587" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.21794872" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1707,7 +1464,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.724359" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.67147434" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39984825" sideWeight="0.67147434" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22534142" sideWeight="0.40224358" order="2" side_tool="true" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2215478" sideWeight="0.40224358" order="2" side_tool="true" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30769232" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1182" height="584" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.43589744" order="1" side_tool="false" content_ui="tabs" />
@@ -1756,7 +1513,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bim application version 1.33 delayed start" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bim application version 1.37 bugfix" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1769,7 +1526,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Bim application thirst GAE deployment" />
     <MESSAGE value="Bim application thirst GAE debugged" />
     <MESSAGE value="Bim application version 1.2" />
     <MESSAGE value="Bim application version 1.3" />
@@ -1794,6 +1550,7 @@
     <MESSAGE value="Bim application version 1.30 asyncronius connection thirst version" />
     <MESSAGE value="Bim application version 1.32 bugfix" />
     <MESSAGE value="Bim application version 1.33 delayed start" />
+    <MESSAGE value="Bim application version 1.37 bugfix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1864,123 +1621,104 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ghost/GhostService.java">
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/SubtitlesMergeService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="125" selection-end="125" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="5" column="17" selection-start="123" selection-end="123" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_01/src.zip!/java/lang/Object.java">
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/dto/SrtFragmentModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="13" selection-start="513" selection-end="513" vertical-scroll-proportion="0.3321739">
-          <folding />
-        </state>
+        <state line="5" column="13" selection-start="129" selection-end="129" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/custom/tools/OpacityTimer.java">
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/dto/MergedFragmentModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="16" selection-start="1817" selection-end="1817" vertical-scroll-proportion="1.2365217">
-          <folding />
-        </state>
+        <state line="3" column="13" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainView.java">
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/dto/ParsedData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="202" column="27" selection-start="7254" selection-end="7254" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="6" column="13" selection-start="145" selection-end="145" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayController.java">
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/dto/MergingResultDto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="53" selection-start="2234" selection-end="2234" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="15" column="76" selection-start="398" selection-end="398" vertical-scroll-proportion="0.3321739" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/gae/GaeConnectorImpl.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_01/src.zip!/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="21" selection-start="2130" selection-end="2130" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="142" column="12" selection-start="5535" selection-end="5535" vertical-scroll-proportion="0.3321739" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCache.java">
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="82" selection-start="315" selection-end="315" vertical-scroll-proportion="0.23652174">
-          <folding />
-        </state>
+        <state line="395" column="94" selection-start="25020" selection-end="25020" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/edit/EditViewController.java">
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/SubtitlesMergeServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="60" selection-start="5319" selection-end="5319" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#5366#5775#0" expanded="true" />
-            <element signature="e#5764#5765#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="76" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/cache/LocalCacheImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="28" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="0" selection-start="5611" selection-end="5611" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ghost/GhostServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="10" selection-start="2741" selection-end="2741" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="29" selection-start="4554" selection-end="4554" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#3139#3325#0" expanded="true" />
-            <element signature="e#3314#3315#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/custom/widget/TransparentWindowSupport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="44" selection-start="1095" selection-end="1116" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#1573#2160#0" expanded="true" />
-            <element signature="e#2149#2150#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/tray/TrayUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="49" selection-start="1701" selection-end="1701" vertical-scroll-proportion="0.0">
+        <state line="138" column="42" selection-start="5449" selection-end="5449" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="11" selection-start="618" selection-end="618" vertical-scroll-proportion="0.5860869">
+        <state line="12" column="16" selection-start="233" selection-end="233" vertical-scroll-proportion="0.34170854">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/dto/SrtUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="33" selection-start="228" selection-end="228" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_01/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1430" column="52" selection-start="56163" selection-end="56163" vertical-scroll-proportion="0.07020548">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/subtitlesmerge/creator/SrtCreatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/subtitlesmerge/creator/AbstractCreatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="75" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/creator/AbstractCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="22" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/creator/HtmlCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="13" selection-start="358" selection-end="358" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/subtitlesmerge/creator/SrtCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="13" selection-start="358" selection-end="358" vertical-scroll-proportion="0.14237855">
           <folding />
         </state>
       </provider>

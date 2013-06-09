@@ -5,6 +5,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.mvc.View;
 import ru.roman.bim.gui.custom.widget.SimpleCheckBoxPanel;
+import ru.roman.bim.service.subtitlesmerge.SubtitlesMergeService;
 import ru.roman.bim.util.Const;
 import ru.roman.bim.util.GuiUtil;
 
@@ -22,7 +23,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
     private JTabbedPane tabbedPane;
     private JPanel genericTab;
     private JPanel prevSettTab;
-    private JPanel loadTab;
+    private JPanel toolsTab;
 
     private JTextField loginText;
     private JPasswordField passwordText;
@@ -62,258 +63,373 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
         prevSettTab = new JPanel(new GridBagLayout());
         tabbedPane.addTab("Preview settings", prevSettTab);
 
-        loadTab = new JPanel(new GridBagLayout());
-        tabbedPane.addTab("Load", loadTab);
+        toolsTab = new JPanel(new GridBagLayout());
+        tabbedPane.addTab("Tools", toolsTab);
 
 //        final JPanel hzTab = new JPanel();
 //        tabbedPane.addTab("hz", hzTab);
 
 
-
+        // common variables
         final int leftAndRightMargin = 60;
         final int behindLabelAndWidgetMargin = 10;
         final int upAndUnderMargin = 20;
+        GridBagConstraints gbc;
 
         ///////////////////////////////////////////////////////////////////////////////
         ///////////////////////////// Authorization ///////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////
+        {
+            final JPanel authPanel = new JPanel(new GridBagLayout());
+            authPanel.setBorder(BorderFactory.createTitledBorder("Authorization"));
 
-        final JPanel authPanel = new JPanel(new GridBagLayout());
-        authPanel.setBorder(BorderFactory.createTitledBorder("Authorization"));
+            //loginText.setMaximumSize(new Dimension(160, 0));
+            gbc = new GridBagConstraints();
+            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+            gbc.anchor = GridBagConstraints.NORTH;  // привязка к краю контейнера
+            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.weightx = 0.0;
+            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridy = 0;
+            //gbc.ipady = 140;                          // ограничение минимального размера
+            //gbc.ipadx = 270;                          // ограничение минимального размера
+            gbc.insets = new Insets(0, 0, 0, 0);
+            genericTab.add(authPanel, gbc);
 
-        //loginText.setMaximumSize(new Dimension(160, 0));
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-        gbc.anchor = GridBagConstraints.NORTH;  // привязка к краю контейнера
-        gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-        gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
-        gbc.weightx = 0.0;
-        gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
-        gbc.gridy = 0;
-        //gbc.ipady = 140;                          // ограничение минимального размера
-        //gbc.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, 0, 0, 0);
-        genericTab.add(authPanel, gbc);
+            final JLabel fillYourCredLabel = new JLabel("Fill your credentials:");
+            //fillYourCredLabel.setBorder(BorderFactory.createBevelBorder(1));
+            //fillYourCredLabel.setPreferredSize(new Dimension(260, 0));
+            gbc = new GridBagConstraints();
+            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+            gbc.gridwidth = 2;                         // кол-во ячеек заполняемых по ширине
+            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.weightx = 0.0;
+            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridy = 0;
+            //gbc.ipady = 140;                          // ограничение минимального размера
+            //gbc.ipadx = 270;                          // ограничение минимального размера
+            gbc.insets = new Insets(upAndUnderMargin, leftAndRightMargin, 5, 0);
+            authPanel.add(fillYourCredLabel, gbc);
 
-        final JLabel fillYourCredLabel = new JLabel("Fill your credentials:");
-        //fillYourCredLabel.setBorder(BorderFactory.createBevelBorder(1));
-        //fillYourCredLabel.setPreferredSize(new Dimension(260, 0));
-        gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-        gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-        gbc.gridwidth = 2;                         // кол-во ячеек заполняемых по ширине
-        gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
-        gbc.weightx = 0.0;
-        gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
-        gbc.gridy = 0;
-        //gbc.ipady = 140;                          // ограничение минимального размера
-        //gbc.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(upAndUnderMargin, leftAndRightMargin, 5, 0);
-        authPanel.add(fillYourCredLabel, gbc);
+            JLabel loginLabel = new JLabel("login");
+            loginLabel.setHorizontalAlignment(JLabel.RIGHT);
+            loginLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+            gbc = new GridBagConstraints();
+            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.weightx = 0.0;
+            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridy = 1;
+            //gbc11.ipady = 140;                          // ограничение минимального размера
+            //gbc11.ipadx = 270;                          // ограничение минимального размера
+            gbc.insets = new Insets(0, leftAndRightMargin, 0, behindLabelAndWidgetMargin);
+            authPanel.add(loginLabel, gbc);
 
-        JLabel loginLabel = new JLabel("login");
-        loginLabel.setHorizontalAlignment(JLabel.RIGHT);
-        loginLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
-        gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-        gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-        gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-        gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
-        gbc.weightx = 0.0;
-        gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
-        gbc.gridy = 1;
-        //gbc11.ipady = 140;                          // ограничение минимального размера
-        //gbc11.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, leftAndRightMargin, 0, behindLabelAndWidgetMargin);
-        authPanel.add(loginLabel, gbc);
+            loginText = new JTextField();
+            //loginText.setPreferredSize(new Dimension(120, 0));
+            gbc = new GridBagConstraints();
+            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.weightx = 0.5;
+            gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridy = 1;
+            //gbc.ipady = 140;                          // ограничение минимального размера
+            //gbc.ipadx = 270;                          // ограничение минимального размера
+            gbc.insets = new Insets(0, 0, 0, leftAndRightMargin);
+            authPanel.add(loginText, gbc);
 
-        loginText = new JTextField();
-        //loginText.setPreferredSize(new Dimension(120, 0));
-        gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-        gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-        gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-        gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
-        gbc.weightx = 0.5;
-        gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
-        gbc.gridy = 1;
-        //gbc.ipady = 140;                          // ограничение минимального размера
-        //gbc.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, 0, 0, leftAndRightMargin);
-        authPanel.add(loginText, gbc);
+            JLabel passwordLabel = new JLabel("password");
+            passwordLabel.setHorizontalAlignment(JLabel.RIGHT);
+            passwordLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+            gbc = new GridBagConstraints();
+            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.weightx = 0.0;
+            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridy = 2;
+            //gbc21.ipady = 140;                          // ограничение минимального размера
+            //gbc21.ipadx = 270;                          // ограничение минимального размера
+            gbc.insets = new Insets(0, leftAndRightMargin, upAndUnderMargin, behindLabelAndWidgetMargin);
+            authPanel.add(passwordLabel, gbc);
 
-        JLabel passwordLabel = new JLabel("password");
-        passwordLabel.setHorizontalAlignment(JLabel.RIGHT);
-        passwordLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
-        gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-        gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-        gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-        gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
-        gbc.weightx = 0.0;
-        gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
-        gbc.gridy = 2;
-        //gbc21.ipady = 140;                          // ограничение минимального размера
-        //gbc21.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, leftAndRightMargin, upAndUnderMargin, behindLabelAndWidgetMargin);
-        authPanel.add(passwordLabel, gbc);
-
-        passwordText = new JPasswordField();
-        //passwordText.setPreferredSize(new Dimension(160, 0));
-        gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-        gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-        gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-        gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
-        gbc.weightx = 0.5;
-        gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
-        gbc.gridy = 2;
-        //gbc2.ipady = 140;                          // ограничение минимального размера
-        //gbc2.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, 0, upAndUnderMargin, leftAndRightMargin);
-        authPanel.add(passwordText, gbc);
-
+            passwordText = new JPasswordField();
+            //passwordText.setPreferredSize(new Dimension(160, 0));
+            gbc = new GridBagConstraints();
+            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.weightx = 0.5;
+            gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridy = 2;
+            //gbc2.ipady = 140;                          // ограничение минимального размера
+            //gbc2.ipadx = 270;                          // ограничение минимального размера
+            gbc.insets = new Insets(0, 0, upAndUnderMargin, leftAndRightMargin);
+            authPanel.add(passwordText, gbc);
+        }
 
         ///////////////////////////////////////////////////////////////////////////////
         ///////////////////////////// Generic settings ////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////
+        {
+            final JPanel genSettPanel = new JPanel(new GridBagLayout());
+            genSettPanel.setBorder(BorderFactory.createTitledBorder("Generic settings"));
+            //loginText.setMaximumSize(new Dimension(160, 0));
+            gbc = new GridBagConstraints();
+            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.weightx = 0.0;
+            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridy = 1;
+            //gbc.ipady = 140;                          // ограничение минимального размера
+            //gbc.ipadx = 270;                          // ограничение минимального размера
+            gbc.insets = new Insets(0, 0, 0, 0);
+            genericTab.add(genSettPanel, gbc);
 
-        final JPanel genSettPanel = new JPanel(new GridBagLayout());
-        genSettPanel.setBorder(BorderFactory.createTitledBorder("Generic settings"));
-        //loginText.setMaximumSize(new Dimension(160, 0));
-        gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-        gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-        gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-        gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
-        gbc.weightx = 0.0;
-        gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
-        gbc.gridy = 1;
-        //gbc.ipady = 140;                          // ограничение минимального размера
-        //gbc.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, 0, 0, 0);
-        genericTab.add(genSettPanel, gbc);
+            ratingsPanel = new SimpleCheckBoxPanel();
+            gbc = new GridBagConstraints();
+            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.weightx = 0.0;
+            gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridy = 0;
+            //gbc.ipady = 140;                          // ограничение минимального размера
+            //gbc.ipadx = 270;                          // ограничение минимального размера
+            gbc.insets = new Insets(upAndUnderMargin, 0, 0, leftAndRightMargin);
+            genSettPanel.add(ratingsPanel, gbc);
 
-        ratingsPanel = new SimpleCheckBoxPanel();
-        gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-        gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-        gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-        gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
-        gbc.weightx = 0.0;
-        gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
-        gbc.gridy = 0;
-        //gbc.ipady = 140;                          // ограничение минимального размера
-        //gbc.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(upAndUnderMargin, 0, 0, leftAndRightMargin);
-        genSettPanel.add(ratingsPanel, gbc);
+            JLabel ratingsLabel = new JLabel("displayed ratings");
+            ratingsLabel.setHorizontalAlignment(JLabel.RIGHT);
+            ratingsLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+            gbc = new GridBagConstraints();
+            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.weightx = 0.0;
+            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridy = 0;
+            //gbc.ipady = 140;                          // ограничение минимального размера
+            //gbc.ipadx = 270;                          // ограничение минимального размера
+            gbc.insets = new Insets(upAndUnderMargin, leftAndRightMargin, 0, behindLabelAndWidgetMargin);
+            genSettPanel.add(ratingsLabel, gbc);
 
-        JLabel ratingsLabel = new JLabel("displayed ratings");
-        ratingsLabel.setHorizontalAlignment(JLabel.RIGHT);
-        ratingsLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
-        gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-        gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-        gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-        gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
-        gbc.weightx = 0.0;
-        gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
-        gbc.gridy = 0;
-        //gbc.ipady = 140;                          // ограничение минимального размера
-        //gbc.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(upAndUnderMargin, leftAndRightMargin, 0, behindLabelAndWidgetMargin);
-        genSettPanel.add(ratingsLabel, gbc);
+            portionText = new JTextField();
+            portionText.setPreferredSize(new Dimension(10, 0));
+            gbc = new GridBagConstraints();
+            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.weightx = 0.0;
+            gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridy = 1;
+            //gbc.ipady = 140;                          // ограничение минимального размера
+            //gbc.ipadx = 270;                          // ограничение минимального размера
+            gbc.insets = new Insets(0, 0, upAndUnderMargin, leftAndRightMargin);
+            genSettPanel.add(portionText, gbc);
 
-        portionText = new JTextField();
-        portionText.setPreferredSize(new Dimension(10, 0));
-        gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-        gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-        gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-        gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
-        gbc.weightx = 0.0;
-        gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
-        gbc.gridy = 1;
-        //gbc.ipady = 140;                          // ограничение минимального размера
-        //gbc.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, 0, upAndUnderMargin, leftAndRightMargin);
-        genSettPanel.add(portionText, gbc);
+            JLabel portionLabel = new JLabel("portion");
+            portionLabel.setHorizontalAlignment(JLabel.RIGHT);
+            portionLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+            gbc = new GridBagConstraints();
+            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.weightx = 0.0;
+            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridy = 1;
+            //gbc.ipady = 140;                          // ограничение минимального размера
+            //gbc.ipadx = 270;                          // ограничение минимального размера
+            gbc.insets = new Insets(0, leftAndRightMargin, upAndUnderMargin, behindLabelAndWidgetMargin);
+            genSettPanel.add(portionLabel, gbc);
 
-        JLabel portionLabel = new JLabel("portion");
-        portionLabel.setHorizontalAlignment(JLabel.RIGHT);
-        portionLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
-        gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-        gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-        gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-        gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
-        gbc.weightx = 0.0;
-        gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
-        gbc.gridy = 1;
-        //gbc.ipady = 140;                          // ограничение минимального размера
-        //gbc.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, leftAndRightMargin, upAndUnderMargin, behindLabelAndWidgetMargin);
-        genSettPanel.add(portionLabel, gbc);
-
-
+        }
         ///////////////////////////////////////////////////////////////////////////////
         ///////////////////////////// Word list loading ///////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////
+        {
+            final JPanel loadWordListPanel = new JPanel(new GridBagLayout());
+            loadWordListPanel.setBorder(BorderFactory.createTitledBorder("Word list loading"));
+            //loginText.setMaximumSize(new Dimension(160, 0));
+            gbc = new GridBagConstraints();
+            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.weightx = 0.0;
+            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridy = 1;
+            //gbc.ipady = 140;                          // ограничение минимального размера
+            //gbc.ipadx = 270;                          // ограничение минимального размера
+            gbc.insets = new Insets(0, 0, 0, 0);
+            toolsTab.add(loadWordListPanel, gbc);
+            {
+                JLabel broseWordListLabel = new JLabel("select a file for loading");
+                broseWordListLabel.setHorizontalAlignment(JLabel.RIGHT);
+                broseWordListLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+                gbc = new GridBagConstraints();
+                gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+                gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+                gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+                gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+                gbc.weightx = 0.0;
+                gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+                gbc.gridy = 0;
+                //gbc11.ipady = 140;                          // ограничение минимального размера
+                //gbc11.ipadx = 270;                          // ограничение минимального размера
+                gbc.insets = new Insets(upAndUnderMargin, leftAndRightMargin, upAndUnderMargin, behindLabelAndWidgetMargin);
+                loadWordListPanel.add(broseWordListLabel, gbc);
 
-        final JPanel loadWordListPanel = new JPanel(new GridBagLayout());
-        loadWordListPanel.setBorder(BorderFactory.createTitledBorder("Word list loading"));
-        //loginText.setMaximumSize(new Dimension(160, 0));
-        gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-        gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-        gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-        gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
-        gbc.weightx = 0.0;
-        gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
-        gbc.gridy = 1;
-        //gbc.ipady = 140;                          // ограничение минимального размера
-        //gbc.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(0, 0, 0, 0);
-        loadTab.add(loadWordListPanel, gbc);
-
-        JLabel broseWordListLabel = new JLabel("select a file for loading");
-        broseWordListLabel.setHorizontalAlignment(JLabel.RIGHT);
-        broseWordListLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
-        gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-        gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-        gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-        gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
-        gbc.weightx = 0.0;
-        gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
-        gbc.gridy = 0;
-        //gbc11.ipady = 140;                          // ограничение минимального размера
-        //gbc11.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(upAndUnderMargin, leftAndRightMargin, upAndUnderMargin, behindLabelAndWidgetMargin);
-        loadWordListPanel.add(broseWordListLabel, gbc);
-
-        final JButton broseWordListButton = new JButton();
-        broseWordListButton.setPreferredSize(new Dimension(100, 0));
-        broseWordListButton.setAction(new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.onBroseFileForLoading();
+                final JButton broseWordListButton = new JButton();
+                broseWordListButton.setPreferredSize(new Dimension(100, 0));
+                broseWordListButton.setAction(new AbstractAction() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        controller.onBroseFileForLoading();
+                    }
+                });
+                broseWordListButton.setText("brose...");
+                gbc = new GridBagConstraints();
+                gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+                gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+                gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+                gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+                gbc.weightx = 0.0;
+                gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
+                gbc.gridy = 0;
+                //gbc.ipady = 140;                          // ограничение минимального размера
+                //gbc.ipadx = 270;                          // ограничение минимального размера
+                gbc.insets = new Insets(upAndUnderMargin, 0, upAndUnderMargin, leftAndRightMargin);
+                loadWordListPanel.add(broseWordListButton, gbc);
             }
-        });
-        broseWordListButton.setText("brose...");
-        gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-        gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-        gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-        gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
-        gbc.weightx = 0.0;
-        gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
-        gbc.gridy = 0;
-        //gbc.ipady = 140;                          // ограничение минимального размера
-        //gbc.ipadx = 270;                          // ограничение минимального размера
-        gbc.insets = new Insets(upAndUnderMargin, 0, upAndUnderMargin, leftAndRightMargin);
-        loadWordListPanel.add(broseWordListButton, gbc);
+        }
+        ///////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////// Subtitles merge ///////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////
 
+        {
+            final JPanel subtitlesMergePanel = new JPanel(new GridBagLayout());
+            subtitlesMergePanel.setBorder(BorderFactory.createTitledBorder("Subtitles merge"));
+            //loginText.setMaximumSize(new Dimension(160, 0));
+            gbc = new GridBagConstraints();
+            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.weightx = 0.0;
+            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridy = 2;
+            //gbc.ipady = 140;                          // ограничение минимального размера
+            //gbc.ipadx = 270;                          // ограничение минимального размера
+            gbc.insets = new Insets(0, 0, 0, 0);
+            toolsTab.add(subtitlesMergePanel, gbc);
+            {
+                // button label
+                final JLabel subtitlesMergeLabel = new JLabel("select files for merging");
+                subtitlesMergeLabel.setHorizontalAlignment(JLabel.RIGHT);
+                subtitlesMergeLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+                gbc = new GridBagConstraints();
+                gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+                gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+                gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+                gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+                gbc.weightx = 0.0;
+                gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+                gbc.gridy = 0;
+                //gbc11.ipady = 140;                          // ограничение минимального размера
+                //gbc11.ipadx = 270;                          // ограничение минимального размера
+                gbc.insets = new Insets(upAndUnderMargin, leftAndRightMargin, 0, behindLabelAndWidgetMargin);
+                subtitlesMergePanel.add(subtitlesMergeLabel, gbc);
+
+                // button brose...
+                final JButton subtitlesMergeButton = new JButton();
+                subtitlesMergeButton.setPreferredSize(new Dimension(100, 0));
+                subtitlesMergeButton.setText("brose...");
+                gbc = new GridBagConstraints();
+                gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+                gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+                gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+                gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+                gbc.weightx = 0.0;
+                gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
+                gbc.gridy = 0;
+                //gbc.ipady = 140;                          // ограничение минимального размера
+                //gbc.ipadx = 270;                          // ограничение минимального размера
+                gbc.insets = new Insets(upAndUnderMargin, 0, 0, leftAndRightMargin);
+                subtitlesMergePanel.add(subtitlesMergeButton, gbc);
+
+                // format list label
+                final JLabel label = new JLabel("select output formats");
+                label.setHorizontalAlignment(JLabel.RIGHT);
+                label.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+                gbc = new GridBagConstraints();
+                gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+                gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+                gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+                gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+                gbc.weightx = 0.0;
+                gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+                gbc.gridy = 1;
+                //gbc11.ipady = 140;                          // ограничение минимального размера
+                //gbc11.ipadx = 270;                          // ограничение минимального размера
+                gbc.insets = new Insets(0, leftAndRightMargin, upAndUnderMargin, behindLabelAndWidgetMargin);
+                subtitlesMergePanel.add(label, gbc);
+
+                // format list
+                final JList<String> list = new JList<String>();
+                //list.setPreferredSize(new Dimension(80, 80));
+                list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+                list.setLayoutOrientation(JList.VERTICAL);
+                DefaultListModel listModel = new DefaultListModel();
+                listModel.addElement(SubtitlesMergeService.SRT_FORMAT);
+                listModel.addElement(SubtitlesMergeService.HTML_FORMAT);
+                list.setModel(listModel);
+                final JScrollPane listScroll = new JScrollPane(list);
+                //listScroll.setPreferredSize(new Dimension(190, 190));
+                listScroll.setAlignmentX(Component.CENTER_ALIGNMENT);
+                //listScroll.setAutoscrolls(true);
+                listScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+                listScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+                gbc = new GridBagConstraints();
+                gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+                gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+                gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+                gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+                gbc.weightx = 0.0;
+                gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
+                gbc.gridy = 1;
+                gbc.ipady = 28;                          // ограничение минимального размера
+                //gbc.ipadx = 270;                          // ограничение минимального размера
+                gbc.insets = new Insets(0, 0, upAndUnderMargin, leftAndRightMargin);
+                subtitlesMergePanel.add(listScroll, gbc);
+
+                // listeners
+                subtitlesMergeButton.setAction(new AbstractAction() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        controller.startMerge(list.getSelectedValuesList());
+                    }
+                });
+            }
+        }
+        ///////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////// Footer //////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////
 
         final JPanel buttonsPanel = new JPanel();
         saveButton = new JButton("OK");
@@ -399,7 +515,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
                 tabbedPane.setSelectedComponent(prevSettTab);
                 break;
             case 3:
-                tabbedPane.setSelectedComponent(loadTab);
+                tabbedPane.setSelectedComponent(toolsTab);
                 break;
         }
     }

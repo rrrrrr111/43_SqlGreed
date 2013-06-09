@@ -9,6 +9,8 @@ import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.gae.GaeConnectorImpl;
 import ru.roman.bim.service.http.HttpClientService;
 import ru.roman.bim.service.http.HttpClientServiceImpl;
+import ru.roman.bim.service.subtitlesmerge.SubtitlesMergeService;
+import ru.roman.bim.service.subtitlesmerge.SubtitlesMergeServiceImpl;
 import ru.roman.bim.service.translate.TranslationService;
 import ru.roman.bim.service.translate.YandexService;
 import ru.roman.bim.service.wordload.WordLoaderService;
@@ -23,6 +25,7 @@ public class ServiceFactory {
     private static volatile WordLoaderService wordLoaderService;
     private static volatile XmlConfigService xmlConfigService;
     private static volatile ConfigService configService;
+    private static volatile SubtitlesMergeService subtitlesMergeService;
 
     public static synchronized GaeConnector getGaeConnector() {
         if (gaeConnector == null) {
@@ -70,4 +73,10 @@ public class ServiceFactory {
         return configService;
     }
 
+    public static SubtitlesMergeService getSubtitlesMergeService() {
+        if (subtitlesMergeService == null) {
+            subtitlesMergeService = new SubtitlesMergeServiceImpl();
+        }
+        return subtitlesMergeService;
+    }
 }

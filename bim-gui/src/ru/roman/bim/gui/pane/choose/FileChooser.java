@@ -1,31 +1,42 @@
 package ru.roman.bim.gui.pane.choose;
 
 
+import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.time.FastDateFormat;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
 import java.io.File;
 import java.util.Date;
 
 public class FileChooser {
 
-    private JFileChooser fc = new JFileChooser();
+    private final JFileChooser fc = new JFileChooser();
     private static final FastDateFormat FILE_NAME_FORMAT = FastDateFormat.getInstance("yyyy.MM.dd");
 
     private static int reportCounter = 1;
 
-    public FileChooser() {
-        fc.addChoosableFileFilter(new javax.swing.filechooser.FileFilter() {
+    public FileChooser(final FileChooserParams params) {
+        Validate.notBlank(params.getFilesName(), "Wrong filter params, fileName is blank");
+        Validate.notBlank(params.getFilesExtension(), "Wrong filter params, fileExtension is blank");
+
+        if (params.getDialogTitle() != null) {
+            fc.setDialogTitle(params.getDialogTitle());
+        }
+
+        final FileFilter filter = new FileFilter() {
             @Override
             public boolean accept(File f) {
-                return !f.isFile() || "(?i)(.*\\.xls)$".matches(f.getName());
+                return !f.isFile() || (f.getName().toLowerCase().endsWith(
+                        "." + params.getFilesExtension().toLowerCase()));
             }
-
             @Override
             public String getDescription() {
-                return "Excel files (*.xls)";
+                return params.getFilesName();
             }
-        });
+        };
+        fc.addChoosableFileFilter(filter);
+        fc.setFileFilter(filter);
     }
 
     public File showSelectFileDialog() {
@@ -47,5 +58,14 @@ public class FileChooser {
             return file;
         }
         return null;
+    }
+
+
+    public void setDialogTitle(String dialogTitle) {
+        fc.setDialogTitle(dialogTitle);
+    }
+
+    public void setCurrentDirectory(File dir) {
+        fc.setCurrentDirectory(dir);
     }
 }
