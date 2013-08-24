@@ -160,21 +160,17 @@ public class SubtitlesMergeServiceImpl implements SubtitlesMergeService {
         try {
             ParsedData data = new ParsedData();
             if (fc == null) {
-                fc = new FileChooserBuilder("Subtitles files (*.srt)", "srt", "Choose first subtitles file").createChooser();
+                fc = new FileChooserBuilder("Subtitles files (*.srt)", "srt", "Choose first subtitles file").toChooser();
             }
-
             final File firstFile = fc.showSelectFileDialog();
             if (firstFile == null) {
                 return data;
             }
-
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-
-            fc.setCurrentDirectory(firstFile.getParentFile());
 
             fc.setDialogTitle("Choose another one");
             final File secondFile = fc.showSelectFileDialog();

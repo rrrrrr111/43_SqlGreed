@@ -5,16 +5,18 @@ import ru.roman.bim.service.config.CastorConfigServiceImpl;
 import ru.roman.bim.service.config.ConfigService;
 import ru.roman.bim.service.config.XmlConfigService;
 import ru.roman.bim.service.config.XmlConfigServiceImpl;
+import ru.roman.bim.service.file.subtitlesmerge.SubtitlesMergeService;
+import ru.roman.bim.service.file.subtitlesmerge.SubtitlesMergeServiceImpl;
+import ru.roman.bim.service.file.textupload.TextUploadService;
+import ru.roman.bim.service.file.textupload.TextUploadServiceImpl;
+import ru.roman.bim.service.file.wordload.WordLoaderService;
+import ru.roman.bim.service.file.wordload.WordLoaderServiceImpl;
 import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.gae.GaeConnectorImpl;
 import ru.roman.bim.service.http.HttpClientService;
 import ru.roman.bim.service.http.HttpClientServiceImpl;
-import ru.roman.bim.service.file.subtitlesmerge.SubtitlesMergeService;
-import ru.roman.bim.service.file.subtitlesmerge.SubtitlesMergeServiceImpl;
 import ru.roman.bim.service.translate.TranslationService;
 import ru.roman.bim.service.translate.YandexService;
-import ru.roman.bim.service.file.wordload.WordLoaderService;
-import ru.roman.bim.service.file.wordload.WordLoaderServiceImpl;
 import ru.roman.bim.util.Const;
 
 /** @author Roman 22.12.12 15:37 */
@@ -26,6 +28,7 @@ public class ServiceFactory {
     private static volatile XmlConfigService xmlConfigService;
     private static volatile ConfigService configService;
     private static volatile SubtitlesMergeService subtitlesMergeService;
+    private static volatile TextUploadService textUploadService;
 
     public static synchronized GaeConnector getGaeConnector() {
         if (gaeConnector == null) {
@@ -78,5 +81,12 @@ public class ServiceFactory {
             subtitlesMergeService = new SubtitlesMergeServiceImpl();
         }
         return subtitlesMergeService;
+    }
+
+    public static TextUploadService getTextUploadService() {
+        if (textUploadService == null) {
+            textUploadService = new TextUploadServiceImpl();
+        }
+        return textUploadService;
     }
 }

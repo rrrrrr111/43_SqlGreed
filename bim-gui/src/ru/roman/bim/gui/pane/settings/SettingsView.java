@@ -24,6 +24,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
     private JTabbedPane tabbedPane;
     private JPanel genericTab;
     private JPanel prevSettTab;
+    private JScrollPane toolsTabScroll;
     private JPanel toolsTab;
 
     private JTextField loginText;
@@ -65,7 +66,8 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
         tabbedPane.addTab("Preview settings", prevSettTab);
 
         toolsTab = new JPanel(new GridBagLayout());
-        tabbedPane.addTab("Tools", toolsTab);
+        toolsTabScroll = new JScrollPane(toolsTab);
+        tabbedPane.addTab("Tools", toolsTabScroll);
 
 //        final JPanel hzTab = new JPanel();
 //        tabbedPane.addTab("hz", hzTab);
@@ -259,12 +261,18 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
             genSettPanel.add(portionLabel, gbc);
 
         }
+
         ///////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////// Word list loading ///////////////////////////////
+        ///////////////////////////// Tools tab ///////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////
+
+        toolsTabScroll.getVerticalScrollBar().setUnitIncrement(10);
+        ///////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////// Excel word list loading /////////////////////////
         ///////////////////////////////////////////////////////////////////////////////
         {
             final JPanel loadWordListPanel = new JPanel(new GridBagLayout());
-            loadWordListPanel.setBorder(BorderFactory.createTitledBorder("Word list loading"));
+            loadWordListPanel.setBorder(BorderFactory.createTitledBorder("Excel word list uploading"));
             //loginText.setMaximumSize(new Dimension(160, 0));
             gbc = new GridBagConstraints();
             gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
@@ -279,7 +287,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
             gbc.insets = new Insets(0, 0, 0, 0);
             toolsTab.add(loadWordListPanel, gbc);
             {
-                JLabel broseWordListLabel = new JLabel("select a file for loading");
+                JLabel broseWordListLabel = new JLabel("Select a file to upload");
                 broseWordListLabel.setHorizontalAlignment(JLabel.RIGHT);
                 broseWordListLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
                 gbc = new GridBagConstraints();
@@ -300,7 +308,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
                 broseWordListButton.setAction(new AbstractAction() {//акшион нужно класть перед установкой текста кнопки
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        controller.onBroseFileForLoading();
+                        controller.onBroseExcelFileForLoading();
                     }
                 });
                 broseWordListButton.setText("brose...");
@@ -340,7 +348,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
             toolsTab.add(subtitlesMergePanel, gbc);
             {
                 // button label
-                final JLabel subtitlesMergeLabel = new JLabel("select files for merging");
+                final JLabel subtitlesMergeLabel = new JLabel("Select files to merge");
                 subtitlesMergeLabel.setHorizontalAlignment(JLabel.RIGHT);
                 subtitlesMergeLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
                 gbc = new GridBagConstraints();
@@ -373,7 +381,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
                 subtitlesMergePanel.add(subtitlesMergeButton, gbc);
 
                 // format list label
-                final JLabel label = new JLabel("select output formats");
+                final JLabel label = new JLabel("Select output formats");
                 label.setHorizontalAlignment(JLabel.RIGHT);
                 label.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
                 gbc = new GridBagConstraints();
@@ -399,7 +407,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
                 listModel.addElement(SubtitlesMergeService.HTML_FORMAT);
                 list.setModel(listModel);
                 final JScrollPane listScroll = new JScrollPane(list);
-                //listScroll.setPreferredSize(new Dimension(80, 28));
+                listScroll.setPreferredSize(new Dimension(80, 8));
                 listScroll.setAlignmentX(Component.CENTER_ALIGNMENT);
                 //listScroll.setAutoscrolls(true);
                 listScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -422,12 +430,74 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
                 subtitlesMergeButton.setAction(new AbstractAction() {//акшион нужно класть перед установкой текста кнопки
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        controller.startMerge(list.getSelectedValuesList());
+                        controller.startMergeSrt(list.getSelectedValuesList());
                     }
                 });
                 subtitlesMergeButton.setText("brose...");
             }
         }
+
+        ///////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////// Text upload ///////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////
+        {
+            final JPanel textUploadPanel = new JPanel(new GridBagLayout());
+            textUploadPanel.setBorder(BorderFactory.createTitledBorder("Text upload"));
+            //loginText.setMaximumSize(new Dimension(160, 0));
+            gbc = new GridBagConstraints();
+            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.weightx = 0.0;
+            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridy = 3;
+            //gbc.ipady = 140;                          // ограничение минимального размера
+            //gbc.ipadx = 270;                          // ограничение минимального размера
+            gbc.insets = new Insets(0, 0, 0, 0);
+            toolsTab.add(textUploadPanel, gbc);
+            {
+                JLabel textUploadLabel = new JLabel("Select a file to upload");
+                textUploadLabel.setHorizontalAlignment(JLabel.RIGHT);
+                textUploadLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+                gbc = new GridBagConstraints();
+                gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+                gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+                gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+                gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+                gbc.weightx = 0.0;
+                gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+                gbc.gridy = 0;
+                //gbc11.ipady = 140;                          // ограничение минимального размера
+                //gbc11.ipadx = 270;                          // ограничение минимального размера
+                gbc.insets = new Insets(upAndUnderMargin, leftAndRightMargin, upAndUnderMargin, behindLabelAndWidgetMargin);
+                textUploadPanel.add(textUploadLabel, gbc);
+
+                final JButton textUploadButton = new JButton();
+                textUploadButton.setPreferredSize(new Dimension(100, 0));
+                textUploadButton.setAction(new AbstractAction() {//акшион нужно класть перед установкой текста кнопки
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        controller.onBroseTextFileForUploading();
+                    }
+                });
+                textUploadButton.setText("brose...");
+                gbc = new GridBagConstraints();
+                gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
+                gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
+                gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
+                gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+                gbc.weightx = 0.0;
+                gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
+                gbc.gridy = 0;
+                //gbc.ipady = 140;                          // ограничение минимального размера
+                //gbc.ipadx = 270;                          // ограничение минимального размера
+                gbc.insets = new Insets(upAndUnderMargin, 0, upAndUnderMargin, leftAndRightMargin);
+                textUploadPanel.add(textUploadButton, gbc);
+            }
+        }
+
+
         ///////////////////////////////////////////////////////////////////////////////
         ///////////////////////////// Footer //////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////
@@ -524,7 +594,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
                 tabbedPane.setSelectedComponent(prevSettTab);
                 break;
             case 3:
-                tabbedPane.setSelectedComponent(toolsTab);
+                tabbedPane.setSelectedComponent(toolsTabScroll);
                 break;
         }
     }

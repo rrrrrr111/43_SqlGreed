@@ -14,7 +14,7 @@ public class NormalizeServiceImpl implements NormalizeService {
     public void startNormalize() {
 
         if (fc == null) {
-            fc = new FileChooserBuilder("Choose file to convert").createChooser();
+            fc = new FileChooserBuilder("Choose file to convert").toChooser();
         }
 
         final File firstFile = fc.showSelectFileDialog();

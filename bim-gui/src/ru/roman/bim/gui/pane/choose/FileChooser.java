@@ -1,7 +1,6 @@
 package ru.roman.bim.gui.pane.choose;
 
 
-import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.time.FastDateFormat;
 
 import javax.swing.*;
@@ -17,12 +16,11 @@ public class FileChooser {
     private static int reportCounter = 1;
 
     FileChooser(final FileChooserBuilder builder) {
-        if (builder.getDialogTitle() != null) {
-            fc.setDialogTitle(builder.getDialogTitle());
+        if (builder.dialogTitle != null) {
+            fc.setDialogTitle(builder.dialogTitle);
         }
-
-        final FileFilter filter;
-        if (builder.getFilesName() == null) {
+        FileFilter filter = null;
+        if (builder.fileFilters.isEmpty()) {
             filter = new FileFilter() {
                 @Override
                 public boolean accept(File f) {
@@ -33,29 +31,45 @@ public class FileChooser {
                     return "All files (*.*)";
                 }
             };
+            fc.addChoosableFileFilter(filter);
         } else {
-            Validate.notBlank(builder.getFilesName(), "Wrong filter params, fileName is blank");
-            Validate.notBlank(builder.getFilesExtension(), "Wrong filter params, fileExtension is blank");
-            filter = new FileFilter() {
-                @Override
-                public boolean accept(File f) {
-                    return !f.isFile() || (f.getName().toLowerCase().endsWith(
-                            "." + builder.getFilesExtension().toLowerCase()));
+            for (final FileChooserBuilder.FilterProperties filterProp : builder.fileFilters) {
+                if (filterProp.filesExtension != null) {
+                    filter = new FileFilter() {
+                        @Override
+                        public boolean accept(File f) {
+                            return !f.isFile() || (f.getName().toLowerCase().endsWith(
+                                    "." + filterProp.filesExtension.toLowerCase()));
+                        }
+                        @Override
+                        public String getDescription() {
+                            return filterProp.filesName;
+                        }
+                    };
+                } else {
+                    filter = new FileFilter() {
+                        @Override
+                        public boolean accept(File f) {
+                            return !f.isFile() || (f.getName().toLowerCase().matches(filterProp.filesRegExp));
+                        }
+                        @Override
+                        public String getDescription() {
+                            return filterProp.filesName;
+                        }
+                    };
                 }
-                @Override
-                public String getDescription() {
-                    return builder.getFilesName();
-                }
-            };
+                fc.addChoosableFileFilter(filter);
+            }
         }
-        fc.addChoosableFileFilter(filter);
         fc.setFileFilter(filter);
     }
 
     public File showSelectFileDialog() {
         int returnVal = fc.showOpenDialog(null);
         if (JFileChooser.APPROVE_OPTION == returnVal) {
-            return fc.getSelectedFile();
+            final File selectedFile = fc.getSelectedFile();
+            setCurrentDirectory(selectedFile.getParentFile());
+            return selectedFile;
         }
         return null;
     }

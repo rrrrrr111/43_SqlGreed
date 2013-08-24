@@ -10,6 +10,7 @@ import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.cache.LocalCache;
 import ru.roman.bim.service.config.ConfigService;
 import ru.roman.bim.service.file.subtitlesmerge.SubtitlesMergeService;
+import ru.roman.bim.service.file.textupload.TextUploadService;
 import ru.roman.bim.service.file.wordload.WordLoaderService;
 import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.gae.wsclient.UserSettingsModel;
@@ -17,7 +18,6 @@ import ru.roman.bim.util.BimException;
 import ru.roman.bim.util.GuiUtil;
 
 import java.awt.*;
-import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
@@ -33,6 +33,7 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
     private final SettingsViewValidator validator = new SettingsViewValidator();
     private final ConfigService configService = ServiceFactory.getConfigService();
     private final SubtitlesMergeService subtitlesMergeService = ServiceFactory.getSubtitlesMergeService();
+    private final TextUploadService textUploadService = ServiceFactory.getTextUploadService();
 
     private State state = State.REGISTERED;
     private CallBackChain<UserSettingsModel> callBack;
@@ -191,13 +192,8 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
     }
 
 
-    public void onBroseFileForLoading() {
-        File fileFroLoading = PaineFactory.createXlsFileChooser().showSelectFileDialog();
-        if (fileFroLoading != null) {
-            log.info("Selected file for loading : " + fileFroLoading);
-            wordLoaderService.loadFile(fileFroLoading);
-            GuiUtil.showInfoMessage("Loading complete");
-        }
+    public void onBroseExcelFileForLoading() {
+        wordLoaderService.uploadFile();
     }
 
     public SettingsViewValidator getValidator() {
@@ -208,7 +204,11 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
         view.selectTab(tabNum);
     }
 
-    public void startMerge(List<String> formatsList) {
+    public void startMergeSrt(List<String> formatsList) {
         subtitlesMergeService.startMerge(formatsList);
+    }
+
+    public void onBroseTextFileForUploading() {
+        textUploadService.startUpload();
     }
 }

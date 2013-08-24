@@ -8,6 +8,8 @@ import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import ru.roman.bim.gui.pane.choose.FileChooser;
+import ru.roman.bim.gui.pane.choose.FileChooserBuilder;
 import ru.roman.bim.gui.pane.edit.WordUtils;
 import ru.roman.bim.gui.pane.main.MainViewModel;
 import ru.roman.bim.gui.pane.settings.Settings;
@@ -17,6 +19,7 @@ import ru.roman.bim.model.WordType;
 import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.util.BimException;
+import ru.roman.bim.util.GuiUtil;
 import ru.roman.bim.util.WsUtil;
 
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -31,6 +34,7 @@ public class WordLoaderServiceImpl implements WordLoaderService {
     private static final Log log = LogFactory.getLog(WordLoaderServiceImpl.class);
 
     private final GaeConnector gaeConnector = ServiceFactory.getGaeConnector();
+    private FileChooser fc;
 
     public static final String COLUMN_TEXT_FACED = "TEXT_FACED";
     public static final String COLUMN_TEXT_SHADOWED = "TEXT_SHADOWED";
@@ -41,9 +45,17 @@ public class WordLoaderServiceImpl implements WordLoaderService {
     public static final String COLUMN_TYPE = "TYPE";
 
     @Override
-    public void loadFile(File fileFroLoading) {
+    public void uploadFile() {
+        if (fc == null) {
+            fc = new FileChooserBuilder("Excel files (*.xls)", "xls", "Select Excel file to upload").toChooser();
+        }
+        final File file = fc.showSelectFileDialog();
+        if (file == null) {
+            return;
+        }
+        log.info("Selected Excel file to upload : " + file);
 
-        List<MainViewModel> sheetData = parseExcel(fileFroLoading);
+        List<MainViewModel> sheetData = parseExcel(file);
         for (final MainViewModel model : sheetData) {
             WordUtils.checkIdiom(model);
             WordUtils.fillTexts(model, model.getTextFaced(), model.getTextShadowed());
@@ -60,6 +72,7 @@ public class WordLoaderServiceImpl implements WordLoaderService {
                 throw new RuntimeException(e);
             }
         }
+        GuiUtil.showInfoMessage("Loading complete");
     }
 
     private List<MainViewModel> parseExcel(File fileFroLoading) {

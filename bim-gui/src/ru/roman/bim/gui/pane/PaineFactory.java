@@ -1,7 +1,6 @@
 package ru.roman.bim.gui.pane;
 
 import ru.roman.bim.gui.pane.choose.FileChooser;
-import ru.roman.bim.gui.pane.choose.FileChooserBuilder;
 import ru.roman.bim.gui.pane.edit.EditView;
 import ru.roman.bim.gui.pane.edit.EditViewController;
 import ru.roman.bim.gui.pane.main.MainView;
@@ -52,12 +51,5 @@ public class PaineFactory {
 
     public static SettingsViewController getSettingsViewController() {
         return createSettingsView().getController();
-    }
-
-    public static FileChooser createXlsFileChooser() {
-        if (xlsFileChooser == null) {
-            xlsFileChooser = new FileChooserBuilder("Excel files (*.xls)", "xls").createChooser();
-        }
-        return xlsFileChooser;
     }
 }
