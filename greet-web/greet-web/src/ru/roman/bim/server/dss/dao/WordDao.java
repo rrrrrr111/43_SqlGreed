@@ -3,6 +3,7 @@ package ru.roman.bim.server.dss.dao;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
+import org.apache.commons.lang3.StringUtils;
 import ru.roman.bim.server.service.dataws.dto.word.BimItemModel;
 import ru.roman.bim.server.service.dataws.dto.word.GetListRequest;
 import ru.roman.bim.server.service.dataws.dto.word.GetListResp;
@@ -64,7 +65,9 @@ public class WordDao {
             throw new RuntimeException("Word doesn't determined");
         }
         final String newTransl = model.getTextShadowed();
-        if (oldTransl != null && newTransl != null) {
+        if (StringUtils.startsWith(newTransl, "_")) {
+            model.setTextShadowed(null);
+        } else if (oldTransl != null && newTransl != null) {
             if (oldTransl.contains(newTransl)) {
                 model.setTextShadowed(oldTransl);
             } else if (!newTransl.contains(oldTransl)) {
@@ -107,6 +110,9 @@ public class WordDao {
             model = new BimItemModel();
             PropUtil.setAllProperties(model, wordEntry.getValue());
             PropUtil.setBeanProperty(model, RATING, ratingsMap.get(wordEntry.getKey()).getProperty(RATING));
+            if (model.getTextShadowed() == null) {
+                model.setTextShadowed("_");
+            }
             model.setId(wordEntry.getKey().getId());
             list.add(model);
         }

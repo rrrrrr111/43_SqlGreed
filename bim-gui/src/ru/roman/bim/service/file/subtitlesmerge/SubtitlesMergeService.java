@@ -1,4 +1,4 @@
-package ru.roman.bim.service.subtitlesmerge;
+package ru.roman.bim.service.file.subtitlesmerge;
 
 import java.util.List;
 

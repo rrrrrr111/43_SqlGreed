@@ -4,8 +4,9 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.mvc.View;
+import ru.roman.bim.gui.common.validator.BimValidationException;
 import ru.roman.bim.gui.custom.widget.SimpleCheckBoxPanel;
-import ru.roman.bim.service.subtitlesmerge.SubtitlesMergeService;
+import ru.roman.bim.service.file.subtitlesmerge.SubtitlesMergeService;
 import ru.roman.bim.util.Const;
 import ru.roman.bim.util.GuiUtil;
 
@@ -32,7 +33,7 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
     private JTextField portionText;
     private JButton saveButton;
     private JButton cancelButton;
-    private static final String PASSWORD_STUB = "pass word";
+    private static final String PASSWORD_STUB = "password";
 
     public SettingsView() {
 
@@ -470,9 +471,16 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
 
     @Override
     public void fillWidgets(SettingsViewModel model) {
-
-        loginText.setText(model.getLogin());
-        passwordText.setText(PASSWORD_STUB);
+        if (model.getLogin() == null && loginText.getText() != null) {
+            model.setLogin(loginText.getText());
+        } else {
+            loginText.setText(model.getLogin());
+        }
+        if (null != model.getPassword()) {
+            passwordText.setText(PASSWORD_STUB);
+        } else {
+            passwordText.setText(null);
+        }
         portionText.setText(ObjectUtils.toString(model.getPortion()));
         ratingsPanel.setRatings(model.getRatings());
     }
@@ -487,10 +495,11 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
         //model.setOpacity();
         final char[] passChars = passwordText.getPassword();
         final String pass = new String(passChars);
-        if (!PASSWORD_STUB.equals(pass)) {
-            controller.getValidator().validatePassword(pass);
-            model.setPassword(GuiUtil.createDigest(passChars));
+        if (PASSWORD_STUB.equals(pass)) {
+            throw new BimValidationException("'{0}' can't be used as password", PASSWORD_STUB);
         }
+        controller.getValidator().validatePassword(pass);
+        model.setPassword(GuiUtil.createDigest(passChars));
         model.setPortion(Long.valueOf(portionText.getText()));
         //model.setPreviewDuration();
         //model.setPreviewInterval();

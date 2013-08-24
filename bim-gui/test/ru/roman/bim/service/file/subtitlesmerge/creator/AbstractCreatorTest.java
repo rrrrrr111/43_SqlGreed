@@ -1,4 +1,4 @@
-package ru.roman.bim.service.subtitlesmerge.creator;
+package ru.roman.bim.service.file.subtitlesmerge.creator;
 
 import org.junit.Assert;
 import org.junit.Test;

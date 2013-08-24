@@ -1,14 +1,14 @@
-package ru.roman.bim.service.subtitlesmerge;
+package ru.roman.bim.service.file.subtitlesmerge;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.pane.choose.FileChooser;
-import ru.roman.bim.gui.pane.choose.FileChooserParams;
-import ru.roman.bim.service.subtitlesmerge.creator.HtmlCreator;
-import ru.roman.bim.service.subtitlesmerge.creator.SrtCreator;
-import ru.roman.bim.service.subtitlesmerge.dto.*;
+import ru.roman.bim.gui.pane.choose.FileChooserBuilder;
+import ru.roman.bim.service.file.subtitlesmerge.creator.HtmlCreator;
+import ru.roman.bim.service.file.subtitlesmerge.creator.SrtCreator;
+import ru.roman.bim.service.file.subtitlesmerge.dto.*;
 import ru.roman.bim.util.GuiUtil;
 
 import java.io.File;
@@ -160,7 +160,7 @@ public class SubtitlesMergeServiceImpl implements SubtitlesMergeService {
         try {
             ParsedData data = new ParsedData();
             if (fc == null) {
-                fc = new FileChooser(new FileChooserParams("Subtitles files (*.srt)", "srt", "Choose first subtitles file"));
+                fc = new FileChooserBuilder("Subtitles files (*.srt)", "srt", "Choose first subtitles file").createChooser();
             }
 
             final File firstFile = fc.showSelectFileDialog();

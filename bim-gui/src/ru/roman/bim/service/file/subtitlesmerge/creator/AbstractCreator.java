@@ -1,4 +1,4 @@
-package ru.roman.bim.service.subtitlesmerge.creator;
+package ru.roman.bim.service.file.subtitlesmerge.creator;
 
 /** @author Roman 09.06.13 22:58 */
 public abstract class AbstractCreator {

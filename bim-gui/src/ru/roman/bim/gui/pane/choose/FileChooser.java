@@ -16,25 +16,38 @@ public class FileChooser {
 
     private static int reportCounter = 1;
 
-    public FileChooser(final FileChooserParams params) {
-        Validate.notBlank(params.getFilesName(), "Wrong filter params, fileName is blank");
-        Validate.notBlank(params.getFilesExtension(), "Wrong filter params, fileExtension is blank");
-
-        if (params.getDialogTitle() != null) {
-            fc.setDialogTitle(params.getDialogTitle());
+    FileChooser(final FileChooserBuilder builder) {
+        if (builder.getDialogTitle() != null) {
+            fc.setDialogTitle(builder.getDialogTitle());
         }
 
-        final FileFilter filter = new FileFilter() {
-            @Override
-            public boolean accept(File f) {
-                return !f.isFile() || (f.getName().toLowerCase().endsWith(
-                        "." + params.getFilesExtension().toLowerCase()));
-            }
-            @Override
-            public String getDescription() {
-                return params.getFilesName();
-            }
-        };
+        final FileFilter filter;
+        if (builder.getFilesName() == null) {
+            filter = new FileFilter() {
+                @Override
+                public boolean accept(File f) {
+                    return true;
+                }
+                @Override
+                public String getDescription() {
+                    return "All files (*.*)";
+                }
+            };
+        } else {
+            Validate.notBlank(builder.getFilesName(), "Wrong filter params, fileName is blank");
+            Validate.notBlank(builder.getFilesExtension(), "Wrong filter params, fileExtension is blank");
+            filter = new FileFilter() {
+                @Override
+                public boolean accept(File f) {
+                    return !f.isFile() || (f.getName().toLowerCase().endsWith(
+                            "." + builder.getFilesExtension().toLowerCase()));
+                }
+                @Override
+                public String getDescription() {
+                    return builder.getFilesName();
+                }
+            };
+        }
         fc.addChoosableFileFilter(filter);
         fc.setFileFilter(filter);
     }

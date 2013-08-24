@@ -1,5 +1,6 @@
 package ru.roman.bim.gui.pane.main;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.cbchain.CallBackChain;
@@ -17,6 +18,7 @@ import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.ghost.GhostController;
 import ru.roman.bim.service.ghost.GhostService;
 import ru.roman.bim.service.ghost.GhostServiceImpl;
+import ru.roman.bim.service.translate.TranslationService;
 
 /** @author Roman 21.12.12 0:24 */
 public class MainViewController extends Controller<MainView, MainViewModel> implements GhostController {
@@ -27,6 +29,7 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
     private LocalCache localCache;
     private final OpacityTimer opacityTimer;
     private final GhostService ghostService;
+    private final TranslationService yaTranslator = ServiceFactory.getYandexService();
 
     private final TransparentWindowSupport supp = new TransparentWindowSupport();
 
@@ -83,6 +86,11 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
     }
 
     protected void onTranslate() {
+        if (StringUtils.startsWith(currModel.getTextShadowed(), "_")) {
+            currModel.setTextShadowed(
+                    yaTranslator.translate(currModel.getTextFaced(),
+                            currModel.getFacedLangId(), currModel.getShadowedLangId()));
+        }
         view.translate();
     }
 

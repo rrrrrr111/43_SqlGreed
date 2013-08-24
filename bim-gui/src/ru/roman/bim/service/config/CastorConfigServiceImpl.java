@@ -54,6 +54,9 @@ public class CastorConfigServiceImpl implements ConfigService {
     public synchronized SettingsViewModel loadSettingsConfig() {
         if (settingsModel == null) {
             settingsModel = loadEncryptedConfig(SETTINGS_FILE_NAME, SettingsViewModel.class);
+            if (settingsModel != null) {
+                log.info("Settings loaded from config file");
+            }
         }
         return settingsModel;
     }
@@ -62,6 +65,7 @@ public class CastorConfigServiceImpl implements ConfigService {
     public synchronized void saveSettingsConfig(SettingsViewModel model) {
         saveEncryptedConfig(model, SETTINGS_FILE_NAME);
         settingsModel = model;
+        log.info("Settings saved to config file");
     }
 
     public static Mapping mapping;

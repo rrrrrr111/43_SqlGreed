@@ -108,7 +108,7 @@ public abstract class CallBackChain<T> {
     protected void onFailure(Exception e) {
         if (!defaultFailureActionExecuted.get()) {
             defaultFailureActionExecuted.set(true);
-            ExceptionHandler.showMessage(e);
+            ExceptionHandler.showErrorMessage(e);
         }
     }
 

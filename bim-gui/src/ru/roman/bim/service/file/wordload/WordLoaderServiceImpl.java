@@ -1,4 +1,4 @@
-package ru.roman.bim.service.wordload;
+package ru.roman.bim.service.file.wordload;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;

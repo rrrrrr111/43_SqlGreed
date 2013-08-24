@@ -1,4 +1,4 @@
-package ru.roman.bim.service.wordload;
+package ru.roman.bim.service.file.wordload;
 
 import java.io.File;
 

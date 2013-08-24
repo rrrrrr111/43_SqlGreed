@@ -1,4 +1,4 @@
-package ru.roman.bim.service.subtitlesmerge.dto;
+package ru.roman.bim.service.file.subtitlesmerge.dto;
 
 /** @author Roman 09.06.13 13:46 */
 public class MergedFragmentModel extends SrtFragmentModel {

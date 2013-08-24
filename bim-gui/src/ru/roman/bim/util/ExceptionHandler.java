@@ -25,11 +25,11 @@ public class ExceptionHandler {
     private static volatile boolean errMessAlreadyShown;
 
     public static void showErrorMessageAndExit(Throwable t){
-        showMessage(t);
+        showErrorMessage(t);
         StartBim.stop(1);
     }
 
-    public static void showMessage(Throwable t){
+    public static void showErrorMessage(Throwable t){
 
         synchronized (ExceptionHandler.class) {
             if (errMessAlreadyShown) {
@@ -106,7 +106,7 @@ public class ExceptionHandler {
                 try {
                     super.dispatchEvent(newEvent);
                 } catch (Throwable t) {
-                    showMessage(t);
+                    showErrorMessage(t);
                 }
             }
         });

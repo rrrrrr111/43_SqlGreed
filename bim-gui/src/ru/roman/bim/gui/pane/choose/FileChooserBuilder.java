@@ -1,21 +1,24 @@
 package ru.roman.bim.gui.pane.choose;
 
 /** @author Roman 02.06.13 10:55 */
-public class FileChooserParams {
+public class FileChooserBuilder {
 
     private String filesName;
     private String filesExtension;
     private String dialogTitle;
 
-    public FileChooserParams(String filesName, String filterRegExp) {
-        this.filesName = filesName;
-        this.filesExtension = filterRegExp;
-    }
-
-    public FileChooserParams(String filesName, String filesExtension, String dialogTitle) {
+    public FileChooserBuilder(String filesName, String filesExtension, String dialogTitle) {
         this.filesName = filesName;
         this.filesExtension = filesExtension;
         this.dialogTitle = dialogTitle;
+    }
+
+    public FileChooserBuilder(String filesName, String filterRegExp) {
+        this(filesName, filterRegExp, null);
+    }
+
+    public FileChooserBuilder(String dialogTitle) {
+        this(null, null, dialogTitle);
     }
 
     public String getFilesName() {
@@ -40,5 +43,10 @@ public class FileChooserParams {
 
     public void setDialogTitle(String dialogTitle) {
         this.dialogTitle = dialogTitle;
+    }
+
+
+    public FileChooser createChooser() {
+        return new FileChooser(this);
     }
 }

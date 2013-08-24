@@ -1,4 +1,4 @@
-package ru.roman.bim.service.subtitlesmerge.dto;
+package ru.roman.bim.service.file.subtitlesmerge.dto;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

@@ -11,9 +11,10 @@ public abstract class WordUtils {
     public static final String STRIP_CHARS = " .,-;:`'\"";
 
     public static void checkIdiom(BimItemModel model) {
-        if (StringUtils.containsIgnoreCase(model.getTextFaced(), "(идиома)")) {
-            String facedText = StringUtils.removeEndIgnoreCase(model.getTextFaced(), "(идиома)");
-            facedText = StringUtils.strip(facedText, " .,");
+        String facedText = StringUtils.strip(model.getTextFaced(), STRIP_CHARS);
+        if (StringUtils.endsWithIgnoreCase(facedText, "(идиома)")) {
+            facedText = StringUtils.removeEndIgnoreCase(facedText, "(идиома)");
+            facedText = StringUtils.strip(facedText, STRIP_CHARS);
             model.setTextFaced(facedText);
             model.setType(WordType.IDIOM.getOrdinal());
         }

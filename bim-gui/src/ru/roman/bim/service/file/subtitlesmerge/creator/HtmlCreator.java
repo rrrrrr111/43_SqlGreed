@@ -1,9 +1,9 @@
-package ru.roman.bim.service.subtitlesmerge.creator;
+package ru.roman.bim.service.file.subtitlesmerge.creator;
 
 import org.apache.commons.io.FileUtils;
-import ru.roman.bim.service.subtitlesmerge.dto.MergedFragmentModel;
-import ru.roman.bim.service.subtitlesmerge.dto.MergingResultDto;
-import ru.roman.bim.service.subtitlesmerge.dto.ParsedData;
+import ru.roman.bim.service.file.subtitlesmerge.dto.MergedFragmentModel;
+import ru.roman.bim.service.file.subtitlesmerge.dto.MergingResultDto;
+import ru.roman.bim.service.file.subtitlesmerge.dto.ParsedData;
 
 import java.io.File;
 

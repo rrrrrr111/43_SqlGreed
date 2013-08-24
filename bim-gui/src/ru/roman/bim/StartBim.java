@@ -25,7 +25,6 @@ public class StartBim {
     private static SettingsViewController settingsController;
 
     public static void main(String args[]) {
-
         GuiUtil.startSwingApp(new CallBackChain<Void>() {
             @Override
             protected void onSuccess(Void result) {
@@ -39,7 +38,8 @@ public class StartBim {
                     }
                     @Override
                     protected void onFailure(Exception e) {
-                        ExceptionHandler.showErrorMessageAndExit(e);
+                        ExceptionHandler.showErrorMessage(e);
+                        prepareCredentials(this);
                     }
                 });
             }
@@ -76,5 +76,4 @@ public class StartBim {
             settingsController.reloadSettings(callBack);
         }
     }
-
 }

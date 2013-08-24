@@ -9,12 +9,12 @@ import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.gae.GaeConnectorImpl;
 import ru.roman.bim.service.http.HttpClientService;
 import ru.roman.bim.service.http.HttpClientServiceImpl;
-import ru.roman.bim.service.subtitlesmerge.SubtitlesMergeService;
-import ru.roman.bim.service.subtitlesmerge.SubtitlesMergeServiceImpl;
+import ru.roman.bim.service.file.subtitlesmerge.SubtitlesMergeService;
+import ru.roman.bim.service.file.subtitlesmerge.SubtitlesMergeServiceImpl;
 import ru.roman.bim.service.translate.TranslationService;
 import ru.roman.bim.service.translate.YandexService;
-import ru.roman.bim.service.wordload.WordLoaderService;
-import ru.roman.bim.service.wordload.WordLoaderServiceImpl;
+import ru.roman.bim.service.file.wordload.WordLoaderService;
+import ru.roman.bim.service.file.wordload.WordLoaderServiceImpl;
 import ru.roman.bim.util.Const;
 
 /** @author Roman 22.12.12 15:37 */

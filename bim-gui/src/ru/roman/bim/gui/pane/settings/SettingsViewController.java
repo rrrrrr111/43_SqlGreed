@@ -9,16 +9,19 @@ import ru.roman.bim.gui.pane.PaineFactory;
 import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.cache.LocalCache;
 import ru.roman.bim.service.config.ConfigService;
+import ru.roman.bim.service.file.subtitlesmerge.SubtitlesMergeService;
+import ru.roman.bim.service.file.wordload.WordLoaderService;
 import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.gae.wsclient.UserSettingsModel;
-import ru.roman.bim.service.subtitlesmerge.SubtitlesMergeService;
-import ru.roman.bim.service.wordload.WordLoaderService;
+import ru.roman.bim.util.BimException;
 import ru.roman.bim.util.GuiUtil;
 
 import java.awt.*;
 import java.io.File;
-import java.util.*;
+import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 
 /** @author Roman 16.01.13 23:59 */
@@ -49,6 +52,7 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
         view.setVisible(true);
         view.selectTab(1);
         if (currModel == null) {
+            // заполнение настройками по умолчанию
             currModel = new SettingsViewModel();
             currModel.setPortion(100L);
             currModel.getRatings().addAll(Arrays.asList(1, 2, 3));
@@ -81,6 +85,11 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
         view.setState(Frame.NORMAL);
     }
 
+    /**
+     * По кнопке сохранить или зарегистрироваться
+     *
+     *
+     */
     public void onSaveOrRegister() {
         viewDataToModel();
         // validation
@@ -89,16 +98,36 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
 
         switch (state) {
             case FIRST_INPUT:
-                gaeConnector.registerNewAndLoadSettings(currModel, new GaeConnector.GaeCallBack<UserSettingsModel>() {
-                    @Override
-                    protected void onSuccess(UserSettingsModel result) {
-                        currModel = new SettingsViewModel(result);
+                try {
+                    view.setVisible(false);
+
+                    final UserSettingsModel param = currModel;
+                    currModel = null;
+                    // тут асинхронный вызов меняем на синхронный,
+                    // перед запуском приложения должны быть загружены настройки
+                    final CountDownLatch signal = new CountDownLatch(1);
+                    gaeConnector.registerNewAndLoadSettings(param, new GaeConnector.GaeCallBack<UserSettingsModel>() {
+                        @Override
+                        protected void onSuccess(UserSettingsModel result) {
+                            currModel = new SettingsViewModel(result);
+                            signal.countDown();
+                        }
+                        @Override
+                        protected void onFailure(Exception e) {
+                            signal.countDown();
+                            callBack.exception(e);
+                        }
+                    });
+                    if (!signal.await(5, TimeUnit.MINUTES)) {
+                        throw new BimException("Illegal state of synchronously invocation, CountDownLatch" +
+                                " waits more then 5 minutes");
+                    } else if (currModel == null) {
+                        return;
                     }
-                    @Override
-                    protected void onFailure(Exception e) {
-                        super.onFailure(e);
-                    }
-                });
+                } catch (Exception e) {
+                    callBack.exception(e);
+                    return;
+                }
                 break;
             case REGISTERED:
                 gaeStoreSettings();
@@ -110,9 +139,7 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
 
         switch (state) {
             case FIRST_INPUT:
-
-                view.setVisible(false);
-                callBack.run(currModel);
+                callBack.run(currModel);            // колбек запуска приложения, послее первого ввода учетных данных
                 callBack = null;
                 view.prepareSettingsView();
                 state = State.REGISTERED;
@@ -147,8 +174,12 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
 
 
     public void saveConfig() {
-        gaeStoreSettings();
-        configService.saveSettingsConfig(currModel);
+        if (currModel == null) {
+            log.info("Settings is null, will not be saved to config file");
+        } else {
+            gaeStoreSettings();
+            configService.saveSettingsConfig(currModel);
+        }
     }
 
     public void onCancel() {
