@@ -70,6 +70,9 @@ public class TextUploadServiceImpl implements TextUploadService{
         ParsedTextDto res;
         try {
             res = parseFile();
+            if (res == null) {
+                return;
+            }
         } catch (Exception e) {
             throw new RuntimeException("Exception while file parsing", e);
         }
@@ -87,9 +90,7 @@ public class TextUploadServiceImpl implements TextUploadService{
         } catch (Exception e) {
             throw new RuntimeException("Exception while file writing", e);
         }
-
         GuiUtil.showInfoMessage("Parsing complete");
-
     }
 
 

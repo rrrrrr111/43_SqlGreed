@@ -38,16 +38,16 @@ public class GaeConnectorImpl implements GaeConnector {
     }
 
     @Override
-    public void save(final MainViewModel model, final GaeConnector.GaeCallBack callBack) {
+    public void save(final MainViewModel model, final GaeConnector.GaeCallBack<SaveResp> callBack) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     final SaveRequest req = WsUtil.prepareRequest(new SaveRequest());
                     req.setModel(model);
-                    final Long id = provider.save(req);
-                    log.info(String.format("Word saved id=%s", id));
-                    callBack.run(id);
+                    SaveResp resp = provider.save(req);
+                    log.info(String.format("Word saved id=%s, state=%s", resp.getId(), resp.getStatus()));
+                    callBack.run(resp);
                 } catch (Exception e) {
                     callBack.exception(e);
                 }
@@ -119,7 +119,7 @@ public class GaeConnectorImpl implements GaeConnector {
                     final RegisterNewAndLoadSettingsRequest req = WsUtil.prepareRequest(new RegisterNewAndLoadSettingsRequest());
                     req.setUserSettingsModel(model);
                     final RegisterNewAndLoadSettingsResp resp = provider.registerNewAndLoadSettings(req);
-                    log.info(String.format("Settings stored %s", ToStringBuilder.reflectionToString(resp.getUserSettingsModel())));
+                    log.info(String.format("GAE registered or loaded settings %s", ToStringBuilder.reflectionToString(resp.getUserSettingsModel())));
                     callBack.run(resp.getUserSettingsModel());
                 } catch (Exception e) {
                     callBack.exception(e);

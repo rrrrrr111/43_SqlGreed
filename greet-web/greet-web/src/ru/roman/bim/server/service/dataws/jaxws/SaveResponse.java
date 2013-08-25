@@ -13,14 +13,14 @@ import javax.xml.bind.annotation.XmlType;
 public class SaveResponse {
 
     @XmlElement(name = "return", namespace = "")
-    private Long _return;
+    private ru.roman.bim.server.service.dataws.dto.word.SaveResp _return;
 
     /**
      * 
      * @return
-     *     returns Long
+     *     returns SaveResp
      */
-    public Long getReturn() {
+    public ru.roman.bim.server.service.dataws.dto.word.SaveResp getReturn() {
         return this._return;
     }
 
@@ -29,7 +29,7 @@ public class SaveResponse {
      * @param _return
      *     the value for the _return property
      */
-    public void setReturn(Long _return) {
+    public void setReturn(ru.roman.bim.server.service.dataws.dto.word.SaveResp _return) {
         this._return = _return;
     }
 

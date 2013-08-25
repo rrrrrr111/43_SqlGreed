@@ -30,6 +30,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlSeeAlso({
     RegisterNewAndLoadSettingsResp.class,
     SystemTaskResp.class,
+    SaveResp.class,
     StoreSettingsResp.class,
     GetListResp.class
 })

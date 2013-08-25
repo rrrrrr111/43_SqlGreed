@@ -4,13 +4,12 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import org.apache.commons.lang3.StringUtils;
-import ru.roman.bim.server.service.dataws.dto.word.BimItemModel;
-import ru.roman.bim.server.service.dataws.dto.word.GetListRequest;
-import ru.roman.bim.server.service.dataws.dto.word.GetListResp;
+import ru.roman.bim.server.service.dataws.dto.word.*;
 import ru.roman.bim.server.util.EntityUtil;
 import ru.roman.bim.server.util.PropUtil;
 
 import java.util.*;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static ru.roman.bim.server.util.EntityUtil.*;
@@ -38,42 +37,63 @@ public class WordDao {
 
     public static final List<String> EXCLUDE_FOR_ENTITY = Arrays.asList("id", "key", "modelNum");
 
-    public static Long createOrUpdate(BimItemModel model) {
+    public static SaveResp createOrUpdate(BimItemModel model) {
+
+        // слово с автоматическим переводом
+        String newTransl = model.getTextShadowed();
+        if (StringUtils.startsWith(newTransl, "_")) {
+            model.setTextShadowed(null);
+            newTransl = null;
+        }
 
         // логика исключени€ дублировани€
         Entity word = findFirstEntity(ENT_NAME, TEXT_FACED, model);
-        boolean newEntity = false;
+        final SaveStatus state;
         String oldTransl = null;
         if(model.getId() == null){
-            if (word == null) {
+            if (word == null) {    // абсолютно новое слово
                 word = new Entity(ENT_NAME);
-                newEntity = true;
-            } else {         // дл€ новых слов, если в Ѕƒ уже есть такое, дописываем перевод
+                state = SaveStatus.CREATED_NEW;
+            } else {   // пришло c клиента как новое, но в Ѕƒ уже есть такое
+                // дл€ новых слов, если в Ѕƒ уже есть такое, запоминаем перевод чтобы потом дописать, если отличаетс€
                 oldTransl = (String)word.getProperty(TEXT_SHADOWED);
+                // если в Ѕƒ абсолютно такое же слово, пропускаем его
+                if (StringUtils.equalsIgnoreCase(oldTransl, newTransl)){
+                    log.log(Level.INFO, "Word already exists and skipped : " + model);
+                    state = SaveStatus.ALREADY_EXIST_SKIPPED;
+                    return new SaveResp(word.getKey().getId(), state);
+                } else {
+                    state = SaveStatus.ALREADY_EXIST_MERGED;
+                }
             }
-        } else {               // при редактировании, удал€ем если уже есть такое слово и дописываем перевод
-            if (word != null) {
+        } else {
+            if (word != null) {  // пришло с клиента как редактирование, и в Ѕƒ нашлось
                 if (word.getKey().getId() != model.getId()) {
+                    // при редактировании, удал€ем если уже есть такое слово и запоминаем перевод чтобы дописать
                     oldTransl = (String)word.getProperty(TEXT_SHADOWED);
                     deleteWord(model.getId());
+                    state = SaveStatus.EDITED_OLD_MERGED_AND_DELETED;
+                } else {
+                    state = SaveStatus.EDITED;
                 }
-            } else {
+            } else { // пришло с клиента как редактирование, в Ѕƒ не нашлось такого, видимо сильно отредактировали
+                    // ищем заново, теперь по ID
                 word = getWord(model.getId());
+                state = SaveStatus.EDITED;
             }
         }
         if (word == null) {
             throw new RuntimeException("Word doesn't determined");
         }
-        final String newTransl = model.getTextShadowed();
-        if (StringUtils.startsWith(newTransl, "_")) {
-            model.setTextShadowed(null);
-        } else if (oldTransl != null && newTransl != null) {
+        // логика дописывани€ перевода
+        if (oldTransl != null && newTransl != null) {
             if (oldTransl.contains(newTransl)) {
                 model.setTextShadowed(oldTransl);
             } else if (!newTransl.contains(oldTransl)) {
                 model.setTextShadowed(newTransl + ", " + oldTransl);
             }
         }
+        // обновл€ем дату
         if(model.getEditDate() == null) {
             model.setEditDate(new Date());
         }
@@ -81,11 +101,15 @@ public class WordDao {
         // сохран€ем сущность
         PropUtil.copyEntProperties(word, model, EXCLUDE_FOR_ENTITY);
         persistEntity(word);
-        if (newEntity) {
+        log.info("Word saved : " + model);
+        if (state == SaveStatus.CREATED_NEW) {
+            // создаем сущности юзерских настроек, даже если слово сильно редактируетс€, настройки не обнов€тс€
+            // настройки сождаютс€ только дл€ нового слова
             UserRatingDao.createUserRatings(word);
         }
-
-        return word.getKey().getId();
+        final long id = word.getKey().getId();
+        log.log(Level.INFO, "UserRatings for word ID=" + id + " saved");
+        return new SaveResp(id, state);
     }
 
 

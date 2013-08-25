@@ -242,8 +242,19 @@
 
   <xs:complexType name="saveResponse">
     <xs:sequence>
-      <xs:element name="return" type="xs:long" minOccurs="0"/>
+      <xs:element name="return" type="tns:saveResp" minOccurs="0"/>
     </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="saveResp">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractResponse">
+        <xs:sequence>
+          <xs:element name="id" type="xs:long" minOccurs="0"/>
+          <xs:element name="status" type="tns:saveStatus" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="renewRating">
@@ -266,5 +277,15 @@
   <xs:complexType name="renewRatingResponse">
     <xs:sequence/>
   </xs:complexType>
+
+  <xs:simpleType name="saveStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CREATED_NEW"/>
+      <xs:enumeration value="ALREADY_EXIST_SKIPPED"/>
+      <xs:enumeration value="ALREADY_EXIST_MERGED"/>
+      <xs:enumeration value="EDITED"/>
+      <xs:enumeration value="EDITED_OLD_MERGED_AND_DELETED"/>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>
 

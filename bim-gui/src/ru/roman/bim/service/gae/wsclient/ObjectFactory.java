@@ -189,6 +189,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SaveResp }
+     * 
+     */
+    public SaveResp createSaveResp() {
+        return new SaveResp();
+    }
+
+    /**
      * Create an instance of {@link RenewRatingRequest }
      * 
      */

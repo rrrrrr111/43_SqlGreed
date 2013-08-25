@@ -5,6 +5,7 @@ import ru.roman.bim.gui.custom.widget.LoadingPanel;
 import ru.roman.bim.gui.pane.main.MainViewModel;
 import ru.roman.bim.service.gae.wsclient.GetListRequest;
 import ru.roman.bim.service.gae.wsclient.GetListResp;
+import ru.roman.bim.service.gae.wsclient.SaveResp;
 import ru.roman.bim.service.gae.wsclient.UserSettingsModel;
 
 
@@ -12,7 +13,7 @@ import ru.roman.bim.service.gae.wsclient.UserSettingsModel;
 public interface GaeConnector {
 
 
-    void save(MainViewModel model, GaeConnector.GaeCallBack<Long> callBack);
+    void save(MainViewModel model, GaeConnector.GaeCallBack<SaveResp> callBack);
     /* сервис не может возвращать пустой список, всегда хотябы одно значение */
     void getList(GetListRequest request, GaeConnector.GaeCallBack<GetListResp> callBack);
 

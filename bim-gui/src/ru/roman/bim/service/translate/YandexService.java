@@ -46,14 +46,17 @@ public class YandexService implements TranslationService{
 
     @Override
     public String translateExpression(String word, Long wordLandId, Long targetLandId) {
-        //http://translate.yandex.ru/tr.json/translate?lang=ru-en&text=привет
+        //1. 2012 http://translate.yandex.ru/tr.json/translate?lang=ru-en&text=привет
+        //2. 2013.08.25 http://translate.yandex.net/tr.json/translate?lang=ru-en
+        // &text=%D0%BF%D1%80%D0%B8%D0%B2%D0%B5%D1%82%20%D0%BC%D0%BE%D1%80%D0%BA%D0%BE%D0%B2%D0%BA%D0%B0&srv=tr-text
 
 
         final Map<String, String> params = new HashMap<String, String>();
         params.put("lang", createLangParamValue(wordLandId, targetLandId));
         params.put("text", word);
+        params.put("srv", "tr-text");
 
-        final String result = httpClient.executeGet(TRANSLATE_YANDEX_RU, TRANSLATE_YANDEX_RU_PATH, params);
+        final String result = httpClient.executeGet(TRANSLATE_YANDEX_NET, TRANSLATE_YANDEX_RU_PATH, params);
         return StringUtils.strip(result, "\"");
     }
 

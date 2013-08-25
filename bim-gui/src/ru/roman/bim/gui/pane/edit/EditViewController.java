@@ -13,6 +13,7 @@ import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.cache.LocalCache;
 import ru.roman.bim.service.cache.LocalCacheFactory;
 import ru.roman.bim.service.gae.GaeConnector;
+import ru.roman.bim.service.gae.wsclient.SaveResp;
 import ru.roman.bim.service.translate.TranslationService;
 import ru.roman.bim.util.GuiUtil;
 
@@ -130,10 +131,10 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
                 }
             }
             state = State.LOADING;
-            gaeConnector.save(currModel, new GaeConnector.GaeCallBack<Long>() {
+            gaeConnector.save(currModel, new GaeConnector.GaeCallBack<SaveResp>() {
                 @Override
-                protected void onSuccess(Long id) {
-                    currModel.setId(id);
+                protected void onSuccess(SaveResp resp) {
+                    currModel.setId(resp.getId());
                     localCache.addOrRenewModel(currModel);
                     showModel(currModel);
                 }

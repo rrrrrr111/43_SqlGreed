@@ -85,14 +85,14 @@ public interface DataProvider {
      * 
      * @param arg0
      * @return
-     *     returns java.lang.Long
+     *     returns ru.roman.bim.service.gae.wsclient.SaveResp
      */
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "save", targetNamespace = "http://dataws.service.server.bim.roman.ru/", className = "ru.roman.bim.service.gae.wsclient.Save")
     @ResponseWrapper(localName = "saveResponse", targetNamespace = "http://dataws.service.server.bim.roman.ru/", className = "ru.roman.bim.service.gae.wsclient.SaveResponse")
     @Action(input = "http://dataws.service.server.bim.roman.ru/DataProvider/saveRequest", output = "http://dataws.service.server.bim.roman.ru/DataProvider/saveResponse")
-    public Long save(
+    public SaveResp save(
         @WebParam(name = "arg0", targetNamespace = "")
         SaveRequest arg0);
 

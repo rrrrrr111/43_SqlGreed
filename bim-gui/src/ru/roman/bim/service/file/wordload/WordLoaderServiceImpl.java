@@ -2,6 +2,7 @@ package ru.roman.bim.service.file.wordload;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -18,6 +19,8 @@ import ru.roman.bim.model.WordCategory;
 import ru.roman.bim.model.WordType;
 import ru.roman.bim.service.ServiceFactory;
 import ru.roman.bim.service.gae.GaeConnector;
+import ru.roman.bim.service.gae.wsclient.SaveResp;
+import ru.roman.bim.service.gae.wsclient.SaveStatus;
 import ru.roman.bim.util.BimException;
 import ru.roman.bim.util.GuiUtil;
 import ru.roman.bim.util.WsUtil;
@@ -56,24 +59,47 @@ public class WordLoaderServiceImpl implements WordLoaderService {
         log.info("Selected Excel file to upload : " + file);
 
         List<MainViewModel> sheetData = parseExcel(file);
-        for (final MainViewModel model : sheetData) {
+        if (sheetData.isEmpty()) {
+            GuiUtil.showInfoMessage("Excel file is empty");
+        } else {
+            saveToGae(sheetData.iterator(), new GroupSaveCounter());
+        }
+    }
+
+    private void saveToGae(final Iterator<MainViewModel> iterator, final GroupSaveCounter counter) {
+        if (iterator.hasNext()) {
+            final MainViewModel model = iterator.next();
             WordUtils.checkIdiom(model);
             WordUtils.fillTexts(model, model.getTextFaced(), model.getTextShadowed());
-
-            gaeConnector.save(model, new GaeConnector.GaeCallBack<Long>() {
+            gaeConnector.save(model, new GaeConnector.GaeCallBack<SaveResp>() {
                 @Override
-                protected void onSuccess(Long id) {
-                    model.setId(id);
+                protected void onSuccess(SaveResp resp) {
+                    counter.total++;
+                    if (resp.getStatus() == SaveStatus.CREATED_NEW) {
+                        counter.createdNew++;
+                    } else if (resp.getStatus() == SaveStatus.ALREADY_EXIST_SKIPPED) {
+                        counter.skipped++;
+                    }
+                    model.setId(resp.getId());
+                    log.info(counter.total +" word saved : " + ToStringBuilder.reflectionToString(resp));
+                    saveToGae(iterator, counter);
                 }
             });
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+        } else {
+            GuiUtil.showInfoMessage("Loading complete\n" +
+                    "Total uploaded : " + counter.total + "\n" +
+                    "New words : " + counter.createdNew + "\n" +
+                    "Skipped : " + counter.skipped + "\n" +
+                    "");
         }
-        GuiUtil.showInfoMessage("Loading complete");
     }
+
+    class GroupSaveCounter {
+        int total;
+        int createdNew;
+        int skipped;
+    }
+
 
     private List<MainViewModel> parseExcel(File fileFroLoading) {
         List<MainViewModel> sheetData = new ArrayList<MainViewModel>();

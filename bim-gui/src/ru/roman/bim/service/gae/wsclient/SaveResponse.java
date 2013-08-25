@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://dataws.service.server.bim.roman.ru/}saveResp" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,17 +33,17 @@ import javax.xml.bind.annotation.XmlType;
 public class SaveResponse {
 
     @XmlElement(name = "return")
-    protected Long _return;
+    protected SaveResp _return;
 
     /**
      * Gets the value of the return property.
      * 
      * @return
      *     possible object is
-     *     {@link Long }
+     *     {@link SaveResp }
      *     
      */
-    public Long getReturn() {
+    public SaveResp getReturn() {
         return _return;
     }
 
@@ -52,10 +52,10 @@ public class SaveResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link Long }
+     *     {@link SaveResp }
      *     
      */
-    public void setReturn(Long value) {
+    public void setReturn(SaveResp value) {
         this._return = value;
     }
 

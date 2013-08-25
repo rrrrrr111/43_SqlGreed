@@ -27,12 +27,11 @@ public class GaeConnectorImplTest {
         arg0.setRating(1L);
         arg0.setType(1L);
 
-        gaeConnector.save(arg0, new GaeConnector.GaeCallBack<Long>() {
+        gaeConnector.save(arg0, new GaeConnector.GaeCallBack<SaveResp>() {
             @Override
-            protected void onSuccess(final Long r) {
-                arg0.setId(r);
-                log.info("saved id : " + r);
-
+            protected void onSuccess(final SaveResp r) {
+                arg0.setId(r.getId());
+                log.info("saved id : " + r.getId());
 
                 GetListRequest req1 = WsUtil.prepareRequest(new GetListRequest());
                 req1.setCount(100);
@@ -48,7 +47,7 @@ public class GaeConnectorImplTest {
                             @Override
                             protected void onSuccess(GetListResp res) {
                                 log.info("items count : " + res.getList().size() + " all : " + res.getRecordsCount());
-                                gaeConnector.renewRating(r, 4);
+                                gaeConnector.renewRating(r.getId(), 4);
                                 log.info("renew complete");
                             }
                         });

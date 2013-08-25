@@ -155,6 +155,20 @@ public class BimItemModel implements Serializable {
         return id != null ? id.hashCode() : 0;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "BimItemModel{" +
+                "id=" + id +
+                ", textFaced='" + textFaced + '\'' +
+                ", textShadowed='" + textShadowed + '\'' +
+                ", facedLangId=" + facedLangId +
+                ", shadowedLangId=" + shadowedLangId +
+                ", rating=" + rating +
+                ", type=" + type +
+                ", category=" + category +
+                ", modelNum=" + modelNum +
+                ", owner=" + owner +
+                ", editDate=" + editDate +
+                '}';
+    }
 }

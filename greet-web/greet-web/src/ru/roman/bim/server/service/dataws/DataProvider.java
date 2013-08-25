@@ -6,10 +6,7 @@ import ru.roman.bim.server.dss.dao.WordDao;
 import ru.roman.bim.server.service.dataws.dto.settings.*;
 import ru.roman.bim.server.service.dataws.dto.system.SystemTaskRequest;
 import ru.roman.bim.server.service.dataws.dto.system.SystemTaskResp;
-import ru.roman.bim.server.service.dataws.dto.word.GetListRequest;
-import ru.roman.bim.server.service.dataws.dto.word.GetListResp;
-import ru.roman.bim.server.service.dataws.dto.word.RenewRatingRequest;
-import ru.roman.bim.server.service.dataws.dto.word.SaveRequest;
+import ru.roman.bim.server.service.dataws.dto.word.*;
 import ru.roman.bim.server.service.right.RightsService;
 import ru.roman.bim.server.service.right.RightsServiceImpl;
 import ru.roman.bim.server.service.systask.SystemService;
@@ -20,7 +17,23 @@ import javax.jws.WebService;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/** @author Roman 07.01.13 17:22 */
+/** @author Roman 07.01.13 17:22
+ *
+ * Порядок правки Web-сервиса:
+ * 1. Делаем правки в этом классе и в остальном серверном коде, все DTO кладем в пакет dto
+ *    для каждого метода делаем ...Resp и ...Request, слово Response не используем,
+ *    т.к. автоматически генерящийся код использует это слово тоже тоже.
+ * 2. Не компилящийся код в DataProviderAdapter комментим и компилим код.
+ * 3. Запускаем RunWsGen.cmd
+ * 4. Дописываем класс DataProviderAdapter и также правим классы DataProviderSOAPHandler если новые методы.
+ * 5. Web проект пересобираем с очисткой от старых классов, т.к. WsGen делает компиляцию компилятором локальной Java.
+ * 6. Запускаем Web проект под Ant, задачей runserver, смотрим что у него в логе.
+ * 7. Запускаем RunWsImport.cmd
+ * 8. Правим код на клиенте под новые изменения.
+ * 9. Переключаем клиент на боевой режим, но на адрес тестового сервера, проверяем функциональность.
+ * 10. Если менялись классы сохраняемые через Castor, правим конфиг CastorMappings.xml
+ *
+ * */
 @WebService
 public class DataProvider {
     private final Logger log = Logger.getLogger(this.getClass().getName());
@@ -29,7 +42,7 @@ public class DataProvider {
     private final SystemService systemService = new SystemServiceImpl();
 
     @WebMethod
-    public Long save(SaveRequest req){
+    public SaveResp save(SaveRequest req){
         try {
             log.log(Level.INFO, "Saving item, params : " + ToStringBuilder.reflectionToString(req.getModel()));
             rightsService.checkAuthority(req);
@@ -102,6 +115,4 @@ public class DataProvider {
             throw e;
         }
     }
-
-
 }

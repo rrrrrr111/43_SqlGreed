@@ -14,7 +14,8 @@ public class CastorWriter implements XmlWriter {
         XMLContext context = new XMLContext();
         context.addMapping(CastorConfigServiceImpl.getMapping());
         Marshaller marshaller = context.createMarshaller();
-        marshaller.marshal(data, handler);
+        marshaller.setContentHandler(handler);
+        marshaller.marshal(data);
 
     }
 }

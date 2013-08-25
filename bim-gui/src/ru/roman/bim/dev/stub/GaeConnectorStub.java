@@ -8,9 +8,7 @@ import ru.roman.bim.model.WordCategory;
 import ru.roman.bim.model.WordType;
 import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.gae.GaeConnectorImpl;
-import ru.roman.bim.service.gae.wsclient.GetListRequest;
-import ru.roman.bim.service.gae.wsclient.GetListResp;
-import ru.roman.bim.service.gae.wsclient.UserSettingsModel;
+import ru.roman.bim.service.gae.wsclient.*;
 import ru.roman.bim.util.WsUtil;
 
 import java.util.ArrayList;
@@ -79,7 +77,7 @@ public class GaeConnectorStub implements GaeConnector {
 
 
     @Override
-    public void save(MainViewModel model, GaeConnector.GaeCallBack<Long> callBack) {
+    public void save(MainViewModel model, GaeConnector.GaeCallBack<SaveResp> callBack) {
         if (model.getId() == null) {
             model.setId(++counter);
         }
@@ -89,7 +87,10 @@ public class GaeConnectorStub implements GaeConnector {
         store.add(model);
         log.info("Stub save : " + ToStringBuilder.reflectionToString(model));
         sleep();
-        callBack.run(model.getId());
+        final SaveResp result = new SaveResp();
+        result.setId(model.getId());
+        result.setStatus(SaveStatus.CREATED_NEW);
+        callBack.run(result);
 
     }
 
