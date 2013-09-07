@@ -34,6 +34,7 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
     private final TransparentWindowSupport supp = new TransparentWindowSupport();
 
     private volatile State state;
+    private static final String NO_TRANSLATION = "no translation";
 
 
     public MainViewController(MainView view) {
@@ -87,9 +88,16 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
 
     protected void onTranslate() {
         if (StringUtils.startsWith(currModel.getTextShadowed(), "_")) {
-            currModel.setTextShadowed(
-                    yaTranslator.translate(currModel.getTextFaced(),
-                            currModel.getFacedLangId(), currModel.getShadowedLangId()));
+            String translation = yaTranslator.translateWord(currModel.getTextFaced(),
+                    currModel.getFacedLangId(), currModel.getShadowedLangId());
+            if (StringUtils.isBlank(translation)) {
+                translation = yaTranslator.translateExpression(currModel.getTextFaced(),
+                        currModel.getFacedLangId(), currModel.getShadowedLangId());
+
+
+
+            }
+            currModel.setTextShadowed(StringUtils.replace(translation, "\n", "<br/>"));
         }
         view.translate();
     }

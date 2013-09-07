@@ -15,6 +15,7 @@ import ru.roman.bim.service.gae.GaeConnector;
 import ru.roman.bim.service.gae.GaeConnectorImpl;
 import ru.roman.bim.service.http.HttpClientService;
 import ru.roman.bim.service.http.HttpClientServiceImpl;
+import ru.roman.bim.service.translate.GoogleService;
 import ru.roman.bim.service.translate.TranslationService;
 import ru.roman.bim.service.translate.YandexService;
 import ru.roman.bim.util.Const;
@@ -24,11 +25,13 @@ public class ServiceFactory {
     private static volatile GaeConnector gaeConnector;
     private static volatile HttpClientService httpClientInstance;
     private static volatile TranslationService yandexService;
+    private static volatile TranslationService googleService;
     private static volatile WordLoaderService wordLoaderService;
     private static volatile XmlConfigService xmlConfigService;
     private static volatile ConfigService configService;
     private static volatile SubtitlesMergeService subtitlesMergeService;
     private static volatile TextUploadService textUploadService;
+
 
     public static synchronized GaeConnector getGaeConnector() {
         if (gaeConnector == null) {
@@ -55,6 +58,13 @@ public class ServiceFactory {
         return yandexService;
     }
 
+    public static synchronized TranslationService getGoogleService() {
+        if (googleService == null) {
+            googleService = new GoogleService();
+        }
+        return googleService;
+    }
+
     public static synchronized WordLoaderService getWordLoaderService() {
         if (wordLoaderService == null) {
             wordLoaderService = new WordLoaderServiceImpl();
@@ -76,17 +86,19 @@ public class ServiceFactory {
         return configService;
     }
 
-    public static SubtitlesMergeService getSubtitlesMergeService() {
+    public static synchronized SubtitlesMergeService getSubtitlesMergeService() {
         if (subtitlesMergeService == null) {
             subtitlesMergeService = new SubtitlesMergeServiceImpl();
         }
         return subtitlesMergeService;
     }
 
-    public static TextUploadService getTextUploadService() {
+    public static synchronized TextUploadService getTextUploadService() {
         if (textUploadService == null) {
             textUploadService = new TextUploadServiceImpl();
         }
         return textUploadService;
     }
+
+
 }

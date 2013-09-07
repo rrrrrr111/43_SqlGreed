@@ -29,6 +29,7 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
     private State state;
     private final GaeConnector gaeConnector = ServiceFactory.getGaeConnector();
     private final TranslationService yaTranslator = ServiceFactory.getYandexService();
+    private final TranslationService gooTranslator = ServiceFactory.getGoogleService();
     private LocalCache localCache;
     private EditViewModel originalModel;
 
@@ -167,16 +168,32 @@ public class EditViewController extends Controller<EditView, EditViewModel> {
     }
 
     public void onTranslateFacedYandex() {
+        translateFaced(yaTranslator);
+    }
+
+    public void onTranslateFacedGoogle() {
+        translateFaced(gooTranslator);
+    }
+
+    private void translateFaced(TranslationService translator) {
         view.fillTexts(currModel);
-        String tr = yaTranslator.translate(currModel.getTextFaced(),
+        String tr = translator.translate(currModel.getTextFaced(),
                 currModel.getFacedLangId(), currModel.getShadowedLangId());
         currModel.setTextShadowed(tr);
         view.setTexts(currModel);
     }
 
     public void onTranslateTranslationYandex() {
+        translateTranslation(yaTranslator);
+    }
+
+    public void onTranslateTranslationGoogle() {
+        translateTranslation(gooTranslator);
+    }
+
+    private void translateTranslation(TranslationService translator) {
         view.fillTexts(currModel);
-        String tr = yaTranslator.translate(currModel.getTextShadowed(),
+        String tr = translator.translate(currModel.getTextShadowed(),
                 currModel.getShadowedLangId(), currModel.getFacedLangId());
         currModel.setTextFaced(tr);
         view.setTexts(currModel);

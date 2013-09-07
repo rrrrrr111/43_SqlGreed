@@ -99,7 +99,7 @@
         <field name="workWithPortion" type="boolean">
             <bind-xml name="workWithPortion" node="element"/>
         </field>
-        <field name="editDate" >
+        <field name="editDate" type="date" handler="ru.roman.bim.service.config.XmlGregorianCalendarHandler">
             <bind-xml name="editDate" node="element"/>
         </field>
         <field name="disabilityDuration" type="double">

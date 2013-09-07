@@ -38,11 +38,11 @@ public class HttpClientServiceImpl implements HttpClientService {
             entity = response.getEntity();
             if (entity != null) {
                 long len = entity.getContentLength();
-                if (len > -1){
+                //if (len > -1){
                     return EntityUtils.toString(entity);
-                } else {
-                    throw new BimException(String.format("Content length %s not supported by service", len));
-                }
+                //} else {
+                //    throw new BimException(String.format("Content length %s not supported by service", len));
+                //}
             } else {
                 throw new BimException(String.format("Response entity is null"));
             }

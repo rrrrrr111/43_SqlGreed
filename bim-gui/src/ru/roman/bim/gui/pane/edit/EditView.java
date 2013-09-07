@@ -23,6 +23,7 @@ import java.util.Vector;
 public class EditView extends JFrame implements View<EditViewModel, EditView, EditViewController> {
     private static final Log log = LogFactory.getLog(EditView.class);
     public static final String HTTP_TRANSLATE_YANDEX_RU = "http://translate.yandex.ru/";
+    public static final String HTTP_TRANSLATE_GOOGLE_RU = "http://translate.google.ru/";
 
     private final EditViewController controller = new EditViewController(this);
 
@@ -41,8 +42,10 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
 
     private final JLabel facedLangReduction = new JLabel("XX");
     private final JLabel translationLangReduction = new JLabel("YY");
-    private final JButton translateFacedButton = new JButton("ya");
-    private final JButton translateTranslationButton = new JButton("ya");
+    private final JButton translateYaFacedButton = new JButton("ya");
+    private final JButton translateYaTranslationButton = new JButton("ya");
+    private final JButton translateGooFacedButton = new JButton("go");
+    private final JButton translateGooTranslationButton = new JButton("go");
 
     public EditView() {
 
@@ -171,19 +174,32 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
                 controller.onClose();
             }
         });
-        translateFacedButton.addActionListener(new ActionListener() {
+        translateYaFacedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.onTranslateTranslationYandex();
             }
         });
-        translateTranslationButton.addActionListener(new ActionListener() {
+        translateYaTranslationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.onTranslateFacedYandex();
 
             }
         });
+        translateGooFacedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.onTranslateTranslationGoogle();
+            }
+        });
+        translateGooTranslationButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.onTranslateFacedGoogle();
+            }
+        });
+
 
 
         prevButton.setToolTipText("previous word");
@@ -191,8 +207,10 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         saveButton.setToolTipText("save word");
         newButton.setToolTipText("create new word");
         closeButton.setToolTipText("close window");
-        translateFacedButton.setToolTipText("translate by " + HTTP_TRANSLATE_YANDEX_RU);
-        translateTranslationButton.setToolTipText("translate by " + HTTP_TRANSLATE_YANDEX_RU);
+        translateYaFacedButton.setToolTipText("translate by " + HTTP_TRANSLATE_YANDEX_RU);
+        translateYaTranslationButton.setToolTipText("translate by " + HTTP_TRANSLATE_YANDEX_RU);
+        translateGooFacedButton.setToolTipText("translate by " + HTTP_TRANSLATE_GOOGLE_RU);
+        translateGooTranslationButton.setToolTipText("translate by " + HTTP_TRANSLATE_GOOGLE_RU);
 
         // чекбоксы
         checkPanel = new TiedCheckBoxPanel();
@@ -231,7 +249,8 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         JPanel facedAreaButtonsPanel = new JPanel();
         facedAreaButtonsPanel.setLayout(new BoxLayout(facedAreaButtonsPanel, BoxLayout.Y_AXIS));
         facedAreaButtonsPanel.add(facedLangReduction);
-        facedAreaButtonsPanel.add(translateFacedButton);
+        facedAreaButtonsPanel.add(translateYaFacedButton);
+        facedAreaButtonsPanel.add(translateGooFacedButton);
 
         facedLangReduction.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
 
@@ -251,7 +270,8 @@ public class EditView extends JFrame implements View<EditViewModel, EditView, Ed
         JPanel translationAreaButtonsPanel = new JPanel();
         translationAreaButtonsPanel.setLayout(new BoxLayout(translationAreaButtonsPanel, BoxLayout.Y_AXIS));
         translationAreaButtonsPanel.add(translationLangReduction);
-        translationAreaButtonsPanel.add(translateTranslationButton);
+        translationAreaButtonsPanel.add(translateYaTranslationButton);
+        translationAreaButtonsPanel.add(translateGooTranslationButton);
 
         translationLangReduction.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
 
