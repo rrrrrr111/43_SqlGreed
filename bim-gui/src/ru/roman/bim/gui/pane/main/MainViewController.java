@@ -1,6 +1,7 @@
 package ru.roman.bim.gui.pane.main;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.text.StrBuilder;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.roman.bim.gui.common.cbchain.CallBackChain;
@@ -30,6 +31,7 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
     private final OpacityTimer opacityTimer;
     private final GhostService ghostService;
     private final TranslationService yaTranslator = ServiceFactory.getYandexService();
+    private final TranslationService gooTranslator = ServiceFactory.getGoogleService();
 
     private final TransparentWindowSupport supp = new TransparentWindowSupport();
 
@@ -86,18 +88,38 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
         });
     }
 
+    private static enum TranslationState {
+        FACED,
+        GOOGLE,
+        YANDEX_WORD,
+        YANDEX_EXPRESSION,
+    }
+
+
+
+
     protected void onTranslate() {
         if (StringUtils.startsWith(currModel.getTextShadowed(), "_")) {
-            String translation = yaTranslator.translateWord(currModel.getTextFaced(),
+
+            final StrBuilder translation = new StrBuilder();
+            final String gooTranslation = gooTranslator.translate(currModel.getTextFaced(),
                     currModel.getFacedLangId(), currModel.getShadowedLangId());
-            if (StringUtils.isBlank(translation)) {
-                translation = yaTranslator.translateExpression(currModel.getTextFaced(),
-                        currModel.getFacedLangId(), currModel.getShadowedLangId());
-
-
-
+            if (StringUtils.isNotBlank(gooTranslation)) {
+                translation.append(gooTranslation).append("\n\n");
             }
-            currModel.setTextShadowed(StringUtils.replace(translation, "\n", "<br/>"));
+            final String yaWordTranslation = yaTranslator.translateWord(currModel.getTextFaced(),
+                        currModel.getFacedLangId(), currModel.getShadowedLangId());
+            if (StringUtils.isNotBlank(yaWordTranslation) &&
+                    !translation.contains(yaWordTranslation)) {
+                translation.append(yaWordTranslation).append("\n\n");
+            }
+            final String yaExprTranslation = yaTranslator.translateExpression(currModel.getTextFaced(),
+                            currModel.getFacedLangId(), currModel.getShadowedLangId());
+            if (StringUtils.isNotBlank(yaExprTranslation) &&
+                    !translation.contains(yaExprTranslation)) {
+                translation.append(yaExprTranslation).append("\n\n");
+            }
+            currModel.setTextShadowed(StringUtils.replace(translation.toString(), "\n", "<br/>"));
         }
         view.translate();
     }
