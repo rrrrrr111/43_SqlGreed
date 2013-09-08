@@ -105,19 +105,19 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
             final String gooTranslation = gooTranslator.translate(currModel.getTextFaced(),
                     currModel.getFacedLangId(), currModel.getShadowedLangId());
             if (StringUtils.isNotBlank(gooTranslation)) {
-                translation.append(gooTranslation).append("\n\n");
+                translation.append(gooTranslation);
             }
             final String yaWordTranslation = yaTranslator.translateWord(currModel.getTextFaced(),
                         currModel.getFacedLangId(), currModel.getShadowedLangId());
             if (StringUtils.isNotBlank(yaWordTranslation) &&
                     !translation.contains(yaWordTranslation)) {
-                translation.append(yaWordTranslation).append("\n\n");
+                translation.append("\n\n").append(yaWordTranslation);
             }
             final String yaExprTranslation = yaTranslator.translateExpression(currModel.getTextFaced(),
                             currModel.getFacedLangId(), currModel.getShadowedLangId());
             if (StringUtils.isNotBlank(yaExprTranslation) &&
                     !translation.contains(yaExprTranslation)) {
-                translation.append(yaExprTranslation).append("\n\n");
+                translation.append("\n\n").append(yaExprTranslation);
             }
             currModel.setTextShadowed(StringUtils.replace(translation.toString(), "\n", "<br/>"));
         }

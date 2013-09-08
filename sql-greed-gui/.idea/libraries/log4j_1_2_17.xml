@@ -1,11 +1,13 @@
 <component name="libraryTable">
   <library name="log4j-1.2.17">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../45_JavaLib/apache-log4j-1.2.17/log4j-1.2.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/apache-log4j-1.2.17/log4j-1.2.17.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="file://$PROJECT_DIR$/../../45_JavaLib/apache-log4j-1.2.17/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/apache-log4j-1.2.17/log4j-1.2.17-src.zip!/src/performance/java" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/apache-log4j-1.2.17/log4j-1.2.17-src.zip!/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/apache-log4j-1.2.17/log4j-1.2.17-src.zip!/src/main/javadoc" />
     </SOURCES>
   </library>
 </component>
