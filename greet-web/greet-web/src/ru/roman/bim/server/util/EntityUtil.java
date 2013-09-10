@@ -32,7 +32,7 @@ import java.util.logging.Logger;
 public class EntityUtil {
 
     private static final Logger log = Logger.getLogger(EntityUtil.class.getCanonicalName());
-    private static DatastoreService storeService = DatastoreServiceFactory.getDatastoreService();
+    private static final DatastoreService storeService = DatastoreServiceFactory.getDatastoreService();
 
 
 
@@ -65,9 +65,9 @@ public class EntityUtil {
     }
 
     public static Entity findEntity(String kind, Key key) {
-        Query query = new Query(kind)
+        final Query query = new Query(kind)
             .addFilter(Entity.KEY_RESERVED_PROPERTY, FilterOperator.EQUAL, key);
-        List<Entity> results = storeService.prepare(query).asList(
+        final List<Entity> results = storeService.prepare(query).asList(
                 FetchOptions.Builder.withDefaults());
         //log.log(Level.INFO, "query : " + query);
         if (!results.isEmpty()) {
@@ -81,9 +81,9 @@ public class EntityUtil {
     }
 
     public static Entity findFirstEntityByValue(String kind, String field, Object value) {
-        Query query = new Query(kind);
+        final Query query = new Query(kind);
         query.addFilter(field, FilterOperator.EQUAL, value);
-        List<Entity> results = storeService.prepare(query).asList(
+        final List<Entity> results = storeService.prepare(query).asList(
                 FetchOptions.Builder.withDefaults());
         if (!results.isEmpty()) {
             return results.remove(0);
@@ -92,19 +92,19 @@ public class EntityUtil {
     }
 
     public static Iterable<Entity> listEntities(String kind, String searchBy, Object searchFor) {
-        Query q = new Query(kind);
+        final Query q = new Query(kind);
         if (searchFor != null && !"".equals(searchFor)) {
             q.addFilter(searchBy, FilterOperator.EQUAL, searchFor);
         }
-        PreparedQuery pq = storeService.prepare(q);
+        final PreparedQuery pq = storeService.prepare(q);
         return pq.asIterable();
     }
 
     public static Iterable<Entity> listChildren(String kind, Key ancestor) {
-        Query q = new Query(kind);
+        final Query q = new Query(kind);
         q.setAncestor(ancestor);
         q.addFilter(Entity.KEY_RESERVED_PROPERTY, FilterOperator.GREATER_THAN, ancestor);
-        PreparedQuery pq = storeService.prepare(q);
+        final PreparedQuery pq = storeService.prepare(q);
         return pq.asIterable();
     }
 
@@ -124,7 +124,7 @@ public class EntityUtil {
     }
 
     public static Iterable<Entity> listChildKeys(String kind, Key ancestor) {
-        Query q = new Query(kind);
+        final Query q = new Query(kind);
         q.setAncestor(ancestor).setKeysOnly();
         q.addFilter(Entity.KEY_RESERVED_PROPERTY, FilterOperator.GREATER_THAN, ancestor);
         PreparedQuery pq = storeService.prepare(q);
@@ -132,24 +132,24 @@ public class EntityUtil {
     }
 
     public static int getCount(String entName) {
-        Query q2 = new Query(entName).setKeysOnly();
-        PreparedQuery pq2 = getDataStore().prepare(q2);
-        List<Entity> res2 = pq2.asList(FetchOptions.Builder.withDefaults());
+        final Query q2 = new Query(entName).setKeysOnly();
+        final PreparedQuery pq2 = getDataStore().prepare(q2);
+        final List<Entity> res2 = pq2.asList(FetchOptions.Builder.withDefaults());
         return res2.size();
     }
 
     public static List<Entity> getAll(String entName) {
-        Query q2 = new Query(entName);
-        PreparedQuery pq2 = EntityUtil.getDataStore().prepare(q2);
-        List<Entity> res2 = pq2.asList(FetchOptions.Builder.withDefaults());
+        final Query q2 = new Query(entName);
+        final PreparedQuery pq2 = EntityUtil.getDataStore().prepare(q2);
+        final List<Entity> res2 = pq2.asList(FetchOptions.Builder.withDefaults());
         return res2;
     }
 
     public static List<Key> getAllKeys(String entName) {
-        Query q2 = new Query(entName).setKeysOnly();
-        PreparedQuery pq2 = getDataStore().prepare(q2);
+        final Query q2 = new Query(entName).setKeysOnly();
+        final PreparedQuery pq2 = getDataStore().prepare(q2);
         final List<Entity> entityList = pq2.asList(FetchOptions.Builder.withDefaults());
-        List<Key> keyList = new ArrayList<Key>(entityList.size());
+        final List<Key> keyList = new ArrayList<Key>(entityList.size());
         for (Entity entity : entityList) {
             keyList.add(entity.getKey());
         }
@@ -158,7 +158,7 @@ public class EntityUtil {
     }
 
     public static String writeJSON(Iterable<Entity> entities) {
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
 
         int i = 0;
         sb.append("{\"data\": [");
@@ -185,7 +185,7 @@ public class EntityUtil {
     }
 
     public static String writeJSON(Iterable<Entity> entities, String childKind, String fkName) {
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
         int i = 0;
         sb.append("{\"data\": [");
         for (Entity result : entities) {
@@ -218,7 +218,4 @@ public class EntityUtil {
     public static DatastoreService getDataStore(){
         return storeService;
     }
-
-
-
 }

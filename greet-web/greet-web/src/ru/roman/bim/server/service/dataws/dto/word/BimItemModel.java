@@ -18,12 +18,29 @@ public class BimItemModel implements Serializable {
      *
      */
     private String textShadowed;
-
+    /**
+     *  0 - DEUTSCH
+     *  1 - RUSSIAN
+     *  2 - ENGLISH
+     */
     private Long facedLangId;
     private Long shadowedLangId;
-
+    /**
+     * принимает значение от 0 до 5
+     */
     private Long rating;
+    /**
+     *  0 - WORD
+     *  1 - EXPRESSION
+     *  2 - IDIOM
+     *  3 - RULE
+     */
     private Long type;
+    /**
+     *  0 - COMMON
+     *  1 - BASIC
+     *  2 - IT
+     */
     private Long category;
 
     private Long modelNum;

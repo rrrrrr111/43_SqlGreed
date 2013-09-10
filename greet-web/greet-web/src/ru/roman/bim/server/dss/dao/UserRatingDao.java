@@ -64,26 +64,26 @@ public class UserRatingDao {
     }
 
     public static List<Entity> getRatings(GetListRequest req) {
-        Query q = new Query(ENT_NAME);
+        final Query q = new Query(ENT_NAME);
         q.addFilter(WordDao.FACED_LANG_ID, Query.FilterOperator.EQUAL, req.getFacedLangId());
         q.addFilter(WordDao.SHADOWED_LANG_ID, Query.FilterOperator.EQUAL, req.getShadowedLangId());
         q.addFilter(WordDao.TYPE, Query.FilterOperator.IN, req.getTypes());
         q.addFilter(WordDao.RATING, Query.FilterOperator.IN, req.getRatingsList());
         //q.addFilter(WordDao.CATEGORY, Query.FilterOperator.IN, req.getCategories());
         q.addSort(req.getSortingField(), Query.SortDirection.valueOf(req.getSortingDirection()));
-        PreparedQuery pq = getDataStore().prepare(q);
+        final PreparedQuery pq = getDataStore().prepare(q);
         return pq.asList(withLimit(req.getCount()).offset(req.getOffset()));
 
     }
 
     public static int getCount(GetListRequest req) {
-        Query q = new Query(ENT_NAME).setKeysOnly();
+        final Query q = new Query(ENT_NAME).setKeysOnly();
         q.addFilter(WordDao.FACED_LANG_ID, Query.FilterOperator.EQUAL, req.getFacedLangId());
         q.addFilter(WordDao.SHADOWED_LANG_ID, Query.FilterOperator.EQUAL, req.getShadowedLangId());
         q.addFilter(WordDao.TYPE, Query.FilterOperator.IN, req.getTypes());
         q.addFilter(WordDao.RATING, Query.FilterOperator.IN, req.getRatingsList());
         //q.addFilter(WordDao.CATEGORY, Query.FilterOperator.IN, req.getCategories());
-        PreparedQuery pq = getDataStore().prepare(q);
+        final PreparedQuery pq = getDataStore().prepare(q);
         return pq.asList(FetchOptions.Builder.withDefaults()).size();
     }
 }

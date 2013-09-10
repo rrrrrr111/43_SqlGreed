@@ -17,6 +17,6 @@ public class GaeTaskExecutor {
         // 4 check consistency
 
 
-        gaeConnector.systemTask(4);
+        gaeConnector.systemTask(1);
     }
 }
