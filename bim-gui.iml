@@ -11,16 +11,16 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="jdk" jdkName="1.7 (64)" jdkType="JavaSDK" />
-    <orderEntry type="library" name="commons-lang3-3.1" level="application" />
-    <orderEntry type="library" name="commons-logging-1.1.1" level="project" />
-    <orderEntry type="library" name="commons-io-2.4" level="application" />
     <orderEntry type="library" name="log4j-1.2.17" level="project" />
-    <orderEntry type="library" name="httpclient-4.2.2" level="application" />
-    <orderEntry type="library" name="gson-2.2.2" level="application" />
-    <orderEntry type="library" scope="TEST" name="junit-4.10" level="application" />
-    <orderEntry type="library" name="poi-3.9-20121203" level="application" />
+    <orderEntry type="library" name="commons-logging-1.1.1" level="project" />
+    <orderEntry type="library" name="commons-beanutils-1.8.3" level="project" />
+    <orderEntry type="library" name="commons-lang3" level="project" />
+    <orderEntry type="library" name="commons-io-2.4" level="project" />
+    <orderEntry type="library" name="commons-httpclient-4.2.2" level="project" />
+    <orderEntry type="library" name="poi-3.9-20121203" level="project" />
     <orderEntry type="library" name="castor-1.3.3-RC1" level="project" />
-    <orderEntry type="library" name="commons-beanutils-1.8.3" level="application" />
+    <orderEntry type="library" name="gson-2.2.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="junit-4.10" level="project" />
   </component>
   <component name="org.twodividedbyzero.idea.findbugs">
     <option name="_basePreferences">

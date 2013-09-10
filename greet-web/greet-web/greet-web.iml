@@ -18,37 +18,14 @@
       <excludeFolder url="file://$MODULE_DIR$/out" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="jdk" jdkName="1.6 (64)" jdkType="JavaSDK" />
-    <orderEntry type="library" name="appengine-java-sdk-1.7.4" level="application" />
-    <orderEntry type="library" name="gwt-2.4.0" level="application" />
-    <orderEntry type="library" scope="TEST" name="junit-4.10" level="application" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/war/WEB-INF/lib/commons-beanutils-1.8.3.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/war/WEB-INF/lib/commons-lang3-3.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/war/WEB-INF/lib/commons-logging-1.1.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="jdk" jdkName="1.6 (x86)" jdkType="JavaSDK" />
+    <orderEntry type="library" name="commons-beanutils-1.8.3" level="project" />
+    <orderEntry type="library" name="commons-lang3" level="project" />
+    <orderEntry type="library" name="commons-logging-1.1.1" level="project" />
+    <orderEntry type="library" name="appengine-java-sdk-1.8.4-user" level="application" />
+    <orderEntry type="library" name="appengine-java-sdk-1.8.4-shared" level="application" />
+    <orderEntry type="library" name="gwt-2.5.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="junit-4.10" level="project" />
   </component>
   <component name="org.twodividedbyzero.idea.findbugs">
     <option name="_basePreferences">

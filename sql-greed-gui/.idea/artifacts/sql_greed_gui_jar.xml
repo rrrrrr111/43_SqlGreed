@@ -12,15 +12,15 @@
         <element id="module-output" name="sql-greed-gui" />
       </element>
       <element id="directory" name="lib">
-        <element id="library" level="application" name="commons-lang3-3.1" />
-        <element id="library" level="application" name="commons-io-2.4" />
         <element id="library" level="project" name="commons-logging-1.1.1" />
         <element id="library" level="project" name="spring-context-3.2.0.M1" />
-        <element id="library" level="application" name="jxl" />
         <element id="library" level="project" name="log4j-1.2.17" />
         <element id="directory" name="derby">
           <element id="library" level="project" name="derbyclient" />
         </element>
+        <element id="library" level="project" name="commons-io-2.4" />
+        <element id="library" level="project" name="commons-lang3" />
+        <element id="library" level="project" name="jxl" />
       </element>
     </root>
   </artifact>

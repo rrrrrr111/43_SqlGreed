@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="jxl">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/jxl/jxl.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/jxl/jxl-src.zip!/src" />
+    </SOURCES>
+  </library>
+</component>

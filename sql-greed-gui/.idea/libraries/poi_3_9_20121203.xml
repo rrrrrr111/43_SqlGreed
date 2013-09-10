@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="poi-3.9-20121203">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/poi-3.9/poi-3.9-20121203.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/poi-3.9/poi-src-3.9-20121203.zip!/poi-3.9/src/java" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/poi-3.9/poi-src-3.9-20121203.zip!/poi-3.9/src/ooxml/java" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/poi-3.9/poi-src-3.9-20121203.zip!/poi-3.9/src/contrib/poi-ruby/java" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/poi-3.9/poi-src-3.9-20121203.zip!/poi-3.9/src/excelant/java" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/poi-3.9/poi-src-3.9-20121203.zip!/poi-3.9/src/scratchpad/src" />
+    </SOURCES>
+  </library>
+</component>

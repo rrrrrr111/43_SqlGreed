@@ -6,21 +6,21 @@
         <element id="file-copy" path="$PROJECT_DIR$/../bim-gui/src/META-INF/MANIFEST.MF" />
       </element>
       <element id="module-output" name="bim-gui" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/apache-log4j-1.2.17/log4j-1.2.17.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/commons-lang3-3.1/commons-lang3-3.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/commons-logging-1.1.1/commons-logging-1.1.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/commons-io-2.4/commons-io-2.4.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/httpclient/httpcomponents-client-4.2.2/lib/commons-codec-1.6.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/httpclient/httpcomponents-client-4.2.2/lib/fluent-hc-4.2.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/httpclient/httpcomponents-client-4.2.2/lib/httpclient-4.2.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/httpclient/httpcomponents-client-4.2.2/lib/httpclient-cache-4.2.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/httpclient/httpcomponents-client-4.2.2/lib/httpcore-4.2.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/httpclient/httpcomponents-client-4.2.2/lib/httpmime-4.2.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/google-gson/google-gson-2.2.2/gson-2.2.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../45_JavaLib/apache-poi/poi-3.9/poi-3.9-20121203.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../greet-web/greet-web/lib/castor/castor-1.3.3-RC1-xml.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../greet-web/greet-web/lib/castor/castor-1.3.3-RC1-core.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../greet-web/greet-web/lib/commons-beanutils/commons-beanutils-1.8.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../greet-web/greet-web/lib/poi-3.9/poi-3.9-20121203.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../greet-web/greet-web/lib/apache-log4j-1.2.17/log4j-1.2.17.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/httpclient-cache-4.2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/httpclient-4.2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/httpcore-4.2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/httpmime-4.2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/fluent-hc-4.2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/commons-codec-1.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../greet-web/greet-web/lib/google-gson/gson-2.2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../greet-web/greet-web/lib/commons-io/commons-io-2.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../greet-web/greet-web/lib/commons-lang3/commons-lang3-3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../greet-web/greet-web/lib/commons-logging-1.1.1/commons-logging-1.1.1.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

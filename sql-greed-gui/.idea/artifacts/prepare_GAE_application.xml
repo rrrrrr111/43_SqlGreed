@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact name="prepare GAE application">
+    <output-path>$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib</output-path>
+    <root id="root">
+      <element id="library" level="application" name="appengine-java-sdk-1.8.4-user" />
+      <element id="library" level="project" name="commons-beanutils-1.8.3" />
+      <element id="library" level="project" name="commons-lang3" />
+      <element id="library" level="project" name="commons-logging-1.1.1" />
+      <element id="library" level="project" name="gwt-2.5.1" />
+    </root>
+  </artifact>
+</component>

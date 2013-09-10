@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="commons-beanutils-1.8.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/commons-beanutils/commons-beanutils-1.8.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/commons-beanutils/commons-beanutils-1.8.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

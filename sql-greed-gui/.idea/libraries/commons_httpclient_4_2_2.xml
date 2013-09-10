@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="commons-httpclient-4.2.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/commons-codec-1.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/fluent-hc-4.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/httpclient-4.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/httpclient-cache-4.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/httpcore-4.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/httpmime-4.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/httpcomponents-client-4.2.2-src.zip!/httpcomponents-client-4.2.2/httpmime/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/httpcomponents-client-4.2.2-src.zip!/httpcomponents-client-4.2.2/fluent-hc/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/httpcomponents-client-4.2.2-src.zip!/httpcomponents-client-4.2.2/httpclient/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/httpcomponents-client-4.2.2-src.zip!/httpcomponents-client-4.2.2/httpclient-cache/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/httpcomponents-client-4.2.2-src.zip!/httpcomponents-client-4.2.2/httpclient-contrib/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/../greet-web/greet-web/lib/httpcomponents-client-4.2.2/httpcomponents-client-4.2.2-src.zip!/httpcomponents-client-4.2.2/httpclient-benchmark/src/main/java" />
+    </SOURCES>
+  </library>
+</component>
