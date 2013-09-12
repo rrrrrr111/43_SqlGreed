@@ -85,7 +85,7 @@ public class GoogleService implements TranslationService{
         if (str.length() == 0) {
             log.warn("Translation haven't found in object : " + objList);
         }
-        return str.toString();
+        return StringUtils.strip(str.toString());
     }
 
     private List<Object> fromBracketsToArrays(String result) {
