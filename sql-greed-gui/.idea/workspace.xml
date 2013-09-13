@@ -2,42 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="Bim application version 1.46 bugfix">
-      <change type="DELETED" beforePath="C:\01_work\43_SqlGreed\greet-web\greet-web\war\WEB-INF\lib\appengine-api-1.0-sdk-1.7.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="C:\01_work\43_SqlGreed\greet-web\greet-web\war\WEB-INF\lib\appengine-jsr107cache-1.7.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="C:\01_work\43_SqlGreed\greet-web\greet-web\war\WEB-INF\lib\datanucleus-api-jdo-3.1.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="C:\01_work\43_SqlGreed\greet-web\greet-web\war\WEB-INF\lib\datanucleus-api-jpa-3.1.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="C:\01_work\43_SqlGreed\greet-web\greet-web\war\WEB-INF\lib\datanucleus-appengine-2.1.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="C:\01_work\43_SqlGreed\greet-web\greet-web\war\WEB-INF\lib\datanucleus-core-3.1.1.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/appengine-api-labs.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/appengine-api-labs.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/gwt-servlet-deps.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/gwt-servlet-deps.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/gwt-servlet.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/lib/gwt-servlet.jar" />
+      <change type="DELETED" beforePath="C:\01_work\43_SqlGreed\sql-greed-gui\.idea\artifacts\prepare_GAE_application.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/appengine-generated/local_db.bin" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/appengine-generated/local_db.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/sql-greed-gui.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/sql-greed-gui.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/dataws/DataProvider.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/dataws/DataProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/dev/stub/GaeConnectorStub.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/dev/stub/GaeConnectorStub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/gae/GaeTaskExecutor.java" afterPath="$PROJECT_DIR$/../bim-gui/test/ru/roman/bim/service/gae/GaeTaskExecutor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ghost/GhostServiceImpl.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/ghost/GhostServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCache.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCache.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheImpl.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/cache/LocalCacheImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/PrepareWordsExamplesTask.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/PrepareWordsExamplesTask.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/RenewWordsRatingsTask.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/RenewWordsRatingsTask.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsView.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsViewController.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/settings/SettingsViewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/jdo/entity/UserRating.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/jdo/entity/UserRating.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/WordDao.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/WordDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ant.xml" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/build.xml" afterPath="$PROJECT_DIR$/../greet-web/greet-web/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/appengine-generated/datastore-indexes-auto.xml" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/appengine-generated/datastore-indexes-auto.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/start.jnlp" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/start.jnlp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="71cfb641-5bee-4208-8ab0-751480a58831" name="builded" comment="builded" />
     <ignored path="sql-greed-gui.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379084235390" ignored="false" />
+    <file path="/Dummy.txt" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379087197941" ignored="false" />
     <file path="/GoogleService.java" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1378973907948" ignored="false" />
     <file path="/SettingsView.java" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1378975838623" ignored="false" />
     <file path="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/file/subtitlesmerge/SubtitlesMergeService.java" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379073069834" ignored="false" />
@@ -168,7 +140,21 @@
         <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/build.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="23" column="41" selection-start="894" selection-end="894" vertical-scroll-proportion="0.0">
-              <folding />
+              <folding>
+                <marker date="1379084654153" expanded="true" signature="215:488" placeholder="..." />
+                <marker date="1379084654153" expanded="true" signature="518:1132" placeholder="..." />
+                <marker date="1379084654153" expanded="true" signature="638:1118" placeholder="..." />
+                <marker date="1379084654153" expanded="true" signature="909:1102" placeholder="..." />
+                <marker date="1379084654153" expanded="true" signature="1179:1654" placeholder="..." />
+                <marker date="1379084654153" expanded="true" signature="1487:1640" placeholder="..." />
+                <marker date="1379084654153" expanded="true" signature="1712:1979" placeholder="..." />
+                <marker date="1379084654153" expanded="true" signature="2039:2157" placeholder="..." />
+                <marker date="1379084654153" expanded="true" signature="2694:2818" placeholder="..." />
+                <marker date="1379084654153" expanded="true" signature="2883:3038" placeholder="..." />
+                <marker date="1379084654153" expanded="true" signature="3097:3230" placeholder="..." />
+                <marker date="1379084654153" expanded="true" signature="3264:3595" placeholder="..." />
+                <marker date="1379084654153" expanded="true" signature="3395:3581" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1646,7 +1632,11 @@
       <created>1378973964036</created>
       <updated>1378973964036</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Bim application version 1.47">
+      <created>1379087292165</created>
+      <updated>1379087292165</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1742,7 +1732,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bim application version 1.46 bugfix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bim application version 1.47" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1756,7 +1746,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Bim application version 1.13 bug fix" />
     <MESSAGE value="Bim application version 1.15 user settings functionality first commit" />
     <MESSAGE value="Bim application version 1.17 bug fix" />
     <MESSAGE value="Bim application version 1.18 castor thirst commit" />
@@ -1781,6 +1770,7 @@
     <MESSAGE value="Bim application version 1.46 libs" />
     <MESSAGE value="Bim application version 1.46 dependencies reconfiguring" />
     <MESSAGE value="Bim application version 1.46 bugfix" />
+    <MESSAGE value="Bim application version 1.47" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1967,7 +1957,7 @@
               <type id="artifact" />
             </show-content>
           </artifact-editor>
-          <last-edited>prepare GAE application</last-edited>
+          <last-edited>bim-gui:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
