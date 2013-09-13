@@ -7,7 +7,10 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
-/** @author Roman 02.02.13 4:05 */
+/**
+ *
+ * @author Roman 02.02.13 4:05
+ */
 @PersistenceCapable
 public class UserRating {
 

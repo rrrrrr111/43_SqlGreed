@@ -58,8 +58,8 @@ public class GaeConnectorStub implements GaeConnector {
         settingsModel.setCurrentNum(0L);
         settingsModel.setEditDate(WsUtil.getCurrGregorian());
         settingsModel.setFacedLangId(1L);
-        settingsModel.setId(1L);
-        settingsModel.setLogin("tra@gmail.com");
+        settingsModel.setId(81001L);
+        settingsModel.setLogin("curdes@gmail.com");
         settingsModel.setLookAndFeel("");
         settingsModel.setOpacity(0.75);
         settingsModel.setPassword("355869f9511e558c3fbdde6779dcc0");     //tratra11

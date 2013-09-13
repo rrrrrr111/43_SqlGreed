@@ -20,9 +20,9 @@ public class PrepareWordsExamplesTask implements SystemTask {
         word.setProperty(TEXT_SHADOWED, "hello");
         word.setProperty(TYPE, 0);
         word.setProperty(CATEGORY, 0);
-        word.setProperty(FACED_LANG_ID, 1);
-        word.setProperty(SHADOWED_LANG_ID, 2);
-        word.setProperty(OWNER, 1);
+        word.setProperty(FACED_LANG_ID, 2);
+        word.setProperty(SHADOWED_LANG_ID, 1);
+        word.setProperty(OWNER, 81001);
         word.setProperty(RATING, 3);
         word.setProperty(EDIT_DATE, currDate);
         //word.setProperty(USER_RATING, Collections.EMPTY_LIST);
@@ -34,9 +34,9 @@ public class PrepareWordsExamplesTask implements SystemTask {
         word.setProperty(TEXT_SHADOWED, "bye bye");
         word.setProperty(TYPE, 0);
         word.setProperty(CATEGORY, 0);
-        word.setProperty(FACED_LANG_ID, 1);
-        word.setProperty(SHADOWED_LANG_ID, 2);
-        word.setProperty(OWNER, 1);
+        word.setProperty(FACED_LANG_ID, 2);
+        word.setProperty(SHADOWED_LANG_ID, 1);
+        word.setProperty(OWNER, 81001);
         word.setProperty(RATING, 3);
         word.setProperty(EDIT_DATE, currDate);
         //word.setProperty(USER_RATING, Collections.EMPTY_LIST);
@@ -48,9 +48,9 @@ public class PrepareWordsExamplesTask implements SystemTask {
         word.setProperty(TEXT_SHADOWED, "thanks");
         word.setProperty(TYPE, 0);
         word.setProperty(CATEGORY, 0);
-        word.setProperty(FACED_LANG_ID, 1);
-        word.setProperty(SHADOWED_LANG_ID, 2);
-        word.setProperty(OWNER, 1);
+        word.setProperty(FACED_LANG_ID, 2);
+        word.setProperty(SHADOWED_LANG_ID, 1);
+        word.setProperty(OWNER, 81001);
         word.setProperty(RATING, 3);
         word.setProperty(EDIT_DATE, currDate);
         //word.setProperty(USER_RATING, Collections.EMPTY_LIST);

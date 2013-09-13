@@ -48,7 +48,9 @@ public class DataProvider {
             log.log(Level.INFO, "Saving item, params : " + ToStringBuilder.reflectionToString(req.getModel()));
             rightsService.checkAuthority(req);
             rightsService.checkSavingRight(req);
-            return WordDao.createOrUpdate(req.getModel());
+            final SaveResp resp = WordDao.createOrUpdate(req.getModel());
+            log.log(Level.INFO, "Saving item complete : " + ToStringBuilder.reflectionToString(resp));
+            return resp;
         } catch (RuntimeException e) {
             log.log(Level.SEVERE, "", e);
             throw e;
@@ -60,7 +62,10 @@ public class DataProvider {
         try {
             log.log(Level.INFO, "Getting list, params : " + ToStringBuilder.reflectionToString(req));
             rightsService.checkAuthority(req);
-            return WordDao.getWords(req);
+            final GetListResp resp = WordDao.getWords(req);
+            log.log(Level.INFO, "Getting list complete : recordsCount=" + resp.getRecordsCount() + ", " +
+                    "listSize=" + resp.getList().size());
+            return resp;
         } catch (RuntimeException e) {
             log.log(Level.SEVERE, "", e);
             throw e;
@@ -73,6 +78,7 @@ public class DataProvider {
             log.log(Level.INFO, "Renew rating, params : " + ToStringBuilder.reflectionToString(req));
             rightsService.checkAuthority(req);
             WordDao.renewRating(req.getId(), req.getRating(), req.getRequestInfo().getUserId());
+            log.log(Level.INFO, "Renew complete");
         } catch (RuntimeException e) {
             log.log(Level.SEVERE, "", e);
             throw e;
@@ -84,6 +90,7 @@ public class DataProvider {
         try {
             log.log(Level.INFO, "Load settings, params : " + ToStringBuilder.reflectionToString(req.getUserSettingsModel()));
             final UserSettingsModel res = UserSettingsDao.registerNewAndLoadSettings(req.getUserSettingsModel());
+            log.log(Level.INFO, "Load settings complete : " + ToStringBuilder.reflectionToString(res));
             return new RegisterNewAndLoadSettingsResp(res);
         } catch (RuntimeException e) {
             log.log(Level.SEVERE, "", e);
@@ -97,6 +104,7 @@ public class DataProvider {
             log.log(Level.INFO, "Save settings, params : " + ToStringBuilder.reflectionToString(req.getUserSettingsModel()));
             rightsService.checkAuthority(req);
             UserSettingsDao.storeSettings(req.getUserSettingsModel());
+            log.log(Level.INFO, "Save settings complete");
             return new StoreSettingsResp();
         } catch (RuntimeException e) {
             log.log(Level.SEVERE, "", e);
@@ -110,7 +118,9 @@ public class DataProvider {
             log.log(Level.INFO, "System task, params : " + ToStringBuilder.reflectionToString(req));
             rightsService.checkAuthority(req);
             rightsService.checkMaster(req);
-            return systemService.systemTask(req);
+            final SystemTaskResp resp = systemService.systemTask(req);
+            log.log(Level.INFO, "System task complete : result=" + resp.getResultCount());
+            return resp;
         } catch (RuntimeException e) {
             log.log(Level.SEVERE, "", e);
             throw e;

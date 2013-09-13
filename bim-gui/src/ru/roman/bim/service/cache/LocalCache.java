@@ -14,17 +14,26 @@ public interface LocalCache {
     void getCurrent(CallBackChain callBack);
 
     MainViewModel getCurrentSync();
-    /*
-   дай следующее слово, счетчик увеличится
-    */
+
+    /**
+     * дай следующее слово, счетчик увеличится
+     *
+     * @param callBack
+     */
     void getNext(CallBackChain callBack);
-    /*
-    дай предыдущее слово, счетчик уменьшится
+
+    /**
+     * дай предыдущее слово, счетчик уменьшится
+     *
+     * @param callBack
      */
     void getPrev(CallBackChain callBack);
-    /*
-   текущее значение счетчика
-    */
+
+    /**
+     * текущее значение счетчика
+     *
+     * @return
+     */
     Integer getCurrentNum();
 
     Integer getCurrentOffset();

@@ -5,6 +5,11 @@
       <additionalClassPath>
         <entry path="file://$PROJECT_DIR$/../../45_JavaLib/appengine-java-sdk-1.7.2/lib/testing/appengine-testing.jar" />
       </additionalClassPath>
+      <maximumHeapSize value="512" />
+      <maximumStackSize value="28" />
+      <properties>
+        <property name="appengine.sdk.home" value="C:\01_work\008_LIB\appengine-java-sdk-1.8.4\" />
+      </properties>
     </buildFile>
     <buildFile url="file://$PROJECT_DIR$/build.xml" />
     <buildFile url="file://$PROJECT_DIR$/keystore/build.xml" />

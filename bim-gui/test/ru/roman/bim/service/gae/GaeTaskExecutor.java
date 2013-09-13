@@ -12,8 +12,8 @@ public class GaeTaskExecutor {
 
     public static void main(String... args) {
         // 1 normalize words
-        // 2
-        // 3 create 3 words
+        // 2 Not implemented
+        // 3 create 3 words examples
         // 4 check consistency
 
 

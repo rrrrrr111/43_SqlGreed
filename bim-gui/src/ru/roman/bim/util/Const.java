@@ -8,13 +8,20 @@ import org.apache.commons.io.FileUtils;
  * DateTime: 01.09.12 12:08
  */
 public interface Const {
-
+    /**
+     * В тестовом режиме:
+     * - GaeConnectorStub вместо GaeConnectorImpl
+     * - файл с настройками settings.dev вместо settings
+     * - более короткие настройки появления главного окна
+     * - нотификации в трее отключены
+     *
+     */
     boolean DEV_MODE = false;  // увеличить номер версии при сборке
     String DEFAULT_ENDPOINT = "http://churganovroman.appspot.com/DataProvider";
     String DEFAULT_ENDPOINT_WSDL = "http://churganovroman.appspot.com/wsdl/DataProvider.wsdl";
-    //String DEFAULT_ENDPOINT = "http://localhost:8080/DataProvider";
-    //String DEFAULT_ENDPOINT_WSDL = "http://localhost:8080/wsdl/DataProvider.wsdl";
-    String VERSION = "1.46";
+    //String DEFAULT_ENDPOINT = "http://localhost:8888/DataProvider";
+    //String DEFAULT_ENDPOINT_WSDL = "http://localhost:8888/wsdl/DataProvider.wsdl";
+    String VERSION = "1.47";
 
 
     String APP_NAME = "Bim";

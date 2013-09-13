@@ -88,15 +88,15 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
 
             //loginText.setMaximumSize(new Dimension(160, 0));
             gbc = new GridBagConstraints();
-            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-            gbc.anchor = GridBagConstraints.NORTH;  // привязка к краю контейнера
-            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.anchor = GridBagConstraints.NORTH;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.weightx = 0.0;
-            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridx = 0;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.gridy = 0;
-            //gbc.ipady = 140;                          // ограничение минимального размера
-            //gbc.ipadx = 270;                          // ограничение минимального размера
+            //gbc.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            //gbc.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.insets = new Insets(0, 0, 0, 0);
             genericTab.add(authPanel, gbc);
 
@@ -104,15 +104,15 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
             //fillYourCredLabel.setBorder(BorderFactory.createBevelBorder(1));
             //fillYourCredLabel.setPreferredSize(new Dimension(260, 0));
             gbc = new GridBagConstraints();
-            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-            gbc.gridwidth = 2;                         // кол-во ячеек заполняемых по ширине
-            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.gridwidth = 2;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.weightx = 0.0;
-            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridx = 0;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.gridy = 0;
-            //gbc.ipady = 140;                          // ограничение минимального размера
-            //gbc.ipadx = 270;                          // ограничение минимального размера
+            //gbc.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            //gbc.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.insets = new Insets(upAndUnderMargin, leftAndRightMargin, 5, 0);
             authPanel.add(fillYourCredLabel, gbc);
 
@@ -120,30 +120,30 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
             loginLabel.setHorizontalAlignment(JLabel.RIGHT);
             loginLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
             gbc = new GridBagConstraints();
-            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.weightx = 0.0;
-            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridx = 0;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.gridy = 1;
-            //gbc11.ipady = 140;                          // ограничение минимального размера
-            //gbc11.ipadx = 270;                          // ограничение минимального размера
+            //gbc11.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            //gbc11.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.insets = new Insets(0, leftAndRightMargin, 0, behindLabelAndWidgetMargin);
             authPanel.add(loginLabel, gbc);
 
             loginText = new JTextField();
             //loginText.setPreferredSize(new Dimension(120, 0));
             gbc = new GridBagConstraints();
-            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.weightx = 0.5;
-            gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridx = 1;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.gridy = 1;
-            //gbc.ipady = 140;                          // ограничение минимального размера
-            //gbc.ipadx = 270;                          // ограничение минимального размера
+            //gbc.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            //gbc.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.insets = new Insets(0, 0, 0, leftAndRightMargin);
             authPanel.add(loginText, gbc);
 
@@ -151,30 +151,30 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
             passwordLabel.setHorizontalAlignment(JLabel.RIGHT);
             passwordLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
             gbc = new GridBagConstraints();
-            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.weightx = 0.0;
-            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridx = 0;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.gridy = 2;
-            //gbc21.ipady = 140;                          // ограничение минимального размера
-            //gbc21.ipadx = 270;                          // ограничение минимального размера
+            //gbc21.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            //gbc21.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.insets = new Insets(0, leftAndRightMargin, upAndUnderMargin, behindLabelAndWidgetMargin);
             authPanel.add(passwordLabel, gbc);
 
             passwordText = new JPasswordField();
             //passwordText.setPreferredSize(new Dimension(160, 0));
             gbc = new GridBagConstraints();
-            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.weightx = 0.5;
-            gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridx = 1;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.gridy = 2;
-            //gbc2.ipady = 140;                          // ограничение минимального размера
-            //gbc2.ipadx = 270;                          // ограничение минимального размера
+            //gbc2.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            //gbc2.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.insets = new Insets(0, 0, upAndUnderMargin, leftAndRightMargin);
             authPanel.add(passwordText, gbc);
         }
@@ -187,29 +187,29 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
             genSettPanel.setBorder(BorderFactory.createTitledBorder("Generic settings"));
             //loginText.setMaximumSize(new Dimension(160, 0));
             gbc = new GridBagConstraints();
-            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.weightx = 0.0;
-            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridx = 0;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.gridy = 1;
-            //gbc.ipady = 140;                          // ограничение минимального размера
-            //gbc.ipadx = 270;                          // ограничение минимального размера
+            //gbc.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            //gbc.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.insets = new Insets(0, 0, 0, 0);
             genericTab.add(genSettPanel, gbc);
 
             ratingsPanel = new SimpleCheckBoxPanel();
             gbc = new GridBagConstraints();
-            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.weightx = 0.0;
-            gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridx = 1;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.gridy = 0;
-            //gbc.ipady = 140;                          // ограничение минимального размера
-            //gbc.ipadx = 270;                          // ограничение минимального размера
+            //gbc.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            //gbc.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.insets = new Insets(upAndUnderMargin, 0, 0, leftAndRightMargin);
             genSettPanel.add(ratingsPanel, gbc);
 
@@ -217,30 +217,30 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
             ratingsLabel.setHorizontalAlignment(JLabel.RIGHT);
             ratingsLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
             gbc = new GridBagConstraints();
-            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.weightx = 0.0;
-            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridx = 0;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.gridy = 0;
-            //gbc.ipady = 140;                          // ограничение минимального размера
-            //gbc.ipadx = 270;                          // ограничение минимального размера
+            //gbc.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            //gbc.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.insets = new Insets(upAndUnderMargin, leftAndRightMargin, 0, behindLabelAndWidgetMargin);
             genSettPanel.add(ratingsLabel, gbc);
 
             portionText = new JTextField();
             portionText.setPreferredSize(new Dimension(10, 0));
             gbc = new GridBagConstraints();
-            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.weightx = 0.0;
-            gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridx = 1;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.gridy = 1;
-            //gbc.ipady = 140;                          // ограничение минимального размера
-            //gbc.ipadx = 270;                          // ограничение минимального размера
+            //gbc.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            //gbc.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.insets = new Insets(0, 0, upAndUnderMargin, leftAndRightMargin);
             genSettPanel.add(portionText, gbc);
 
@@ -248,15 +248,15 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
             portionLabel.setHorizontalAlignment(JLabel.RIGHT);
             portionLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
             gbc = new GridBagConstraints();
-            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.weightx = 0.0;
-            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridx = 0;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.gridy = 1;
-            //gbc.ipady = 140;                          // ограничение минимального размера
-            //gbc.ipadx = 270;                          // ограничение минимального размера
+            //gbc.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            //gbc.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.insets = new Insets(0, leftAndRightMargin, upAndUnderMargin, behindLabelAndWidgetMargin);
             genSettPanel.add(portionLabel, gbc);
 
@@ -275,15 +275,15 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
             loadWordListPanel.setBorder(BorderFactory.createTitledBorder("Excel word list uploading"));
             //loginText.setMaximumSize(new Dimension(160, 0));
             gbc = new GridBagConstraints();
-            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.weightx = 0.0;
-            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridx = 0;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.gridy = 1;
-            //gbc.ipady = 140;                          // ограничение минимального размера
-            //gbc.ipadx = 270;                          // ограничение минимального размера
+            //gbc.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            //gbc.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.insets = new Insets(0, 0, 0, 0);
             toolsTab.add(loadWordListPanel, gbc);
             {
@@ -291,21 +291,21 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
                 broseWordListLabel.setHorizontalAlignment(JLabel.RIGHT);
                 broseWordListLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
                 gbc = new GridBagConstraints();
-                gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-                gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-                gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-                gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+                gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.weightx = 0.0;
-                gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+                gbc.gridx = 0;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.gridy = 0;
-                //gbc11.ipady = 140;                          // ограничение минимального размера
-                //gbc11.ipadx = 270;                          // ограничение минимального размера
+                //gbc11.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                //gbc11.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.insets = new Insets(upAndUnderMargin, leftAndRightMargin, upAndUnderMargin, behindLabelAndWidgetMargin);
                 loadWordListPanel.add(broseWordListLabel, gbc);
 
                 final JButton broseWordListButton = new JButton();
                 broseWordListButton.setPreferredSize(new Dimension(100, 0));
-                broseWordListButton.setAction(new AbstractAction() {//акшион нужно класть перед установкой текста кнопки
+                broseWordListButton.setAction(new AbstractAction() {//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         controller.onBroseExcelFileForLoading();
@@ -313,15 +313,15 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
                 });
                 broseWordListButton.setText("brose...");
                 gbc = new GridBagConstraints();
-                gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-                gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-                gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-                gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+                gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.weightx = 0.0;
-                gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
+                gbc.gridx = 1;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.gridy = 0;
-                //gbc.ipady = 140;                          // ограничение минимального размера
-                //gbc.ipadx = 270;                          // ограничение минимального размера
+                //gbc.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                //gbc.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.insets = new Insets(upAndUnderMargin, 0, upAndUnderMargin, leftAndRightMargin);
                 loadWordListPanel.add(broseWordListButton, gbc);
             }
@@ -335,15 +335,15 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
             subtitlesMergePanel.setBorder(BorderFactory.createTitledBorder("Subtitles merge"));
             //loginText.setMaximumSize(new Dimension(160, 0));
             gbc = new GridBagConstraints();
-            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.weightx = 0.0;
-            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridx = 0;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.gridy = 2;
-            //gbc.ipady = 140;                          // ограничение минимального размера
-            //gbc.ipadx = 270;                          // ограничение минимального размера
+            //gbc.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            //gbc.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.insets = new Insets(0, 0, 0, 0);
             toolsTab.add(subtitlesMergePanel, gbc);
             {
@@ -352,15 +352,15 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
                 subtitlesMergeLabel.setHorizontalAlignment(JLabel.RIGHT);
                 subtitlesMergeLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
                 gbc = new GridBagConstraints();
-                gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-                gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-                gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-                gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+                gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.weightx = 0.0;
-                gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+                gbc.gridx = 0;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.gridy = 0;
-                //gbc11.ipady = 140;                          // ограничение минимального размера
-                //gbc11.ipadx = 270;                          // ограничение минимального размера
+                //gbc11.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                //gbc11.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.insets = new Insets(upAndUnderMargin, leftAndRightMargin, 0, behindLabelAndWidgetMargin);
                 subtitlesMergePanel.add(subtitlesMergeLabel, gbc);
 
@@ -368,15 +368,15 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
                 final JButton subtitlesMergeButton = new JButton();
                 subtitlesMergeButton.setPreferredSize(new Dimension(100, 0));
                 gbc = new GridBagConstraints();
-                gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-                gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-                gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-                gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+                gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.weightx = 0.0;
-                gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
+                gbc.gridx = 1;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.gridy = 0;
-                //gbc.ipady = 140;                          // ограничение минимального размера
-                //gbc.ipadx = 270;                          // ограничение минимального размера
+                //gbc.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                //gbc.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.insets = new Insets(upAndUnderMargin, 0, 0, leftAndRightMargin);
                 subtitlesMergePanel.add(subtitlesMergeButton, gbc);
 
@@ -385,15 +385,15 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
                 label.setHorizontalAlignment(JLabel.RIGHT);
                 label.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
                 gbc = new GridBagConstraints();
-                gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-                gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-                gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-                gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+                gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.weightx = 0.0;
-                gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+                gbc.gridx = 0;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.gridy = 1;
-                //gbc11.ipady = 140;                          // ограничение минимального размера
-                //gbc11.ipadx = 270;                          // ограничение минимального размера
+                //gbc11.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                //gbc11.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.insets = new Insets(0, leftAndRightMargin, upAndUnderMargin, behindLabelAndWidgetMargin);
                 subtitlesMergePanel.add(label, gbc);
 
@@ -414,20 +414,20 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
                 listScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
                 gbc = new GridBagConstraints();
-                gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-                gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-                gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-                gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+                gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.weightx = 0.0;
-                gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
+                gbc.gridx = 1;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.gridy = 1;
-                gbc.ipady = 28;                          // ограничение минимального размера
-                //gbc.ipadx = 270;                          // ограничение минимального размера
+                gbc.ipady = 28;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                //gbc.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.insets = new Insets(0, 0, upAndUnderMargin, leftAndRightMargin);
                 subtitlesMergePanel.add(listScroll, gbc);
 
                 // listeners
-                subtitlesMergeButton.setAction(new AbstractAction() {//акшион нужно класть перед установкой текста кнопки
+                subtitlesMergeButton.setAction(new AbstractAction() {//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         controller.startMergeSrt(list.getSelectedValuesList());
@@ -445,15 +445,15 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
             textUploadPanel.setBorder(BorderFactory.createTitledBorder("Text upload"));
             //loginText.setMaximumSize(new Dimension(160, 0));
             gbc = new GridBagConstraints();
-            gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-            gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-            gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-            gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+            gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+            gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.weightx = 0.0;
-            gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+            gbc.gridx = 0;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.gridy = 3;
-            //gbc.ipady = 140;                          // ограничение минимального размера
-            //gbc.ipadx = 270;                          // ограничение минимального размера
+            //gbc.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            //gbc.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             gbc.insets = new Insets(0, 0, 0, 0);
             toolsTab.add(textUploadPanel, gbc);
             {
@@ -461,21 +461,21 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
                 textUploadLabel.setHorizontalAlignment(JLabel.RIGHT);
                 textUploadLabel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
                 gbc = new GridBagConstraints();
-                gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-                gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-                gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-                gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+                gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.weightx = 0.0;
-                gbc.gridx = 0;                             // gridx и  gridy координаты куда кладется компонент
+                gbc.gridx = 0;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.gridy = 0;
-                //gbc11.ipady = 140;                          // ограничение минимального размера
-                //gbc11.ipadx = 270;                          // ограничение минимального размера
+                //gbc11.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                //gbc11.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.insets = new Insets(upAndUnderMargin, leftAndRightMargin, upAndUnderMargin, behindLabelAndWidgetMargin);
                 textUploadPanel.add(textUploadLabel, gbc);
 
                 final JButton textUploadButton = new JButton();
                 textUploadButton.setPreferredSize(new Dimension(100, 0));
-                textUploadButton.setAction(new AbstractAction() {//акшион нужно класть перед установкой текста кнопки
+                textUploadButton.setAction(new AbstractAction() {//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         controller.onBroseTextFileForUploading();
@@ -483,15 +483,15 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
                 });
                 textUploadButton.setText("brose...");
                 gbc = new GridBagConstraints();
-                gbc.fill = GridBagConstraints.BOTH;        // как элемент заполняет пустое пространство
-                gbc.anchor = GridBagConstraints.CENTER;  // привязка к краю контейнера
-                gbc.gridwidth = 1;                         // кол-во ячеек заполняемых по ширине
-                gbc.weighty = 0.0;                         // вес компонента, веса учитываются при заполнени свободного пространства
+                gbc.fill = GridBagConstraints.BOTH;        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.anchor = GridBagConstraints.CENTER;  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.gridwidth = 1;                         // пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+                gbc.weighty = 0.0;                         // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.weightx = 0.0;
-                gbc.gridx = 1;                             // gridx и  gridy координаты куда кладется компонент
+                gbc.gridx = 1;                             // gridx пїЅ  gridy пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.gridy = 0;
-                //gbc.ipady = 140;                          // ограничение минимального размера
-                //gbc.ipadx = 270;                          // ограничение минимального размера
+                //gbc.ipady = 140;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                //gbc.ipadx = 270;                          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 gbc.insets = new Insets(upAndUnderMargin, 0, upAndUnderMargin, leftAndRightMargin);
                 textUploadPanel.add(textUploadButton, gbc);
             }
@@ -565,11 +565,16 @@ public class SettingsView extends JFrame implements View<SettingsViewModel, Sett
         //model.setOpacity();
         final char[] passChars = passwordText.getPassword();
         final String pass = new String(passChars);
-        if (PASSWORD_STUB.equals(pass)) {
-            throw new BimValidationException("'{0}' can't be used as password", PASSWORD_STUB);
+            // РµСЃР»Рё РїР°СЂРѕР»СЊ СѓР¶Рµ РµСЃС‚СЊ РІ РјРѕРґРµР»Рё РёСЃРїРѕР»СЊР·СѓРµРј РµРіРѕ
+            // РЅР° СЌРєСЂР°РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ Р·Р°РіР»СѓС€РєР° РїР°СЂРѕР»СЏ
+        if (PASSWORD_STUB.equals(pass) && null == model.getPassword()) {
+            throw new BimValidationException("'%s' can't be used as password", pass);
+            // РµСЃР»Рё РїР°СЂРѕР»СЊ РІРІРµРґРµРЅ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј Рё РЅРµ СЂР°РІРµРЅ Р·Р°Р»СѓС€РєРµ Р±РµСЂРµРј РµРіРѕ, РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕ РІР°Р»РёРґРёСЂСѓРµРј
+            // РёРЅР°С‡Рµ РѕСЃС‚Р°РІР»СЏРµРј РІ РјРѕРґРµР»Рё СЃС‚Р°СЂС‹Р№ РїР°СЂРѕР»СЊ
+        } else if (!PASSWORD_STUB.equals(pass)) {
+            controller.getValidator().validatePassword(pass);
+            model.setPassword(GuiUtil.createDigest(passChars));
         }
-        controller.getValidator().validatePassword(pass);
-        model.setPassword(GuiUtil.createDigest(passChars));
         model.setPortion(Long.valueOf(portionText.getText()));
         //model.setPreviewDuration();
         //model.setPreviewInterval();

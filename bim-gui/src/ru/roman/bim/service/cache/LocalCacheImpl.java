@@ -29,11 +29,11 @@ public class LocalCacheImpl implements LocalCache {
     /* кэш */
     private final List<MainViewModel> cache;
     /** счетчик относительно которого идет перебор слов в БД, начинается с нуля */
-    private Integer currentNum;
+    private volatile Integer currentNum;
     /** сдвиг относително начала БД для текущего набора в кэше */
-    private Integer currentOffset;
+    private volatile Integer currentOffset;
     /** общее кол-во записей */
-    private Integer recordsCount;
+    private volatile Integer recordsCount;
 
     protected LocalCacheImpl() {
         super();
@@ -108,7 +108,9 @@ public class LocalCacheImpl implements LocalCache {
 
     private void checkCacheState(final CallBackChain<MainViewModel> callBack) {
         final SettingsViewModel sett = Settings.get();
+        // порция перебора
         final int portion = sett.getPortion().intValue();
+        // режим работы с порцией
         final boolean isPortionWorking = sett.isWorkWithPortion();
         final int volume;               // определяет общее кол-во перебираемых слов
         if ((portion > recordsCount) || !isPortionWorking) {
@@ -222,5 +224,4 @@ public class LocalCacheImpl implements LocalCache {
             cache.add(currentNum - currentOffset, model);
         }
     }
-
 }

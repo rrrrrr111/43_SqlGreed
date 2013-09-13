@@ -140,7 +140,7 @@ public class SettingsViewController extends Controller<SettingsView, SettingsVie
 
         switch (state) {
             case FIRST_INPUT:
-                callBack.run(currModel);            // колбек запуска приложения, послее первого ввода учетных данных
+                callBack.run(currModel);      // колбек запуска приложения, послее первого ввода учетных данных
                 callBack = null;
                 view.prepareSettingsView();
                 state = State.REGISTERED;

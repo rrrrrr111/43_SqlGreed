@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/../bim-gui" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/../greet-web/greet-web" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/dataws/DataProvider.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/../greet-web/greet-web/war/index.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../greet-web/greet-web/war/jsp/bim.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../greet-web/greet-web/war/jsp/sqlgreet.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$" charset="windows-1251" />
+    <file url="PROJECT" charset="windows-1251" />
   </component>
 </project>
 

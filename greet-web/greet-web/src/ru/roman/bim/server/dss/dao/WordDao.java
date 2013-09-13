@@ -126,9 +126,9 @@ public class WordDao {
             wordKeys.add(wordKey);
             ratingsMap.put(wordKey, rating);
         }
-        Map<Key, Entity> wordsMap = EntityUtil.findEntities(wordKeys);
+        final Map<Key, Entity> wordsMap = EntityUtil.findEntities(wordKeys);
 
-        List<BimItemModel> list = new ArrayList<BimItemModel>();
+        final List<BimItemModel> list = new ArrayList<BimItemModel>();
         BimItemModel model;
         for (Map.Entry<Key, Entity> wordEntry : wordsMap.entrySet()) {
             model = new BimItemModel();

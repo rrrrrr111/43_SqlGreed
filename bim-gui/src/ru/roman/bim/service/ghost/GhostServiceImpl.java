@@ -72,7 +72,7 @@ public class GhostServiceImpl implements GhostService {
     }
 
     private void loadTimers() {
-        if (mainInterval < 60000 && ! Const.DEV_MODE) {
+        if (mainInterval < 60000 && !Const.DEV_MODE) {
             throw new BimException("Main interval can't be less then 1 minute");
         } else if (showInterval < 1000) {
             throw new BimException("Preview duration can't be less then 1 second");
