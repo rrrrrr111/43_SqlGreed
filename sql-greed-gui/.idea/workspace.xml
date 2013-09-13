@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="Bim application version 1.47 bugfix">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/appengine-web.xml" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/appengine-web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/application-manifest.xml" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/application-manifest.xml" />
+    <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="71cfb641-5bee-4208-8ab0-751480a58831" name="builded" comment="builded" />
     <ignored path="sql-greed-gui.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379088684708" ignored="false" />
+    <file path="/Dummy.txt" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379088728754" ignored="false" />
     <file path="/GoogleService.java" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1378973907948" ignored="false" />
     <file path="/SettingsView.java" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1378975838623" ignored="false" />
     <file path="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/file/subtitlesmerge/SubtitlesMergeService.java" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379073069834" ignored="false" />
@@ -104,7 +101,7 @@
       <file leaf-file-name="Const.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="26" selection-start="824" selection-end="824" vertical-scroll-proportion="0.46658713">
+            <state line="23" column="26" selection-start="824" selection-end="824" vertical-scroll-proportion="0.46770334">
               <folding />
             </state>
           </provider>
@@ -1208,7 +1205,11 @@
       <created>1379087323950</created>
       <updated>1379087323950</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="migration to HRD">
+      <created>1379088735243</created>
+      <updated>1379088735243</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1233,7 +1234,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1432" y="-8" width="1296" height="1040" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.596829" sideWeight="0.4939302" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.5208333" order="5" side_tool="false" content_ui="tabs" />
@@ -1243,6 +1244,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.599359" sideWeight="0.5007587" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.21794872" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5592949" sideWeight="0.4969651" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30690828" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.724359" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.67147434" order="1" side_tool="false" content_ui="tabs" />
@@ -1257,7 +1259,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40770102" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30690828" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51282054" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39903846" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1304,7 +1305,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bim application version 1.47 bugfix" />
+    <option name="LAST_COMMIT_MESSAGE" value="migration to HRD" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1318,7 +1319,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Bim application version 1.17 bug fix" />
     <MESSAGE value="Bim application version 1.18 castor thirst commit" />
     <MESSAGE value="Bim application version 1.20 login implementation first commit" />
     <MESSAGE value="Bim application version 1.20 login implementation bug fixes" />
@@ -1343,6 +1343,7 @@
     <MESSAGE value="Bim application version 1.46 bugfix" />
     <MESSAGE value="Bim application version 1.47" />
     <MESSAGE value="Bim application version 1.47 bugfix" />
+    <MESSAGE value="migration to HRD" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1491,7 +1492,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="26" selection-start="824" selection-end="824" vertical-scroll-proportion="0.46658713">
+        <state line="23" column="26" selection-start="824" selection-end="824" vertical-scroll-proportion="0.46770334">
           <folding />
         </state>
       </provider>
