@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <jnlp spec="1.0+"
-        codebase="http://churganovroman.appspot.com/bimapplet/" href="start.jnlp">
+        codebase="http://bim-app.appspot.com/bimapplet/" href="start.jnlp">
     <information>
         <title>Bim 1.47</title>
         <vendor>Bim Inc.</vendor>
-        <homepage href="http://churganovroman.appspot.com/index.jsp"/>
+        <homepage href="http://bim-app.appspot.com/index.jsp"/>
         <description>Be in mind</description>
         <offline-allowed/>
     </information>

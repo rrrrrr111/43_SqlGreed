@@ -61,7 +61,7 @@
   </binding>
   <service name="DataProvider">
     <port name="DataProviderPort" binding="tns:DataProviderPortBinding">
-      <soap:address location="http://churganovroman.appspot.com/DataProvider"/>
+      <soap:address location="http://bim-app.appspot.com/DataProvider"/>
     </port>
   </service>
 </definitions>

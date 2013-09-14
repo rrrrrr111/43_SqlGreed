@@ -10,12 +10,12 @@
         <servlet-name>greetServlet</servlet-name>
         <servlet-class>ru.roman.greet.server.GreetingServiceImpl</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>greetServlet</servlet-name>
         <url-pattern>/greet_web/greet</url-pattern>
     </servlet-mapping>
 
+    <!-- Web-service Servlet  -->
     <servlet>
         <servlet-name>DataProvider</servlet-name>
         <servlet-class>ru.roman.bim.server.service.dataws.DataProviderServlet</servlet-class>
@@ -23,6 +23,18 @@
     <servlet-mapping>
         <servlet-name>DataProvider</servlet-name>
         <url-pattern>/DataProvider</url-pattern>
+    </servlet-mapping>
+
+    <!-- Servlet enabling remote API -->
+    <servlet>
+        <display-name>Remote API Servlet</display-name>
+        <servlet-name>RemoteApiServlet</servlet-name>
+        <servlet-class>com.google.apphosting.utils.remoteapi.RemoteApiServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RemoteApiServlet</servlet-name>
+        <url-pattern>/_ah/remote_api</url-pattern>
     </servlet-mapping>
 
     <!-- Default page to serve -->

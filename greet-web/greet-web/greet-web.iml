@@ -18,7 +18,7 @@
       <excludeFolder url="file://$MODULE_DIR$/out" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="jdk" jdkName="1.6 (x86)" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="1.6 (64)" jdkType="JavaSDK" />
     <orderEntry type="library" name="commons-beanutils-1.8.3" level="project" />
     <orderEntry type="library" name="commons-lang3" level="project" />
     <orderEntry type="library" name="commons-logging-1.1.1" level="project" />
@@ -26,6 +26,8 @@
     <orderEntry type="library" name="appengine-java-sdk-1.8.4-shared" level="application" />
     <orderEntry type="library" name="gwt-2.5.1" level="project" />
     <orderEntry type="library" scope="TEST" name="junit-4.10" level="project" />
+    <orderEntry type="library" name="appengine-java-sdk-1.8.4-user" level="application" />
+    <orderEntry type="library" name="appengine-java-sdk-1.8.4-shared" level="application" />
   </component>
   <component name="org.twodividedbyzero.idea.findbugs">
     <option name="_basePreferences">

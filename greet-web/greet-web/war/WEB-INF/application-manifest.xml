@@ -8,24 +8,23 @@
 <!-- To create a custom manifest please refer to following link:         -->
 <!-- http://code.google.com/googleapps/marketplace/manifest.html         -->
 <ApplicationManifest xmlns="http://schemas.google.com/ApplicationManifest/2009">
-  <Name>churganovroman</Name>
+  <Name>bim-app</Name>
   <Description>Simple DB client based on JDBC</Description>
-
   <!-- Administrators and users will be sent to this URL for application support -->
   <Support>
-    <Link rel="support" href="http://churganovroman-hrd.appspot.com/support" />
+    <Link rel="support" href="http://bim-app.appspot.com/support" />
   </Support>
 
   <!-- Show this link in Google's universal navigation for all users -->
   <Extension id="navLink" type="link">
-    <Name>churganovroman</Name>
+    <Name>bim-app</Name>
     <!-- Example URL. Replace it with your application url -->
-    <Url>http://churganovroman-hrd.appspot.com</Url>
+    <Url>http://bim-app.appspot.com</Url>
   </Extension>
 
   <!-- Declare our OpenID realm so our app is white listed -->
   <Extension id="realm" type="openIdRealm">
-    <Url>http://churganovroman-hrd.appspot.com/</Url>
+    <Url>http://bim-app.appspot.com/</Url>
   </Extension>
 
   <Edition id="free">

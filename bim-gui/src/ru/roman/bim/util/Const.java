@@ -17,8 +17,8 @@ public interface Const {
      *
      */
     boolean DEV_MODE = false;  // увеличить номер версии при сборке
-    String DEFAULT_ENDPOINT = "http://churganovroman.appspot.com/DataProvider";
-    String DEFAULT_ENDPOINT_WSDL = "http://churganovroman.appspot.com/wsdl/DataProvider.wsdl";
+    String DEFAULT_ENDPOINT = "http://bim-app.appspot.com/DataProvider";
+    String DEFAULT_ENDPOINT_WSDL = "http://bim-app.appspot.com/wsdl/DataProvider.wsdl";
     //String DEFAULT_ENDPOINT = "http://localhost:8888/DataProvider";
     //String DEFAULT_ENDPOINT_WSDL = "http://localhost:8888/wsdl/DataProvider.wsdl";
     String VERSION = "1.47";

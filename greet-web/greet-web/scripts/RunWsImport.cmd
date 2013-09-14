@@ -14,7 +14,7 @@ cd %SCRIPTS_HOME%
 
 set CPATH="../war/WEB-INF/classes/"
 set SRC="../src/"
-::set WSDLDIR="http://churganovroman.appspot.com/wsdl/"
+::set WSDLDIR="http://bim-app.appspot.com/wsdl/"
 set WSDLDIR="http://localhost:8080/wsdl/"
 set CLASS="ru.roman.bim.server.service.dataws.DataProvider"
 set SRV="{http://dataws.service.server.bim.roman.ru}DataProvider"
