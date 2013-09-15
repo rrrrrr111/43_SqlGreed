@@ -39,4 +39,5 @@
   -->
     <sessions-enabled>true</sessions-enabled>
     <async-session-persistence enabled="true" />
+<!--    <instance-class>F2</instance-class> -->
 </appengine-web-app>
