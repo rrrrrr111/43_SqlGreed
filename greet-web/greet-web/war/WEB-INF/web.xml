@@ -37,6 +37,25 @@
         <url-pattern>/_ah/remote_api</url-pattern>
     </servlet-mapping>
 
+    <!-- Blobstore Servlets -->
+    <servlet>
+        <servlet-name>blobstoreUpload</servlet-name>
+        <servlet-class>ru.roman.bim.server.blobstore.UploadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>blobstoreUpload</servlet-name>
+        <url-pattern>/blobstore/upload</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>blobstoreDownload</servlet-name>
+        <servlet-class>ru.roman.bim.server.blobstore.DownloadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>blobstoreDownload</servlet-name>
+        <url-pattern>/blobstore/download</url-pattern>
+    </servlet-mapping>
+
     <!-- Default page to serve -->
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
