@@ -2,7 +2,7 @@
 <jnlp spec="1.0+"
         codebase="http://bim-app.appspot.com/bimapplet/" href="start.jnlp">
     <information>
-        <title>Bim 1.47</title>
+        <title>Bim 1.48</title>
         <vendor>Bim Inc.</vendor>
         <homepage href="http://bim-app.appspot.com/index.jsp"/>
         <description>Be in mind</description>

@@ -104,24 +104,31 @@ public class MainViewController extends Controller<MainView, MainViewModel> impl
             final StrBuilder translation = new StrBuilder();
             final String gooTranslation = gooTranslator.translate(currModel.getTextFaced(),
                     currModel.getFacedLangId(), currModel.getShadowedLangId());
-            if (StringUtils.isNotBlank(gooTranslation)) {
+            if (checkForAdd(translation, gooTranslation, currModel)) {
                 translation.append(gooTranslation);
             }
             final String yaWordTranslation = yaTranslator.translateWord(currModel.getTextFaced(),
                         currModel.getFacedLangId(), currModel.getShadowedLangId());
-            if (StringUtils.isNotBlank(yaWordTranslation) &&
-                    !translation.contains(yaWordTranslation)) {
+            if (checkForAdd(translation, yaWordTranslation, currModel)) {
                 translation.append("\n\n").append(yaWordTranslation);
             }
             final String yaExprTranslation = yaTranslator.translateExpression(currModel.getTextFaced(),
                             currModel.getFacedLangId(), currModel.getShadowedLangId());
-            if (StringUtils.isNotBlank(yaExprTranslation) &&
-                    !translation.contains(yaExprTranslation)) {
+            if (checkForAdd(translation, yaExprTranslation, currModel)) {
                 translation.append("\n\n").append(yaExprTranslation);
+            }
+            if (StringUtils.isBlank(translation)) {
+                translation.append("NO TRANSLATION");
             }
             currModel.setTextShadowed(StringUtils.replace(translation.toString(), "\n", "<br/>"));
         }
         view.translate();
+    }
+
+    private boolean checkForAdd(StrBuilder translation, String wordTranslation, MainViewModel model) {
+        return StringUtils.isNotBlank(wordTranslation) &&
+                !StringUtils.containsIgnoreCase(translation, wordTranslation) &&
+                !StringUtils.containsIgnoreCase(model.getTextFaced(), wordTranslation);
     }
 
     public void onShow() {
