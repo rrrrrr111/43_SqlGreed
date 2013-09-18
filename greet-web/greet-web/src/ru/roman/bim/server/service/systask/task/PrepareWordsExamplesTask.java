@@ -1,7 +1,10 @@
 package ru.roman.bim.server.service.systask.task;
 
 import com.google.appengine.api.datastore.Entity;
+import ru.roman.bim.server.dss.dao.UserSettingsDao;
+import ru.roman.bim.server.dss.dao.WordDao;
 import ru.roman.bim.server.service.dataws.dto.system.SystemTaskRequest;
+import ru.roman.bim.server.service.dataws.dto.word.BimItemModel;
 
 import java.util.Date;
 
@@ -15,46 +18,43 @@ public class PrepareWordsExamplesTask implements SystemTask {
         final int[] i = {0};
         final Date currDate = new Date();
 
-        Entity word = new Entity(ENT_NAME);
-        word.setProperty(TEXT_FACED, "привет");
-        word.setProperty(TEXT_SHADOWED, "hello");
-        word.setProperty(TYPE, 0);
-        word.setProperty(CATEGORY, 0);
-        word.setProperty(FACED_LANG_ID, 2);
-        word.setProperty(SHADOWED_LANG_ID, 1);
-        word.setProperty(OWNER, 81001);
-        word.setProperty(RATING, 3);
-        word.setProperty(EDIT_DATE, currDate);
-        //word.setProperty(USER_RATING, Collections.EMPTY_LIST);
-        persistEntity(word);
+        BimItemModel word = new BimItemModel();
+        word.setTextFaced("hello");
+        word.setTextShadowed(null);
+        word.setType(0L);
+        word.setCategory(0L);
+        word.setFacedLangId(2L);
+        word.setShadowedLangId(1L);
+        word.setOwner(UserSettingsDao.MASTER_USER_ID);
+        word.setRating(3L);
+        word.setEditDate(currDate);
+        WordDao.createOrUpdate(word);
         ++i[0];
 
-        word = new Entity(ENT_NAME);
-        word.setProperty(TEXT_FACED, "пока");
-        word.setProperty(TEXT_SHADOWED, "bye bye");
-        word.setProperty(TYPE, 0);
-        word.setProperty(CATEGORY, 0);
-        word.setProperty(FACED_LANG_ID, 2);
-        word.setProperty(SHADOWED_LANG_ID, 1);
-        word.setProperty(OWNER, 81001);
-        word.setProperty(RATING, 3);
-        word.setProperty(EDIT_DATE, currDate);
-        //word.setProperty(USER_RATING, Collections.EMPTY_LIST);
-        persistEntity(word);
+        word = new BimItemModel();
+        word.setTextFaced("bye bye");
+        word.setTextShadowed(null);
+        word.setType(0L);
+        word.setCategory(0L);
+        word.setFacedLangId(2L);
+        word.setShadowedLangId(1L);
+        word.setOwner(UserSettingsDao.MASTER_USER_ID);
+        word.setRating(3L);
+        word.setEditDate(currDate);
+        WordDao.createOrUpdate(word);
         ++i[0];
 
-        word = new Entity(ENT_NAME);
-        word.setProperty(TEXT_FACED, "спасибо");
-        word.setProperty(TEXT_SHADOWED, "thanks");
-        word.setProperty(TYPE, 0);
-        word.setProperty(CATEGORY, 0);
-        word.setProperty(FACED_LANG_ID, 2);
-        word.setProperty(SHADOWED_LANG_ID, 1);
-        word.setProperty(OWNER, 81001);
-        word.setProperty(RATING, 3);
-        word.setProperty(EDIT_DATE, currDate);
-        //word.setProperty(USER_RATING, Collections.EMPTY_LIST);
-        persistEntity(word);
+        word = new BimItemModel();
+        word.setTextFaced("thanks");
+        word.setTextShadowed(null);
+        word.setType(0L);
+        word.setCategory(0L);
+        word.setFacedLangId(2L);
+        word.setShadowedLangId(1L);
+        word.setOwner(UserSettingsDao.MASTER_USER_ID);
+        word.setRating(3L);
+        word.setEditDate(currDate);
+        WordDao.createOrUpdate(word);
         ++i[0];
 
         return i[0];

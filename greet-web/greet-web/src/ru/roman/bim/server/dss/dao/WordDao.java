@@ -104,7 +104,7 @@ public class WordDao {
         log.info("Word saved : " + model);
         if (state == SaveStatus.CREATED_NEW) {
             // создаем сущности юзерских настроек, даже если слово сильно редактируется, настройки не обновятся
-            // настройки сождаются только для нового слова
+            // настройки создаются только для нового слова
             UserRatingDao.createUserRatings(word);
         }
         final long id = word.getKey().getId();
