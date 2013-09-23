@@ -30,7 +30,6 @@ import java.util.logging.Logger;
  *
  */
 public class EntityUtil {
-
     private static final Logger log = Logger.getLogger(EntityUtil.class.getCanonicalName());
     private static final DatastoreService storeService = DatastoreServiceFactory.getDatastoreService();
 
