@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
-import static ru.roman.bim.server.util.EntityUtil.findFirstEntity;
+import static ru.roman.bim.server.util.EntityUtil.findFirstEntityByBean;
 import static ru.roman.bim.server.util.EntityUtil.persistEntity;
 import static ru.roman.bim.server.util.PropUtil.*;
 
@@ -54,7 +54,7 @@ public class UserSettingsDao {
 
     public static UserSettingsModel registerNewAndLoadSettings(UserSettingsModel model) {
 
-        Entity sett = findFirstEntity(ENT_NAME, LOGIN, model);
+        Entity sett = findFirstEntityByBean(ENT_NAME, LOGIN, model);
         final Date currDate = new Date();
         if (sett == null) { // новый пользователь
             if (model.getLogin().equals(MASTER_USER)) {
@@ -103,7 +103,7 @@ public class UserSettingsDao {
 
 
     public static void storeSettings(UserSettingsModel model) {
-        final Entity sett = findFirstEntity(ENT_NAME, LOGIN, model);
+        final Entity sett = findFirstEntityByBean(ENT_NAME, LOGIN, model);
         if (sett == null) {
             throw new RuntimeException(String.format("User %s doesn't registered", model.getLogin()));
         } else {

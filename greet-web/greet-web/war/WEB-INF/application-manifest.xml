@@ -12,19 +12,19 @@
   <Description>Simple DB client based on JDBC</Description>
   <!-- Administrators and users will be sent to this URL for application support -->
   <Support>
-    <Link rel="support" href="http://bim-app.appspot.com/support" />
+    <Link rel="support" href="https://bim-app.appspot.com/support" />
   </Support>
 
   <!-- Show this link in Google's universal navigation for all users -->
   <Extension id="navLink" type="link">
     <Name>bim-app</Name>
     <!-- Example URL. Replace it with your application url -->
-    <Url>http://bim-app.appspot.com</Url>
+    <Url>https://bim-app.appspot.com</Url>
   </Extension>
 
   <!-- Declare our OpenID realm so our app is white listed -->
   <Extension id="realm" type="openIdRealm">
-    <Url>http://bim-app.appspot.com/</Url>
+    <Url>https://bim-app.appspot.com/</Url>
   </Extension>
 
   <Edition id="free">

@@ -47,7 +47,7 @@ public class WordDao {
         }
 
         // логика исключения дублирования
-        Entity word = findFirstEntity(ENT_NAME, TEXT_FACED, model);
+        Entity word = findFirstEntityByBean(ENT_NAME, TEXT_FACED, model);
         final SaveStatus state;
         String oldTransl = null;
         if(model.getId() == null){

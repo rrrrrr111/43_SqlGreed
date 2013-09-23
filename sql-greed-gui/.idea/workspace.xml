@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../bim-android/bim-android.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/bim-gui.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/sql-greed-gui.jar" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/applet/sql-greed-gui.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" afterPath="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProvider.wsdl" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProvider.wsdl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/util/EntityUtil.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/util/EntityUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/NormalizeWordsTask.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/NormalizeWordsTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserSettingsDao.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserSettingsDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/WordDao.java" afterPath="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/WordDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/application-manifest.xml" afterPath="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/application-manifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="71cfb641-5bee-4208-8ab0-751480a58831" name="builded" comment="builded" />
@@ -37,7 +41,7 @@
     <file path="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/service/file/subtitlesmerge/SubtitlesMergeService.java" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379073069834" ignored="false" />
     <file path="/SettingsView.java" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1378975838623" ignored="false" />
     <file path="/GoogleService.java" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1378973907948" ignored="false" />
-    <file path="/Dummy.txt" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379952653210" ignored="false" />
+    <file path="/Dummy.txt" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379952771642" ignored="false" />
     <file path="/web.xml" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379749430590" ignored="false" />
     <file path="/ServeService.java" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379407054281" ignored="false" />
     <file path="/UploadServlet.java" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379417962380" ignored="false" />
@@ -54,6 +58,10 @@
     <file path="$PROJECT_DIR$/../bim-android/.idea/misc.xml" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379754102645" ignored="false" />
     <file path="$PROJECT_DIR$/../bim-android/.idea/workspace.xml" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379754221118" ignored="false" />
     <file path="$PROJECT_DIR$/../bim-android/src/ru/roman/bim/android/MyActivity.java" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379763889721" ignored="false" />
+    <file path="/DataProvider.wsdl" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379952941865" ignored="false" />
+    <file path="/application-manifest.xml" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379953000959" ignored="false" />
+    <file path="/EntityUtil.java" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379957164446" ignored="false" />
+    <file path="/PropUtil.java" changelist="ad8470b4-dc4e-4a27-bd37-52a002e8dd02" time="1379955827370" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,19 +127,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Const.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java">
+      <file leaf-file-name="web.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/web.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="26" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="blobstoreUpload.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/jsp/blobstoreUpload.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="44" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.0">
+            <state line="68" column="45" selection-start="2474" selection-end="2474" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -140,70 +139,81 @@
       <file leaf-file-name="NormalizeWordsTask.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/NormalizeWordsTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="13" selection-start="581" selection-end="581" vertical-scroll-proportion="0.0">
+            <state line="73" column="27" selection-start="2815" selection-end="2822" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrepareWordsExamplesTask.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/PrepareWordsExamplesTask.java">
+      <file leaf-file-name="CheckUserRatingsConsistencyTask.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/CheckUserRatingsConsistencyTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="85" selection-start="1065" selection-end="1065" vertical-scroll-proportion="0.0">
+            <state line="17" column="40" selection-start="573" selection-end="573" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataProvider.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/dataws/DataProvider.java">
+      <file leaf-file-name="EntityUtil.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/util/EntityUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="34" selection-start="2956" selection-end="2956" vertical-scroll-proportion="0.0">
+            <state line="118" column="54" selection-start="4087" selection-end="4087" vertical-scroll-proportion="0.41034484">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserRatingDao.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserRatingDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="49" selection-start="1174" selection-end="1174" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RightsService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/right/RightsService.java">
+      <file leaf-file-name="UserSettingsDao.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserSettingsDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="9" selection-start="295" selection-end="295" vertical-scroll-proportion="0.0">
+            <state line="123" column="28" selection-start="5610" selection-end="5610" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/web.xml">
+      <file leaf-file-name="datastore-indexes-auto.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/appengine-generated/datastore-indexes-auto.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="45" selection-start="2474" selection-end="2474" vertical-scroll-proportion="0.32931036">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DownloadServlet.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/blobstore/DownloadServlet.java">
+      <file leaf-file-name="SystemServiceImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/SystemServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="13" selection-start="583" selection-end="583" vertical-scroll-proportion="0.0">
+            <state line="14" column="39" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UploadServlet.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/blobstore/UploadServlet.java">
+      <file leaf-file-name="listing-manifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/listing-manifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="13" selection-start="697" selection-end="697" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="start.jnlp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/start.jnlp">
+      <file leaf-file-name="logging.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/logging.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="23" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -243,9 +253,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProvider.wsdl" />
-        <option value="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/appengine-web.xml" />
-        <option value="$PROJECT_DIR$/../greet-web/greet-web/scripts/RunWsImport.cmd" />
         <option value="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/blobstore/ServeService.java" />
         <option value="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/blobstore/dto/BlobstoreFileDto.java" />
         <option value="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/blobstore/ServeServlet.java" />
@@ -256,9 +263,12 @@
         <option value="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/WordDao.java" />
         <option value="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/PrepareWordsExamplesTask.java" />
         <option value="$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/start.jnlp" />
-        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" />
         <option value="$PROJECT_DIR$/../greet-web/greet-web/war/jsp/blobstoreUpload.jsp" />
         <option value="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java" />
+        <option value="$PROJECT_DIR$/../greet-web/greet-web/war/wsdl/DataProvider.wsdl" />
+        <option value="$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/application-manifest.xml" />
+        <option value="$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/util/EntityUtil.java" />
       </list>
     </option>
   </component>
@@ -469,6 +479,228 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="greet-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="greet-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="war" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="greet-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="greet-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="roman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="greet-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="roman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="greet-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="roman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="systask" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="greet-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="roman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="systask" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="task" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="greet-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="roman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bim-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bim-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bim-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql-greed-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bim-gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1301,7 +1533,11 @@
       <created>1379750116643</created>
       <updated>1379750116643</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="bim application 1.49">
+      <created>1379952801016</created>
+      <updated>1379952801016</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1326,23 +1562,25 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5964912" sideWeight="0.4939302" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.5208333" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40770102" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1993517" sideWeight="0.6964892" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34449762" sideWeight="0.4969651" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.599359" sideWeight="0.5007587" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.21794872" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32695374" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5582137" sideWeight="0.4969651" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3014354" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32695374" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.724359" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.67147434" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39984825" sideWeight="0.5208333" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24015151" sideWeight="0.67304623" order="2" side_tool="true" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24015151" sideWeight="0.6985646" order="2" side_tool="true" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3094099" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1182" height="584" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.43589744" order="1" side_tool="false" content_ui="tabs" />
@@ -1350,8 +1588,6 @@
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40770102" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30206677" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51282054" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39903846" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1500,103 +1736,117 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/gui/pane/main/MainViewController.java">
+    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/datastore-indexes.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="71" selection-start="5400" selection-end="5400" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/model/Lang.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="12" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/CheckUserRatingsConsistencyTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/NormalizeWordsTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="581" selection-end="581" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/WordDao.java">
+    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/listing-manifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="28" selection-start="4594" selection-end="4594" vertical-scroll-proportion="1.5155876" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/PrepareWordsExamplesTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="85" selection-start="1065" selection-end="1065" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/dataws/DataProvider.java">
+    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/logging.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="34" selection-start="2956" selection-end="2956" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserSettingsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="25" selection-start="6000" selection-end="6000" vertical-scroll-proportion="0.75091577" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/right/RightsServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="48" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.44831732" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/right/RightsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="9" selection-start="295" selection-end="295" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/bimapplet/start.jnlp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="23" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../bim-gui/src/ru/roman/bim/util/Const.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="26" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/blobstore/DownloadServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="13" selection-start="583" selection-end="583" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/blobstore/UploadServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="13" selection-start="697" selection-end="697" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/jsp/blobstoreUpload.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="44" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="45" selection-start="2474" selection-end="2474" vertical-scroll-proportion="0.32931036">
+        <state line="68" column="45" selection-start="2474" selection-end="2474" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/war/WEB-INF/appengine-generated/datastore-indexes-auto.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/SystemServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="39" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserSettingsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="28" selection-start="5610" selection-end="5610" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../45_JavaLib/appengine-java-sdk-1.8.4/lib/user/appengine-api-1.0-sdk-1.8.4.jar!/com/google/appengine/api/datastore/BaseDatastoreService.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="78" selection-start="162" selection-end="162" vertical-scroll-proportion="0.09409594">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../45_JavaLib/appengine-java-sdk-1.8.4/lib/user/appengine-api-1.0-sdk-1.8.4.jar!/com/google/appengine/api/datastore/Query.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="201" column="23" selection-start="10367" selection-end="10367" vertical-scroll-proportion="0.34870848">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_01/src.zip!/java/lang/Iterable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="12" selection-start="597" selection-end="605" vertical-scroll-proportion="0.61551726">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../45_JavaLib/appengine-java-sdk-1.8.4/lib/user/appengine-api-1.0-sdk-1.8.4.jar!/com/google/appengine/api/datastore/Entity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="19" selection-start="183" selection-end="183" vertical-scroll-proportion="0.15682657">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/util/PropUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="26" selection-start="1330" selection-end="1330" vertical-scroll-proportion="0.55689657">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/dss/dao/UserRatingDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="49" selection-start="1174" selection-end="1174" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/NormalizeWordsTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="27" selection-start="2815" selection-end="2822" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/service/systask/task/CheckUserRatingsConsistencyTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="40" selection-start="573" selection-end="573" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../greet-web/greet-web/src/ru/roman/bim/server/util/EntityUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="54" selection-start="4087" selection-end="4087" vertical-scroll-proportion="0.41034484">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

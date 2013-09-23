@@ -9,7 +9,7 @@ import ru.roman.bim.server.util.PropUtil;
 
 import java.util.List;
 
-import static ru.roman.bim.server.util.EntityUtil.getAll;
+import static ru.roman.bim.server.util.EntityUtil.getAllEntities;
 import static ru.roman.bim.server.util.EntityUtil.persistEntity;
 
 /** @author Roman 03.02.13 12:20
@@ -23,7 +23,7 @@ public class NormalizeWordsTask implements SystemTask {
     public int executeTask(int num, String params, SystemTaskRequest req) {
         final int[] i = {0};
         final Entity masterUser = UserSettingsDao.getMasterUser();
-        final List<Entity> list = getAll(WordDao.ENT_NAME);
+        final List<Entity> list = getAllEntities(WordDao.ENT_NAME);
 
         for (Entity word : list) {
             final Long currType = PropUtil.getEntProperty(word, WordDao.TYPE);
@@ -66,7 +66,7 @@ public class NormalizeWordsTask implements SystemTask {
 
         }
 
-        final List<Entity> userRatingList = getAll(UserRatingDao.ENT_NAME);
+        final List<Entity> userRatingList = getAllEntities(UserRatingDao.ENT_NAME);
 
         for (Entity userRating : userRatingList) {
             final Long currRating = PropUtil.getEntProperty(userRating, WordDao.RATING);
