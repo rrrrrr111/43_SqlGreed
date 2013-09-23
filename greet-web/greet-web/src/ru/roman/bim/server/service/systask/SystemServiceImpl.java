@@ -13,7 +13,7 @@ public class SystemServiceImpl implements SystemService{
     private final static Map<Integer, SystemTask> TASKS = new HashMap<Integer, SystemTask>();
     static {
         TASKS.put(1, new NormalizeWordsTask());
-        TASKS.put(2, new RenewWordsRatingsTask());
+        TASKS.put(2, new CreateCustomChecks());
         TASKS.put(3, new PrepareWordsExamplesTask());
         TASKS.put(4, new CheckUserRatingsConsistencyTask());
     }

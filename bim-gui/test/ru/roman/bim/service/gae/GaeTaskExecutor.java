@@ -12,11 +12,11 @@ public class GaeTaskExecutor {
 
     public static void main(String... args) {
         // 1 normalize words
-        // 2 Not implemented
+        // 2 Create Custom Checks
         // 3 create 3 words examples
         // 4 check consistency
 
 
-        gaeConnector.systemTask(1);
+        gaeConnector.systemTask(2);
     }
 }

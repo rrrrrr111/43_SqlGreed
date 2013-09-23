@@ -126,6 +126,11 @@ public class EntityUtil {
         return pq.asIterable();
     }
 
+    public static List<Entity> getAllChildrenEntities(String kind, Key ancestor, boolean keysOnly) {
+        final Iterator<Entity> iterator = EntityUtil.getChildrenEntities(kind, ancestor, keysOnly).iterator();
+        return iteratorToList(iterator);
+    }
+
     /**
      * кол-во сущностей по имени
      *
@@ -260,5 +265,15 @@ public class EntityUtil {
 
     public static DatastoreService getDataStore(){
         return storeService;
+    }
+
+
+    public static List<Entity> iteratorToList(Iterator<Entity> iterator) {
+        final List<Entity> res = new ArrayList<Entity>();
+        while (iterator.hasNext()) {
+            Entity entity = iterator.next();
+            res.add(entity);
+        }
+        return res;
     }
 }
